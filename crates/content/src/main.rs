@@ -408,7 +408,11 @@ fn load_authored(
 fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {
     vec![
         ("schema_version", "1".to_string()),
-        ("slice", "1 (kanji core + components + order)".to_string()),
+        (
+            "slice",
+            "2 (N5 authored: reviewed keywords, component+reading actors, judge-verified mnemonics)"
+                .to_string(),
+        ),
         ("levels", "N5".to_string()),
         ("kanji_count", rows.len().to_string()),
         ("dominant_reading", "provisional: none (set in vocab slice)".to_string()),
