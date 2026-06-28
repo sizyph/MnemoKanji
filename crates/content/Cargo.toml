@@ -13,4 +13,6 @@ name = "mnemokanji-content"
 path = "src/main.rs"
 
 [dependencies]
-# Parsers (KANJIDIC2/JMdict/KanjiVG/Tatoeba/...) land in M1. See docs/08-DATASET.md.
+# Embedded SQLite for the seed DB; bundled = no system dependency, same on all OSes.
+rusqlite = { version = "0.40", features = ["bundled"] }
+serde_json = "1"

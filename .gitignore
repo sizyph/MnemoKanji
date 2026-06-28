@@ -23,3 +23,6 @@ Thumbs.db
 
 # Dioxus build output
 /dist
+
+# Downloaded source datasets (large, licensed, regenerable via scripts/fetch-sources.sh)
+/data/sources/

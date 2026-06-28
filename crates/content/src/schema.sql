@@ -1,0 +1,67 @@
+-- MnemoKanji seed schema (slice 1: kanji core + component graph + ordering).
+-- Forward-compatible; later M1 slices add phonetic/vocab/sentence/actor/mnemonic tables.
+-- See docs/03-DESIGN.md §2 and docs/08-DATASET.md.
+
+PRAGMA foreign_keys = ON;
+
+-- Build/provenance/attribution metadata (key/value).
+CREATE TABLE meta (
+    key   TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+
+-- JLPT levels. ord = learning order (N5 first = 5..1 mapped to ord 1..5).
+CREATE TABLE level (
+    id          INTEGER PRIMARY KEY,
+    jlpt        TEXT NOT NULL UNIQUE,        -- 'N5'..'N1'
+    ord         INTEGER NOT NULL,            -- 1 = learned first (N5)
+    kanji_count INTEGER NOT NULL DEFAULT 0
+);
+
+-- A teachable structural component (radical or sub-kanji primitive).
+CREATE TABLE component (
+    id        INTEGER PRIMARY KEY,
+    glyph     TEXT NOT NULL UNIQUE,
+    is_kanji  INTEGER NOT NULL DEFAULT 0     -- 1 if this component is itself a learned kanji
+);
+
+CREATE TABLE kanji (
+    id              INTEGER PRIMARY KEY,
+    glyph           TEXT NOT NULL UNIQUE,
+    level_id        INTEGER NOT NULL REFERENCES level(id),
+    stroke_count    INTEGER,
+    freq            INTEGER,                 -- KANJIDIC freq rank (lower = more frequent); NULL if none
+    primary_keyword TEXT,                    -- normalized first real meaning (no invented keywords)
+    intro_rank      INTEGER                  -- within-level learning order (0-based)
+);
+
+-- on/kun readings for a kanji. is_dominant is set in the vocab slice (provisional 0 here).
+CREATE TABLE reading (
+    id          INTEGER PRIMARY KEY,
+    kanji_id    INTEGER NOT NULL REFERENCES kanji(id),
+    kind        TEXT NOT NULL,               -- 'on' | 'kun'
+    reading     TEXT NOT NULL,               -- kana (kun may carry .okurigana / - prefix markers)
+    is_dominant INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE meaning (
+    id          INTEGER PRIMARY KEY,
+    kanji_id    INTEGER NOT NULL REFERENCES kanji(id),
+    gloss       TEXT NOT NULL,
+    is_primary  INTEGER NOT NULL DEFAULT 0,
+    sense_order INTEGER NOT NULL
+);
+
+-- Component-of edge. role = 'semantic' | 'phonetic' (phonetic set in the phonetic slice).
+CREATE TABLE kanji_component (
+    kanji_id     INTEGER NOT NULL REFERENCES kanji(id),
+    component_id INTEGER NOT NULL REFERENCES component(id),
+    role         TEXT NOT NULL DEFAULT 'semantic',
+    PRIMARY KEY (kanji_id, component_id)
+);
+
+CREATE INDEX idx_reading_kanji ON reading(kanji_id);
+CREATE INDEX idx_meaning_kanji ON meaning(kanji_id);
+CREATE INDEX idx_kc_kanji      ON kanji_component(kanji_id);
+CREATE INDEX idx_kc_component  ON kanji_component(component_id);
+CREATE INDEX idx_kanji_level   ON kanji(level_id);
