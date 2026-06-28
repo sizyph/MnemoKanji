@@ -1,0 +1,20 @@
+# MnemoKanji — Cargo workspace.
+# Crates: core (domain/scheduling), data (storage), content (offline dataset builder), ui (Dioxus app).
+# See docs/03-DESIGN.md.
+[workspace]
+resolver = "2"
+members = ["crates/core", "crates/data", "crates/content", "crates/ui"]
+
+[workspace.package]
+version = "0.0.1"
+edition = "2021"
+license = "MIT"
+authors = ["Sizyph"]
+repository = "https://github.com/sizyph/MnemoKanji"
+rust-version = "1.85"
+
+[workspace.dependencies]
+mnemokanji-core = { path = "crates/core" }
+mnemokanji-data = { path = "crates/data" }
+# UI: Dioxus 0.7 (system WebView renderer). See docs/03-DESIGN.md §1.
+dioxus = "0.7"

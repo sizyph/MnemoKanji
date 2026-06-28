@@ -1,0 +1,12 @@
+[package]
+name = "mnemokanji-data"
+description = "MnemoKanji storage layer: SQLite repositories, migrations, user state."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+# rusqlite (bundled) + rusqlite_migration land in M2. See docs/03-DESIGN.md §1.

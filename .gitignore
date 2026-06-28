@@ -1,0 +1,25 @@
+# Rust
+/target
+**/*.rs.bk
+
+# Local databases / user state (never the bundled seed; only generated/user data)
+*.sqlite
+*.sqlite-*
+*.db
+
+# The Heisig "Remembering the Kanji" PDF is a private personal reference (copyright).
+# It is NOT a data source and must never be committed. See docs/04-DATA-SOURCES.md.
+James W. Heisig*.pdf
+*.pdf
+
+# Local Claude Code settings (machine-specific; not for the public repo)
+.claude/settings.local.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Dioxus build output
+/dist
