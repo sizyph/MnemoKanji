@@ -60,6 +60,36 @@ CREATE TABLE kanji_component (
     PRIMARY KEY (kanji_id, component_id)
 );
 
+-- Authored content (slice 2): original MnemoKanji content from data/authored/*.json.
+-- Component-actor registry: one persistent persona per component (docs/07 §1.1).
+CREATE TABLE component_actor (
+    component_id INTEGER PRIMARY KEY REFERENCES component(id),
+    actor_name   TEXT NOT NULL,
+    image        TEXT NOT NULL
+);
+
+-- Reading-actor registry: one persona per on'yomi, with vowel length (docs/07 §1.2).
+CREATE TABLE reading_actor (
+    reading      TEXT PRIMARY KEY,
+    vowel_length TEXT NOT NULL,                 -- 'short' | 'long'
+    actor_name   TEXT NOT NULL,
+    note         TEXT
+);
+
+-- Per-kanji mnemonic story (generated + adversarially verified; docs/07 §2-3).
+CREATE TABLE mnemonic (
+    kanji_id          INTEGER PRIMARY KEY REFERENCES kanji(id),
+    story             TEXT NOT NULL,
+    reading_story     TEXT,
+    reading_actor     TEXT,
+    meaning_placement TEXT,                     -- 'start' | 'end'
+    origin            TEXT NOT NULL DEFAULT 'generated',
+    verified          INTEGER NOT NULL DEFAULT 0,
+    issues            TEXT,                      -- JSON array of judge issues (if any)
+    imageability      INTEGER,
+    distinctiveness   INTEGER
+);
+
 CREATE INDEX idx_reading_kanji ON reading(kanji_id);
 CREATE INDEX idx_meaning_kanji ON meaning(kanji_id);
 CREATE INDEX idx_kc_kanji      ON kanji_component(kanji_id);

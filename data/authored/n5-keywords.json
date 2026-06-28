@@ -1,0 +1,332 @@
+[
+ {
+  "glyph": "一",
+  "keyword": "one"
+ },
+ {
+  "glyph": "二",
+  "keyword": "two"
+ },
+ {
+  "glyph": "九",
+  "keyword": "nine"
+ },
+ {
+  "glyph": "七",
+  "keyword": "seven"
+ },
+ {
+  "glyph": "人",
+  "keyword": "person"
+ },
+ {
+  "glyph": "入",
+  "keyword": "enter"
+ },
+ {
+  "glyph": "八",
+  "keyword": "eight"
+ },
+ {
+  "glyph": "十",
+  "keyword": "ten"
+ },
+ {
+  "glyph": "三",
+  "keyword": "three"
+ },
+ {
+  "glyph": "上",
+  "keyword": "above"
+ },
+ {
+  "glyph": "下",
+  "keyword": "below"
+ },
+ {
+  "glyph": "大",
+  "keyword": "big",
+  "changed_from": "Large"
+ },
+ {
+  "glyph": "女",
+  "keyword": "woman"
+ },
+ {
+  "glyph": "山",
+  "keyword": "mountain"
+ },
+ {
+  "glyph": "川",
+  "keyword": "river",
+  "changed_from": "Stream"
+ },
+ {
+  "glyph": "土",
+  "keyword": "soil"
+ },
+ {
+  "glyph": "千",
+  "keyword": "thousand"
+ },
+ {
+  "glyph": "子",
+  "keyword": "child"
+ },
+ {
+  "glyph": "小",
+  "keyword": "small",
+  "changed_from": "Little"
+ },
+ {
+  "glyph": "中",
+  "keyword": "middle",
+  "changed_from": "In"
+ },
+ {
+  "glyph": "五",
+  "keyword": "five"
+ },
+ {
+  "glyph": "六",
+  "keyword": "six"
+ },
+ {
+  "glyph": "円",
+  "keyword": "yen",
+  "changed_from": "Circle"
+ },
+ {
+  "glyph": "天",
+  "keyword": "sky",
+  "changed_from": "Heavens"
+ },
+ {
+  "glyph": "日",
+  "keyword": "day"
+ },
+ {
+  "glyph": "月",
+  "keyword": "month"
+ },
+ {
+  "glyph": "木",
+  "keyword": "tree"
+ },
+ {
+  "glyph": "水",
+  "keyword": "water"
+ },
+ {
+  "glyph": "火",
+  "keyword": "fire"
+ },
+ {
+  "glyph": "出",
+  "keyword": "exit"
+ },
+ {
+  "glyph": "右",
+  "keyword": "right"
+ },
+ {
+  "glyph": "四",
+  "keyword": "four"
+ },
+ {
+  "glyph": "左",
+  "keyword": "left"
+ },
+ {
+  "glyph": "本",
+  "keyword": "book"
+ },
+ {
+  "glyph": "白",
+  "keyword": "white"
+ },
+ {
+  "glyph": "万",
+  "keyword": "ten thousand"
+ },
+ {
+  "glyph": "今",
+  "keyword": "now"
+ },
+ {
+  "glyph": "午",
+  "keyword": "noon"
+ },
+ {
+  "glyph": "友",
+  "keyword": "friend"
+ },
+ {
+  "glyph": "父",
+  "keyword": "father"
+ },
+ {
+  "glyph": "北",
+  "keyword": "north"
+ },
+ {
+  "glyph": "半",
+  "keyword": "half"
+ },
+ {
+  "glyph": "外",
+  "keyword": "outside"
+ },
+ {
+  "glyph": "母",
+  "keyword": "mother"
+ },
+ {
+  "glyph": "休",
+  "keyword": "rest"
+ },
+ {
+  "glyph": "先",
+  "keyword": "ahead",
+  "changed_from": "Before"
+ },
+ {
+  "glyph": "名",
+  "keyword": "name"
+ },
+ {
+  "glyph": "年",
+  "keyword": "year"
+ },
+ {
+  "glyph": "気",
+  "keyword": "spirit"
+ },
+ {
+  "glyph": "百",
+  "keyword": "hundred"
+ },
+ {
+  "glyph": "男",
+  "keyword": "man",
+  "changed_from": "Male"
+ },
+ {
+  "glyph": "見",
+  "keyword": "see"
+ },
+ {
+  "glyph": "車",
+  "keyword": "car"
+ },
+ {
+  "glyph": "毎",
+  "keyword": "every"
+ },
+ {
+  "glyph": "行",
+  "keyword": "go",
+  "changed_from": "Going"
+ },
+ {
+  "glyph": "西",
+  "keyword": "west"
+ },
+ {
+  "glyph": "何",
+  "keyword": "what"
+ },
+ {
+  "glyph": "来",
+  "keyword": "come"
+ },
+ {
+  "glyph": "学",
+  "keyword": "study"
+ },
+ {
+  "glyph": "金",
+  "keyword": "gold"
+ },
+ {
+  "glyph": "雨",
+  "keyword": "rain"
+ },
+ {
+  "glyph": "国",
+  "keyword": "country"
+ },
+ {
+  "glyph": "東",
+  "keyword": "east"
+ },
+ {
+  "glyph": "長",
+  "keyword": "long"
+ },
+ {
+  "glyph": "前",
+  "keyword": "front",
+  "changed_from": "In Front"
+ },
+ {
+  "glyph": "南",
+  "keyword": "south"
+ },
+ {
+  "glyph": "後",
+  "keyword": "after",
+  "changed_from": "Behind"
+ },
+ {
+  "glyph": "食",
+  "keyword": "eat"
+ },
+ {
+  "glyph": "校",
+  "keyword": "school",
+  "changed_from": "Exam"
+ },
+ {
+  "glyph": "時",
+  "keyword": "time"
+ },
+ {
+  "glyph": "高",
+  "keyword": "tall"
+ },
+ {
+  "glyph": "間",
+  "keyword": "interval"
+ },
+ {
+  "glyph": "話",
+  "keyword": "talk",
+  "changed_from": "Tale"
+ },
+ {
+  "glyph": "電",
+  "keyword": "electricity"
+ },
+ {
+  "glyph": "聞",
+  "keyword": "hear"
+ },
+ {
+  "glyph": "語",
+  "keyword": "language",
+  "changed_from": "Word"
+ },
+ {
+  "glyph": "読",
+  "keyword": "read"
+ },
+ {
+  "glyph": "生",
+  "keyword": "life"
+ },
+ {
+  "glyph": "書",
+  "keyword": "write"
+ }
+]

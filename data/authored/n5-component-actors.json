@@ -1,0 +1,367 @@
+[
+ {
+  "component": "⺅",
+  "actor_name": "Scarecrow",
+  "image": "A straw scarecrow standing stiffly at the left edge of a field, arms out, watching whoever passes (the 'person' radical, but a thing, not a person)."
+ },
+ {
+  "component": "⺌",
+  "actor_name": "Bean Sprouts",
+  "image": "Three tiny green bean sprouts pushing up through soil, the middle one tallest — a small, fresh trio."
+ },
+ {
+  "component": "ノ",
+  "actor_name": "Falling Katana",
+  "image": "A single katana blade slicing down through the air on a diagonal, leaving one clean silver slash-mark."
+ },
+ {
+  "component": "ハ",
+  "actor_name": "Wishbone",
+  "image": "A turkey wishbone caught mid-snap, its two legs splitting apart in opposite directions."
+ },
+ {
+  "component": "一",
+  "actor_name": "Horizon Line",
+  "image": "A perfectly flat desert horizon — one unbroken line where sky meets sand, nothing else in sight."
+ },
+ {
+  "component": "丶",
+  "actor_name": "Ink Droplet",
+  "image": "A single glossy black ink droplet hanging from a brush tip, about to fall and make one tiny dot."
+ },
+ {
+  "component": "乙",
+  "actor_name": "Fishhook",
+  "image": "A barbed steel fishhook curving into a tight hook, dangling on a line and twitching."
+ },
+ {
+  "component": "九",
+  "actor_name": "Curled Cat",
+  "image": "A cat curled into a tidy comma-shaped ball, tail tucked, lazily flicking — a creature with nine lives."
+ },
+ {
+  "component": "亅",
+  "actor_name": "Meat Hook",
+  "image": "A heavy iron meat hook hanging from a butcher's ceiling rail, its sharp barb pointing up."
+ },
+ {
+  "component": "二",
+  "actor_name": "Railway Tracks",
+  "image": "Two parallel steel railway rails running side by side into the distance, evenly spaced."
+ },
+ {
+  "component": "五",
+  "actor_name": "Sheriff Star",
+  "image": "A polished five-pointed tin sheriff's star badge, gleaming, pinned to nothing in mid-air."
+ },
+ {
+  "component": "亠",
+  "actor_name": "Pot Lid",
+  "image": "A round metal pot lid with a little knob handle, clamped down tight over an unseen pot (the 'lid' top)."
+ },
+ {
+  "component": "人",
+  "actor_name": "Stepladder",
+  "image": "An open A-frame stepladder standing on two splayed legs — the bare 'person' shape, but as an object."
+ },
+ {
+  "component": "儿",
+  "actor_name": "Wishing-Well Legs",
+  "image": "The two stubby stone legs of a wishing well, holding the bucket frame up from below."
+ },
+ {
+  "component": "入",
+  "actor_name": "Tent Flap",
+  "image": "A canvas tent flap pinned open into an inverted V, inviting you to enter underneath it."
+ },
+ {
+  "component": "冂",
+  "actor_name": "Goalpost Frame",
+  "image": "A bare soccer goalpost frame — two uprights and a crossbar — standing open and empty (the 'enclosure-from-above')."
+ },
+ {
+  "component": "冖",
+  "actor_name": "Bedsheet Cover",
+  "image": "A white bedsheet draped over something hidden, its edges hanging down like a cover-cloth."
+ },
+ {
+  "component": "刂",
+  "actor_name": "Guillotine Blade",
+  "image": "A tall guillotine blade standing on the right edge, polished and poised to drop and slice (the 'knife' radical)."
+ },
+ {
+  "component": "力",
+  "actor_name": "Flexing Bicep",
+  "image": "A single muscular arm flexed hard, a bulging bicep straining — pure raw power, no body attached."
+ },
+ {
+  "component": "匕",
+  "actor_name": "Soup Ladle",
+  "image": "A worn metal soup ladle, its deep bowl tilted as if scooping (the 'spoon' radical, the utensil)."
+ },
+ {
+  "component": "十",
+  "actor_name": "Plus-Sign Crossroads",
+  "image": "A clean plus-sign crossroads painted on tarmac where two straight roads meet at right angles."
+ },
+ {
+  "component": "卜",
+  "actor_name": "Divining Twig",
+  "image": "A forked divining twig held out flat, one short prong jutting off — a fortune-teller's stick."
+ },
+ {
+  "component": "又",
+  "actor_name": "Rubber Glove",
+  "image": "A yellow rubber dish-glove lying palm-up, fingers loosely curled — the 'right hand' as an empty glove."
+ },
+ {
+  "component": "口",
+  "actor_name": "Open Mouth",
+  "image": "A wide-open cartoon mouth, a perfect square hole, lips parted as if mid-shout."
+ },
+ {
+  "component": "囗",
+  "actor_name": "Walled Box",
+  "image": "A square stone-walled enclosure with no gate, hemming in everything inside its four high walls."
+ },
+ {
+  "component": "土",
+  "actor_name": "Mound of Soil",
+  "image": "A small dark mound of freshly dug soil heaped on flat ground, a sprout-marker stuck on top."
+ },
+ {
+  "component": "士",
+  "actor_name": "War Helmet",
+  "image": "An empty horned warrior's helmet resting on a stand, broad at the brow, tapering down (the 'samurai/scholar')."
+ },
+ {
+  "component": "夂",
+  "actor_name": "Trailing Footprint",
+  "image": "A single muddy footprint trailing off behind, toes dragging — the mark of someone who just walked away."
+ },
+ {
+  "component": "夕",
+  "actor_name": "Crescent Moon",
+  "image": "A thin crescent evening moon, low and orange, hanging just above the dusk skyline."
+ },
+ {
+  "component": "大",
+  "actor_name": "Starfish",
+  "image": "A big orange starfish spread wide, arms flung out in all directions, sprawled across a rock."
+ },
+ {
+  "component": "女",
+  "actor_name": "Hourglass",
+  "image": "An elegant glass hourglass with a pinched waist, sand streaming from top bulb to bottom."
+ },
+ {
+  "component": "子",
+  "actor_name": "Swaddle Basket",
+  "image": "A woven wicker basket cradling a swaddled bundle, rocking gently — a baby's crib-basket."
+ },
+ {
+  "component": "寸",
+  "actor_name": "Tape Measure",
+  "image": "A yellow retractable tape measure pulled out a single inch, the metal tongue quivering (the 'inch/measure')."
+ },
+ {
+  "component": "小",
+  "actor_name": "Sand Trickle",
+  "image": "A thin trickle of sand falling between two splashes — three small grains scattering downward."
+ },
+ {
+  "component": "山",
+  "actor_name": "Mountain Peak",
+  "image": "A triple-peaked rocky mountain, the middle summit tallest, snow-capped against the sky."
+ },
+ {
+  "component": "川",
+  "actor_name": "River Rapids",
+  "image": "Three fast parallel channels of white-water river rapids rushing straight downhill."
+ },
+ {
+  "component": "工",
+  "actor_name": "I-Beam Girder",
+  "image": "A red steel I-beam girder lying flat, a top plate and bottom plate joined by a vertical spine (the 'craft/work')."
+ },
+ {
+  "component": "干",
+  "actor_name": "Antenna Mast",
+  "image": "A tall thin radio antenna mast with one crossbar near the top, planted upright on a roof."
+ },
+ {
+  "component": "并",
+  "actor_name": "Twin Pillars",
+  "image": "Two short stone pillars standing close together side by side, capped by a shared little ledge."
+ },
+ {
+  "component": "幺",
+  "actor_name": "Silk Cocoon",
+  "image": "A tiny pale silkworm cocoon, a coiled thread of fine silk wound into a small soft knot."
+ },
+ {
+  "component": "彳",
+  "actor_name": "Forked Footpath",
+  "image": "A narrow footpath that forks left, a worn walking-trail branching where two ways split (the 'step/go' radical)."
+ },
+ {
+  "component": "日",
+  "actor_name": "Sun",
+  "image": "A bright round midday sun blazing in a clear sky, a small dot at its blazing center."
+ },
+ {
+  "component": "月",
+  "actor_name": "Full Moon",
+  "image": "A full silver moon glowing low and close, its two faint surface-stripes visible across the disc."
+ },
+ {
+  "component": "木",
+  "actor_name": "Tree",
+  "image": "A sturdy bare tree with a straight trunk, two branches reaching up and two roots spreading down."
+ },
+ {
+  "component": "毋",
+  "actor_name": "Iron Padlock",
+  "image": "A heavy iron padlock snapped shut over a strap, its shackle locked tight, forbidding entry (the 'do-not' radical)."
+ },
+ {
+  "component": "母",
+  "actor_name": "Milk Jug",
+  "image": "A round white milk jug with two dotted spouts, brimming and warm, ready to pour (the 'mother', as a thing)."
+ },
+ {
+  "component": "气",
+  "actor_name": "Steam Vapor",
+  "image": "A coiling wisp of steam vapor rising and curling off a hot surface, faint and twisting."
+ },
+ {
+  "component": "水",
+  "actor_name": "Tsunami Wave",
+  "image": "A towering tsunami wave curling over, white spray flying off its crest, about to crash down."
+ },
+ {
+  "component": "火",
+  "actor_name": "Bonfire",
+  "image": "A crackling bonfire, flames leaping up in tongues with sparks flying off both sides."
+ },
+ {
+  "component": "父",
+  "actor_name": "Crossed Axes",
+  "image": "Two woodsman's axes crossed in an X, blades up, mounted on a wall (the 'father' radical, as objects)."
+ },
+ {
+  "component": "爿",
+  "actor_name": "Split Bed-Plank",
+  "image": "A single tall wooden bed-plank split off the left of a cot frame, propped upright (the 'split wood/bed')."
+ },
+ {
+  "component": "王",
+  "actor_name": "Kings Crown",
+  "image": "A heavy golden king's crown sitting on a velvet cushion, three jeweled points across the top."
+ },
+ {
+  "component": "生",
+  "actor_name": "Sprouting Plant",
+  "image": "A single green plant just breaking ground, one fresh leaf unfurling above a thickening stem — raw life."
+ },
+ {
+  "component": "田",
+  "actor_name": "Rice-Paddy Grid",
+  "image": "A flooded rice paddy divided by mud dikes into a neat four-square grid, seen from above."
+ },
+ {
+  "component": "白",
+  "actor_name": "White Candle",
+  "image": "A single tall white candle with a tiny pale flame on top, dripping wax — stark and white."
+ },
+ {
+  "component": "目",
+  "actor_name": "Watching Eye",
+  "image": "A big unblinking eye, a vertical rectangle with a dark pupil, staring straight at you."
+ },
+ {
+  "component": "米",
+  "actor_name": "Scattered Rice Grains",
+  "image": "A small handful of white rice grains scattered outward from a central point, flung in all directions."
+ },
+ {
+  "component": "耳",
+  "actor_name": "Listening Ear",
+  "image": "A single large ear cupped forward, straining to catch a faint sound, lobe twitching."
+ },
+ {
+  "component": "聿",
+  "actor_name": "Writing Brush",
+  "image": "A calligraphy brush gripped upright mid-stroke, its inky tip pressing down to draw a line."
+ },
+ {
+  "component": "舌",
+  "actor_name": "Lolling Tongue",
+  "image": "A long pink tongue lolling out and curling, dripping, sticking far out of an unseen mouth."
+ },
+ {
+  "component": "行",
+  "actor_name": "Four-Way Junction",
+  "image": "A busy four-way city junction with crosswalks on every side, traffic flowing through the intersection (the 'go/street')."
+ },
+ {
+  "component": "西",
+  "actor_name": "Setting-Sun Cage",
+  "image": "A round birdcage on a windowsill with the red setting sun sinking behind its bars in the west."
+ },
+ {
+  "component": "見",
+  "actor_name": "Periscope",
+  "image": "A submarine periscope poking up, its big round eye-lens swiveling on two thin legs to look around."
+ },
+ {
+  "component": "言",
+  "actor_name": "Speech Bubble",
+  "image": "A solid comic speech bubble with stacked lines of words inside, a lid on top, pointing at a speaker."
+ },
+ {
+  "component": "車",
+  "actor_name": "Cartwheel",
+  "image": "A wooden cartwheel with a central hub and crossing spokes, rolling along on its own."
+ },
+ {
+  "component": "金",
+  "actor_name": "Gold Ingot",
+  "image": "A gleaming pyramid-topped gold ingot with two glinting flecks of metal at its base, heavy and bright."
+ },
+ {
+  "component": "長",
+  "actor_name": "Trailing Tassel",
+  "image": "A long silk tassel hanging from a banner, its many fine strands trailing very long down the wall (the 'long' radical)."
+ },
+ {
+  "component": "門",
+  "actor_name": "Castle Gate",
+  "image": "A massive two-leaf wooden castle gate, both heavy doors swung open in a stone gateway."
+ },
+ {
+  "component": "雨",
+  "actor_name": "Rain Cloud",
+  "image": "A grey rain cloud boxed in the sky, four fat raindrops falling in a row beneath it."
+ },
+ {
+  "component": "食",
+  "actor_name": "Heaped Rice Bowl",
+  "image": "A bowl of rice heaped to a peak under a domed lid just lifted off, steam curling up — a full meal."
+ },
+ {
+  "component": "高",
+  "actor_name": "Watchtower",
+  "image": "A tall narrow watchtower with a peaked roof and a little lit window high up, looming over the town."
+ },
+ {
+  "component": "｜",
+  "actor_name": "Lightning Bolt",
+  "image": "A single vertical lightning bolt cracking straight down from sky to ground in one blinding line."
+ },
+ {
+  "component": "𠆢",
+  "actor_name": "Pup-Tent Roof",
+  "image": "The simple peaked roof of a pup tent, two canvas sides meeting at a sharp ridge, sheltering whatever's below."
+ }
+]

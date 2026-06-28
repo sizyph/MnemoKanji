@@ -1,0 +1,844 @@
+[
+ {
+  "glyph": "日",
+  "story": "The blazing round Sun hangs dead center of the window frame, one fierce dot pinned at its core, scorching the sill until noon — this is the brightest single DAY of summer.",
+  "components_used": [
+   "日"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Nitch",
+  "reading_story": "Nitch climbs onto the Sun's hot rim and roasts marshmallows there all DAY.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "一",
+  "story": "Across the empty desert stretches the Horizon Line — a single unbroken stroke where sand meets sky, and balanced on it is exactly ONE lonely tumbleweed.",
+  "components_used": [
+   "一"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Itchy",
+  "reading_story": "Itchy walks the whole Horizon Line and finds just ONE cactus to scratch his back on.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "国",
+  "story": "Inside a square Walled Box sits the King's Crown on a throne, and one glossy Ink Droplet falls beside it, stamping the royal seal that founds the whole COUNTRY.",
+  "components_used": [
+   "囗",
+   "王",
+   "丶"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Coker",
+  "reading_story": "Coker patrols the Walled Box border, guarding the King's Crown so no rival seizes the COUNTRY.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "人",
+  "story": "A wooden Stepladder stands wide on its two splayed legs in the middle of the room — the only thing tall enough to count as a PERSON.",
+  "components_used": [
+   "人"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Jin",
+  "reading_story": "Jin leans his guitar against the Stepladder, the one PERSON in the empty hall.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "年",
+  "story": "A Falling Katana slashes down through the flat Horizon Line above an Antenna Mast — the radio counts one more orbit around the sun, marking off a full YEAR.",
+  "components_used": [
+   "ノ",
+   "一",
+   "干"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Nenn",
+  "reading_story": "Nenn shimmies up the Antenna Mast each New YEAR to hang the countdown banner.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "大",
+  "story": "A bright orange Starfish sprawls across the rock, all five arms flung out as far as they reach, taking up the entire tide pool — impossibly BIG.",
+  "components_used": [
+   "大"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Dyer",
+  "reading_story": "Dyer measures the Starfish, gasps, and declares its span officially BIG.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "十",
+  "story": "Right where two straight roads cross at the Plus-Sign Crossroads, a hitchhiker counts the cars on each arm: exactly TEN have passed by sunset.",
+  "components_used": [
+   "十"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Juno",
+  "reading_story": "Juno stands at the Plus-Sign Crossroads and tallies TEN buses before her lift arrives.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "二",
+  "story": "TWO steel Railway Tracks run side by side into the distance, perfectly parallel and evenly spaced — a pair of rails and nothing more.",
+  "components_used": [
+   "二"
+  ],
+  "meaning_placement": "start",
+  "reading_actor_used": "Knee",
+  "reading_story": "Knee trips on the Railway Tracks and scrapes both his knees — TWO of them.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "中",
+  "story": "A single Lightning Bolt cracks straight down and skewers an Open Mouth clean through its center — the bolt impales the very MIDDLE of the gaping square.",
+  "components_used": [
+   "｜",
+   "口"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Chewbacca",
+  "reading_story": "Chewbacca catches the Lightning Bolt in his Open Mouth, right down the MIDDLE.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "長",
+  "story": "From the top of the banner a silk Trailing Tassel pours down the wall, its fine strands streaming endlessly toward the floor — astonishingly LONG.",
+  "components_used": [
+   "長"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Cho",
+  "reading_story": "Cho braids the Trailing Tassel into her hair, and it grows ever so LONG.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "生",
+  "story": "A Falling Katana slashes down through a flat Horizon Line and buries its tip in a Mound of Soil, and from that wound a green shoot bursts up — raw life.",
+  "components_used": [
+   "Falling Katana",
+   "Horizon Line",
+   "Mound of Soil"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Sage",
+  "reading_story": "The white-bearded Sage waters the sprouting shoot, coaxing fresh life (せい, Sage) from the soil.",
+  "verified": false,
+  "det_coverage_ok": false,
+  "issues": [
+   "missing component actor: Sprouting Plant"
+  ]
+ },
+ {
+  "glyph": "間",
+  "story": "The two heavy doors of a Castle Gate swing wide, and a single bright Sun hangs alone in the empty gap between them — the dead-center interval.",
+  "components_used": [
+   "Castle Gate",
+   "Sun"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Khan",
+  "reading_story": "Genghis Khan reins his horse in the gap, filling the interval (かん, Khan) of the gateway.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "四",
+  "story": "Inside a square Walled Box, the two stubby stone Wishing-Well Legs crouch, propping their bucket-frame up against all four high walls.",
+  "components_used": [
+   "Walled Box",
+   "Wishing-Well Legs"
+  ],
+  "meaning_placement": "start",
+  "reading_story": "Sheriff, the clipped lawman, counts off four outlaws boxed in the cell.",
+  "reading_actor_used": "Sheriff",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "今",
+  "story": "Now, a Pup-Tent Roof pitches its sharp ridge overhead while a single Horizon Line stretches flat beneath it, sheltering this exact moment.",
+  "components_used": [
+   "Pup-Tent Roof",
+   "Horizon Line"
+  ],
+  "meaning_placement": "start",
+  "reading_story": "Sean Connery (Conn) checks his watch — the moment is now.",
+  "reading_actor_used": "Conn",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "金",
+  "story": "Gold: a single gleaming pyramid-topped Gold Ingot, two metal flecks glinting at its base, sitting heavy and bright on the table.",
+  "components_used": [
+   "Gold Ingot"
+  ],
+  "meaning_placement": "start",
+  "reading_actor_used": "King",
+  "reading_story": "King (Martin Luther) lifts the gleaming gold ingot overhead, きん, as the crowd roars.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "九",
+  "story": "Nine: a Curled Cat tucked into a tidy comma-shaped ball, tail flicking lazily — one creature reputed to carry nine lives.",
+  "components_used": [
+   "Curled Cat"
+  ],
+  "meaning_placement": "start",
+  "reading_actor_used": "Cuomo",
+  "reading_story": "Governor Cuomo holds up nine fingers, きゅう, counting the curled cat's nine lives.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "入",
+  "story": "A canvas Tent Flap pinned open into an inverted V, daring you to duck low and enter underneath it.",
+  "components_used": [
+   "Tent Flap"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Newman",
+  "reading_story": "Paul Newman lifts the tent flap and steps inside, にゅう, ducking under the canvas.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "高",
+  "story": "A Pot Lid clamps the top, an Open Mouth gasps beneath it, and a Goalpost Frame caging a second Open Mouth holds the whole stack up — a tower stacked impossibly tall.",
+  "components_used": [
+   "Pot Lid",
+   "Open Mouth",
+   "Goalpost Frame"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Coe",
+  "reading_story": "Sebastian Coe sprints up the tower's endless stairs, panting at how TALL (こう, Coe) it climbs.",
+  "verified": false,
+  "det_coverage_ok": false,
+  "issues": [
+   "missing component actor: Watchtower"
+  ]
+ },
+ {
+  "glyph": "円",
+  "story": "A Pot Lid rests on a Goalpost Frame; a flat Horizon Line floors it, a Lightning Bolt drops straight through the middle — a coin minted for one crisp yen.",
+  "components_used": [
+   "Pot Lid",
+   "Goalpost Frame",
+   "Horizon Line",
+   "Lightning Bolt"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Enzo",
+  "reading_story": "Enzo Ferrari flips a shiny one-yen coin, えん, and lets it spin on the table.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "子",
+  "story": "Child: a woven Swaddle Basket cradling a bundled baby, rocking gently in the nursery.",
+  "components_used": [
+   "Swaddle Basket"
+  ],
+  "meaning_placement": "start",
+  "reading_actor_used": "Sheriff",
+  "reading_story": "Sheriff し leans over the swaddle basket and tips his hat to the sleeping child.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "学",
+  "story": "Three Bean Sprouts push up at the top, a Bedsheet Cover drapes the middle, and a Swaddle Basket sits below — a tiny scholar starting to study.",
+  "components_used": [
+   "Bean Sprouts",
+   "Bedsheet Cover",
+   "Swaddle Basket"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Gackt",
+  "reading_story": "Gackt the rock star cracks open a book to study, がく, sprouts and basket at his desk.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "外",
+  "story": "A forked Divining Twig held out under the thin orange Crescent Moon, the fortune-teller reading the night sky out beyond the walls, outside.",
+  "components_used": [
+   "Divining Twig",
+   "Crescent Moon"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Guy",
+  "reading_story": "Guy Fawkes slips outside under the crescent moon, がい, twig of fuse in hand.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "話",
+  "story": "A Speech Bubble on the left tilts toward a Lolling Tongue on the right, the dripping tongue flapping inside the bubble's words as the two never stop trying to talk.",
+  "components_used": [
+   "Speech Bubble",
+   "Lolling Tongue"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Wah",
+  "reading_story": "A clipped \"Wah!\" bursts from the tongue every time the bubble tries to talk (わ, Wah).",
+  "verified": false,
+  "det_coverage_ok": false,
+  "issues": [
+   "missing component actor: Open Mouth"
+  ]
+ },
+ {
+  "glyph": "北",
+  "story": "A Split Bed-Plank propped on the left and a Soup Ladle on the right stand stiffly back-to-back, both refusing to turn, pointing the lost campers due north.",
+  "components_used": [
+   "Split Bed-Plank",
+   "Soup Ladle"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Hooker",
+  "reading_story": "Hooker plants his rod on the icy shore, baiting his line while facing straight north into the wind.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "午",
+  "story": "A Falling Katana slashes down onto an Antenna Mast standing over a Plus-Sign Crossroads; the blade's shadow points dead straight with no lean, so it must be exactly noon.",
+  "components_used": [
+   "Falling Katana",
+   "Antenna Mast",
+   "Plus-Sign Crossroads"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Goh",
+  "reading_story": "Goh blows a sharp whistle the instant the clock strikes noon.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "書",
+  "story": "A Writing Brush pressing down hard at the top drags fresh ink across a Sun glowing below it, every stroke the brush draws onto the disc forming a word — write.",
+  "components_used": [
+   "Writing Brush",
+   "Sun"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Shaw",
+  "reading_story": "George Bernard Shaw dips the brush and writes (しょ, Shaw) glowing words across the sun.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "名",
+  "story": "Under a thin Crescent Moon, an Open Mouth below shouts up into the dark, calling out your name again and again until the moon finally answers back.",
+  "components_used": [
+   "Crescent Moon",
+   "Open Mouth"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "May",
+  "reading_story": "May leans close and whispers your secret name so no one else hears it.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "川",
+  "story": "Three parallel channels of River Rapids rush straight downhill side by side, white water roaring between the steep banks, all one wild mountain river.",
+  "components_used": [
+   "River Rapids"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Senna",
+  "reading_story": "Senna grips the wheel of a jet-boat, blasting full throttle down the foaming river.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "千",
+  "story": "A single Falling Katana slashes down over a Plus-Sign Crossroads, and where the blade strikes the road it shatters into a thousand gleaming shards scattering everywhere.",
+  "components_used": [
+   "Falling Katana",
+   "Plus-Sign Crossroads"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Senna",
+  "reading_story": "Senna circles the track a thousand times, headlights streaking the night into one long blur.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "水",
+  "story": "A towering Tsunami Wave curls overhead, white spray flying off its crest as it hangs one terrible instant, then crashes down in a roaring wall of water.",
+  "components_used": [
+   "Tsunami Wave"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Swee",
+  "reading_story": "Swee takes a running leap off the dock and plunges headfirst into the cold water.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "半",
+  "story": "Twin Pillars lean apart at the top, Railway Tracks lie across them, and a Lightning Bolt cracks straight down to a Plus-Sign Crossroads below, splitting the whole tower in half.",
+  "components_used": [
+   "Twin Pillars",
+   "Railway Tracks",
+   "Lightning Bolt",
+   "Plus-Sign Crossroads"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Hancock",
+  "reading_story": "Hancock signs his huge flourish across only the top half of the page, leaving the rest blank.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "男",
+  "story": "Over a flooded Rice-Paddy Grid, a single Flexing Bicep strains beneath it, hauling the whole muddy field up by its ropes, the strongest working man in the village.",
+  "components_used": [
+   "Rice-Paddy Grid",
+   "Flexing Bicep"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Dan",
+  "reading_story": "Dan rolls up his sleeve and flexes, easily the strongest man at the worksite.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "西",
+  "story": "On the windowsill perches the Setting-Sun Cage, a round birdcage with the blood-red sun sinking behind its bars, its trapped bird watching the light vanish into the west.",
+  "components_used": [
+   "Setting-Sun Cage"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Sage",
+  "reading_story": "The white-bearded Sage turns to face west at dusk, bowing as the last light fades.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "語",
+  "story": "A Speech Bubble on the left, a Sheriff Star pinned above an Open Mouth on the right — the star-badged mouth recites, one bubble per phrase, a whole foreign language.",
+  "components_used": [
+   "Speech Bubble",
+   "Sheriff Star",
+   "Open Mouth"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Goh",
+  "reading_story": "Goh, badge on his chest, recites the star-mouth's foreign language (ご, Goh) word by word.",
+  "verified": false,
+  "det_coverage_ok": false,
+  "issues": [
+   "missing component actor: Horizon Line"
+  ]
+ },
+ {
+  "glyph": "土",
+  "story": "A single dark Mound of Soil sits heaped on the flat ground, a sprout-marker poked into its peak: soil.",
+  "components_used": [
+   "Mound of Soil"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Doh",
+  "reading_story": "Homer 'Doh!' slaps his forehead as he face-plants straight into a fresh mound of soil.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "時",
+  "story": "The Sun blazes over a Mound of Soil on the left, while a Tape Measure on the right stretches across the dirt, ticking off inch after inch of time.",
+  "components_used": [
+   "Sun",
+   "Mound of Soil",
+   "Tape Measure"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Jee",
+  "reading_story": "The emcee Jee freestyles a tight countdown, calling out the exact time the beat drops.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "先",
+  "story": "A Falling Katana slashes down past a Mound of Soil, landing right between the Wishing-Well Legs that are already sprinting ahead of everyone.",
+  "components_used": [
+   "Falling Katana",
+   "Mound of Soil",
+   "Wishing-Well Legs"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Senna",
+  "reading_story": "Ayrton Senna floors it to take the lead, always racing ahead of the pack.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "木",
+  "story": "One sturdy Tree stands alone, trunk straight, two branches reaching up and two roots spreading down: tree.",
+  "components_used": [
+   "Tree"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Booker",
+  "reading_story": "Booker carves his initials deep into the bark of a towering tree.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "本",
+  "story": "A Tree grows up from one Horizon Line slicing across its lower trunk, and from that marked root sprouts a book.",
+  "components_used": [
+   "Tree",
+   "Horizon Line"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Honner",
+  "reading_story": "Honner cracks the spine of a fresh book and breathes in every printed page.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "東",
+  "story": "Behind a bare Tree the round Sun rises, a Lightning Bolt splitting the Horizon Line and lighting the Rice-Paddy Grid — dawn breaks in the east.",
+  "components_used": [
+   "Tree",
+   "Sun",
+   "Lightning Bolt",
+   "Horizon Line",
+   "Rice-Paddy Grid"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Tone",
+  "reading_story": "Tone Loc raps to the rising sun, facing dead east at dawn.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "来",
+  "story": "Under a Pot Lid, Railway Tracks run down a Tree trunk struck by one Lightning Bolt, Scattered Rice Grains flung along the rails as the train comes.",
+  "components_used": [
+   "Pot Lid",
+   "Railway Tracks",
+   "Tree",
+   "Lightning Bolt",
+   "Scattered Rice Grains"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Rye",
+  "reading_story": "The Rye-field Catcher waves both arms, beckoning the whole crowd to come closer.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "聞",
+  "story": "Both doors of a Castle Gate swing wide, and a single huge Listening Ear leans out through the gap, cupped forward, straining for the faintest sound to hear.",
+  "components_used": [
+   "Castle Gate",
+   "Listening Ear"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Bunn",
+  "reading_story": "Bunn presses his ear to the gate, straining to hear (ぶん, Bunn) the whisper inside.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "食",
+  "story": "A Heaped Rice Bowl steams under its just-lifted domed lid, rice mounded to a peak and begging you to eat.",
+  "components_used": [
+   "Heaped Rice Bowl"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Shocker",
+  "reading_story": "The Shocker wrestler tears into a giant turkey leg, daring you to eat with him.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "車",
+  "story": "A lone Cartwheel breaks off the wagon and rolls down the hill all by itself, bouncing over cobblestones, spokes whirring — somehow it has become an entire runaway car.",
+  "components_used": [
+   "Cartwheel"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Shaq",
+  "reading_story": "Shaq folds his huge frame into a tiny car, knees at his ears, and revs it down the court — \"sha!\" — the car for the giant.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "何",
+  "story": "At the field's edge a stiff Scarecrow leans down over an Open Mouth shouting up at it, while a Meat Hook dangles between them snagging every reply. The whole scene asks: what?",
+  "components_used": [
+   "Scarecrow",
+   "Open Mouth",
+   "Meat Hook"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Carr",
+  "reading_story": "Cabbie Carr leans out his window — \"ka?\" — baffled, asking every passerby what street they actually want.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "南",
+  "story": "An Antenna Mast rises through a Plus-Sign Crossroads; below it Twin Pillars prop up a Goalpost Frame, all leaning toward the warm sun — the whole rig points dead south.",
+  "components_used": [
+   "Antenna Mast",
+   "Plus-Sign Crossroads",
+   "Twin Pillars",
+   "Goalpost Frame"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Nanny",
+  "reading_story": "The Nanny marches the kids due south for winter, clutching her \"nan\" umbrella against the warm sun ahead.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "万",
+  "story": "A Lightning Bolt stabs straight down, a Falling Katana slashes across it, and both shatter the flat Horizon Line into countless cracks numbering ten thousand.",
+  "components_used": [
+   "Lightning Bolt",
+   "Falling Katana",
+   "Horizon Line"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Mann",
+  "reading_story": "Author Thomas Mann scribbles \"man!\" beside a number with so many zeros it stretches to ten thousand.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "白",
+  "story": "One stark White Candle stands alone on the table, its tiny pale flame trembling, wax dripping down — everything it touches turns blindingly white.",
+  "components_used": [
+   "White Candle"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Hacker",
+  "reading_story": "A Hacker in a white hoodie types \"haku!\" and floods every screen blinding white.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "百",
+  "story": "A flat Horizon Line lies across the desert, and on it a single White Candle stands burning — count its dripping wax beads and you reach a hundred.",
+  "components_used": [
+   "Horizon Line",
+   "White Candle"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Hyacker",
+  "reading_story": "The Hyacker hijacks the abacus, sliding \"hyaku!\" beads across until they total a hundred.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "天",
+  "story": "Above the flat Horizon Line a giant orange Starfish floats, arms flung wide, sprawled across the empty blue — pinned high up there in the open sky.",
+  "components_used": [
+   "Horizon Line",
+   "Starfish"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Tennison",
+  "reading_story": "Detective Tennison tips his head back — \"ten!\" — and stares up into the wide open sky for clues.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "母",
+  "story": "A warm white Milk Jug brims on the counter, but an Iron Padlock is clamped over its handle, forbidding anyone to pour — only she may, your mother.",
+  "components_used": [
+   "Milk Jug",
+   "Iron Padlock"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Bo",
+  "reading_story": "Bo Derek cradles the warm milk jug like a baby, humming \"bo,\" every inch the doting mother.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "毎",
+  "story": "A Milk Jug pours fresh milk while an Iron Padlock snaps shut behind it, then springs open and snaps shut again — pour, lock, pour, lock, the same loop repeating morning after morning, every.",
+  "components_used": [
+   "Milk Jug",
+   "Iron Padlock"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Mai",
+  "reading_story": "Mai sets her alarm \"mai!\" and rises at dawn to pour the milk every single day.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "火",
+  "story": "A crackling Bonfire leaps up in tongues, sparks flying off both sides into the dark, branches popping — pure roaring fire.",
+  "components_used": [
+   "Bonfire"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Carr",
+  "reading_story": "Cabbie Carr — \"ka!\" — slams his hood as the engine bursts into roaring fire.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "右",
+  "story": "A Falling Katana slashes down the top-left; its silver edge skids flat along the Horizon Line, then drops into a gaping Open Mouth that bites the blade off — pointing you to the right.",
+  "components_used": [
+   "Falling Katana",
+   "Horizon Line",
+   "Open Mouth"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Ooh",
+  "reading_story": "Ooh, the crooner holds one long sung note as the katana points right.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "読",
+  "story": "A Speech Bubble on the left reads aloud to a War Helmet, draped in a Bedsheet Cover, propped on two Wishing-Well Legs — a swaddled ghost-knight made to read.",
+  "components_used": [
+   "Speech Bubble",
+   "War Helmet",
+   "Bedsheet Cover",
+   "Wishing-Well Legs"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Docker",
+  "reading_story": "Docker leans on the gate and reads (どく, Docker) the swaddled knight a bedtime tale.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "友",
+  "story": "A Falling Katana sweeps over a flat Horizon Line, and below-right a yellow Rubber Glove reaches up, palm open, to shake hands warmly with a friend.",
+  "components_used": [
+   "Falling Katana",
+   "Horizon Line",
+   "Rubber Glove"
+  ],
+  "meaning_placement": "end",
+  "reading_story": "Yuna the figure skater glides over to greet a friend.",
+  "reading_actor_used": "Yuna",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "左",
+  "story": "Reaching left, a Falling Katana sweeps down, scrapes along the flat Horizon Line, and clangs onto a red I-Beam Girder bolted in the lower-left corner.",
+  "components_used": [
+   "Falling Katana",
+   "Horizon Line",
+   "I-Beam Girder"
+  ],
+  "meaning_placement": "start",
+  "reading_story": "Sah, the clipped bare voice, barks the order to veer left.",
+  "reading_actor_used": "Sah",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "父",
+  "story": "Two woodsman's axes Crossed in a sharp X hang on the wall — the proud emblem your father mounted above the hearth.",
+  "components_used": [
+   "Crossed Axes"
+  ],
+  "meaning_placement": "end",
+  "reading_story": "A Foo Fighter calls his father from backstage.",
+  "reading_actor_used": "Foo",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ },
+ {
+  "glyph": "電",
+  "story": "A Rain Cloud boxed at the top dumps its drops onto a Rice-Paddy Grid, and a barbed Fishhook dangling from the paddy's base sparks and crackles — pure electricity.",
+  "components_used": [
+   "Rain Cloud",
+   "Rice-Paddy Grid",
+   "Fishhook"
+  ],
+  "meaning_placement": "end",
+  "reading_actor_used": "Denny",
+  "reading_story": "Denny grips the sparking hook and a jolt of electricity (でん, Denny) throws him back.",
+  "verified": true,
+  "det_coverage_ok": true,
+  "issues": []
+ }
+]

@@ -23,6 +23,12 @@ const SOURCE_KRAD: &str = "data/sources/kradfile-u";
 const OUT_DB: &str = "assets/seed.sqlite";
 const SCHEMA: &str = include_str!("schema.sql");
 
+// Authored content (our original, version-controlled). Optional: absent => slice-1-only build.
+const AUTH_KEYWORDS: &str = "data/authored/n5-keywords.json";
+const AUTH_COMP: &str = "data/authored/n5-component-actors.json";
+const AUTH_READ: &str = "data/authored/n5-reading-actors.json";
+const AUTH_MNEM: &str = "data/authored/n5-mnemonics.json";
+
 /// A kanji as assembled from the sources, before DB insertion.
 struct KanjiRow {
     glyph: String,
@@ -109,13 +115,21 @@ fn main() -> Result<(), Box<dyn Error>> {
         comp_id.insert(c, tx.last_insert_rowid());
     }
 
+    let mut kanji_id: HashMap<&str, i64> = HashMap::new();
     for r in &rows {
         tx.execute(
             "INSERT INTO kanji (glyph, level_id, stroke_count, freq, primary_keyword, intro_rank)
              VALUES (?1, 1, ?2, ?3, ?4, ?5)",
-            rusqlite::params![r.glyph, r.strokes, r.freq, r.keyword, intro_rank[r.glyph.as_str()]],
+            rusqlite::params![
+                r.glyph,
+                r.strokes,
+                r.freq,
+                r.keyword,
+                intro_rank[r.glyph.as_str()]
+            ],
         )?;
         let kid = tx.last_insert_rowid();
+        kanji_id.insert(r.glyph.as_str(), kid);
 
         for reading in &r.on {
             tx.execute(
@@ -144,6 +158,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
     }
 
+    let authored = load_authored(&tx, &kanji_id, &comp_id)?;
+
     for (k, v) in build_meta(&rows) {
         tx.execute(
             "INSERT INTO meta (key, value) VALUES (?1, ?2)",
@@ -152,6 +168,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
     tx.commit()?;
 
+    println!(
+        "Authored content loaded: {} keyword overrides, {} component actors, {} reading actors, {} mnemonics",
+        authored.0, authored.1, authored.2, authored.3
+    );
     verify(&conn, &rows)?;
     println!("\nWrote {OUT_DB}");
     Ok(())
@@ -271,11 +291,118 @@ fn topological_order(rows: &[KanjiRow], n5_set: &HashSet<&str>) -> Vec<String> {
     // Cycle guard (kradfile decompositions shouldn't cycle, but never drop kanji).
     if order.len() < glyphs.len() {
         let placed: HashSet<&str> = order.iter().map(String::as_str).collect();
-        let mut rest: Vec<&str> = glyphs.iter().copied().filter(|g| !placed.contains(g)).collect();
-        rest.sort_by(|a, b| rank(a).cmp(&rank(b)));
+        let mut rest: Vec<&str> = glyphs
+            .iter()
+            .copied()
+            .filter(|g| !placed.contains(g))
+            .collect();
+        rest.sort_by_key(|a| rank(a));
         order.extend(rest.into_iter().map(str::to_string));
     }
     order
+}
+
+/// Read an optional authored JSON file (returns None if it doesn't exist yet).
+fn read_optional(path: &str) -> Result<Option<Value>, Box<dyn Error>> {
+    if !Path::new(path).exists() {
+        return Ok(None);
+    }
+    Ok(Some(serde_json::from_str(&fs::read_to_string(path)?)?))
+}
+
+/// Load authored content (keyword overrides, actors, mnemonics) from `data/authored/*.json`.
+/// Returns counts (keywords, component_actors, reading_actors, mnemonics).
+fn load_authored(
+    tx: &rusqlite::Transaction,
+    kanji_id: &HashMap<&str, i64>,
+    comp_id: &HashMap<&str, i64>,
+) -> Result<(usize, usize, usize, usize), Box<dyn Error>> {
+    let (mut kw, mut ca, mut ra, mut mn) = (0, 0, 0, 0);
+
+    if let Some(v) = read_optional(AUTH_KEYWORDS)? {
+        for e in v.as_array().into_iter().flatten() {
+            let (g, k) = (
+                e.get("glyph").and_then(Value::as_str),
+                e.get("keyword").and_then(Value::as_str),
+            );
+            if let (Some(g), Some(k)) = (g, k) {
+                if let Some(&id) = kanji_id.get(g) {
+                    tx.execute(
+                        "UPDATE kanji SET primary_keyword = ?1 WHERE id = ?2",
+                        rusqlite::params![k, id],
+                    )?;
+                    kw += 1;
+                }
+            }
+        }
+    }
+
+    if let Some(v) = read_optional(AUTH_COMP)? {
+        for e in v.as_array().into_iter().flatten() {
+            let g = e.get("component").and_then(Value::as_str);
+            let name = e.get("actor_name").and_then(Value::as_str);
+            let img = e.get("image").and_then(Value::as_str).unwrap_or("");
+            if let (Some(g), Some(name)) = (g, name) {
+                if let Some(&cid) = comp_id.get(g) {
+                    tx.execute(
+                        "INSERT OR REPLACE INTO component_actor (component_id, actor_name, image) VALUES (?1, ?2, ?3)",
+                        rusqlite::params![cid, name, img],
+                    )?;
+                    ca += 1;
+                }
+            }
+        }
+    }
+
+    if let Some(v) = read_optional(AUTH_READ)? {
+        for e in v.as_array().into_iter().flatten() {
+            let r = e.get("reading").and_then(Value::as_str);
+            let name = e.get("actor_name").and_then(Value::as_str);
+            let vl = e
+                .get("vowel_length")
+                .and_then(Value::as_str)
+                .unwrap_or("long");
+            let note = e.get("note").and_then(Value::as_str);
+            if let (Some(r), Some(name)) = (r, name) {
+                tx.execute(
+                    "INSERT OR REPLACE INTO reading_actor (reading, vowel_length, actor_name, note) VALUES (?1, ?2, ?3, ?4)",
+                    rusqlite::params![r, vl, name, note],
+                )?;
+                ra += 1;
+            }
+        }
+    }
+
+    if let Some(v) = read_optional(AUTH_MNEM)? {
+        for e in v.as_array().into_iter().flatten() {
+            let g = e.get("glyph").and_then(Value::as_str);
+            let story = e.get("story").and_then(Value::as_str);
+            if let (Some(g), Some(story)) = (g, story) {
+                if let Some(&id) = kanji_id.get(g) {
+                    let issues = e.get("issues").map(ToString::to_string);
+                    tx.execute(
+                        "INSERT OR REPLACE INTO mnemonic
+                         (kanji_id, story, reading_story, reading_actor, meaning_placement, origin, verified, issues, imageability, distinctiveness)
+                         VALUES (?1, ?2, ?3, ?4, ?5, 'generated', ?6, ?7, ?8, ?9)",
+                        rusqlite::params![
+                            id,
+                            story,
+                            e.get("reading_story").and_then(Value::as_str),
+                            e.get("reading_actor_used").and_then(Value::as_str),
+                            e.get("meaning_placement").and_then(Value::as_str),
+                            e.get("verified").and_then(Value::as_bool).unwrap_or(false) as i64,
+                            issues,
+                            e.get("imageability").and_then(Value::as_i64),
+                            e.get("distinctiveness").and_then(Value::as_i64),
+                        ],
+                    )?;
+                    mn += 1;
+                }
+            }
+        }
+    }
+
+    Ok((kw, ca, ra, mn))
 }
 
 fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {
@@ -301,8 +428,11 @@ fn verify(conn: &Connection, rows: &[KanjiRow]) -> Result<(), Box<dyn Error>> {
     let comps: i64 = conn.query_row("SELECT COUNT(*) FROM component", [], |r| r.get(0))?;
     let readings: i64 = conn.query_row("SELECT COUNT(*) FROM reading", [], |r| r.get(0))?;
     let edges: i64 = conn.query_row("SELECT COUNT(*) FROM kanji_component", [], |r| r.get(0))?;
-    let no_keyword: i64 =
-        conn.query_row("SELECT COUNT(*) FROM kanji WHERE primary_keyword = ''", [], |r| r.get(0))?;
+    let no_keyword: i64 = conn.query_row(
+        "SELECT COUNT(*) FROM kanji WHERE primary_keyword = ''",
+        [],
+        |r| r.get(0),
+    )?;
     let no_reading: i64 = conn.query_row(
         "SELECT COUNT(*) FROM kanji k WHERE NOT EXISTS (SELECT 1 FROM reading r WHERE r.kanji_id=k.id)",
         [],

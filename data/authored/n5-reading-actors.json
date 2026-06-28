@@ -1,0 +1,2156 @@
+[
+ {
+  "reading": "こう",
+  "vowel_length": "long",
+  "actor_name": "Coe",
+  "note": "Sebastian Coe, the Olympic runner. Long ō — the full, stretched persona (the default). Parent of the clipped twin Coco (こ)."
+ },
+ {
+  "reading": "しょう",
+  "vowel_length": "long",
+  "actor_name": "Showman",
+  "note": "The top-hatted circus ringmaster, \"Shoooow!\". Long ō. Parent of clipped twin Shaw (しょ)."
+ },
+ {
+  "reading": "そう",
+  "vowel_length": "long",
+  "actor_name": "Sosa",
+  "note": "Sammy Sosa swinging for the fences. Long ō. Parent of clipped twin Saul (そ)."
+ },
+ {
+  "reading": "きょう",
+  "vowel_length": "long",
+  "actor_name": "Kyo",
+  "note": "Kyo, the howling rock frontman. Long ō."
+ },
+ {
+  "reading": "とう",
+  "vowel_length": "long",
+  "actor_name": "Tone",
+  "note": "Tone Loc, the rapper. Long ō. Parent of clipped twin Toto (と)."
+ },
+ {
+  "reading": "し",
+  "vowel_length": "short",
+  "actor_name": "Sheriff",
+  "note": "The clipped lawman — just a sharp \"shi\". Short. Clipped sound-sibling of Shoe (しゅう)."
+ },
+ {
+  "reading": "かん",
+  "vowel_length": "short",
+  "actor_name": "Khan",
+  "note": "Genghis Khan on horseback. Ends in -n (treated as a full, closed persona)."
+ },
+ {
+  "reading": "せん",
+  "vowel_length": "short",
+  "actor_name": "Senna",
+  "note": "Ayrton Senna at the wheel. Ends in -n."
+ },
+ {
+  "reading": "き",
+  "vowel_length": "short",
+  "actor_name": "Key",
+  "note": "The clipped locksmith — a single \"kee\". Short. Sound-sibling of Cuomo (きゅう)."
+ },
+ {
+  "reading": "けん",
+  "vowel_length": "short",
+  "actor_name": "Ken",
+  "note": "Ken, the plastic doll. Ends in -n."
+ },
+ {
+  "reading": "よう",
+  "vowel_length": "long",
+  "actor_name": "Yoyo",
+  "note": "Yo-Yo Ma with his cello. Long ō. Parent of clipped twin Yo (よ)."
+ },
+ {
+  "reading": "けい",
+  "vowel_length": "long",
+  "actor_name": "Kayo",
+  "note": "Kayo, the cabaret dancer (kei = \"kay\"). Long ē. Parent of clipped twin Kett (け)."
+ },
+ {
+  "reading": "かい",
+  "vowel_length": "short",
+  "actor_name": "Kai",
+  "note": "Kai, the surfer. Diphthong ai — short/clipped."
+ },
+ {
+  "reading": "ちょう",
+  "vowel_length": "long",
+  "actor_name": "Cho",
+  "note": "Cho Chang, the witch. Long ō. Parent of clipped twin Choe (ちょ)."
+ },
+ {
+  "reading": "しん",
+  "vowel_length": "short",
+  "actor_name": "Shinn",
+  "note": "Shinn, the night bartender. Ends in -n."
+ },
+ {
+  "reading": "ほう",
+  "vowel_length": "long",
+  "actor_name": "Ho",
+  "note": "Santa Claus, \"ho-ho-ho\". Long ō. Parent of clipped twin Hoth (ほ)."
+ },
+ {
+  "reading": "く",
+  "vowel_length": "short",
+  "actor_name": "Coo",
+  "note": "The clipped pigeon-keeper — \"coo\". Short (one of FU/KU/SO). Clipped twin of Coombs (くう)."
+ },
+ {
+  "reading": "せい",
+  "vowel_length": "long",
+  "actor_name": "Sage",
+  "note": "The white-bearded wise Sage. Long ē. Parent of clipped twin Seth (せ)."
+ },
+ {
+  "reading": "てい",
+  "vowel_length": "long",
+  "actor_name": "Tay",
+  "note": "Taylor, \"Tay\". Long ē. Parent of clipped twin Tett (て)."
+ },
+ {
+  "reading": "しゅう",
+  "vowel_length": "long",
+  "actor_name": "Shoe",
+  "note": "The cobbler hammering a shoe. Long ū. Parent of clipped twin Shu (しゅ)."
+ },
+ {
+  "reading": "い",
+  "vowel_length": "short",
+  "actor_name": "Eaton",
+  "note": "Mr. Eaton, clipped to a sharp \"ee\". Short."
+ },
+ {
+  "reading": "か",
+  "vowel_length": "short",
+  "actor_name": "Carr",
+  "note": "The cabbie Carr, clipped \"ka\". Short. Parent of dakuten twin Garr (が)."
+ },
+ {
+  "reading": "えん",
+  "vowel_length": "short",
+  "actor_name": "Enzo",
+  "note": "Enzo Ferrari. Ends in -n."
+ },
+ {
+  "reading": "じょう",
+  "vowel_length": "long",
+  "actor_name": "Joe",
+  "note": "Average Joe, stretched \"Joooe\". Long ō. Voiced/heavier twin of Showman (しょう)."
+ },
+ {
+  "reading": "さい",
+  "vowel_length": "short",
+  "actor_name": "Cy",
+  "note": "Cy Young, the pitcher. Diphthong ai — short/clipped."
+ },
+ {
+  "reading": "こ",
+  "vowel_length": "short",
+  "actor_name": "Coco",
+  "note": "Coco Chanel — the clipped twin of Coe (こう). Short."
+ },
+ {
+  "reading": "たん",
+  "vowel_length": "short",
+  "actor_name": "Tanner",
+  "note": "Tanner, the leatherworker. Ends in -n."
+ },
+ {
+  "reading": "ひ",
+  "vowel_length": "short",
+  "actor_name": "Hee",
+  "note": "The clipped giggler — \"hee\". Short."
+ },
+ {
+  "reading": "りょう",
+  "vowel_length": "long",
+  "actor_name": "Ryo",
+  "note": "Ryo, the hardboiled detective. Long ō. Parent of clipped twin Ryo-short (りょ)."
+ },
+ {
+  "reading": "しゅ",
+  "vowel_length": "short",
+  "actor_name": "Shu",
+  "note": "Master Shu — clipped twin of Shoe (しゅう). Short."
+ },
+ {
+  "reading": "さん",
+  "vowel_length": "short",
+  "actor_name": "Santa",
+  "note": "Santa himself. Ends in -n."
+ },
+ {
+  "reading": "おう",
+  "vowel_length": "long",
+  "actor_name": "Owen",
+  "note": "Owen, the keeper. Long ō."
+ },
+ {
+  "reading": "かく",
+  "vowel_length": "short",
+  "actor_name": "Knuckles",
+  "note": "Knuckles the boxer (kaku). Ends in -ku coda."
+ },
+ {
+  "reading": "たい",
+  "vowel_length": "short",
+  "actor_name": "Ty",
+  "note": "Ty Cobb. Diphthong ai — short/clipped."
+ },
+ {
+  "reading": "こん",
+  "vowel_length": "short",
+  "actor_name": "Conn",
+  "note": "Sean Connery, \"Conn\". Ends in -n."
+ },
+ {
+  "reading": "け",
+  "vowel_length": "short",
+  "actor_name": "Kett",
+  "note": "Kett — clipped twin of Kayo (けい). Short."
+ },
+ {
+  "reading": "ふ",
+  "vowel_length": "short",
+  "actor_name": "Foo",
+  "note": "A Foo Fighter — \"foo\". Short (the canonical FU). Parent of the full/stretched twin Fuller (ふう)."
+ },
+ {
+  "reading": "ぼう",
+  "vowel_length": "long",
+  "actor_name": "Bowie",
+  "note": "David Bowie. Long ō. Voiced/heavier twin of Ho (ほう)."
+ },
+ {
+  "reading": "ろう",
+  "vowel_length": "long",
+  "actor_name": "Rowe",
+  "note": "Mike Rowe. Long ō. Parent of clipped twin Roe (ろ)."
+ },
+ {
+  "reading": "てん",
+  "vowel_length": "short",
+  "actor_name": "Tennison",
+  "note": "Tennison, the detective. Ends in -n."
+ },
+ {
+  "reading": "きゅう",
+  "vowel_length": "long",
+  "actor_name": "Cuomo",
+  "note": "Governor Cuomo (kyū). Long ū. Shares the Key (き) family by sound."
+ },
+ {
+  "reading": "きん",
+  "vowel_length": "short",
+  "actor_name": "King",
+  "note": "Martin Luther King. Ends in -n."
+ },
+ {
+  "reading": "じ",
+  "vowel_length": "short",
+  "actor_name": "Jee",
+  "note": "The clipped emcee — \"jee\". Short. Voiced/heavier twin of Sheriff (し)."
+ },
+ {
+  "reading": "さ",
+  "vowel_length": "short",
+  "actor_name": "Sah",
+  "note": "Sah — the clipped bare \"sa\" persona. Short."
+ },
+ {
+  "reading": "はん",
+  "vowel_length": "short",
+  "actor_name": "Hancock",
+  "note": "John Hancock signing. Ends in -n."
+ },
+ {
+  "reading": "れい",
+  "vowel_length": "long",
+  "actor_name": "Ray",
+  "note": "Ray Charles. Long ē. Parent of clipped twin Reb (れ)."
+ },
+ {
+  "reading": "えい",
+  "vowel_length": "long",
+  "actor_name": "Abe",
+  "note": "Abe (\"ei\" = long A). Long ē."
+ },
+ {
+  "reading": "すい",
+  "vowel_length": "short",
+  "actor_name": "Swee",
+  "note": "Sweeney, \"Swee\". Diphthong ui — short/clipped."
+ },
+ {
+  "reading": "ひょう",
+  "vowel_length": "long",
+  "actor_name": "Hugo",
+  "note": "Victor Hugo (hyō). Long ō."
+ },
+ {
+  "reading": "ゆう",
+  "vowel_length": "long",
+  "actor_name": "Yuna",
+  "note": "Yuna the figure skater. Long ū. Parent of clipped twin Hugh (ゆ)."
+ },
+ {
+  "reading": "しゃ",
+  "vowel_length": "short",
+  "actor_name": "Shaq",
+  "note": "Shaquille O'Neal. Short (sha)."
+ },
+ {
+  "reading": "しゃく",
+  "vowel_length": "short",
+  "actor_name": "Shacklock",
+  "note": "Sherlock-ish Shacklock (shaku). Ends in -ku coda."
+ },
+ {
+  "reading": "しょ",
+  "vowel_length": "short",
+  "actor_name": "Shaw",
+  "note": "George Bernard Shaw — clipped twin of Showman (しょう). Short."
+ },
+ {
+  "reading": "はい",
+  "vowel_length": "short",
+  "actor_name": "Hyde",
+  "note": "Mr. Hyde. Diphthong ai — short/clipped."
+ },
+ {
+  "reading": "へい",
+  "vowel_length": "long",
+  "actor_name": "Hayes",
+  "note": "Rutherford Hayes. Long ē."
+ },
+ {
+  "reading": "せき",
+  "vowel_length": "short",
+  "actor_name": "Sekka",
+  "note": "Sekka the chef, one ladle flip (seki). Ends in -ki coda."
+ },
+ {
+  "reading": "ゆ",
+  "vowel_length": "short",
+  "actor_name": "Hugh",
+  "note": "Hugh — clipped twin of Yuna (ゆう). Short."
+ },
+ {
+  "reading": "しゅん",
+  "vowel_length": "short",
+  "actor_name": "Shunsuke",
+  "note": "Shunsuke, the striker. Ends in -n."
+ },
+ {
+  "reading": "ち",
+  "vowel_length": "short",
+  "actor_name": "Chee",
+  "note": "The clipped cheerleader — \"chee\". Short."
+ },
+ {
+  "reading": "た",
+  "vowel_length": "short",
+  "actor_name": "Tut",
+  "note": "King Tut — the clipped bare \"ta\" persona. Short."
+ },
+ {
+  "reading": "けつ",
+  "vowel_length": "short",
+  "actor_name": "Ketel",
+  "note": "Ketel One vodka man (ketsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "ちゅう",
+  "vowel_length": "long",
+  "actor_name": "Chewbacca",
+  "note": "Chewbacca (chū). Long ū. Parent of clipped twin Chu (ちゅ)."
+ },
+ {
+  "reading": "いん",
+  "vowel_length": "short",
+  "actor_name": "Quinn",
+  "note": "Harley Quinn (in). Ends in -n."
+ },
+ {
+  "reading": "る",
+  "vowel_length": "short",
+  "actor_name": "Roo",
+  "note": "Roo from Pooh — clipped. Short."
+ },
+ {
+  "reading": "げん",
+  "vowel_length": "short",
+  "actor_name": "Glenn",
+  "note": "Glenn — voiced/heavier twin of Ken (けん). Ends in -n."
+ },
+ {
+  "reading": "さく",
+  "vowel_length": "short",
+  "actor_name": "Sacco",
+  "note": "Sacco the anarchist (saku). Ends in -ku coda."
+ },
+ {
+  "reading": "そ",
+  "vowel_length": "short",
+  "actor_name": "Saul",
+  "note": "Saul Goodman — clipped twin of Sosa (そう). Short (canonical SO)."
+ },
+ {
+  "reading": "こく",
+  "vowel_length": "short",
+  "actor_name": "Coker",
+  "note": "Coker (koku). Ends in -ku coda."
+ },
+ {
+  "reading": "せつ",
+  "vowel_length": "short",
+  "actor_name": "Settler",
+  "note": "Settler Seth (setsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "らい",
+  "vowel_length": "short",
+  "actor_name": "Rye",
+  "note": "Rye Catcher (rai). Diphthong ai — short."
+ },
+ {
+  "reading": "え",
+  "vowel_length": "short",
+  "actor_name": "Ed",
+  "note": "Ed — clipped bare \"e\". Short."
+ },
+ {
+  "reading": "どう",
+  "vowel_length": "long",
+  "actor_name": "Doe",
+  "note": "John Doe. Long ō. Voiced/heavier twin of Tone (とう)."
+ },
+ {
+  "reading": "り",
+  "vowel_length": "short",
+  "actor_name": "Lee",
+  "note": "Bruce Lee — clipped \"ri/lee\". Short."
+ },
+ {
+  "reading": "かつ",
+  "vowel_length": "short",
+  "actor_name": "Cutler",
+  "note": "Cutler (katsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "へん",
+  "vowel_length": "short",
+  "actor_name": "Henson",
+  "note": "Jim Henson (hen). Ends in -n."
+ },
+ {
+  "reading": "す",
+  "vowel_length": "short",
+  "actor_name": "Sue",
+  "note": "Sue — clipped twin of Soo (すう). Short."
+ },
+ {
+  "reading": "ご",
+  "vowel_length": "short",
+  "actor_name": "Goh",
+  "note": "Goh — clipped twin of Gough (ごう); also the voiced/heavier twin of Coco (こ). Short."
+ },
+ {
+  "reading": "しょく",
+  "vowel_length": "short",
+  "actor_name": "Shocker",
+  "note": "The Shocker wrestler (shoku). Ends in -ku coda."
+ },
+ {
+  "reading": "おん",
+  "vowel_length": "short",
+  "actor_name": "Onslow",
+  "note": "Onslow (on). Ends in -n."
+ },
+ {
+  "reading": "ろ",
+  "vowel_length": "short",
+  "actor_name": "Roe",
+  "note": "Roe — clipped twin of Rowe (ろう). Short."
+ },
+ {
+  "reading": "きょ",
+  "vowel_length": "short",
+  "actor_name": "Cole",
+  "note": "Cole — clipped twin of Kyo (きょう). Short."
+ },
+ {
+  "reading": "りゅう",
+  "vowel_length": "long",
+  "actor_name": "Ryu",
+  "note": "Ryu from Street Fighter. Long ū. Parent of clipped twin Ryu-short (りゅ)."
+ },
+ {
+  "reading": "ごう",
+  "vowel_length": "long",
+  "actor_name": "Gough",
+  "note": "Hubert Gough, the general. Long ō. Voiced/heavier twin of Coe (こう)."
+ },
+ {
+  "reading": "たく",
+  "vowel_length": "short",
+  "actor_name": "Tucker",
+  "note": "Tucker (taku). Ends in -ku coda."
+ },
+ {
+  "reading": "じゅ",
+  "vowel_length": "short",
+  "actor_name": "Juju",
+  "note": "Juju — clipped twin of Juno (じゅう); also the voiced/heavier twin of Shu (しゅ). Short."
+ },
+ {
+  "reading": "はく",
+  "vowel_length": "short",
+  "actor_name": "Hacker",
+  "note": "Hacker (haku). Ends in -ku coda."
+ },
+ {
+  "reading": "う",
+  "vowel_length": "long",
+  "actor_name": "Ooh",
+  "note": "The crooner holding a single long, sung \"ooh\" (ū). Long."
+ },
+ {
+  "reading": "じん",
+  "vowel_length": "short",
+  "actor_name": "Jin",
+  "note": "Jin from BTS — voiced/heavier twin of Shinn (しん). Ends in -n."
+ },
+ {
+  "reading": "ぎょう",
+  "vowel_length": "long",
+  "actor_name": "Gyo",
+  "note": "Gyo — voiced/heavier twin of Kyo (きょう). Long ō."
+ },
+ {
+  "reading": "もう",
+  "vowel_length": "long",
+  "actor_name": "Moe",
+  "note": "Moe from the Stooges. Long ō. Parent of clipped twin Mo (も)."
+ },
+ {
+  "reading": "だい",
+  "vowel_length": "short",
+  "actor_name": "Dyer",
+  "note": "Amanda Dyer (dai) — voiced/heavier twin of Ty (たい). Diphthong ai — short."
+ },
+ {
+  "reading": "ぶ",
+  "vowel_length": "short",
+  "actor_name": "Boo",
+  "note": "Boo (Monsters Inc) — voiced/heavier twin of Foo (ふ). Short."
+ },
+ {
+  "reading": "ず",
+  "vowel_length": "short",
+  "actor_name": "Zoo",
+  "note": "Zoo-keeper — voiced/heavier twin of Sue (す). Short."
+ },
+ {
+  "reading": "りん",
+  "vowel_length": "short",
+  "actor_name": "Lynn",
+  "note": "Lynn (rin). Ends in -n."
+ },
+ {
+  "reading": "に",
+  "vowel_length": "short",
+  "actor_name": "Knee",
+  "note": "The clipped \"knee\" man. Short."
+ },
+ {
+  "reading": "れん",
+  "vowel_length": "short",
+  "actor_name": "Wren",
+  "note": "Christopher Wren (ren). Ends in -n."
+ },
+ {
+  "reading": "ちん",
+  "vowel_length": "short",
+  "actor_name": "Chin",
+  "note": "Chin, the boxer (chin). Ends in -n."
+ },
+ {
+  "reading": "は",
+  "vowel_length": "short",
+  "actor_name": "Hah",
+  "note": "Hah — clipped bare \"ha\". Short."
+ },
+ {
+  "reading": "がい",
+  "vowel_length": "short",
+  "actor_name": "Guy",
+  "note": "Guy Fawkes — voiced/heavier twin of Kai (かい). Diphthong ai — short."
+ },
+ {
+  "reading": "らん",
+  "vowel_length": "short",
+  "actor_name": "Lannister",
+  "note": "Lannister (ran). Ends in -n."
+ },
+ {
+  "reading": "ぐ",
+  "vowel_length": "short",
+  "actor_name": "Goo",
+  "note": "Goo — clipped twin of Goomba (ぐう); voiced/heavier twin of Coo (く). Short."
+ },
+ {
+  "reading": "げ",
+  "vowel_length": "short",
+  "actor_name": "Gett",
+  "note": "Gett — clipped twin of Gei (げい); voiced/heavier twin of Kett (け). Short."
+ },
+ {
+  "reading": "む",
+  "vowel_length": "short",
+  "actor_name": "Moo",
+  "note": "Moo — clipped bare \"mu\". Short."
+ },
+ {
+  "reading": "ぎ",
+  "vowel_length": "short",
+  "actor_name": "Gee",
+  "note": "Gee — voiced/heavier twin of Key (き). Short."
+ },
+ {
+  "reading": "と",
+  "vowel_length": "short",
+  "actor_name": "Toto",
+  "note": "Toto (the band/the dog) — clipped twin of Tone (とう). Short."
+ },
+ {
+  "reading": "がん",
+  "vowel_length": "short",
+  "actor_name": "Gunner",
+  "note": "Sergeant Gunner — voiced/heavier twin of Khan (かん). Ends in -n."
+ },
+ {
+  "reading": "だ",
+  "vowel_length": "short",
+  "actor_name": "Dah",
+  "note": "Dah — voiced/heavier twin of Tut/Tah (た). Short."
+ },
+ {
+  "reading": "ほ",
+  "vowel_length": "short",
+  "actor_name": "Hoth",
+  "note": "Hoth — clipped twin of Ho (ほう). Short."
+ },
+ {
+  "reading": "そく",
+  "vowel_length": "short",
+  "actor_name": "Soaker",
+  "note": "Soaker (soku). Ends in -ku coda."
+ },
+ {
+  "reading": "ふん",
+  "vowel_length": "short",
+  "actor_name": "Fonda",
+  "note": "Henry Fonda — \"Fun\" (fun). Ends in -n."
+ },
+ {
+  "reading": "きゃく",
+  "vowel_length": "short",
+  "actor_name": "Kyacker",
+  "note": "Kyack-man (kyaku). Ends in -ku coda."
+ },
+ {
+  "reading": "てき",
+  "vowel_length": "short",
+  "actor_name": "Tekker",
+  "note": "Tekker (teki). Ends in -ki coda."
+ },
+ {
+  "reading": "とん",
+  "vowel_length": "short",
+  "actor_name": "Tony",
+  "note": "Tony — \"Ton\". Ends in -n."
+ },
+ {
+  "reading": "ばい",
+  "vowel_length": "short",
+  "actor_name": "By",
+  "note": "Byron — \"By\" (bai). Diphthong ai — short."
+ },
+ {
+  "reading": "ごん",
+  "vowel_length": "short",
+  "actor_name": "Gohn",
+  "note": "Carlos Ghosn — \"Gon\" (gon). Voiced/heavier twin of Conn (こん). Ends in -n."
+ },
+ {
+  "reading": "び",
+  "vowel_length": "short",
+  "actor_name": "Bee",
+  "note": "Bee — voiced/heavier twin of Hee (ひ). Short."
+ },
+ {
+  "reading": "じゅう",
+  "vowel_length": "long",
+  "actor_name": "Juno",
+  "note": "Juno (jū). Long ū. Voiced/heavier twin of Shoe (しゅう)."
+ },
+ {
+  "reading": "ろく",
+  "vowel_length": "short",
+  "actor_name": "Rocker",
+  "note": "Rocker (roku). Ends in -ku coda."
+ },
+ {
+  "reading": "ばん",
+  "vowel_length": "short",
+  "actor_name": "Bann",
+  "note": "Bann — voiced/heavier twin of Hancock (はん). Ends in -n."
+ },
+ {
+  "reading": "てつ",
+  "vowel_length": "short",
+  "actor_name": "Tetsuo",
+  "note": "Tetsuo (Akira) — \"Tet\" (tetsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "やく",
+  "vowel_length": "short",
+  "actor_name": "Yakker",
+  "note": "Yakker (yaku). Ends in -ku coda."
+ },
+ {
+  "reading": "うん",
+  "vowel_length": "short",
+  "actor_name": "Unwin",
+  "note": "Unwin — \"Un\". Ends in -n."
+ },
+ {
+  "reading": "ちゃく",
+  "vowel_length": "short",
+  "actor_name": "Chuckler",
+  "note": "Chuckler (chaku). Ends in -ku coda."
+ },
+ {
+  "reading": "ぜん",
+  "vowel_length": "short",
+  "actor_name": "Zen",
+  "note": "Zen master — voiced/heavier twin of Sen (せん). Ends in -n."
+ },
+ {
+  "reading": "はつ",
+  "vowel_length": "short",
+  "actor_name": "Hatcher",
+  "note": "Teri Hatcher — \"Hat\" (hatsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "にょう",
+  "vowel_length": "long",
+  "actor_name": "Nyoro",
+  "note": "Nyoro (nyō). Long ō. Parent of clipped twin Nyo (にょ)."
+ },
+ {
+  "reading": "びょう",
+  "vowel_length": "long",
+  "actor_name": "Beau",
+  "note": "Beau (Bridges) — voiced/heavier twin of Hugo (ひょう). Long ō."
+ },
+ {
+  "reading": "ねん",
+  "vowel_length": "short",
+  "actor_name": "Nenn",
+  "note": "Nenn (nen). Ends in -n."
+ },
+ {
+  "reading": "あん",
+  "vowel_length": "short",
+  "actor_name": "Ann",
+  "note": "Princess Ann (an). Ends in -n."
+ },
+ {
+  "reading": "よ",
+  "vowel_length": "short",
+  "actor_name": "Yo",
+  "note": "Yo — clipped twin of Yoyo (よう). Short."
+ },
+ {
+  "reading": "けち",
+  "vowel_length": "short",
+  "actor_name": "Ketch",
+  "note": "Jack Ketch the hangman (kechi). Ends in -chi coda."
+ },
+ {
+  "reading": "とく",
+  "vowel_length": "short",
+  "actor_name": "Toker",
+  "note": "Toker (toku). Ends in -ku coda."
+ },
+ {
+  "reading": "あい",
+  "vowel_length": "short",
+  "actor_name": "Ira",
+  "note": "Ira (ai). Diphthong ai — short."
+ },
+ {
+  "reading": "しつ",
+  "vowel_length": "short",
+  "actor_name": "Schitt",
+  "note": "Schitt (Creek) — \"shit\" softened (shitsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "べん",
+  "vowel_length": "short",
+  "actor_name": "Ben",
+  "note": "Big Ben — voiced/heavier twin of the Hen-row. Ends in -n."
+ },
+ {
+  "reading": "ひん",
+  "vowel_length": "short",
+  "actor_name": "Hinn",
+  "note": "Benny Hinn (hin). Ends in -n."
+ },
+ {
+  "reading": "つ",
+  "vowel_length": "short",
+  "actor_name": "Tsu",
+  "note": "Tsunami-man — clipped bare \"tsu\". Short."
+ },
+ {
+  "reading": "ひつ",
+  "vowel_length": "short",
+  "actor_name": "Hitcher",
+  "note": "The Hitcher (hitsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "じゃく",
+  "vowel_length": "short",
+  "actor_name": "Jacker",
+  "note": "Jacker — voiced/heavier twin of Shacklock (しゃく). Ends in -ku coda."
+ },
+ {
+  "reading": "ふく",
+  "vowel_length": "short",
+  "actor_name": "Fokker",
+  "note": "Fokker the aviator (fuku). Ends in -ku coda."
+ },
+ {
+  "reading": "びん",
+  "vowel_length": "short",
+  "actor_name": "Binny",
+  "note": "Binny — voiced/heavier twin of Hinn (ひん). Ends in -n."
+ },
+ {
+  "reading": "ふう",
+  "vowel_length": "long",
+  "actor_name": "Fuller",
+  "note": "Buckminster Fuller — full/stretched twin of Foo (ふ). Long ū."
+ },
+ {
+  "reading": "しゅく",
+  "vowel_length": "short",
+  "actor_name": "Shucker",
+  "note": "Oyster Shucker (shuku). Ends in -ku coda."
+ },
+ {
+  "reading": "まん",
+  "vowel_length": "short",
+  "actor_name": "Mann",
+  "note": "Thomas Mann (man). Ends in -n."
+ },
+ {
+  "reading": "くん",
+  "vowel_length": "short",
+  "actor_name": "Kuhn",
+  "note": "Thomas Kuhn (kun). Ends in -n."
+ },
+ {
+  "reading": "みょう",
+  "vowel_length": "long",
+  "actor_name": "Myo",
+  "note": "Myo (myō). Long ō."
+ },
+ {
+  "reading": "そん",
+  "vowel_length": "short",
+  "actor_name": "Sonny",
+  "note": "Sonny — \"Son\". Ends in -n."
+ },
+ {
+  "reading": "ちゅ",
+  "vowel_length": "short",
+  "actor_name": "Chu",
+  "note": "Pika-Chu — clipped twin of Chewbacca (ちゅう). Short."
+ },
+ {
+  "reading": "ら",
+  "vowel_length": "short",
+  "actor_name": "Rah",
+  "note": "Rah — clipped bare \"ra\". Short."
+ },
+ {
+  "reading": "だん",
+  "vowel_length": "short",
+  "actor_name": "Dan",
+  "note": "Dan — voiced/heavier twin of Tanner (たん). Ends in -n."
+ },
+ {
+  "reading": "お",
+  "vowel_length": "long",
+  "actor_name": "Otto",
+  "note": "Otto, the bare long \"oh\" (ō). Long."
+ },
+ {
+  "reading": "のう",
+  "vowel_length": "long",
+  "actor_name": "Noah",
+  "note": "Noah (nō). Long ō."
+ },
+ {
+  "reading": "ちょ",
+  "vowel_length": "short",
+  "actor_name": "Choe",
+  "note": "Choe — clipped twin of Cho (ちょう). Short."
+ },
+ {
+  "reading": "けき",
+  "vowel_length": "short",
+  "actor_name": "Kekker",
+  "note": "Kekker (keki). Ends in -ki coda."
+ },
+ {
+  "reading": "が",
+  "vowel_length": "short",
+  "actor_name": "Garr",
+  "note": "Teri Garr — voiced/heavier twin of Carr (か), a growling engine. Short."
+ },
+ {
+  "reading": "さつ",
+  "vowel_length": "short",
+  "actor_name": "Satcher",
+  "note": "Satcher (satsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "いつ",
+  "vowel_length": "short",
+  "actor_name": "Itzhak",
+  "note": "Itzhak Perlman — \"Its\" (itsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "ほん",
+  "vowel_length": "short",
+  "actor_name": "Honner",
+  "note": "Honner — \"Hon\". Ends in -n."
+ },
+ {
+  "reading": "きょく",
+  "vowel_length": "short",
+  "actor_name": "Kyoker",
+  "note": "Kyoker (kyoku). Ends in -ku coda."
+ },
+ {
+  "reading": "えき",
+  "vowel_length": "short",
+  "actor_name": "Ecker",
+  "note": "Ecker (eki). Ends in -ki coda."
+ },
+ {
+  "reading": "めん",
+  "vowel_length": "short",
+  "actor_name": "Menn",
+  "note": "Menn (men). Ends in -n."
+ },
+ {
+  "reading": "せち",
+  "vowel_length": "short",
+  "actor_name": "Setch",
+  "note": "Setch (sechi). Ends in -chi coda."
+ },
+ {
+  "reading": "がく",
+  "vowel_length": "short",
+  "actor_name": "Gackt",
+  "note": "Gackt, the rock star — voiced/heavier twin of Knuckles (かく). Ends in -ku coda."
+ },
+ {
+  "reading": "み",
+  "vowel_length": "short",
+  "actor_name": "Mee",
+  "note": "Mee — clipped bare \"mi\". Short."
+ },
+ {
+  "reading": "ばく",
+  "vowel_length": "short",
+  "actor_name": "Bachar",
+  "note": "Bacca-man — voiced/heavier twin of Hacker (はく). Ends in -ku coda."
+ },
+ {
+  "reading": "みん",
+  "vowel_length": "short",
+  "actor_name": "Minn",
+  "note": "Minn (min). Ends in -n."
+ },
+ {
+  "reading": "げい",
+  "vowel_length": "long",
+  "actor_name": "Gei",
+  "note": "Gei — voiced/heavier twin of Kayo (けい). Long ē. Parent of clipped twin Gett (げ)."
+ },
+ {
+  "reading": "にん",
+  "vowel_length": "short",
+  "actor_name": "Ninn",
+  "note": "Anaïs Nin (nin). Ends in -n."
+ },
+ {
+  "reading": "じょ",
+  "vowel_length": "short",
+  "actor_name": "Jo",
+  "note": "Jo March — clipped twin of Joe (じょう). Short."
+ },
+ {
+  "reading": "ない",
+  "vowel_length": "short",
+  "actor_name": "Nye",
+  "note": "Bill Nye (nai). Diphthong ai — short."
+ },
+ {
+  "reading": "わ",
+  "vowel_length": "short",
+  "actor_name": "Wah",
+  "note": "Wah — clipped bare \"wa\". Short."
+ },
+ {
+  "reading": "ぼく",
+  "vowel_length": "short",
+  "actor_name": "Booker",
+  "note": "Booker — voiced/heavier twin of the Boku-base. Ends in -ku coda."
+ },
+ {
+  "reading": "こつ",
+  "vowel_length": "short",
+  "actor_name": "Cotter",
+  "note": "Cotter (kotsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "ぞう",
+  "vowel_length": "long",
+  "actor_name": "Zoe",
+  "note": "Zoe — voiced/heavier twin of Sosa (そう). Long ō."
+ },
+ {
+  "reading": "ふつ",
+  "vowel_length": "short",
+  "actor_name": "Footer",
+  "note": "Footer (futsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "たつ",
+  "vowel_length": "short",
+  "actor_name": "Tatum",
+  "note": "Channing Tatum — \"Tat\" (tatsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "きつ",
+  "vowel_length": "short",
+  "actor_name": "Kittner",
+  "note": "Kittner (kitsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "あ",
+  "vowel_length": "short",
+  "actor_name": "Ace",
+  "note": "Ace — clipped bare \"a\". Short."
+ },
+ {
+  "reading": "しゅつ",
+  "vowel_length": "short",
+  "actor_name": "Shooter",
+  "note": "Shooter (shutsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "じゅん",
+  "vowel_length": "short",
+  "actor_name": "June",
+  "note": "June — voiced/heavier twin of Shun (しゅん). Ends in -n."
+ },
+ {
+  "reading": "れき",
+  "vowel_length": "short",
+  "actor_name": "Recker",
+  "note": "Recker (reki). Ends in -ki coda."
+ },
+ {
+  "reading": "えつ",
+  "vowel_length": "short",
+  "actor_name": "Etzler",
+  "note": "Etzler (etsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "ばつ",
+  "vowel_length": "short",
+  "actor_name": "Batcher",
+  "note": "Batcher — voiced/heavier twin of Hatcher (はつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "りょ",
+  "vowel_length": "short",
+  "actor_name": "Ryo-short",
+  "note": "Ryo-short — clipped twin of Ryo (りょう). Short."
+ },
+ {
+  "reading": "よく",
+  "vowel_length": "short",
+  "actor_name": "Yorker",
+  "note": "New Yorker — \"Yok\" (yoku). Ends in -ku coda."
+ },
+ {
+  "reading": "いく",
+  "vowel_length": "short",
+  "actor_name": "Iker",
+  "note": "Iker Casillas (iku). Ends in -ku coda."
+ },
+ {
+  "reading": "るい",
+  "vowel_length": "short",
+  "actor_name": "Louie",
+  "note": "Louie (rui). Diphthong ui — short."
+ },
+ {
+  "reading": "でん",
+  "vowel_length": "short",
+  "actor_name": "Denny",
+  "note": "Denny — voiced/heavier twin of Ten (てん). Ends in -n."
+ },
+ {
+  "reading": "なん",
+  "vowel_length": "short",
+  "actor_name": "Nanny",
+  "note": "Nanny — \"Nan\". Ends in -n."
+ },
+ {
+  "reading": "まい",
+  "vowel_length": "short",
+  "actor_name": "Mai",
+  "note": "Mai (mai). Diphthong ai — short."
+ },
+ {
+  "reading": "ずい",
+  "vowel_length": "short",
+  "actor_name": "Zwee",
+  "note": "Zwee — voiced/heavier twin of Swee (すい). Diphthong ui — short."
+ },
+ {
+  "reading": "にゅ",
+  "vowel_length": "short",
+  "actor_name": "Nu",
+  "note": "Nu — clipped twin of Newman (にゅう). Short."
+ },
+ {
+  "reading": "もん",
+  "vowel_length": "short",
+  "actor_name": "Monn",
+  "note": "Marilyn Mon(roe) — \"Mon\". Ends in -n."
+ },
+ {
+  "reading": "ば",
+  "vowel_length": "short",
+  "actor_name": "Bah",
+  "note": "Bah — voiced/heavier twin of Hah (は). Short."
+ },
+ {
+  "reading": "ちょく",
+  "vowel_length": "short",
+  "actor_name": "Choker",
+  "note": "Choker (chyoku). Ends in -ku coda."
+ },
+ {
+  "reading": "らく",
+  "vowel_length": "short",
+  "actor_name": "Lacker",
+  "note": "Lacker (raku). Ends in -ku coda."
+ },
+ {
+  "reading": "ぎん",
+  "vowel_length": "short",
+  "actor_name": "Ginn",
+  "note": "Ginn — voiced/heavier twin of King/Kin (きん). Ends in -n."
+ },
+ {
+  "reading": "わん",
+  "vowel_length": "short",
+  "actor_name": "Wann",
+  "note": "Wann (wan). Ends in -n."
+ },
+ {
+  "reading": "わく",
+  "vowel_length": "short",
+  "actor_name": "Walker",
+  "note": "Walker (waku). Ends in -ku coda."
+ },
+ {
+  "reading": "わい",
+  "vowel_length": "short",
+  "actor_name": "Wai",
+  "note": "Wai (wai). Diphthong ai — short."
+ },
+ {
+  "reading": "かち",
+  "vowel_length": "short",
+  "actor_name": "Catch",
+  "note": "Catcher (kachi). Ends in -chi coda."
+ },
+ {
+  "reading": "げつ",
+  "vowel_length": "short",
+  "actor_name": "Getzler",
+  "note": "Getzler — voiced/heavier twin of Ketel (けつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "ほく",
+  "vowel_length": "short",
+  "actor_name": "Hooker",
+  "note": "Hooker (hoku). Ends in -ku coda."
+ },
+ {
+  "reading": "ぼ",
+  "vowel_length": "short",
+  "actor_name": "Bo",
+  "note": "Bo Derek — voiced/heavier twin of the Ho-base. Short."
+ },
+ {
+  "reading": "ぞく",
+  "vowel_length": "short",
+  "actor_name": "Zocker",
+  "note": "Zocker — voiced/heavier twin of Soaker (そく). Ends in -ku coda."
+ },
+ {
+  "reading": "どん",
+  "vowel_length": "short",
+  "actor_name": "Don",
+  "note": "The Don — voiced/heavier twin of Ton (とん). Ends in -n."
+ },
+ {
+  "reading": "きく",
+  "vowel_length": "short",
+  "actor_name": "Kicker",
+  "note": "Kicker (kiku). Ends in -ku coda."
+ },
+ {
+  "reading": "あく",
+  "vowel_length": "short",
+  "actor_name": "Acker",
+  "note": "Acker (aku). Ends in -ku coda."
+ },
+ {
+  "reading": "あつ",
+  "vowel_length": "short",
+  "actor_name": "Atcher",
+  "note": "Atcher (atsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "ぼん",
+  "vowel_length": "short",
+  "actor_name": "Bonn",
+  "note": "Bonn — voiced/heavier twin of Hon (ほん). Ends in -n."
+ },
+ {
+  "reading": "も",
+  "vowel_length": "short",
+  "actor_name": "Mo",
+  "note": "Mo — clipped twin of Moe (もう). Short."
+ },
+ {
+  "reading": "いち",
+  "vowel_length": "short",
+  "actor_name": "Itchy",
+  "note": "Itchy (ichi). Ends in -chi coda."
+ },
+ {
+  "reading": "せ",
+  "vowel_length": "short",
+  "actor_name": "Seth",
+  "note": "Seth — clipped twin of Sage (せい). Short."
+ },
+ {
+  "reading": "りゃく",
+  "vowel_length": "short",
+  "actor_name": "Ryacker",
+  "note": "Ryacker (ryaku). Ends in -ku coda."
+ },
+ {
+  "reading": "へつ",
+  "vowel_length": "short",
+  "actor_name": "Hetzler",
+  "note": "Hetzler (hetsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "しち",
+  "vowel_length": "short",
+  "actor_name": "Sitch",
+  "note": "Sitch (shichi). Ends in -chi coda."
+ },
+ {
+  "reading": "めい",
+  "vowel_length": "long",
+  "actor_name": "May",
+  "note": "Theresa May (mei). Long ē."
+ },
+ {
+  "reading": "や",
+  "vowel_length": "short",
+  "actor_name": "Yah",
+  "note": "Yah — clipped bare \"ya\". Short."
+ },
+ {
+  "reading": "な",
+  "vowel_length": "short",
+  "actor_name": "Nah",
+  "note": "Nah — clipped bare \"na\". Short."
+ },
+ {
+  "reading": "ほつ",
+  "vowel_length": "short",
+  "actor_name": "Hotter",
+  "note": "Hotter (hotsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "ざん",
+  "vowel_length": "short",
+  "actor_name": "Zann",
+  "note": "Zann — voiced/heavier twin of San (さん). Ends in -n."
+ },
+ {
+  "reading": "れつ",
+  "vowel_length": "short",
+  "actor_name": "Retzler",
+  "note": "Retzler (retsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "へき",
+  "vowel_length": "short",
+  "actor_name": "Hecker",
+  "note": "Hecker (heki). Ends in -ki coda."
+ },
+ {
+  "reading": "ちつ",
+  "vowel_length": "short",
+  "actor_name": "Chitter",
+  "note": "Chitter (chitsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "ぶん",
+  "vowel_length": "short",
+  "actor_name": "Bunn",
+  "note": "Bunn — voiced/heavier twin of Fun (ふん). Ends in -n."
+ },
+ {
+  "reading": "しき",
+  "vowel_length": "short",
+  "actor_name": "Shicker",
+  "note": "Shicker (shiki). Ends in -ki coda."
+ },
+ {
+  "reading": "つい",
+  "vowel_length": "short",
+  "actor_name": "Twee",
+  "note": "Twee (tsui). Diphthong ui — short."
+ },
+ {
+  "reading": "たち",
+  "vowel_length": "short",
+  "actor_name": "Tatch",
+  "note": "Tatch (tachi). Ends in -chi coda."
+ },
+ {
+  "reading": "べい",
+  "vowel_length": "long",
+  "actor_name": "Bay",
+  "note": "Michael Bay — voiced/heavier twin of Hayes (へい). Long ē."
+ },
+ {
+  "reading": "ひゃく",
+  "vowel_length": "short",
+  "actor_name": "Hyacker",
+  "note": "Hyacker (hyaku). Ends in -ku coda."
+ },
+ {
+  "reading": "でい",
+  "vowel_length": "long",
+  "actor_name": "Day",
+  "note": "Doris Day — voiced/heavier twin of Tay (てい). Long ē."
+ },
+ {
+  "reading": "ねい",
+  "vowel_length": "long",
+  "actor_name": "Nay",
+  "note": "Nay (nei). Long ē."
+ },
+ {
+  "reading": "じゃ",
+  "vowel_length": "short",
+  "actor_name": "Jacques",
+  "note": "Jacques — voiced/heavier twin of Shaq (しゃ). Short."
+ },
+ {
+  "reading": "すう",
+  "vowel_length": "long",
+  "actor_name": "Soo",
+  "note": "Soo — full/stretched twin of Sue (す). Long ū."
+ },
+ {
+  "reading": "おく",
+  "vowel_length": "short",
+  "actor_name": "Occam",
+  "note": "Occam — \"Ok\" (oku). Ends in -ku coda."
+ },
+ {
+  "reading": "げき",
+  "vowel_length": "short",
+  "actor_name": "Gecker",
+  "note": "Gecker — voiced/heavier twin of Kekker (けき). Ends in -ki coda."
+ },
+ {
+  "reading": "ま",
+  "vowel_length": "short",
+  "actor_name": "Mah",
+  "note": "Mah — clipped bare \"ma\". Short."
+ },
+ {
+  "reading": "ぼち",
+  "vowel_length": "short",
+  "actor_name": "Botch",
+  "note": "Botch (bochi). Ends in -chi coda."
+ },
+ {
+  "reading": "こち",
+  "vowel_length": "short",
+  "actor_name": "Cotch",
+  "note": "Cotch (kochi). Ends in -chi coda."
+ },
+ {
+  "reading": "ちく",
+  "vowel_length": "short",
+  "actor_name": "Chicker",
+  "note": "Chicker (chiku). Ends in -ku coda."
+ },
+ {
+  "reading": "そつ",
+  "vowel_length": "short",
+  "actor_name": "Sotter",
+  "note": "Sotter (sotsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "げち",
+  "vowel_length": "short",
+  "actor_name": "Getch",
+  "note": "Getch — voiced/heavier twin of Ketch (けち). Ends in -chi coda."
+ },
+ {
+  "reading": "がち",
+  "vowel_length": "short",
+  "actor_name": "Gatch",
+  "note": "Gatch — voiced/heavier twin of Catch (かち). Ends in -chi coda."
+ },
+ {
+  "reading": "えち",
+  "vowel_length": "short",
+  "actor_name": "Etch",
+  "note": "Etch (echi). Ends in -chi coda."
+ },
+ {
+  "reading": "はち",
+  "vowel_length": "short",
+  "actor_name": "Hatch",
+  "note": "Hatch (hachi). Ends in -chi coda."
+ },
+ {
+  "reading": "ど",
+  "vowel_length": "short",
+  "actor_name": "Doh",
+  "note": "Homer \"Doh\" — voiced/heavier twin of Toto/To (と). Short."
+ },
+ {
+  "reading": "りつ",
+  "vowel_length": "short",
+  "actor_name": "Ritter",
+  "note": "John Ritter (ritsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "ぜい",
+  "vowel_length": "long",
+  "actor_name": "Zay",
+  "note": "Zay — voiced/heavier twin of Sage/Sei (せい). Long ē."
+ },
+ {
+  "reading": "とつ",
+  "vowel_length": "short",
+  "actor_name": "Totter",
+  "note": "Totter (totsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "みゃく",
+  "vowel_length": "short",
+  "actor_name": "Myacker",
+  "note": "Myacker (myaku). Ends in -ku coda."
+ },
+ {
+  "reading": "じく",
+  "vowel_length": "short",
+  "actor_name": "Jicker",
+  "note": "Jicker — voiced/heavier twin of Shicker (しき). Ends in -ku coda."
+ },
+ {
+  "reading": "ひょく",
+  "vowel_length": "short",
+  "actor_name": "Hyocker",
+  "note": "Hyocker (hyoku). Ends in -ku coda."
+ },
+ {
+  "reading": "らつ",
+  "vowel_length": "short",
+  "actor_name": "Ratter",
+  "note": "Ratter (ratsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "め",
+  "vowel_length": "short",
+  "actor_name": "Meh",
+  "note": "Meh — clipped bare \"me\". Short."
+ },
+ {
+  "reading": "へ",
+  "vowel_length": "short",
+  "actor_name": "Heh",
+  "note": "Heh — clipped bare \"he\". Short."
+ },
+ {
+  "reading": "りょく",
+  "vowel_length": "short",
+  "actor_name": "Ryocker",
+  "note": "Ryocker (ryoku). Ends in -ku coda."
+ },
+ {
+  "reading": "ぎょ",
+  "vowel_length": "short",
+  "actor_name": "Gyo-short",
+  "note": "Gyo-short — voiced/heavier twin of Cole (きょ). Short."
+ },
+ {
+  "reading": "べつ",
+  "vowel_length": "short",
+  "actor_name": "Better",
+  "note": "Better — voiced/heavier twin of Hetzler (へつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "くつ",
+  "vowel_length": "short",
+  "actor_name": "Cutter",
+  "note": "Cutter (kutsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "て",
+  "vowel_length": "short",
+  "actor_name": "Tett",
+  "note": "Tett — clipped twin of Tay (てい). Short."
+ },
+ {
+  "reading": "じょく",
+  "vowel_length": "short",
+  "actor_name": "Jocker",
+  "note": "Jocker — voiced/heavier twin of Shocker-row Shoku. Ends in -ku coda."
+ },
+ {
+  "reading": "ごち",
+  "vowel_length": "short",
+  "actor_name": "Gotch",
+  "note": "Gotch — voiced/heavier twin of Cotch (こち). Ends in -chi coda."
+ },
+ {
+  "reading": "りく",
+  "vowel_length": "short",
+  "actor_name": "Ricker",
+  "note": "Ricker (riku). Ends in -ku coda."
+ },
+ {
+  "reading": "もく",
+  "vowel_length": "short",
+  "actor_name": "Moker",
+  "note": "Moker (moku). Ends in -ku coda."
+ },
+ {
+  "reading": "ざい",
+  "vowel_length": "short",
+  "actor_name": "Zy",
+  "note": "Zy — voiced/heavier twin of Cy (さい). Diphthong ai — short."
+ },
+ {
+  "reading": "ばち",
+  "vowel_length": "short",
+  "actor_name": "Batch",
+  "note": "Batch — voiced/heavier twin of Hatch (はち). Ends in -chi coda."
+ },
+ {
+  "reading": "まく",
+  "vowel_length": "short",
+  "actor_name": "Macker",
+  "note": "Macker (maku). Ends in -ku coda."
+ },
+ {
+  "reading": "ぼつ",
+  "vowel_length": "short",
+  "actor_name": "Botter",
+  "note": "Botter — voiced/heavier twin of Hotter (ほつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "てち",
+  "vowel_length": "short",
+  "actor_name": "Tetch",
+  "note": "Tetch (techi). Ends in -chi coda."
+ },
+ {
+  "reading": "べき",
+  "vowel_length": "short",
+  "actor_name": "Becker",
+  "note": "Boris Becker — voiced/heavier twin of Hecker (へき). Ends in -ki coda."
+ },
+ {
+  "reading": "びち",
+  "vowel_length": "short",
+  "actor_name": "Bitcher",
+  "note": "Bitcher — voiced/heavier twin of Hitch (ひち). Ends in -chi coda."
+ },
+ {
+  "reading": "にゃく",
+  "vowel_length": "short",
+  "actor_name": "Nyacker",
+  "note": "Nyacker (nyaku). Ends in -ku coda."
+ },
+ {
+  "reading": "ぐう",
+  "vowel_length": "long",
+  "actor_name": "Goomba",
+  "note": "Goomba — voiced/heavier twin of Coombs (くう). Long ū."
+ },
+ {
+  "reading": "いき",
+  "vowel_length": "short",
+  "actor_name": "Icker",
+  "note": "Icker (iki). Ends in -ki coda."
+ },
+ {
+  "reading": "ぬ",
+  "vowel_length": "short",
+  "actor_name": "Noo",
+  "note": "Noo — clipped bare \"nu\". Short."
+ },
+ {
+  "reading": "ぎゃく",
+  "vowel_length": "short",
+  "actor_name": "Gyacker",
+  "note": "Gyacker — voiced/heavier twin of Kyacker (きゃく). Ends in -ku coda."
+ },
+ {
+  "reading": "じつ",
+  "vowel_length": "short",
+  "actor_name": "Jitter",
+  "note": "Jitter — voiced/heavier twin of the Shitsu-row. Ends in -tsu coda."
+ },
+ {
+  "reading": "ね",
+  "vowel_length": "short",
+  "actor_name": "Neh",
+  "note": "Neh — clipped bare \"ne\". Short."
+ },
+ {
+  "reading": "ひち",
+  "vowel_length": "short",
+  "actor_name": "Hitch",
+  "note": "Hitch (hichi). Ends in -chi coda."
+ },
+ {
+  "reading": "れち",
+  "vowel_length": "short",
+  "actor_name": "Retch",
+  "note": "Retch (rechi). Ends in -chi coda."
+ },
+ {
+  "reading": "ふち",
+  "vowel_length": "short",
+  "actor_name": "Footch",
+  "note": "Footch (fuchi). Ends in -chi coda."
+ },
+ {
+  "reading": "にょ",
+  "vowel_length": "short",
+  "actor_name": "Nyo",
+  "note": "Nyo — clipped twin of Nyoro (にょう). Short."
+ },
+ {
+  "reading": "びゃく",
+  "vowel_length": "short",
+  "actor_name": "Byacker",
+  "note": "Byacker — voiced/heavier twin of Hyacker (ひゃく). Ends in -ku coda."
+ },
+ {
+  "reading": "くう",
+  "vowel_length": "long",
+  "actor_name": "Coombs",
+  "note": "Coombs — full/stretched twin of Coo (く). Long ū."
+ },
+ {
+  "reading": "きち",
+  "vowel_length": "short",
+  "actor_name": "Kitch",
+  "note": "Kitch (kichi). Ends in -chi coda."
+ },
+ {
+  "reading": "ちゅん",
+  "vowel_length": "short",
+  "actor_name": "Chun",
+  "note": "Chun-Li — \"Chun\". Ends in -n."
+ },
+ {
+  "reading": "ひき",
+  "vowel_length": "short",
+  "actor_name": "Hicker",
+  "note": "Hicker (hiki). Ends in -ki coda."
+ },
+ {
+  "reading": "ちゅつ",
+  "vowel_length": "short",
+  "actor_name": "Chooter",
+  "note": "Chooter (chyutsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "まち",
+  "vowel_length": "short",
+  "actor_name": "Match",
+  "note": "Match (machi). Ends in -chi coda."
+ },
+ {
+  "reading": "でち",
+  "vowel_length": "short",
+  "actor_name": "Detch",
+  "note": "Detch — voiced/heavier twin of Tetch (てち). Ends in -chi coda."
+ },
+ {
+  "reading": "しゅち",
+  "vowel_length": "short",
+  "actor_name": "Shootch",
+  "note": "Shootch (shyuchi). Ends in -chi coda."
+ },
+ {
+  "reading": "にゅう",
+  "vowel_length": "long",
+  "actor_name": "Newman",
+  "note": "Paul Newman (nyū). Long ū. Parent of clipped twin Nu (にゅ)."
+ },
+ {
+  "reading": "りち",
+  "vowel_length": "short",
+  "actor_name": "Ritch",
+  "note": "Ritchie (richi). Ends in -chi coda."
+ },
+ {
+  "reading": "じゅく",
+  "vowel_length": "short",
+  "actor_name": "Juker",
+  "note": "Juker — voiced/heavier twin of Shucker (しゅく). Ends in -ku coda."
+ },
+ {
+  "reading": "そち",
+  "vowel_length": "short",
+  "actor_name": "Sotch",
+  "note": "Sotch (sochi). Ends in -chi coda."
+ },
+ {
+  "reading": "ぜち",
+  "vowel_length": "short",
+  "actor_name": "Zetch",
+  "note": "Zetch — voiced/heavier twin of Setch (せち). Ends in -chi coda."
+ },
+ {
+  "reading": "ぎょく",
+  "vowel_length": "short",
+  "actor_name": "Gyocker",
+  "note": "Gyocker — voiced/heavier twin of Kyoker (きょく). Ends in -ku coda."
+ },
+ {
+  "reading": "ぶつ",
+  "vowel_length": "short",
+  "actor_name": "Butter",
+  "note": "Butter — voiced/heavier twin of Footer (ふつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "どく",
+  "vowel_length": "short",
+  "actor_name": "Docker",
+  "note": "Docker — voiced/heavier twin of Toker (とく). Ends in -ku coda."
+ },
+ {
+  "reading": "ぐん",
+  "vowel_length": "short",
+  "actor_name": "Gunn",
+  "note": "Gunn — voiced/heavier twin of Kuhn (くん). Ends in -n."
+ },
+ {
+  "reading": "ぜつ",
+  "vowel_length": "short",
+  "actor_name": "Zetzler",
+  "note": "Zetzler — voiced/heavier twin of Settler (せつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "ろん",
+  "vowel_length": "short",
+  "actor_name": "Ron",
+  "note": "Ron Weasley (ron). Ends in -n."
+ },
+ {
+  "reading": "でき",
+  "vowel_length": "short",
+  "actor_name": "Decker",
+  "note": "Decker — voiced/heavier twin of Tekker (てき). Ends in -ki coda."
+ },
+ {
+  "reading": "だつ",
+  "vowel_length": "short",
+  "actor_name": "Datcher",
+  "note": "Datcher — voiced/heavier twin of the Tatsu-base. Ends in -tsu coda."
+ },
+ {
+  "reading": "うつ",
+  "vowel_length": "short",
+  "actor_name": "Utter",
+  "note": "Utter (utsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "すく",
+  "vowel_length": "short",
+  "actor_name": "Sucker",
+  "note": "Sucker (suku). Ends in -ku coda."
+ },
+ {
+  "reading": "ひゅう",
+  "vowel_length": "long",
+  "actor_name": "Hughie",
+  "note": "Hughie (hyū). Long ū."
+ },
+ {
+  "reading": "じち",
+  "vowel_length": "short",
+  "actor_name": "Jitch",
+  "note": "Jitch — voiced/heavier twin of Sitch (しち). Ends in -chi coda."
+ },
+ {
+  "reading": "もち",
+  "vowel_length": "short",
+  "actor_name": "Motch",
+  "note": "Motch (mochi). Ends in -chi coda."
+ },
+ {
+  "reading": "ねち",
+  "vowel_length": "short",
+  "actor_name": "Netch",
+  "note": "Netch (nechi). Ends in -chi coda."
+ },
+ {
+  "reading": "せく",
+  "vowel_length": "short",
+  "actor_name": "Secker",
+  "note": "Secker (seku). Ends in -ku coda."
+ },
+ {
+  "reading": "おち",
+  "vowel_length": "short",
+  "actor_name": "Otch",
+  "note": "Otch (ochi). Ends in -chi coda."
+ },
+ {
+  "reading": "めち",
+  "vowel_length": "short",
+  "actor_name": "Metch",
+  "note": "Metch (mechi). Ends in -chi coda."
+ },
+ {
+  "reading": "じゅち",
+  "vowel_length": "short",
+  "actor_name": "Jootch",
+  "note": "Jootch (jyuchi). Ends in -chi coda."
+ },
+ {
+  "reading": "ゆい",
+  "vowel_length": "short",
+  "actor_name": "Yui",
+  "note": "Yui, the guitarist (yui). Diphthong ui — short."
+ },
+ {
+  "reading": "まつ",
+  "vowel_length": "short",
+  "actor_name": "Matsu",
+  "note": "Matsu (matsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "おつ",
+  "vowel_length": "short",
+  "actor_name": "Otter",
+  "note": "Otter (otsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "べ",
+  "vowel_length": "short",
+  "actor_name": "Beh",
+  "note": "Beh — voiced/heavier twin of Heh (へ). Short."
+ },
+ {
+  "reading": "らち",
+  "vowel_length": "short",
+  "actor_name": "Latch",
+  "note": "Latch (rachi). Ends in -chi coda."
+ },
+ {
+  "reading": "りゅ",
+  "vowel_length": "short",
+  "actor_name": "Ryu-short",
+  "note": "Ryu-short — clipped twin of Ryu (りゅう). Short."
+ },
+ {
+  "reading": "ぶち",
+  "vowel_length": "short",
+  "actor_name": "Butch",
+  "note": "Butch — voiced/heavier twin of Footch (ふち). Ends in -chi coda."
+ },
+ {
+  "reading": "ごつ",
+  "vowel_length": "short",
+  "actor_name": "Gotter",
+  "note": "Gotter — voiced/heavier twin of Cotter (こつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "あち",
+  "vowel_length": "short",
+  "actor_name": "Atch",
+  "note": "Atch (achi). Ends in -chi coda."
+ },
+ {
+  "reading": "べち",
+  "vowel_length": "short",
+  "actor_name": "Betch",
+  "note": "Betch — voiced/heavier twin of Hetch (へち). Ends in -chi coda."
+ },
+ {
+  "reading": "りき",
+  "vowel_length": "short",
+  "actor_name": "Ricky",
+  "note": "Ricky (riki). Ends in -ki coda."
+ },
+ {
+  "reading": "にち",
+  "vowel_length": "short",
+  "actor_name": "Nitch",
+  "note": "Nitch (nichi). Ends in -chi coda."
+ },
+ {
+  "reading": "がつ",
+  "vowel_length": "short",
+  "actor_name": "Gatter",
+  "note": "Gatter — voiced/heavier twin of the Katsu-base (かつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "にく",
+  "vowel_length": "short",
+  "actor_name": "Nicker",
+  "note": "Nicker (niku). Ends in -ku coda."
+ },
+ {
+  "reading": "じき",
+  "vowel_length": "short",
+  "actor_name": "Jicky",
+  "note": "Jicky — voiced/heavier twin of the Shiki-row. Ends in -ki coda."
+ },
+ {
+  "reading": "じゅつ",
+  "vowel_length": "short",
+  "actor_name": "Jootter",
+  "note": "Jootter — voiced/heavier twin of Shooter (しゅつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "ごく",
+  "vowel_length": "short",
+  "actor_name": "Gocker",
+  "note": "Gocker — voiced/heavier twin of Coker (こく). Ends in -ku coda."
+ },
+ {
+  "reading": "だく",
+  "vowel_length": "short",
+  "actor_name": "Dacker",
+  "note": "Dacker — voiced/heavier twin of Tucker (たく). Ends in -ku coda."
+ },
+ {
+  "reading": "ちき",
+  "vowel_length": "short",
+  "actor_name": "Chicky",
+  "note": "Chicky (chiki). Ends in -ki coda."
+ },
+ {
+  "reading": "へち",
+  "vowel_length": "short",
+  "actor_name": "Hetch",
+  "note": "Hetch (hechi). Ends in -chi coda."
+ },
+ {
+  "reading": "で",
+  "vowel_length": "short",
+  "actor_name": "Deh",
+  "note": "Deh — voiced/heavier twin of Tett/Te (て). Short."
+ },
+ {
+  "reading": "ねつ",
+  "vowel_length": "short",
+  "actor_name": "Netter",
+  "note": "Netter (netsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "みつ",
+  "vowel_length": "short",
+  "actor_name": "Mitter",
+  "note": "Mitter (mitsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "さち",
+  "vowel_length": "short",
+  "actor_name": "Satch",
+  "note": "Satchmo (sachi). Ends in -chi coda."
+ },
+ {
+  "reading": "ほち",
+  "vowel_length": "short",
+  "actor_name": "Hotch",
+  "note": "Hotchner (hochi). Ends in -chi coda."
+ },
+ {
+  "reading": "ぐち",
+  "vowel_length": "short",
+  "actor_name": "Gootch",
+  "note": "Gootch — voiced/heavier twin of Cootch (くち). Ends in -chi coda."
+ },
+ {
+  "reading": "くち",
+  "vowel_length": "short",
+  "actor_name": "Cootch",
+  "note": "Cootch (kuchi). Ends in -chi coda."
+ },
+ {
+  "reading": "ぎゅう",
+  "vowel_length": "long",
+  "actor_name": "Gyu",
+  "note": "Gyu — voiced/heavier twin of Cuomo/Kyū (きゅう). Long ū."
+ },
+ {
+  "reading": "ざ",
+  "vowel_length": "short",
+  "actor_name": "Zah",
+  "note": "Zah — voiced/heavier twin of Sah (さ). Short."
+ },
+ {
+  "reading": "きゃ",
+  "vowel_length": "short",
+  "actor_name": "Kya",
+  "note": "Kya — clipped (kya). Short."
+ },
+ {
+  "reading": "ちち",
+  "vowel_length": "short",
+  "actor_name": "Chitch",
+  "note": "Chitch (chichi). Ends in -chi coda."
+ },
+ {
+  "reading": "うち",
+  "vowel_length": "short",
+  "actor_name": "Ootch",
+  "note": "Ootch (uchi). Ends in -chi coda."
+ },
+ {
+  "reading": "もつ",
+  "vowel_length": "short",
+  "actor_name": "Motter",
+  "note": "Motter (motsu). Ends in -tsu coda."
+ },
+ {
+  "reading": "ぜ",
+  "vowel_length": "short",
+  "actor_name": "Zeh",
+  "note": "Zeh — voiced/heavier twin of Seth (せ). Short."
+ },
+ {
+  "reading": "にゃ",
+  "vowel_length": "short",
+  "actor_name": "Nya",
+  "note": "Nya the cat-girl (nya). Short."
+ },
+ {
+  "reading": "ざつ",
+  "vowel_length": "short",
+  "actor_name": "Zatter",
+  "note": "Zatter — voiced/heavier twin of Satcher (さつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "のん",
+  "vowel_length": "short",
+  "actor_name": "Nonn",
+  "note": "Nonn (non). Ends in -n."
+ },
+ {
+  "reading": "すん",
+  "vowel_length": "short",
+  "actor_name": "Sunn",
+  "note": "Sunn (sun). Ends in -n."
+ },
+ {
+  "reading": "びゅう",
+  "vowel_length": "long",
+  "actor_name": "Byu",
+  "note": "Byu (byū) — voiced/heavier twin of Hughie-row. Long ū."
+ },
+ {
+  "reading": "ぎち",
+  "vowel_length": "short",
+  "actor_name": "Gitch",
+  "note": "Gitch — voiced/heavier twin of Kitch (きち). Ends in -chi coda."
+ },
+ {
+  "reading": "ざく",
+  "vowel_length": "short",
+  "actor_name": "Zacker",
+  "note": "Zaku (Gundam) — voiced/heavier twin of Sacco (さく). Ends in -ku coda."
+ },
+ {
+  "reading": "ぎつ",
+  "vowel_length": "short",
+  "actor_name": "Gitter",
+  "note": "Gitter — voiced/heavier twin of Kittner (きつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "ぐつ",
+  "vowel_length": "short",
+  "actor_name": "Gutter",
+  "note": "Gutter — voiced/heavier twin of Cutter (くつ). Ends in -tsu coda."
+ },
+ {
+  "reading": "なち",
+  "vowel_length": "short",
+  "actor_name": "Natch",
+  "note": "Natch (nachi). Ends in -chi coda."
+ },
+ {
+  "reading": "とち",
+  "vowel_length": "short",
+  "actor_name": "Totch",
+  "note": "Totch (tochi). Ends in -chi coda."
+ }
+]
