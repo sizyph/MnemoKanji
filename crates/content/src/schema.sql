@@ -109,6 +109,23 @@ CREATE TABLE vocab_kanji (
 
 CREATE INDEX idx_vk_kanji      ON vocab_kanji(kanji_id);
 CREATE INDEX idx_vk_vocab      ON vocab_kanji(vocab_id);
+
+-- Example sentences (slice 4): JP + EN, from jmdict-examples (Tanaka/Tatoeba). For cloze
+-- (blank the linked vocab word) and in-context reading.
+CREATE TABLE sentence (
+    id     INTEGER PRIMARY KEY,
+    jp     TEXT NOT NULL UNIQUE,
+    en     TEXT NOT NULL,
+    source TEXT
+);
+CREATE TABLE vocab_sentence (
+    vocab_id    INTEGER NOT NULL REFERENCES vocab(id),
+    sentence_id INTEGER NOT NULL REFERENCES sentence(id),
+    PRIMARY KEY (vocab_id, sentence_id)
+);
+CREATE INDEX idx_vs_vocab      ON vocab_sentence(vocab_id);
+CREATE INDEX idx_vs_sentence   ON vocab_sentence(sentence_id);
+
 CREATE INDEX idx_reading_kanji ON reading(kanji_id);
 CREATE INDEX idx_meaning_kanji ON meaning(kanji_id);
 CREATE INDEX idx_kc_kanji      ON kanji_component(kanji_id);

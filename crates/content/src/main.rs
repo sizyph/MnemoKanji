@@ -18,6 +18,7 @@ use std::path::Path;
 use rusqlite::Connection;
 use serde_json::Value;
 
+mod sentence;
 mod vocab;
 
 const SOURCE_JSON: &str = "data/sources/kanji-data.json";
@@ -104,6 +105,13 @@ fn main() -> Result<(), Box<dyn Error>> {
         .collect();
     let vocab_data = vocab::build(&n5_owned, &stored, &kanji_levels)?;
 
+    // Example sentences for the selected vocab (optional source).
+    let wanted_surfaces: HashSet<String> = vocab_data
+        .as_ref()
+        .map(|vd| vd.vocab.iter().map(|v| v.surface.clone()).collect())
+        .unwrap_or_default();
+    let sentence_map = sentence::build(&wanted_surfaces)?;
+
     // --- Frequency-weighted topological order within N5. ---
     let intro_order = topological_order(&rows, &n5_set);
     let intro_rank: HashMap<&str, i64> = intro_order
@@ -187,6 +195,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let authored = load_authored(&tx, &kanji_id, &comp_id)?;
     let vstats = insert_vocab(&tx, &kanji_id, &rows, vocab_data.as_ref())?;
+    let sentence_count = insert_sentences(&tx, sentence_map.as_ref())?;
 
     for (k, v) in build_meta(&rows) {
         tx.execute(
@@ -198,6 +207,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         ("dominant_derived", vstats.0.to_string()),
         ("dominant_fallback", vstats.1.to_string()),
         ("vocab_count", vstats.2.to_string()),
+        ("sentence_count", sentence_count.to_string()),
     ] {
         tx.execute(
             "INSERT OR REPLACE INTO meta (key, value) VALUES (?1, ?2)",
@@ -214,6 +224,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         "Slice 3: {} dominant readings derived ({} fallback), {} vocab words",
         vstats.0, vstats.1, vstats.2
     );
+    println!("Slice 4: {sentence_count} vocab-sentence links");
     verify(&conn, &rows)?;
     println!("\nWrote {OUT_DB}");
     Ok(())
@@ -520,13 +531,53 @@ fn insert_vocab(
     Ok((derived, fallback, count))
 }
 
+/// Slice 4: insert example sentences, linking each to every vocab row with the same surface.
+/// Returns the number of (sentence, vocab) links created.
+fn insert_sentences(
+    tx: &rusqlite::Transaction,
+    map: Option<&sentence::SentenceMap>,
+) -> Result<usize, Box<dyn Error>> {
+    let Some(map) = map else {
+        return Ok(0);
+    };
+    let mut links = 0;
+    for (surface, sentences) in map {
+        let vids: Vec<i64> = {
+            let mut stmt = tx.prepare("SELECT id FROM vocab WHERE surface = ?1")?;
+            let ids = stmt
+                .query_map([surface], |r| r.get::<_, i64>(0))?
+                .collect::<rusqlite::Result<Vec<_>>>()?;
+            ids
+        };
+        if vids.is_empty() {
+            continue;
+        }
+        for s in sentences {
+            tx.execute(
+                "INSERT OR IGNORE INTO sentence (jp, en, source) VALUES (?1, ?2, ?3)",
+                rusqlite::params![s.jp, s.en, s.source],
+            )?;
+            let sid: i64 = tx.query_row("SELECT id FROM sentence WHERE jp = ?1", [&s.jp], |r| {
+                r.get(0)
+            })?;
+            for vid in &vids {
+                tx.execute(
+                    "INSERT OR IGNORE INTO vocab_sentence (vocab_id, sentence_id) VALUES (?1, ?2)",
+                    rusqlite::params![vid, sid],
+                )?;
+                links += 1;
+            }
+        }
+    }
+    Ok(links)
+}
+
 fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {
     vec![
         ("schema_version", "1".to_string()),
         (
             "slice",
-            "3 (N5: + dominant readings & in-context vocabulary from JMdict-common + JmdictFurigana)"
-                .to_string(),
+            "4 (N5: dominant readings, in-context vocabulary, example sentences)".to_string(),
         ),
         ("levels", "N5".to_string()),
         ("kanji_count", rows.len().to_string()),
@@ -582,6 +633,16 @@ fn verify(conn: &Connection, rows: &[KanjiRow]) -> Result<(), Box<dyn Error>> {
     println!("  kanji with no reading:    {no_reading}");
     println!("  dominant readings set:    {dominant} ({no_dom} kanji without one)");
     println!("  vocab words={vocab_n}  vocab-kanji links={vk_n}");
+    let sentences: i64 = conn.query_row("SELECT COUNT(*) FROM sentence", [], |r| r.get(0))?;
+    let vs_n: i64 = conn.query_row("SELECT COUNT(*) FROM vocab_sentence", [], |r| r.get(0))?;
+    let no_sentence: i64 = conn.query_row(
+        "SELECT COUNT(*) FROM kanji k WHERE NOT EXISTS \
+         (SELECT 1 FROM vocab_kanji vk JOIN vocab_sentence vs ON vs.vocab_id = vk.vocab_id \
+          WHERE vk.kanji_id = k.id)",
+        [],
+        |r| r.get(0),
+    )?;
+    println!("  sentences={sentences}  vocab-sentence links={vs_n}  ({no_sentence} kanji with no sentence)");
 
     println!("\nFirst 12 by learning order (intro_rank · keyword · #components):");
     let mut stmt = conn.prepare(

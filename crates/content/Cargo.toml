@@ -15,4 +15,5 @@ path = "src/main.rs"
 [dependencies]
 # Embedded SQLite for the seed DB; bundled = no system dependency, same on all OSes.
 rusqlite = { version = "0.40", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
 serde_json = "1"

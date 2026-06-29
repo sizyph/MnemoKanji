@@ -23,6 +23,11 @@ tar -xzf data/sources/jmdict-eng-common-*.json.tgz -C data/sources
 mv -f data/sources/jmdict-eng-common-*.json data/sources/jmdict-eng-common.json
 rm -f data/sources/jmdict-eng-common-*.json.tgz
 gh release download --repo Doublevil/JmdictFurigana --pattern 'JmdictFurigana.json' --dir data/sources --clobber
+# Example sentences (JP+EN), JMdict-simplified with Tanaka/Tatoeba examples per word (slice 4).
+gh release download --repo scriptin/jmdict-simplified --pattern 'jmdict-examples-eng-*.json.tgz' --dir data/sources --clobber
+tar -xzf data/sources/jmdict-examples-eng-*.json.tgz -C data/sources
+mv -f data/sources/jmdict-examples-eng-*.json data/sources/jmdict-examples.json
+rm -f data/sources/jmdict-examples-eng-*.json.tgz
 # Word frequency for vocab ranking (OpenSubtitles 2016 top-50k, CC BY-SA).
 fetch "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2016/ja/ja_50k.txt" "ja-freq.txt"
 # JLPT word levels (word-level, Yomitan dict) for beginner-appropriate vocab selection.
