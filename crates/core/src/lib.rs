@@ -1,12 +1,19 @@
 //! MnemoKanji core — UI-agnostic domain logic.
 //!
-//! This crate will hold the domain model, the FSRS-driven two-track scheduler, the session
-//! engine, and the frequency-weighted topological learning order. See `docs/03-DESIGN.md`.
-//!
-//! M0 scaffold: a version helper + a smoke test, so the workspace and CI have something real to
-//! build and run. Real logic lands in M2.
+//! The two-track FSRS scheduler and the session engine (introductions, due selection, grading,
+//! production activation, comprehension-gated level unlocking). Storage-agnostic: it operates on
+//! an in-memory [`session::StudyState`] + [`session::ContentView`] that the data crate loads from
+//! and persists to SQLite. See `docs/03-DESIGN.md`.
 
-/// Returns the crate version (from Cargo). Placeholder wiring exercised by the UI in M0.
+pub mod domain;
+pub mod scheduler;
+pub mod session;
+
+pub use domain::{Card, Rating, State, Track, TrackKind};
+pub use scheduler::{comprehension_mature, Scheduler, MATURE_STABILITY_DAYS};
+pub use session::{ContentView, Engine, KanjiMeta, Settings, StudyState};
+
+/// Crate version (from Cargo).
 pub fn version() -> &'static str {
     env!("CARGO_PKG_VERSION")
 }
