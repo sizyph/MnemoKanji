@@ -4,7 +4,13 @@ A small, fast, cross-platform Rust app for memorizing **all JLPT kanji** (N5 →
 *efficient* way — built on proven memory science and a Heisig-style structural/mnemonic
 approach, not naive single-character flashcards.
 
-> Status: **planning**. This repo currently holds the design + plan. No code yet.
+> Status: **working desktop app (JLPT N5)**. A complete study loop runs on macOS/Windows/Linux:
+> dashboard, all four review modes (recognition, reading-in-context, write, cloze) on a two-track
+> FSRS schedule, stroke-order animation, a kanji-detail hub with editable mnemonics, browse,
+> settings, and one-tap undo — over a fully-built N5 dataset (79 kanji, verified mnemonics,
+> readings, vocab, sentences, stroke data). Run it: `cargo run -p mnemokanji-ui`.
+> (Content for N4–N1, audio, iOS, and packaged releases are the next milestones — see
+> [docs/05-PLAN.md](docs/05-PLAN.md).)
 
 ## What makes it different from generic Anki decks
 
