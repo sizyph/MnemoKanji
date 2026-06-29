@@ -264,13 +264,17 @@ pub fn build(
 fn word_gloss(w: &Value, single_char: bool) -> String {
     const SKIP: [&str; 7] = ["arch", "obs", "obsc", "rare", "hist", "dated", "derog"];
     let limit = if single_char { 1 } else { 3 };
+    let senses = w.get("sense").and_then(Value::as_array);
+    // If the word is fundamentally nominal (its first sense is a noun/adjective), drop later
+    // purely-verbal senses: those are the する-verb form ("to do X") and mislead (科学 = "science",
+    // not "to think scientifically"). For genuine verbs (first sense verbal), keep all senses.
+    let nominal = senses
+        .and_then(|s| s.first())
+        .map(|s| !purely_verbal(s))
+        .unwrap_or(false);
+
     let mut out: Vec<String> = Vec::new();
-    for s in w
-        .get("sense")
-        .and_then(Value::as_array)
-        .into_iter()
-        .flatten()
-    {
+    for s in senses.into_iter().flatten() {
         let obscure = s
             .get("misc")
             .and_then(Value::as_array)
@@ -280,7 +284,7 @@ fn word_gloss(w: &Value, single_char: bool) -> String {
                     .any(|t| SKIP.contains(&t))
             })
             .unwrap_or(false);
-        if obscure {
+        if obscure || (nominal && purely_verbal(s)) {
             continue;
         }
         let g = s
@@ -299,6 +303,18 @@ fn word_gloss(w: &Value, single_char: bool) -> String {
         }
     }
     out.join("; ")
+}
+
+/// True if every part-of-speech tag of a sense is verbal (i.e. the sense is a verb form).
+fn purely_verbal(sense: &Value) -> bool {
+    sense
+        .get("partOfSpeech")
+        .and_then(Value::as_array)
+        .map(|p| {
+            let tags: Vec<&str> = p.iter().filter_map(Value::as_str).collect();
+            !tags.is_empty() && tags.iter().all(|t| t.starts_with('v'))
+        })
+        .unwrap_or(false)
 }
 
 /// Remove parenthetical clarifications and collapse whitespace.
