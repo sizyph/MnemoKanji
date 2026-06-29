@@ -220,3 +220,9 @@ button:hover { filter: brightness(1.08); }
 .m-fill.mature { background: var(--good); }
 .m-n { width: 2rem; text-align: left; font-weight: 700; font-size: 0.9rem; }
 .mastered-line { color: var(--good); font-weight: 700; margin: 0.5rem 0 1.25rem; }
+
+/* Settings data (export/import) */
+.data-section { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #1f2330; text-align: left; }
+.data-section h3 { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.6rem; }
+.data-row { display: flex; gap: 0.6rem; }
+.data-row .secondary { width: 100%; margin-top: 0; }

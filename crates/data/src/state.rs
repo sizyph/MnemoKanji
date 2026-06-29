@@ -292,4 +292,43 @@ mod tests {
 
         let _ = std::fs::remove_file(&path);
     }
+
+    #[test]
+    fn db_file_backup_round_trips() {
+        let path = temp_db();
+        let backup = temp_db();
+        let now = DateTime::<Utc>::from_timestamp(1_700_000_000, 0).unwrap();
+        {
+            let mut store = StateStore::open(&path).unwrap();
+            let mut state = store.load_state().unwrap();
+            state.unlocked_level = 3;
+            state.tracks.insert(
+                (7, TrackKind::Comprehension),
+                Track {
+                    kanji_id: 7,
+                    kind: TrackKind::Comprehension,
+                    card: Scheduler::new_card(now),
+                    introduced_at: now,
+                },
+            );
+            store.save_state(&state).unwrap();
+            store.save_settings(15, 80).unwrap();
+        }
+        // "Export" = copy the DB file; "import" = open the copy.
+        std::fs::copy(&path, &backup).unwrap();
+        let restored = StateStore::open(&backup).unwrap();
+        let st = restored.load_state().unwrap();
+        assert_eq!(st.unlocked_level, 3);
+        assert!(st.tracks.contains_key(&(7, TrackKind::Comprehension)));
+        assert_eq!(restored.load_settings().unwrap(), (15, 80));
+
+        let _ = std::fs::remove_file(&path);
+        let _ = std::fs::remove_file(&backup);
+    }
+
+    #[test]
+    fn in_memory_store_opens() {
+        // Import opens an in-memory store to release the lock on the destination file.
+        assert!(StateStore::open(":memory:").is_ok());
+    }
 }

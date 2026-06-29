@@ -18,6 +18,7 @@ mnemokanji-core = { workspace = true }
 mnemokanji-data = { workspace = true }
 chrono = { version = "0.4.45", default-features = false, features = ["clock"] }
 dirs = { version = "5", optional = true }
+rfd = "0.15"
 
 [features]
 # Release builds: embed assets/seed.sqlite into the binary and extract it to the OS app-data

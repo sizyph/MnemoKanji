@@ -29,6 +29,8 @@ struct Backend {
     state_store: StateStore,
     state: StudyState,
     settings: Settings,
+    /// Path to the writable user-state DB (for backup/restore).
+    user_path: String,
     /// Dev-only simulated-time offset in days (lets the production track activate without waiting).
     clock_offset_days: i64,
 }
@@ -122,6 +124,7 @@ fn main() {
                 daily_review_cap,
                 ..Default::default()
             },
+            user_path: user,
             clock_offset_days: 0,
         }))
         .map_err(|_| ())
@@ -584,7 +587,15 @@ fn settings_view(s: AppState) -> Element {
                     button { onclick: move |_| change_setting(s, 0, 10), "+" }
                 }
             }
-            p { class: "setting-note", "Changes are saved and apply to the next session." }
+            div { class: "data-section",
+                h3 { "Data" }
+                div { class: "data-row",
+                    button { class: "secondary", onclick: move |_| export_data(s), "Export backup" }
+                    button { class: "secondary", onclick: move |_| import_data(s), "Import backup" }
+                }
+                p { class: "setting-note", "Back up or restore all your progress (a .sqlite file). Import replaces current progress." }
+            }
+            p { class: "setting-note", "Settings changes are saved and apply to the next session." }
         }
     }
 }
@@ -718,6 +729,67 @@ fn change_setting(s: AppState, d_npd: i64, d_cap: i64) {
     }
     let mut tick = s.tick;
     tick += 1;
+}
+
+/// Back up the user-state DB to a file the user chooses.
+fn export_data(_s: AppState) {
+    let src = backend().user_path.clone();
+    if let Some(dest) = rfd::FileDialog::new()
+        .set_file_name("mnemokanji-backup.sqlite")
+        .add_filter("MnemoKanji backup", &["sqlite"])
+        .save_file()
+    {
+        let _ = std::fs::copy(&src, dest);
+    }
+}
+
+/// Restore the user-state DB from a backup file, replacing current progress.
+fn import_data(s: AppState) {
+    let Some(picked) = rfd::FileDialog::new()
+        .add_filter("MnemoKanji backup", &["sqlite"])
+        .pick_file()
+    else {
+        return;
+    };
+    let src = picked.to_string_lossy().into_owned();
+
+    // Validate: a copy must open cleanly as a MnemoKanji state DB.
+    let check = std::env::temp_dir().join("mnemokanji-import-check.sqlite");
+    let valid =
+        std::fs::copy(&src, &check).is_ok() && StateStore::open(&check.to_string_lossy()).is_ok();
+    let _ = std::fs::remove_file(&check);
+    if !valid {
+        return;
+    }
+
+    {
+        let mut g = backend();
+        let dest = g.user_path.clone();
+        // Release the lock on the destination file, copy the backup in, then reopen it.
+        if let Ok(mem) = StateStore::open(":memory:") {
+            g.state_store = mem;
+        }
+        let _ = std::fs::copy(&src, &dest);
+        if let Ok(store) = StateStore::open(&dest) {
+            g.state = store.load_state().unwrap_or_default();
+            let (npd, cap) = store.load_settings().unwrap_or((10, 60));
+            g.settings.new_per_day = npd;
+            g.settings.daily_review_cap = cap;
+            g.state_store = store;
+        }
+    }
+
+    // Reset to a fresh dashboard.
+    let mut screen = s.screen;
+    let mut queue = s.queue;
+    let mut undo = s.undo;
+    let mut current = s.current;
+    let mut tick = s.tick;
+    queue.set(Vec::new());
+    undo.set(None);
+    current.set(None);
+    tick += 1;
+    screen.set(Screen::Dashboard);
 }
 
 fn start_edit(s: AppState, story: String) {
