@@ -1,13 +1,15 @@
 //! MnemoKanji — desktop app (Dioxus, system WebView).
 //!
-//! M3 slice 1: dashboard + recognition review loop, wired to the core engine + seed, persisting
-//! every grade. Slice 2: stroke-order animation, the kanji-detail hub, a browse grid, and an
-//! enriched reveal (reading-in-context + mnemonic). Other test modes + anti-burnout land next.
+//! M3: dashboard + the four review modes wired to the core engine + seed, persisting every grade.
+//! Comprehension track → recognition (kanji→meaning) + reading-in-context. Production track →
+//! write (meaning→kanji, revealing animated strokes) + cloze. Stroke animation, kanji-detail hub,
+//! and a browse grid. A dev "skip day" advances a clock offset so the production track (which only
+//! activates after comprehension matures) is reachable without waiting real days.
 
 use std::collections::HashSet;
 use std::sync::{Mutex, OnceLock};
 
-use chrono::Utc;
+use chrono::{DateTime, Duration, Utc};
 use dioxus::prelude::*;
 use mnemokanji_core::{ContentView, Engine, Rating, Settings, StudyState, TrackKind};
 use mnemokanji_data::{BrowseItem, ContentRepo, KanjiDetail, StateStore};
@@ -23,6 +25,14 @@ struct Backend {
     state_store: StateStore,
     state: StudyState,
     settings: Settings,
+    /// Dev-only simulated-time offset in days (lets the production track activate without waiting).
+    clock_offset_days: i64,
+}
+
+impl Backend {
+    fn now(&self) -> DateTime<Utc> {
+        Utc::now() + Duration::days(self.clock_offset_days)
+    }
 }
 
 static BACKEND: OnceLock<Mutex<Backend>> = OnceLock::new();
@@ -53,6 +63,7 @@ fn main() {
             state_store,
             state,
             settings: Settings::default(),
+            clock_offset_days: 0,
         }))
         .map_err(|_| ())
         .expect("set backend once");
@@ -75,10 +86,11 @@ struct Dash {
     introduced: usize,
     due: usize,
     new_remaining: usize,
+    offset_days: i64,
 }
 
 fn compute_dash(b: &Backend) -> Dash {
-    let now = Utc::now();
+    let now = b.now();
     let engine = Engine::new(&b.content, b.settings.clone());
     let level = b.state.unlocked_level;
     Dash {
@@ -92,6 +104,7 @@ fn compute_dash(b: &Backend) -> Dash {
             .count(),
         due: engine.due_items(&b.state, now).len(),
         new_remaining: engine.new_remaining_today(&b.state, now),
+        offset_days: b.clock_offset_days,
     }
 }
 
@@ -99,10 +112,11 @@ fn compute_dash(b: &Backend) -> Dash {
 struct AppState {
     screen: Signal<Screen>,
     queue: Signal<Vec<(i64, TrackKind)>>,
-    current: Signal<Option<KanjiDetail>>,
+    current: Signal<Option<(KanjiDetail, TrackKind)>>,
     revealed: Signal<bool>,
     detail: Signal<Option<KanjiDetail>>,
     browse: Signal<Vec<BrowseItem>>,
+    tick: Signal<u32>,
 }
 
 #[component]
@@ -114,6 +128,7 @@ fn App() -> Element {
         revealed: use_signal(|| false),
         detail: use_signal(|| None),
         browse: use_signal(Vec::new),
+        tick: use_signal(|| 0u32),
     };
 
     rsx! {
@@ -130,12 +145,14 @@ fn App() -> Element {
 }
 
 fn dashboard_view(s: AppState) -> Element {
+    let _ = (s.tick)(); // subscribe so dev skip-day refreshes the counts
     let d = compute_dash(&backend());
     let level = d.level;
     let due = d.due;
     let new_remaining = d.new_remaining;
     let learned = format!("{}/{}", d.introduced, d.total);
     let nothing = due == 0 && new_remaining == 0;
+    let offset = d.offset_days;
 
     rsx! {
         div { class: "card",
@@ -152,25 +169,45 @@ fn dashboard_view(s: AppState) -> Element {
                 button { class: "primary", onclick: move |_| start_session(s), "Start session" }
             }
             button { class: "secondary", onclick: move |_| show_browse(s), "Browse N{level}" }
+            div { class: "devbar",
+                span { "dev clock: +{offset}d" }
+                button { class: "devbtn", onclick: move |_| skip_day(s), "skip 1 day \u{23e9}" }
+            }
         }
     }
 }
 
 fn session_view(s: AppState) -> Element {
-    let Some(k) = (s.current)() else {
+    let Some((k, kind)) = (s.current)() else {
         return rsx! { div { class: "card", p { "Loading\u{2026}" } } };
     };
-    let glyph = k.glyph.clone();
-    let keyword = k.keyword.clone();
     let left = (s.queue)().len();
     let is_revealed = (s.revealed)();
-    let reading_str = k
-        .readings
-        .iter()
-        .filter(|r| r.is_dominant)
-        .map(|r| r.reading.clone())
-        .collect::<Vec<_>>()
-        .join("   ");
+    let mode_label = match kind {
+        TrackKind::Comprehension => "recognise",
+        TrackKind::Production => "write",
+    };
+
+    rsx! {
+        div { class: "review",
+            div { class: "topbar",
+                button { class: "link", onclick: move |_| { let mut sc = s.screen; sc.set(Screen::Dashboard); }, "\u{2190} end" }
+                span { class: "mode-tag", "{mode_label}" }
+                span { class: "left", "{left} left" }
+            }
+            {match kind {
+                TrackKind::Comprehension => comprehension_body(s, &k, is_revealed),
+                TrackKind::Production => production_body(s, &k, is_revealed),
+            }}
+        }
+    }
+}
+
+/// Recognition (kanji → meaning) + reading shown in context. Prompt is a clean glyph.
+fn comprehension_body(s: AppState, k: &KanjiDetail, revealed: bool) -> Element {
+    let glyph = k.glyph.clone();
+    let keyword = k.keyword.clone();
+    let reading_str = dominant_reading(k);
     let examples: Vec<String> = k
         .vocab
         .iter()
@@ -180,39 +217,89 @@ fn session_view(s: AppState) -> Element {
     let mnemonic = k.mnemonic.clone();
 
     rsx! {
-        div { class: "review",
-            div { class: "topbar",
-                button { class: "link", onclick: move |_| { let mut sc = s.screen; sc.set(Screen::Dashboard); }, "\u{2190} end" }
-                span { class: "left", "{left} left" }
-            }
-            // Recognition prompt: a clean glyph only (modality segregation).
-            div { class: "glyph", "{glyph}" }
-            if !is_revealed {
-                button { class: "primary reveal", onclick: move |_| { let mut r = s.revealed; r.set(true); }, "Show answer" }
-            } else {
-                div { class: "answer",
-                    div { class: "keyword", "{keyword}" }
-                    if !reading_str.is_empty() {
-                        div { class: "reading", "{reading_str}" }
-                    }
-                    // Reading practiced in context, not in isolation.
-                    div { class: "examples",
-                        for ex in examples.iter() {
-                            div { class: "example", "{ex}" }
-                        }
-                    }
-                    if let Some(m) = mnemonic {
-                        div { class: "mnemonic", "{m}" }
-                    }
-                    div { class: "grades",
-                        button { class: "grade again", onclick: move |_| do_grade(Rating::Again, s), "Again" }
-                        button { class: "grade hard", onclick: move |_| do_grade(Rating::Hard, s), "Hard" }
-                        button { class: "grade good", onclick: move |_| do_grade(Rating::Good, s), "Good" }
-                        button { class: "grade easy", onclick: move |_| do_grade(Rating::Easy, s), "Easy" }
-                    }
-                }
+        div { class: "glyph", "{glyph}" }
+        if !revealed {
+            button { class: "primary reveal", onclick: move |_| { let mut r = s.revealed; r.set(true); }, "Show answer" }
+        } else {
+            div { class: "answer",
+                div { class: "keyword", "{keyword}" }
+                if !reading_str.is_empty() { div { class: "reading", "{reading_str}" } }
+                div { class: "examples", for ex in examples.iter() { div { class: "example", "{ex}" } } }
+                if let Some(m) = mnemonic { div { class: "mnemonic", "{m}" } }
+                {grade_buttons(s)}
             }
         }
+    }
+}
+
+/// Production (meaning → write the kanji) + cloze. Prompt is the keyword; reveal shows the glyph
+/// being drawn (animated strokes) and a filled-in example sentence.
+fn production_body(s: AppState, k: &KanjiDetail, revealed: bool) -> Element {
+    let keyword = k.keyword.clone();
+    let reading_str = dominant_reading(k);
+    let (cloze_q, cloze_a, cloze_en) = cloze(k);
+
+    rsx! {
+        div { class: "write-prompt",
+            div { class: "write-kw", "{keyword}" }
+            div { class: "write-hint", "write the kanji" }
+            if let Some(q) = cloze_q.clone() {
+                div { class: "cloze", "{q}" }
+            }
+        }
+        if !revealed {
+            button { class: "primary reveal", onclick: move |_| { let mut r = s.revealed; r.set(true); }, "Reveal" }
+        } else {
+            div { class: "answer",
+                {stroke_svg(&k.stroke_paths)}
+                div { class: "keyword", "{k.glyph}" }
+                if !reading_str.is_empty() { div { class: "reading", "{reading_str}" } }
+                if let Some(a) = cloze_a {
+                    div { class: "example", "{a}" }
+                    if let Some(en) = cloze_en { div { class: "sen", "{en}" } }
+                }
+                {grade_buttons(s)}
+            }
+        }
+    }
+}
+
+fn grade_buttons(s: AppState) -> Element {
+    rsx! {
+        div { class: "grades",
+            button { class: "grade again", onclick: move |_| do_grade(Rating::Again, s), "Again" }
+            button { class: "grade hard", onclick: move |_| do_grade(Rating::Hard, s), "Hard" }
+            button { class: "grade good", onclick: move |_| do_grade(Rating::Good, s), "Good" }
+            button { class: "grade easy", onclick: move |_| do_grade(Rating::Easy, s), "Easy" }
+        }
+    }
+}
+
+fn dominant_reading(k: &KanjiDetail) -> String {
+    k.readings
+        .iter()
+        .filter(|r| r.is_dominant)
+        .map(|r| r.reading.clone())
+        .collect::<Vec<_>>()
+        .join("   ")
+}
+
+/// Build a cloze: a sentence with the first vocab word it contains blanked out.
+/// Returns (blanked, full, english).
+fn cloze(k: &KanjiDetail) -> (Option<String>, Option<String>, Option<String>) {
+    for s in &k.sentences {
+        if let Some(v) = k.vocab.iter().find(|v| s.jp.contains(&v.surface)) {
+            return (
+                Some(s.jp.replace(&v.surface, "\u{3000}____\u{3000}")),
+                Some(s.jp.clone()),
+                Some(s.en.clone()),
+            );
+        }
+    }
+    // Fallback: first sentence with no blank.
+    match k.sentences.first() {
+        Some(s) => (Some(s.jp.clone()), Some(s.jp.clone()), Some(s.en.clone())),
+        None => (None, None, None),
     }
 }
 
@@ -311,14 +398,10 @@ fn detail_view(s: AppState) -> Element {
                 }
                 div { class: "facts",
                     div { class: "row", span { class: "rk", "on" } span { class: "rv",
-                        for (t, dom) in on.iter() {
-                            span { class: if *dom { "reading-chip dom" } else { "reading-chip" }, "{t}" }
-                        }
+                        for (t, dom) in on.iter() { span { class: if *dom { "reading-chip dom" } else { "reading-chip" }, "{t}" } }
                     } }
                     div { class: "row", span { class: "rk", "kun" } span { class: "rv",
-                        for (t, dom) in kun.iter() {
-                            span { class: if *dom { "reading-chip dom" } else { "reading-chip" }, "{t}" }
-                        }
+                        for (t, dom) in kun.iter() { span { class: if *dom { "reading-chip dom" } else { "reading-chip" }, "{t}" } }
                     } }
                     div { class: "row", span { class: "rk", "mean" } span { class: "rv plain", "{meanings}" } }
                 }
@@ -332,10 +415,7 @@ fn detail_view(s: AppState) -> Element {
                 }
             }
             if let Some(m) = mnemonic {
-                div { class: "section",
-                    h3 { "Mnemonic" }
-                    p { class: "mnemonic-text", "{m}" }
-                }
+                div { class: "section", h3 { "Mnemonic" } p { class: "mnemonic-text", "{m}" } }
             }
             div { class: "section",
                 h3 { "Vocabulary" }
@@ -350,10 +430,7 @@ fn detail_view(s: AppState) -> Element {
             div { class: "section",
                 h3 { "Examples" }
                 for (jp, en) in sentences.iter() {
-                    div { class: "sentence",
-                        div { class: "sjp", "{jp}" }
-                        div { class: "sen", "{en}" }
-                    }
+                    div { class: "sentence", div { class: "sjp", "{jp}" } div { class: "sen", "{en}" } }
                 }
             }
         }
@@ -384,6 +461,15 @@ fn stroke_svg(paths: &[String]) -> Element {
 
 // --- actions ---
 
+fn skip_day(s: AppState) {
+    {
+        let mut g = backend();
+        g.clock_offset_days += 1;
+    }
+    let mut tick = s.tick;
+    tick += 1;
+}
+
 fn show_browse(s: AppState) {
     let list = {
         let g = backend();
@@ -407,9 +493,9 @@ fn show_detail(id: i64, s: AppState) {
 }
 
 fn start_session(s: AppState) {
-    let now = Utc::now();
-    {
+    let q = {
         let mut g = backend();
+        let now = g.now();
         let Backend {
             content,
             state,
@@ -420,10 +506,7 @@ fn start_session(s: AppState) {
         let engine = Engine::new(content, settings.clone());
         engine.introduce_new(state, now);
         let _ = state_store.save_state(state);
-    }
-    let q = {
-        let g = backend();
-        Engine::new(&g.content, g.settings.clone()).due_items(&g.state, now)
+        engine.due_items(state, now)
     };
     let mut queue = s.queue;
     queue.set(q);
@@ -437,8 +520,8 @@ fn do_grade(rating: Rating, s: AppState) {
     }
     let (kid, kind) = q.remove(0);
     {
-        let now = Utc::now();
         let mut g = backend();
+        let now = g.now();
         let Backend {
             content,
             state,
@@ -457,23 +540,86 @@ fn do_grade(rating: Rating, s: AppState) {
 /// Load the queue's head item (or return to the dashboard when the queue is empty).
 fn load_current(s: AppState) {
     let q = (s.queue)();
-    let detail = {
+    let loaded = {
         let g = backend();
         q.first()
-            .and_then(|(kid, _)| g.content_repo.kanji_detail(*kid).ok())
+            .and_then(|(kid, kind)| g.content_repo.kanji_detail(*kid).ok().map(|d| (d, *kind)))
     };
     let mut current = s.current;
     let mut revealed = s.revealed;
     let mut screen = s.screen;
     revealed.set(false);
-    match detail {
-        Some(k) => {
-            current.set(Some(k));
+    match loaded {
+        Some(pair) => {
+            current.set(Some(pair));
             screen.set(Screen::Session);
         }
         None => {
             current.set(None);
             screen.set(Screen::Dashboard);
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use mnemokanji_data::{SentenceItem, VocabItem};
+
+    fn detail(vocab: &[(&str, &str, &str)], sentences: &[(&str, &str)]) -> KanjiDetail {
+        KanjiDetail {
+            id: 1,
+            glyph: "\u{5b66}".into(),
+            keyword: "study".into(),
+            stroke_count: Some(8),
+            meanings: vec![],
+            readings: vec![],
+            vocab: vocab
+                .iter()
+                .map(|(s, r, g)| VocabItem {
+                    surface: (*s).into(),
+                    reading: (*r).into(),
+                    gloss: (*g).into(),
+                })
+                .collect(),
+            sentences: sentences
+                .iter()
+                .map(|(jp, en)| SentenceItem {
+                    jp: (*jp).into(),
+                    en: (*en).into(),
+                })
+                .collect(),
+            mnemonic: None,
+            stroke_paths: vec![],
+            components: vec![],
+        }
+    }
+
+    #[test]
+    fn cloze_blanks_the_matching_vocab_word() {
+        let k = detail(
+            &[(
+                "\u{5b66}\u{6821}",
+                "\u{304c}\u{3063}\u{3053}\u{3046}",
+                "school",
+            )],
+            &[("\u{3053}\u{306e}\u{5b66}\u{6821}\u{3002}", "This school.")],
+        );
+        let (q, a, _) = cloze(&k);
+        assert!(q.unwrap().contains("____"), "question should be blanked");
+        assert!(
+            !a.unwrap().contains("____"),
+            "answer should be the full sentence"
+        );
+    }
+
+    #[test]
+    fn cloze_falls_back_to_full_sentence_when_no_vocab_matches() {
+        let k = detail(
+            &[("\u{72ac}", "\u{3044}\u{306c}", "dog")],
+            &[("\u{732b}\u{3002}", "Cat.")],
+        );
+        let (q, _, _) = cloze(&k);
+        assert_eq!(q.unwrap(), "\u{732b}\u{3002}");
     }
 }
