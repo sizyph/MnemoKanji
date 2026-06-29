@@ -2,9 +2,9 @@
 //!
 //! M3: dashboard + the four review modes wired to the core engine + seed, persisting every grade.
 //! Comprehension track → recognition (kanji→meaning) + reading-in-context. Production track →
-//! write (meaning→kanji, revealing animated strokes) + cloze. Stroke animation, kanji-detail hub,
-//! and a browse grid. A dev "skip day" advances a clock offset so the production track (which only
-//! activates after comprehension matures) is reachable without waiting real days.
+//! write (meaning→kanji, revealing animated strokes) + cloze. Plus the kanji-detail hub (with
+//! editable mnemonics), a browse grid, a settings screen, one-tap undo, and a dev clock-skip so
+//! the production track (active only after comprehension matures) is reachable without waiting.
 
 use std::collections::HashSet;
 use std::sync::{Mutex, OnceLock};
@@ -55,6 +55,7 @@ fn main() {
     let content = content_repo.content_view().expect("load content view");
     let state_store = StateStore::open(&user).expect("open user state db");
     let state = state_store.load_state().expect("load user state");
+    let (new_per_day, daily_review_cap) = state_store.load_settings().unwrap_or((10, 60));
 
     BACKEND
         .set(Mutex::new(Backend {
@@ -62,7 +63,11 @@ fn main() {
             content,
             state_store,
             state,
-            settings: Settings::default(),
+            settings: Settings {
+                new_per_day,
+                daily_review_cap,
+                ..Default::default()
+            },
             clock_offset_days: 0,
         }))
         .map_err(|_| ())
@@ -77,6 +82,7 @@ enum Screen {
     Session,
     Browse,
     Detail,
+    Settings,
 }
 
 #[derive(Clone, PartialEq)]
@@ -108,6 +114,13 @@ fn compute_dash(b: &Backend) -> Dash {
     }
 }
 
+/// Snapshot for one-tap undo: the whole study state before a grade, plus the graded item.
+#[derive(Clone)]
+struct UndoSnapshot {
+    state: StudyState,
+    item: (i64, TrackKind),
+}
+
 #[derive(Clone, Copy)]
 struct AppState {
     screen: Signal<Screen>,
@@ -116,6 +129,9 @@ struct AppState {
     revealed: Signal<bool>,
     detail: Signal<Option<KanjiDetail>>,
     browse: Signal<Vec<BrowseItem>>,
+    undo: Signal<Option<UndoSnapshot>>,
+    editing: Signal<bool>,
+    edit_text: Signal<String>,
     tick: Signal<u32>,
 }
 
@@ -128,6 +144,9 @@ fn App() -> Element {
         revealed: use_signal(|| false),
         detail: use_signal(|| None),
         browse: use_signal(Vec::new),
+        undo: use_signal(|| None),
+        editing: use_signal(|| false),
+        edit_text: use_signal(String::new),
         tick: use_signal(|| 0u32),
     };
 
@@ -139,13 +158,14 @@ fn App() -> Element {
                 Screen::Session => session_view(s),
                 Screen::Browse => browse_view(s),
                 Screen::Detail => detail_view(s),
+                Screen::Settings => settings_view(s),
             }}
         }
     }
 }
 
 fn dashboard_view(s: AppState) -> Element {
-    let _ = (s.tick)(); // subscribe so dev skip-day refreshes the counts
+    let _ = (s.tick)(); // subscribe so dev skip-day / settings changes refresh the counts
     let d = compute_dash(&backend());
     let level = d.level;
     let due = d.due;
@@ -168,7 +188,10 @@ fn dashboard_view(s: AppState) -> Element {
             } else {
                 button { class: "primary", onclick: move |_| start_session(s), "Start session" }
             }
-            button { class: "secondary", onclick: move |_| show_browse(s), "Browse N{level}" }
+            div { class: "nav-row",
+                button { class: "secondary", onclick: move |_| show_browse(s), "Browse" }
+                button { class: "secondary", onclick: move |_| { let mut sc = s.screen; sc.set(Screen::Settings); }, "Settings" }
+            }
             div { class: "devbar",
                 span { "dev clock: +{offset}d" }
                 button { class: "devbtn", onclick: move |_| skip_day(s), "skip 1 day \u{23e9}" }
@@ -183,6 +206,7 @@ fn session_view(s: AppState) -> Element {
     };
     let left = (s.queue)().len();
     let is_revealed = (s.revealed)();
+    let can_undo = (s.undo)().is_some();
     let mode_label = match kind {
         TrackKind::Comprehension => "recognise",
         TrackKind::Production => "write",
@@ -193,7 +217,12 @@ fn session_view(s: AppState) -> Element {
             div { class: "topbar",
                 button { class: "link", onclick: move |_| { let mut sc = s.screen; sc.set(Screen::Dashboard); }, "\u{2190} end" }
                 span { class: "mode-tag", "{mode_label}" }
-                span { class: "left", "{left} left" }
+                span { class: "topbar-right",
+                    if can_undo {
+                        button { class: "link", onclick: move |_| undo_last(s), "\u{21b6} undo" }
+                    }
+                    span { class: "left", "{left} left" }
+                }
             }
             {match kind {
                 TrackKind::Comprehension => comprehension_body(s, &k, is_revealed),
@@ -233,7 +262,7 @@ fn comprehension_body(s: AppState, k: &KanjiDetail, revealed: bool) -> Element {
 }
 
 /// Production (meaning → write the kanji) + cloze. Prompt is the keyword; reveal shows the glyph
-/// being drawn (animated strokes) and a filled-in example sentence.
+/// being drawn (animated strokes) and the filled-in example sentence.
 fn production_body(s: AppState, k: &KanjiDetail, revealed: bool) -> Element {
     let keyword = k.keyword.clone();
     let reading_str = dominant_reading(k);
@@ -243,9 +272,7 @@ fn production_body(s: AppState, k: &KanjiDetail, revealed: bool) -> Element {
         div { class: "write-prompt",
             div { class: "write-kw", "{keyword}" }
             div { class: "write-hint", "write the kanji" }
-            if let Some(q) = cloze_q.clone() {
-                div { class: "cloze", "{q}" }
-            }
+            if let Some(q) = cloze_q.clone() { div { class: "cloze", "{q}" } }
         }
         if !revealed {
             button { class: "primary reveal", onclick: move |_| { let mut r = s.revealed; r.set(true); }, "Reveal" }
@@ -296,7 +323,6 @@ fn cloze(k: &KanjiDetail) -> (Option<String>, Option<String>, Option<String>) {
             );
         }
     }
-    // Fallback: first sentence with no blank.
     match k.sentences.first() {
         Some(s) => (Some(s.jp.clone()), Some(s.jp.clone()), Some(s.en.clone())),
         None => (None, None, None),
@@ -347,6 +373,7 @@ fn detail_view(s: AppState) -> Element {
     let Some(k) = (s.detail)() else {
         return rsx! { div { class: "card", p { "Loading\u{2026}" } } };
     };
+    let kid = k.id;
     let glyph = k.glyph.clone();
     let keyword = k.keyword.clone();
     let strokes = k.stroke_paths.len();
@@ -373,7 +400,9 @@ fn detail_view(s: AppState) -> Element {
             )
         })
         .collect();
-    let mnemonic = k.mnemonic.clone();
+    let mnemonic = k.mnemonic.clone().unwrap_or_default();
+    let mnemonic_for_edit = mnemonic.clone();
+    let editing = (s.editing)();
     let vocab: Vec<(String, String, String)> = k
         .vocab
         .iter()
@@ -414,8 +443,28 @@ fn detail_view(s: AppState) -> Element {
                     }
                 }
             }
-            if let Some(m) = mnemonic {
-                div { class: "section", h3 { "Mnemonic" } p { class: "mnemonic-text", "{m}" } }
+            div { class: "section",
+                div { class: "mnemo-head",
+                    h3 { "Mnemonic" }
+                    if !editing {
+                        button { class: "tiny-link", onclick: move |_| start_edit(s, mnemonic_for_edit.clone()), "edit" }
+                    }
+                }
+                if editing {
+                    textarea {
+                        class: "edit-area",
+                        value: "{s.edit_text}",
+                        oninput: move |e| { let mut t = s.edit_text; t.set(e.value()); }
+                    }
+                    div { class: "edit-actions",
+                        button { class: "secondary", onclick: move |_| save_mnemonic(s, kid), "Save" }
+                        button { class: "link", onclick: move |_| { let mut ed = s.editing; ed.set(false); }, "Cancel" }
+                    }
+                } else if mnemonic.is_empty() {
+                    p { class: "muted", "\u{2014}" }
+                } else {
+                    p { class: "mnemonic-text", "{mnemonic}" }
+                }
             }
             div { class: "section",
                 h3 { "Vocabulary" }
@@ -433,6 +482,39 @@ fn detail_view(s: AppState) -> Element {
                     div { class: "sentence", div { class: "sjp", "{jp}" } div { class: "sen", "{en}" } }
                 }
             }
+        }
+    }
+}
+
+fn settings_view(s: AppState) -> Element {
+    let _ = (s.tick)();
+    let (npd, cap) = {
+        let g = backend();
+        (g.settings.new_per_day, g.settings.daily_review_cap)
+    };
+    rsx! {
+        div { class: "card",
+            div { class: "topbar",
+                button { class: "link", onclick: move |_| { let mut sc = s.screen; sc.set(Screen::Dashboard); }, "\u{2190} back" }
+                span { class: "title", "Settings" }
+            }
+            div { class: "setting-row",
+                label { "New kanji / day" }
+                div { class: "stepper",
+                    button { onclick: move |_| change_setting(s, -1, 0), "\u{2212}" }
+                    span { "{npd}" }
+                    button { onclick: move |_| change_setting(s, 1, 0), "+" }
+                }
+            }
+            div { class: "setting-row",
+                label { "Daily review cap" }
+                div { class: "stepper",
+                    button { onclick: move |_| change_setting(s, 0, -10), "\u{2212}" }
+                    span { "{cap}" }
+                    button { onclick: move |_| change_setting(s, 0, 10), "+" }
+                }
+            }
+            p { class: "setting-note", "Changes are saved and apply to the next session." }
         }
     }
 }
@@ -461,6 +543,16 @@ fn stroke_svg(paths: &[String]) -> Element {
 
 // --- actions ---
 
+/// Load a kanji's detail and apply the user's mnemonic override, if any.
+fn load_detail(id: i64) -> Option<KanjiDetail> {
+    let g = backend();
+    let mut d = g.content_repo.kanji_detail(id).ok()?;
+    if let Some(user) = g.state_store.user_mnemonic(id) {
+        d.mnemonic = Some(user);
+    }
+    Some(d)
+}
+
 fn skip_day(s: AppState) {
     {
         let mut g = backend();
@@ -468,6 +560,39 @@ fn skip_day(s: AppState) {
     }
     let mut tick = s.tick;
     tick += 1;
+}
+
+fn change_setting(s: AppState, d_npd: i64, d_cap: i64) {
+    {
+        let mut g = backend();
+        g.settings.new_per_day = (g.settings.new_per_day as i64 + d_npd).clamp(1, 100) as usize;
+        g.settings.daily_review_cap =
+            (g.settings.daily_review_cap as i64 + d_cap).clamp(10, 500) as usize;
+        let (n, c) = (g.settings.new_per_day, g.settings.daily_review_cap);
+        let _ = g.state_store.save_settings(n, c);
+    }
+    let mut tick = s.tick;
+    tick += 1;
+}
+
+fn start_edit(s: AppState, story: String) {
+    let mut edit_text = s.edit_text;
+    let mut editing = s.editing;
+    edit_text.set(story);
+    editing.set(true);
+}
+
+fn save_mnemonic(s: AppState, kid: i64) {
+    let text = (s.edit_text)();
+    {
+        let mut g = backend();
+        let _ = g.state_store.set_user_mnemonic(kid, &text);
+    }
+    let d = load_detail(kid);
+    let mut detail = s.detail;
+    let mut editing = s.editing;
+    detail.set(d);
+    editing.set(false);
 }
 
 fn show_browse(s: AppState) {
@@ -482,12 +607,11 @@ fn show_browse(s: AppState) {
 }
 
 fn show_detail(id: i64, s: AppState) {
-    let d = {
-        let g = backend();
-        g.content_repo.kanji_detail(id).ok()
-    };
+    let d = load_detail(id);
     let mut detail = s.detail;
+    let mut editing = s.editing;
     let mut screen = s.screen;
+    editing.set(false);
     detail.set(d);
     screen.set(Screen::Detail);
 }
@@ -509,7 +633,9 @@ fn start_session(s: AppState) {
         engine.due_items(state, now)
     };
     let mut queue = s.queue;
+    let mut undo = s.undo;
     queue.set(q);
+    undo.set(None);
     load_current(s);
 }
 
@@ -519,9 +645,10 @@ fn do_grade(rating: Rating, s: AppState) {
         return;
     }
     let (kid, kind) = q.remove(0);
-    {
+    let snapshot = {
         let mut g = backend();
         let now = g.now();
+        let snap = g.state.clone();
         let Backend {
             content,
             state,
@@ -531,20 +658,45 @@ fn do_grade(rating: Rating, s: AppState) {
         } = &mut *g;
         Engine::new(content, settings.clone()).grade(state, kid, kind, &[rating], now);
         let _ = state_store.save_state(state);
-    }
+        snap
+    };
+    let mut undo = s.undo;
     let mut queue = s.queue;
+    undo.set(Some(UndoSnapshot {
+        state: snapshot,
+        item: (kid, kind),
+    }));
     queue.set(q);
+    load_current(s);
+}
+
+fn undo_last(s: AppState) {
+    let Some(snap) = (s.undo)() else {
+        return;
+    };
+    {
+        let mut g = backend();
+        g.state = snap.state;
+        let Backend {
+            state, state_store, ..
+        } = &mut *g;
+        let _ = state_store.save_state(state);
+    }
+    let mut q = (s.queue)();
+    q.insert(0, snap.item);
+    let mut queue = s.queue;
+    let mut undo = s.undo;
+    queue.set(q);
+    undo.set(None);
     load_current(s);
 }
 
 /// Load the queue's head item (or return to the dashboard when the queue is empty).
 fn load_current(s: AppState) {
     let q = (s.queue)();
-    let loaded = {
-        let g = backend();
-        q.first()
-            .and_then(|(kid, kind)| g.content_repo.kanji_detail(*kid).ok().map(|d| (d, *kind)))
-    };
+    let loaded = q
+        .first()
+        .and_then(|(kid, kind)| load_detail(*kid).map(|d| (d, *kind)));
     let mut current = s.current;
     let mut revealed = s.revealed;
     let mut screen = s.screen;

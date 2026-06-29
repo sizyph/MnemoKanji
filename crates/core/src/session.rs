@@ -53,7 +53,7 @@ impl Default for Settings {
 }
 
 /// All mutable per-user study state.
-#[derive(Default)]
+#[derive(Clone, Default)]
 pub struct StudyState {
     pub tracks: HashMap<(i64, TrackKind), Track>,
     /// Highest unlocked level number (5 = N5 first). 0 = nothing unlocked yet.

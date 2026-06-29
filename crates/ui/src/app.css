@@ -182,3 +182,24 @@ button:hover { filter: brightness(1.08); }
 .write-kw { font-size: 2.4rem; font-weight: 700; }
 .write-hint { color: var(--muted); font-size: 0.9rem; }
 .cloze { margin-top: 1rem; font-size: 1.15rem; color: var(--ink); background: #14171f; border-radius: 10px; padding: 0.75rem 1rem; max-width: 30rem; text-align: center; }
+
+/* Dashboard nav row + review topbar right group */
+.nav-row { display: flex; gap: 0.6rem; margin-top: 0.75rem; }
+.nav-row .secondary { width: 100%; margin-top: 0; }
+.topbar-right { display: flex; align-items: center; gap: 0.75rem; }
+
+/* Settings */
+.setting-row { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; border-bottom: 1px solid #1f2330; }
+.setting-row label { color: var(--ink); }
+.stepper { display: flex; align-items: center; gap: 0.9rem; }
+.stepper button { background: #14171f; color: var(--ink); width: 2rem; height: 2rem; font-size: 1.1rem; }
+.stepper span { min-width: 2.5rem; text-align: center; font-weight: 700; }
+.setting-note { color: var(--muted); font-size: 0.8rem; margin-top: 1rem; }
+
+/* Mnemonic editing */
+.mnemo-head { display: flex; align-items: baseline; justify-content: space-between; }
+.tiny-link { background: transparent; color: var(--accent); font-size: 0.8rem; padding: 0.1rem 0.3rem; }
+.muted { color: var(--muted); }
+.edit-area { width: 100%; min-height: 6rem; background: #14171f; color: var(--ink); border: 1px solid #2b303c; border-radius: 8px; padding: 0.6rem 0.75rem; font: inherit; line-height: 1.5; resize: vertical; }
+.edit-actions { display: flex; gap: 0.6rem; margin-top: 0.6rem; }
+.edit-actions .secondary { width: auto; padding: 0.4rem 1rem; }

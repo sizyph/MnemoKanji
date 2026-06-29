@@ -9,20 +9,35 @@ use rusqlite::Connection;
 use rusqlite_migration::{Migrations, M};
 
 fn migrations() -> Migrations<'static> {
-    Migrations::new(vec![M::up(
-        "CREATE TABLE track (
-            kanji_id      INTEGER NOT NULL,
-            kind          TEXT NOT NULL,              -- 'comprehension' | 'production'
-            card_json     TEXT NOT NULL,              -- serialized rs-fsrs Card
-            introduced_at TEXT NOT NULL,              -- RFC3339
-            PRIMARY KEY (kanji_id, kind)
-         );
-         CREATE TABLE progress (
-            id             INTEGER PRIMARY KEY CHECK (id = 1),
-            unlocked_level INTEGER NOT NULL
-         );
-         INSERT INTO progress (id, unlocked_level) VALUES (1, 5);",
-    )])
+    Migrations::new(vec![
+        M::up(
+            "CREATE TABLE track (
+                kanji_id      INTEGER NOT NULL,
+                kind          TEXT NOT NULL,              -- 'comprehension' | 'production'
+                card_json     TEXT NOT NULL,              -- serialized rs-fsrs Card
+                introduced_at TEXT NOT NULL,              -- RFC3339
+                PRIMARY KEY (kanji_id, kind)
+             );
+             CREATE TABLE progress (
+                id             INTEGER PRIMARY KEY CHECK (id = 1),
+                unlocked_level INTEGER NOT NULL
+             );
+             INSERT INTO progress (id, unlocked_level) VALUES (1, 5);",
+        ),
+        M::up(
+            "CREATE TABLE user_mnemonic (
+                kanji_id  INTEGER PRIMARY KEY,
+                story     TEXT NOT NULL,
+                edited_at TEXT NOT NULL
+             );
+             CREATE TABLE app_settings (
+                id               INTEGER PRIMARY KEY CHECK (id = 1),
+                new_per_day      INTEGER NOT NULL,
+                daily_review_cap INTEGER NOT NULL
+             );
+             INSERT INTO app_settings (id, new_per_day, daily_review_cap) VALUES (1, 10, 60);",
+        ),
+    ])
 }
 
 pub struct StateStore {
@@ -83,6 +98,8 @@ impl StateStore {
             "UPDATE progress SET unlocked_level = ?1 WHERE id = 1",
             [state.unlocked_level as i64],
         )?;
+        // Full replace so removed tracks (e.g. after an undo) are deleted, not left orphaned.
+        tx.execute("DELETE FROM track", [])?;
         for ((kanji_id, kind), t) in &state.tracks {
             tx.execute(
                 "INSERT OR REPLACE INTO track (kanji_id, kind, card_json, introduced_at)
@@ -96,6 +113,52 @@ impl StateStore {
             )?;
         }
         tx.commit()?;
+        Ok(())
+    }
+
+    /// The user's edited mnemonic override for a kanji, if any.
+    pub fn user_mnemonic(&self, kanji_id: i64) -> Option<String> {
+        self.conn
+            .query_row(
+                "SELECT story FROM user_mnemonic WHERE kanji_id = ?1",
+                [kanji_id],
+                |r| r.get::<_, String>(0),
+            )
+            .ok()
+    }
+
+    /// Set (or clear, when blank) the user's mnemonic override for a kanji.
+    pub fn set_user_mnemonic(&mut self, kanji_id: i64, story: &str) -> Result<(), Box<dyn Error>> {
+        if story.trim().is_empty() {
+            self.conn
+                .execute("DELETE FROM user_mnemonic WHERE kanji_id = ?1", [kanji_id])?;
+        } else {
+            self.conn.execute(
+                "INSERT OR REPLACE INTO user_mnemonic (kanji_id, story, edited_at) VALUES (?1, ?2, ?3)",
+                rusqlite::params![kanji_id, story, Utc::now().to_rfc3339()],
+            )?;
+        }
+        Ok(())
+    }
+
+    /// Persisted (new_per_day, daily_review_cap).
+    pub fn load_settings(&self) -> rusqlite::Result<(usize, usize)> {
+        self.conn.query_row(
+            "SELECT new_per_day, daily_review_cap FROM app_settings WHERE id = 1",
+            [],
+            |r| Ok((r.get::<_, i64>(0)? as usize, r.get::<_, i64>(1)? as usize)),
+        )
+    }
+
+    pub fn save_settings(
+        &mut self,
+        new_per_day: usize,
+        daily_review_cap: usize,
+    ) -> rusqlite::Result<()> {
+        self.conn.execute(
+            "UPDATE app_settings SET new_per_day = ?1, daily_review_cap = ?2 WHERE id = 1",
+            rusqlite::params![new_per_day as i64, daily_review_cap as i64],
+        )?;
         Ok(())
     }
 }
