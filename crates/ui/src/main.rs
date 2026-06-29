@@ -86,7 +86,10 @@ fn user_path() -> String {
     }
     #[cfg(feature = "bundle-seed")]
     {
-        data_dir().join("user.sqlite").to_string_lossy().into_owned()
+        data_dir()
+            .join("user.sqlite")
+            .to_string_lossy()
+            .into_owned()
     }
     #[cfg(not(feature = "bundle-seed"))]
     {
