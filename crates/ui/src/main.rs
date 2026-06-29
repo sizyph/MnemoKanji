@@ -11,7 +11,9 @@ use std::sync::{Mutex, OnceLock};
 
 use chrono::{DateTime, Duration, Utc};
 use dioxus::prelude::*;
-use mnemokanji_core::{ContentView, Engine, Rating, Settings, StudyState, TrackKind};
+use mnemokanji_core::{
+    mastery, streak, ContentView, Engine, Mastery, Rating, Settings, StudyState, TrackKind,
+};
 use mnemokanji_data::{BrowseItem, ContentRepo, KanjiDetail, StateStore};
 
 #[cfg(not(feature = "bundle-seed"))]
@@ -135,6 +137,7 @@ enum Screen {
     Browse,
     Detail,
     Settings,
+    Stats,
 }
 
 #[derive(Clone, PartialEq)]
@@ -145,12 +148,18 @@ struct Dash {
     due: usize,
     new_remaining: usize,
     offset_days: i64,
+    streak: u32,
+    reviews_today: usize,
 }
 
 fn compute_dash(b: &Backend) -> Dash {
     let now = b.now();
+    let today = now.date_naive();
     let engine = Engine::new(&b.content, b.settings.clone());
     let level = b.state.unlocked_level;
+    let dates = b.state_store.study_dates().unwrap_or_default();
+    let (streak_days, _) = streak(&dates, today);
+    let (reviews_today, _) = b.state_store.review_counts(today).unwrap_or((0, 0));
     Dash {
         level,
         total: b.content.kanji.iter().filter(|k| k.level == level).count(),
@@ -163,6 +172,8 @@ fn compute_dash(b: &Backend) -> Dash {
         due: engine.due_items(&b.state, now).len(),
         new_remaining: engine.new_remaining_today(&b.state, now),
         offset_days: b.clock_offset_days,
+        streak: streak_days,
+        reviews_today,
     }
 }
 
@@ -211,6 +222,7 @@ fn App() -> Element {
                 Screen::Browse => browse_view(s),
                 Screen::Detail => detail_view(s),
                 Screen::Settings => settings_view(s),
+                Screen::Stats => stats_view(s),
             }}
         }
     }
@@ -225,11 +237,16 @@ fn dashboard_view(s: AppState) -> Element {
     let learned = format!("{}/{}", d.introduced, d.total);
     let nothing = due == 0 && new_remaining == 0;
     let offset = d.offset_days;
+    let streak = d.streak;
+    let reviews_today = d.reviews_today;
 
     rsx! {
         div { class: "card",
             h1 { "MnemoKanji" }
             p { class: "sub", "JLPT N{level}" }
+            if streak > 0 {
+                div { class: "streak", "\u{1f525} {streak}-day streak \u{00b7} {reviews_today} today" }
+            }
             div { class: "stats",
                 div { class: "stat", div { class: "num", "{due}" } div { class: "lbl", "due" } }
                 div { class: "stat", div { class: "num", "{new_remaining}" } div { class: "lbl", "new today" } }
@@ -241,6 +258,7 @@ fn dashboard_view(s: AppState) -> Element {
                 button { class: "primary", onclick: move |_| start_session(s), "Start session" }
             }
             div { class: "nav-row",
+                button { class: "secondary", onclick: move |_| { let mut sc = s.screen; sc.set(Screen::Stats); }, "Progress" }
                 button { class: "secondary", onclick: move |_| show_browse(s), "Browse" }
                 button { class: "secondary", onclick: move |_| { let mut sc = s.screen; sc.set(Screen::Settings); }, "Settings" }
             }
@@ -571,6 +589,81 @@ fn settings_view(s: AppState) -> Element {
     }
 }
 
+fn stats_view(s: AppState) -> Element {
+    let _ = (s.tick)();
+    let (counts, total, cur, longest, today_n, total_n, level) = {
+        let g = backend();
+        let today = g.now().date_naive();
+        let mut counts = [0usize; 4]; // new, learning, young, mature
+        for ((_, k), t) in &g.state.tracks {
+            if *k != TrackKind::Comprehension {
+                continue;
+            }
+            let idx = match mastery(&t.card, g.settings.mature_stability_days) {
+                Mastery::New => 0,
+                Mastery::Learning => 1,
+                Mastery::Young => 2,
+                Mastery::Mature => 3,
+            };
+            counts[idx] += 1;
+        }
+        let total = g
+            .content
+            .kanji
+            .iter()
+            .filter(|kk| kk.level == g.state.unlocked_level)
+            .count();
+        let dates = g.state_store.study_dates().unwrap_or_default();
+        let (cur, longest) = streak(&dates, today);
+        let (today_n, total_n) = g.state_store.review_counts(today).unwrap_or((0, 0));
+        (
+            counts,
+            total,
+            cur,
+            longest,
+            today_n,
+            total_n,
+            g.state.unlocked_level,
+        )
+    };
+    let [new_c, learn_c, young_c, mature_c] = counts;
+    let mastered_pct = (mature_c * 100).checked_div(total).unwrap_or(0);
+    let (bn, bl, by, bm) = (
+        bar(new_c, total),
+        bar(learn_c, total),
+        bar(young_c, total),
+        bar(mature_c, total),
+    );
+
+    rsx! {
+        div { class: "card",
+            div { class: "topbar",
+                button { class: "link", onclick: move |_| { let mut sc = s.screen; sc.set(Screen::Dashboard); }, "\u{2190} back" }
+                span { class: "title", "Progress \u{00b7} N{level}" }
+            }
+            div { class: "big-streak",
+                div { class: "bs-num", "\u{1f525} {cur}" }
+                div { class: "bs-lbl", "day streak \u{00b7} best {longest}" }
+            }
+            div { class: "mastery",
+                div { class: "m-row", span { class: "m-lbl", "new" }, div { class: "m-bar", div { class: "m-fill new", style: "width:{bn}%" } }, span { class: "m-n", "{new_c}" } }
+                div { class: "m-row", span { class: "m-lbl", "learning" }, div { class: "m-bar", div { class: "m-fill learning", style: "width:{bl}%" } }, span { class: "m-n", "{learn_c}" } }
+                div { class: "m-row", span { class: "m-lbl", "young" }, div { class: "m-bar", div { class: "m-fill young", style: "width:{by}%" } }, span { class: "m-n", "{young_c}" } }
+                div { class: "m-row", span { class: "m-lbl", "mature" }, div { class: "m-bar", div { class: "m-fill mature", style: "width:{bm}%" } }, span { class: "m-n", "{mature_c}" } }
+            }
+            p { class: "mastered-line", "{mature_c}/{total} mastered ({mastered_pct}%)" }
+            div { class: "stats",
+                div { class: "stat", div { class: "num", "{today_n}" } div { class: "lbl", "today" } }
+                div { class: "stat", div { class: "num", "{total_n}" } div { class: "lbl", "reviews" } }
+            }
+        }
+    }
+}
+
+fn bar(n: usize, total: usize) -> usize {
+    (n * 100).checked_div(total).unwrap_or(0)
+}
+
 /// An animated stroke-order SVG from KanjiVG path data (CSS draws each stroke in turn).
 fn stroke_svg(paths: &[String]) -> Element {
     let timed: Vec<(String, String, usize)> = paths
@@ -710,6 +803,7 @@ fn do_grade(rating: Rating, s: AppState) {
         } = &mut *g;
         Engine::new(content, settings.clone()).grade(state, kid, kind, &[rating], now);
         let _ = state_store.save_state(state);
+        let _ = state_store.log_review(kid, kind.as_str(), rating as u8, now);
         snap
     };
     let mut undo = s.undo;

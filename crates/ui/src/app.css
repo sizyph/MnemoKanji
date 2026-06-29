@@ -203,3 +203,20 @@ button:hover { filter: brightness(1.08); }
 .edit-area { width: 100%; min-height: 6rem; background: #14171f; color: var(--ink); border: 1px solid #2b303c; border-radius: 8px; padding: 0.6rem 0.75rem; font: inherit; line-height: 1.5; resize: vertical; }
 .edit-actions { display: flex; gap: 0.6rem; margin-top: 0.6rem; }
 .edit-actions .secondary { width: auto; padding: 0.4rem 1rem; }
+
+/* Streak + progress */
+.streak { display: inline-block; background: #2a2113; color: #e0913a; border: 1px solid #4a3a1c; border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.25rem; }
+.big-streak { margin: 1rem 0 1.75rem; }
+.bs-num { font-size: 3rem; font-weight: 800; color: #e0913a; }
+.bs-lbl { color: var(--muted); font-size: 0.9rem; }
+.mastery { display: flex; flex-direction: column; gap: 0.55rem; margin: 0.5rem 0 1rem; }
+.m-row { display: flex; align-items: center; gap: 0.7rem; }
+.m-lbl { width: 5rem; text-align: right; color: var(--muted); font-size: 0.85rem; }
+.m-bar { flex: 1; height: 0.8rem; background: #14171f; border-radius: 999px; overflow: hidden; }
+.m-fill { height: 100%; border-radius: 999px; transition: width 0.4s ease; min-width: 2px; }
+.m-fill.new { background: #4a5160; }
+.m-fill.learning { background: var(--again); }
+.m-fill.young { background: var(--hard); }
+.m-fill.mature { background: var(--good); }
+.m-n { width: 2rem; text-align: left; font-weight: 700; font-size: 0.9rem; }
+.mastered-line { color: var(--good); font-weight: 700; margin: 0.5rem 0 1.25rem; }

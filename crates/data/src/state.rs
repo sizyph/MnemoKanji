@@ -3,7 +3,7 @@
 use std::collections::HashMap;
 use std::error::Error;
 
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, NaiveDate, Utc};
 use mnemokanji_core::{Card, StudyState, Track, TrackKind};
 use rusqlite::Connection;
 use rusqlite_migration::{Migrations, M};
@@ -36,6 +36,16 @@ fn migrations() -> Migrations<'static> {
                 daily_review_cap INTEGER NOT NULL
              );
              INSERT INTO app_settings (id, new_per_day, daily_review_cap) VALUES (1, 10, 60);",
+        ),
+        M::up(
+            "CREATE TABLE review_event (
+                id       INTEGER PRIMARY KEY,
+                ts       TEXT NOT NULL,             -- RFC3339
+                kanji_id INTEGER NOT NULL,
+                kind     TEXT NOT NULL,
+                rating   INTEGER NOT NULL
+             );
+             CREATE INDEX idx_review_ts ON review_event(ts);",
         ),
     ])
 }
@@ -161,6 +171,48 @@ impl StateStore {
         )?;
         Ok(())
     }
+
+    /// Record a graded review (for streak + stats).
+    pub fn log_review(
+        &mut self,
+        kanji_id: i64,
+        kind: &str,
+        rating: u8,
+        ts: DateTime<Utc>,
+    ) -> rusqlite::Result<()> {
+        self.conn.execute(
+            "INSERT INTO review_event (ts, kanji_id, kind, rating) VALUES (?1, ?2, ?3, ?4)",
+            rusqlite::params![ts.to_rfc3339(), kanji_id, kind, rating as i64],
+        )?;
+        Ok(())
+    }
+
+    /// Distinct dates (UTC) on which the user reviewed, ascending.
+    pub fn study_dates(&self) -> rusqlite::Result<Vec<NaiveDate>> {
+        let mut stmt = self
+            .conn
+            .prepare("SELECT DISTINCT date(ts) FROM review_event ORDER BY date(ts)")?;
+        let dates = stmt
+            .query_map([], |r| r.get::<_, String>(0))?
+            .filter_map(Result::ok)
+            .filter_map(|s| NaiveDate::parse_from_str(&s, "%Y-%m-%d").ok())
+            .collect();
+        Ok(dates)
+    }
+
+    /// (#reviews on `today`, #reviews total).
+    pub fn review_counts(&self, today: NaiveDate) -> rusqlite::Result<(usize, usize)> {
+        let today_s = today.format("%Y-%m-%d").to_string();
+        let today_n: i64 = self.conn.query_row(
+            "SELECT COUNT(*) FROM review_event WHERE date(ts) = ?1",
+            [today_s],
+            |r| r.get(0),
+        )?;
+        let total: i64 = self
+            .conn
+            .query_row("SELECT COUNT(*) FROM review_event", [], |r| r.get(0))?;
+        Ok((today_n as usize, total as usize))
+    }
 }
 
 #[cfg(test)]
@@ -219,5 +271,25 @@ mod tests {
     #[test]
     fn migrations_are_valid() {
         assert!(migrations().validate().is_ok());
+    }
+
+    #[test]
+    fn review_logging_counts_and_dates() {
+        let path = temp_db();
+        let mut store = StateStore::open(&path).unwrap();
+        let base = DateTime::<Utc>::from_timestamp(1_700_000_000, 0).unwrap();
+
+        store.log_review(1, "comprehension", 3, base).unwrap();
+        store.log_review(2, "comprehension", 4, base).unwrap();
+        store
+            .log_review(1, "comprehension", 3, base + chrono::Duration::days(1))
+            .unwrap();
+
+        assert_eq!(store.study_dates().unwrap().len(), 2);
+        let (today_n, total_n) = store.review_counts(base.date_naive()).unwrap();
+        assert_eq!(today_n, 2);
+        assert_eq!(total_n, 3);
+
+        let _ = std::fs::remove_file(&path);
     }
 }

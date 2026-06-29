@@ -2629,7 +2629,7 @@ dependencies = [
 
 [[package]]
 name = "mnemokanji-content"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "rusqlite",
  "serde",
@@ -2638,7 +2638,7 @@ dependencies = [
 
 [[package]]
 name = "mnemokanji-core"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "chrono",
  "rs-fsrs",
@@ -2646,7 +2646,7 @@ dependencies = [
 
 [[package]]
 name = "mnemokanji-data"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "chrono",
  "mnemokanji-core",
@@ -2657,7 +2657,7 @@ dependencies = [
 
 [[package]]
 name = "mnemokanji-ui"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "chrono",
  "dioxus",
