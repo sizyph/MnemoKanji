@@ -33,6 +33,14 @@ pub struct ComponentItem {
     pub is_kanji: bool,
 }
 
+/// A compact row for the browse grid.
+#[derive(Clone, Debug)]
+pub struct BrowseItem {
+    pub id: i64,
+    pub glyph: String,
+    pub keyword: String,
+}
+
 /// Everything needed to render a kanji in review or on its detail page.
 #[derive(Clone, Debug)]
 pub struct KanjiDetail {
@@ -104,6 +112,26 @@ impl ContentRepo {
             .collect();
 
         Ok(ContentView { kanji })
+    }
+
+    /// Compact list of a level's kanji in learning order (for the browse grid).
+    pub fn browse(&self, jlpt: &str) -> rusqlite::Result<Vec<BrowseItem>> {
+        let mut stmt = self.conn.prepare(
+            "SELECT k.id, k.glyph, COALESCE(k.primary_keyword, '')
+             FROM kanji k JOIN level l ON l.id = k.level_id
+             WHERE l.jlpt = ?1
+             ORDER BY k.intro_rank",
+        )?;
+        let out = stmt
+            .query_map([jlpt], |r| {
+                Ok(BrowseItem {
+                    id: r.get(0)?,
+                    glyph: r.get(1)?,
+                    keyword: r.get(2)?,
+                })
+            })?
+            .collect();
+        out
     }
 
     /// Load the full presentation detail for one kanji.

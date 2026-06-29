@@ -7,5 +7,7 @@
 pub mod content;
 pub mod state;
 
-pub use content::{ComponentItem, ContentRepo, KanjiDetail, Reading, SentenceItem, VocabItem};
+pub use content::{
+    BrowseItem, ComponentItem, ContentRepo, KanjiDetail, Reading, SentenceItem, VocabItem,
+};
 pub use state::StateStore;
