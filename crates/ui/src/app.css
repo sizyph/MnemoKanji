@@ -1,0 +1,94 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #11131a;
+  --card: #1b1e27;
+  --ink: #e8eaf0;
+  --muted: #9aa0b0;
+  --accent: #6ea8fe;
+  --again: #e5534b;
+  --hard: #e0913a;
+  --good: #3fb950;
+  --easy: #6ea8fe;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #262a36;
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  width: 100%;
+  max-width: 30rem;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+
+h1 { font-size: 1.6rem; letter-spacing: 0.5px; }
+.sub { color: var(--muted); margin-top: 0.25rem; margin-bottom: 1.75rem; }
+
+.stats { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; }
+.stat { flex: 1; background: #14171f; border-radius: 12px; padding: 0.9rem 0.5rem; }
+.stat .num { font-size: 1.5rem; font-weight: 700; }
+.stat .lbl { color: var(--muted); font-size: 0.78rem; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  transition: filter 0.12s ease, transform 0.05s ease;
+}
+button:active { transform: translateY(1px); }
+button:hover { filter: brightness(1.08); }
+
+.primary {
+  background: var(--accent);
+  color: #0b0e14;
+  font-weight: 700;
+  padding: 0.85rem 1.5rem;
+  width: 100%;
+  font-size: 1rem;
+}
+.done { color: var(--good); font-size: 1.05rem; padding: 0.5rem 0; }
+
+/* Review screen */
+.review { width: 100%; max-width: 34rem; display: flex; flex-direction: column; align-items: center; }
+.topbar { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.link { background: transparent; color: var(--muted); padding: 0.4rem 0.6rem; }
+.left { color: var(--muted); font-size: 0.85rem; }
+
+.glyph {
+  font-size: 11rem;
+  line-height: 1;
+  margin: 1.5rem 0 2rem;
+  font-weight: 500;
+  user-select: none;
+}
+.reveal { max-width: 14rem; }
+
+.answer { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+.keyword { font-size: 2rem; font-weight: 700; }
+.reading { font-size: 1.5rem; color: var(--accent); }
+.all-readings { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+
+.grades { display: flex; gap: 0.6rem; width: 100%; margin-top: 0.5rem; }
+.grade { flex: 1; padding: 0.85rem 0.5rem; color: #0b0e14; font-weight: 700; }
+.grade.again { background: var(--again); color: #fff; }
+.grade.hard { background: var(--hard); }
+.grade.good { background: var(--good); }
+.grade.easy { background: var(--easy); }

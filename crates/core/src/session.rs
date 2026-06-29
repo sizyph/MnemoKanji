@@ -105,6 +105,13 @@ impl<'a> Engine<'a> {
             .count()
     }
 
+    /// Remaining new-kanji budget for today (for the dashboard).
+    pub fn new_remaining_today(&self, state: &StudyState, now: DateTime<Utc>) -> usize {
+        self.settings
+            .new_per_day
+            .saturating_sub(self.introduced_today(state, now))
+    }
+
     /// Introduce up to the remaining daily budget of new kanji; returns the introduced ids.
     pub fn introduce_new(&self, state: &mut StudyState, now: DateTime<Utc>) -> Vec<i64> {
         let budget = self

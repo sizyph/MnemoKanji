@@ -16,5 +16,6 @@ rust-version = "1.85"
 [workspace.dependencies]
 mnemokanji-core = { path = "crates/core" }
 mnemokanji-data = { path = "crates/data" }
+mnemokanji-content = { path = "crates/content" }
 # UI: Dioxus 0.7 (system WebView renderer). See docs/03-DESIGN.md §1.
 dioxus = "0.7"

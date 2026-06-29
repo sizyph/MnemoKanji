@@ -15,3 +15,5 @@ path = "src/main.rs"
 [dependencies]
 dioxus = { workspace = true, features = ["desktop"] }
 mnemokanji-core = { workspace = true }
+mnemokanji-data = { workspace = true }
+chrono = { version = "0.4.45", default-features = false, features = ["clock"] }

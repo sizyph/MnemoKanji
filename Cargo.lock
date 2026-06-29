@@ -2638,8 +2638,10 @@ dependencies = [
 name = "mnemokanji-ui"
 version = "0.0.1"
 dependencies = [
+ "chrono",
  "dioxus",
  "mnemokanji-core",
+ "mnemokanji-data",
 ]
 
 [[package]]
