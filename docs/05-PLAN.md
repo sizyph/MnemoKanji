@@ -20,9 +20,13 @@ acceptance criteria. v1 = desktop + full N5 content (see [01-VISION §Success](0
 - ✅ **M3** review UI (Dioxus) — dashboard; all four modes (recognition, reading-in-context, write
   w/ stroke animation, cloze); kanji-detail hub w/ editable mnemonics; browse grid; settings;
   one-tap undo; dev clock-skip. **Audio deferred** (needs a cross-platform decision).
-- ⬜ **Next** — level briefing/congratulations UI (needs N4 content); export/import (M5);
-  engagement layer (humane streak, progress/stats — M6); release packaging (M7); N4–N1 content
-  (M8); iPhone (M9, needs Apple account/signing); cloud sync (M10).
+- ✅ **M7** packaged releases — `bundle-seed` self-contained binaries (N5 dataset embedded);
+  `release.yml` builds the seed once then a mac/win/linux matrix and uploads to the GitHub Release.
+  **v0.1.0 published** with mac-arm64 / windows-x64 / linux-x64 downloads. (Unsigned; signing needs
+  Apple/Microsoft developer accounts.)
+- ⬜ **Next** — engagement layer (humane streak, progress/stats — M6); level briefing/congrats UI +
+  N4–N1 content (M8/M4); export/import (M5); audio; iPhone (M9, needs Apple account/signing); cloud
+  sync (M10); code-signed installers (.dmg/.msi/.AppImage).
 
 ---
 
