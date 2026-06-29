@@ -15,4 +15,18 @@ fetch "https://raw.githubusercontent.com/davidluzgouveia/kanji-data/master/kanji
 # Component decomposition (CC BY-SA, UTF-8).
 fetch "https://raw.githubusercontent.com/jmettraux/kensaku/master/data/kradfile-u" "kradfile-u"
 
+# Slice 3 (vocab + dominant readings) — versioned GitHub release assets, fetched via `gh`.
+# JMdict (common-only, English; CC BY-SA, EDRDG) + per-kanji furigana alignment (JmdictFurigana).
+echo "fetching jmdict-eng-common + JmdictFurigana (requires gh CLI)"
+gh release download --repo scriptin/jmdict-simplified --pattern 'jmdict-eng-common-*.json.tgz' --dir data/sources --clobber
+tar -xzf data/sources/jmdict-eng-common-*.json.tgz -C data/sources
+mv -f data/sources/jmdict-eng-common-*.json data/sources/jmdict-eng-common.json
+rm -f data/sources/jmdict-eng-common-*.json.tgz
+gh release download --repo Doublevil/JmdictFurigana --pattern 'JmdictFurigana.json' --dir data/sources --clobber
+# Word frequency for vocab ranking (OpenSubtitles 2016 top-50k, CC BY-SA).
+fetch "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2016/ja/ja_50k.txt" "ja-freq.txt"
+# JLPT word levels (word-level, Yomitan dict) for beginner-appropriate vocab selection.
+gh release download --repo stephenmk/yomitan-jlpt-vocab --pattern 'jlpt.zip' --dir data/sources --clobber
+mkdir -p data/sources/jlpt && unzip -oq data/sources/jlpt.zip -d data/sources/jlpt
+
 echo "done. sources in data/sources/"

@@ -1,0 +1,230 @@
+[
+  {
+    "glyph": "上",
+    "reading": "うえ",
+    "kind": "kun",
+    "note": "panel 3v: was on:じょう"
+  },
+  {
+    "glyph": "下",
+    "reading": "した",
+    "kind": "kun",
+    "note": "panel 3v: was on:か"
+  },
+  {
+    "glyph": "人",
+    "reading": "ひと",
+    "kind": "kun",
+    "note": "panel 2v: was on:じん"
+  },
+  {
+    "glyph": "今",
+    "reading": "いま",
+    "kind": "kun",
+    "note": "panel 3v: was on:こん"
+  },
+  {
+    "glyph": "休",
+    "reading": "やす.む",
+    "kind": "kun",
+    "note": "panel 3v: was on:きゅう"
+  },
+  {
+    "glyph": "先",
+    "reading": "せん",
+    "kind": "on",
+    "note": "panel 3v: was kun:さき"
+  },
+  {
+    "glyph": "入",
+    "reading": "はい.る",
+    "kind": "kun",
+    "note": "panel 3v: was on:にゅう"
+  },
+  {
+    "glyph": "出",
+    "reading": "で.る",
+    "kind": "kun",
+    "note": "panel 3v: was on:しゅつ"
+  },
+  {
+    "glyph": "前",
+    "reading": "まえ",
+    "kind": "kun",
+    "note": "panel 3v: was on:ぜん"
+  },
+  {
+    "glyph": "北",
+    "reading": "きた",
+    "kind": "kun",
+    "note": "panel 3v: was on:ほく"
+  },
+  {
+    "glyph": "千",
+    "reading": "せん",
+    "kind": "on",
+    "note": "panel 3v: was kun:ち"
+  },
+  {
+    "glyph": "南",
+    "reading": "みなみ",
+    "kind": "kun",
+    "note": "panel 3v: was on:なん"
+  },
+  {
+    "glyph": "友",
+    "reading": "とも",
+    "kind": "kun",
+    "note": "panel 3v: was on:ゆう"
+  },
+  {
+    "glyph": "名",
+    "reading": "な",
+    "kind": "kun",
+    "note": "panel 3v: was on:めい"
+  },
+  {
+    "glyph": "外",
+    "reading": "そと",
+    "kind": "kun",
+    "note": "panel 3v: was on:がい"
+  },
+  {
+    "glyph": "大",
+    "reading": "おお.きい",
+    "kind": "kun",
+    "note": "panel 2v: was on:だい"
+  },
+  {
+    "glyph": "女",
+    "reading": "おんな",
+    "kind": "kun",
+    "note": "panel 3v: was on:じょ"
+  },
+  {
+    "glyph": "子",
+    "reading": "こ",
+    "kind": "kun",
+    "note": "panel 3v: was on:し"
+  },
+  {
+    "glyph": "小",
+    "reading": "ちい.さい",
+    "kind": "kun",
+    "note": "panel 3v: was kun:こ-"
+  },
+  {
+    "glyph": "山",
+    "reading": "やま",
+    "kind": "kun",
+    "note": "panel 3v: was on:さん"
+  },
+  {
+    "glyph": "後",
+    "reading": "あと",
+    "kind": "kun",
+    "note": "panel 3v: was on:ご"
+  },
+  {
+    "glyph": "書",
+    "reading": "か.く",
+    "kind": "kun",
+    "note": "panel 3v: was on:しょ"
+  },
+  {
+    "glyph": "来",
+    "reading": "く.る",
+    "kind": "kun",
+    "note": "panel 3v: was on:らい"
+  },
+  {
+    "glyph": "東",
+    "reading": "ひがし",
+    "kind": "kun",
+    "note": "panel 3v: was on:とう"
+  },
+  {
+    "glyph": "母",
+    "reading": "はは",
+    "kind": "kun",
+    "note": "panel 3v: was on:ぼ"
+  },
+  {
+    "glyph": "水",
+    "reading": "みず",
+    "kind": "kun",
+    "note": "panel 3v: was on:すい"
+  },
+  {
+    "glyph": "火",
+    "reading": "ひ",
+    "kind": "kun",
+    "note": "panel 3v: was on:か"
+  },
+  {
+    "glyph": "父",
+    "reading": "ちち",
+    "kind": "kun",
+    "note": "panel 3v: was on:ふ"
+  },
+  {
+    "glyph": "白",
+    "reading": "しろ.い",
+    "kind": "kun",
+    "note": "panel 2v: was on:はく"
+  },
+  {
+    "glyph": "聞",
+    "reading": "き.く",
+    "kind": "kun",
+    "note": "panel 3v: was on:ぶん"
+  },
+  {
+    "glyph": "行",
+    "reading": "い.く",
+    "kind": "kun",
+    "note": "panel 3v: was on:こう"
+  },
+  {
+    "glyph": "西",
+    "reading": "にし",
+    "kind": "kun",
+    "note": "panel 3v: was on:せい"
+  },
+  {
+    "glyph": "話",
+    "reading": "はな.す",
+    "kind": "kun",
+    "note": "panel 3v: was on:わ"
+  },
+  {
+    "glyph": "車",
+    "reading": "くるま",
+    "kind": "kun",
+    "note": "panel 3v: was on:しゃ"
+  },
+  {
+    "glyph": "長",
+    "reading": "なが.い",
+    "kind": "kun",
+    "note": "panel 2v: was on:ちょう"
+  },
+  {
+    "glyph": "雨",
+    "reading": "あめ",
+    "kind": "kun",
+    "note": "panel 3v: was on:う"
+  },
+  {
+    "glyph": "食",
+    "reading": "た.べる",
+    "kind": "kun",
+    "note": "panel 3v: was on:しょく"
+  },
+  {
+    "glyph": "高",
+    "reading": "たか.い",
+    "kind": "kun",
+    "note": "panel 3v: was on:こう"
+  }
+]

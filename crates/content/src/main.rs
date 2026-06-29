@@ -18,6 +18,8 @@ use std::path::Path;
 use rusqlite::Connection;
 use serde_json::Value;
 
+mod vocab;
+
 const SOURCE_JSON: &str = "data/sources/kanji-data.json";
 const SOURCE_KRAD: &str = "data/sources/kradfile-u";
 const OUT_DB: &str = "assets/seed.sqlite";
@@ -28,6 +30,8 @@ const AUTH_KEYWORDS: &str = "data/authored/n5-keywords.json";
 const AUTH_COMP: &str = "data/authored/n5-component-actors.json";
 const AUTH_READ: &str = "data/authored/n5-reading-actors.json";
 const AUTH_MNEM: &str = "data/authored/n5-mnemonics.json";
+// Optional dominant-reading overrides (glyph/reading/kind), e.g. from the judge pass.
+const AUTH_DOM: &str = "data/authored/n5-dominant-readings.json";
 
 /// A kanji as assembled from the sources, before DB insertion.
 struct KanjiRow {
@@ -76,6 +80,29 @@ fn main() -> Result<(), Box<dyn Error>> {
             }
         })
         .collect();
+
+    // --- Slice 3: dominant readings + in-context vocabulary (optional sources). ---
+    let n5_owned: HashSet<String> = n5_glyphs.iter().cloned().collect();
+    let mut stored: vocab::StoredReadings = HashMap::new();
+    for r in &rows {
+        let mut rs = Vec::new();
+        for x in &r.on {
+            rs.push(("on".to_string(), x.clone()));
+        }
+        for x in &r.kun {
+            rs.push(("kun".to_string(), x.clone()));
+        }
+        stored.insert(r.glyph.clone(), rs);
+    }
+    let kanji_levels: HashMap<String, i64> = obj
+        .iter()
+        .filter_map(|(g, v)| {
+            v.get("jlpt_new")
+                .and_then(Value::as_i64)
+                .map(|l| (g.clone(), l))
+        })
+        .collect();
+    let vocab_data = vocab::build(&n5_owned, &stored, &kanji_levels)?;
 
     // --- Frequency-weighted topological order within N5. ---
     let intro_order = topological_order(&rows, &n5_set);
@@ -159,10 +186,21 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
 
     let authored = load_authored(&tx, &kanji_id, &comp_id)?;
+    let vstats = insert_vocab(&tx, &kanji_id, &rows, vocab_data.as_ref())?;
 
     for (k, v) in build_meta(&rows) {
         tx.execute(
             "INSERT INTO meta (key, value) VALUES (?1, ?2)",
+            rusqlite::params![k, v],
+        )?;
+    }
+    for (k, v) in [
+        ("dominant_derived", vstats.0.to_string()),
+        ("dominant_fallback", vstats.1.to_string()),
+        ("vocab_count", vstats.2.to_string()),
+    ] {
+        tx.execute(
+            "INSERT OR REPLACE INTO meta (key, value) VALUES (?1, ?2)",
             rusqlite::params![k, v],
         )?;
     }
@@ -171,6 +209,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     println!(
         "Authored content loaded: {} keyword overrides, {} component actors, {} reading actors, {} mnemonics",
         authored.0, authored.1, authored.2, authored.3
+    );
+    println!(
+        "Slice 3: {} dominant readings derived ({} fallback), {} vocab words",
+        vstats.0, vstats.1, vstats.2
     );
     verify(&conn, &rows)?;
     println!("\nWrote {OUT_DB}");
@@ -405,17 +447,94 @@ fn load_authored(
     Ok((kw, ca, ra, mn))
 }
 
+/// Slice 3: set dominant readings (derived, with optional authored override + on'yomi-first
+/// fallback) and insert in-context vocabulary. Returns (derived, fallback, vocab_count).
+fn insert_vocab(
+    tx: &rusqlite::Transaction,
+    kanji_id: &HashMap<&str, i64>,
+    rows: &[KanjiRow],
+    vd: Option<&vocab::VocabData>,
+) -> Result<(usize, usize, usize), Box<dyn Error>> {
+    let Some(vd) = vd else {
+        return Ok((0, 0, 0));
+    };
+
+    let mut dominant = vd.dominant.clone();
+    if let Some(v) = read_optional(AUTH_DOM)? {
+        for e in v.as_array().into_iter().flatten() {
+            if let (Some(g), Some(r), Some(k)) = (
+                e.get("glyph").and_then(Value::as_str),
+                e.get("reading").and_then(Value::as_str),
+                e.get("kind").and_then(Value::as_str),
+            ) {
+                dominant.insert(g.to_string(), (r.to_string(), k.to_string()));
+            }
+        }
+    }
+
+    let (mut derived, mut fallback) = (0, 0);
+    for r in rows {
+        let kid = kanji_id[r.glyph.as_str()];
+        let chosen = if let Some((reading, kind)) = dominant.get(&r.glyph) {
+            derived += 1;
+            Some((reading.clone(), kind.clone()))
+        } else {
+            let fb =
+                r.on.first()
+                    .map(|x| (x.clone(), "on".to_string()))
+                    .or_else(|| r.kun.first().map(|x| (x.clone(), "kun".to_string())));
+            if fb.is_some() {
+                fallback += 1;
+            }
+            fb
+        };
+        if let Some((reading, kind)) = chosen {
+            tx.execute(
+                "UPDATE reading SET is_dominant = 1 WHERE kanji_id = ?1 AND reading = ?2 AND kind = ?3",
+                rusqlite::params![kid, reading, kind],
+            )?;
+        }
+    }
+
+    let mut count = 0;
+    for v in &vd.vocab {
+        tx.execute(
+            "INSERT OR IGNORE INTO vocab (surface, reading, gloss) VALUES (?1, ?2, ?3)",
+            rusqlite::params![v.surface, v.reading, v.gloss],
+        )?;
+        let vid: i64 = tx.query_row(
+            "SELECT id FROM vocab WHERE surface = ?1 AND reading = ?2",
+            rusqlite::params![v.surface, v.reading],
+            |row| row.get(0),
+        )?;
+        for (g, rt) in &v.kanji_parts {
+            if let Some(&kid) = kanji_id.get(g.as_str()) {
+                tx.execute(
+                    "INSERT OR IGNORE INTO vocab_kanji (vocab_id, kanji_id, reading_in_word) VALUES (?1, ?2, ?3)",
+                    rusqlite::params![vid, kid, rt],
+                )?;
+            }
+        }
+        count += 1;
+    }
+    Ok((derived, fallback, count))
+}
+
 fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {
     vec![
         ("schema_version", "1".to_string()),
         (
             "slice",
-            "2 (N5 authored: reviewed keywords, component+reading actors, judge-verified mnemonics)"
+            "3 (N5: + dominant readings & in-context vocabulary from JMdict-common + JmdictFurigana)"
                 .to_string(),
         ),
         ("levels", "N5".to_string()),
         ("kanji_count", rows.len().to_string()),
-        ("dominant_reading", "provisional: none (set in vocab slice)".to_string()),
+        (
+            "dominant_reading",
+            "derived from JMdict-common x JmdictFurigana; overridable via data/authored/n5-dominant-readings.json"
+                .to_string(),
+        ),
         (
             "attribution",
             "Kanji data from KANJIDIC2 (c) EDRDG, CC BY-SA 4.0, via davidluzgouveia/kanji-data (MIT). \
@@ -442,12 +561,27 @@ fn verify(conn: &Connection, rows: &[KanjiRow]) -> Result<(), Box<dyn Error>> {
         [],
         |r| r.get(0),
     )?;
+    let dominant: i64 = conn.query_row(
+        "SELECT COUNT(*) FROM reading WHERE is_dominant=1",
+        [],
+        |r| r.get(0),
+    )?;
+    let vocab_n: i64 = conn.query_row("SELECT COUNT(*) FROM vocab", [], |r| r.get(0))?;
+    let vk_n: i64 = conn.query_row("SELECT COUNT(*) FROM vocab_kanji", [], |r| r.get(0))?;
+    let no_dom: i64 = conn.query_row(
+        "SELECT COUNT(*) FROM kanji k WHERE NOT EXISTS \
+         (SELECT 1 FROM reading r WHERE r.kanji_id=k.id AND r.is_dominant=1)",
+        [],
+        |r| r.get(0),
+    )?;
 
     println!("Verification:");
     println!("  kanji={kanji} (expected {})", rows.len());
     println!("  components={comps}  readings={readings}  component-edges={edges}");
     println!("  kanji with empty keyword: {no_keyword}");
     println!("  kanji with no reading:    {no_reading}");
+    println!("  dominant readings set:    {dominant} ({no_dom} kanji without one)");
+    println!("  vocab words={vocab_n}  vocab-kanji links={vk_n}");
 
     println!("\nFirst 12 by learning order (intro_rank · keyword · #components):");
     let mut stmt = conn.prepare(
@@ -466,6 +600,29 @@ fn verify(conn: &Connection, rows: &[KanjiRow]) -> Result<(), Box<dyn Error>> {
     for row in mapped {
         let (g, rank, kw, nc) = row?;
         println!("  {rank:>2}  {g}  {kw:<14} [{nc} comp]");
+    }
+
+    println!("\nSample dominant reading + vocab (first 10 by order):");
+    let mut s2 = conn.prepare(
+        "SELECT k.glyph, k.primary_keyword,
+            COALESCE((SELECT r.kind || ':' || r.reading FROM reading r
+                      WHERE r.kanji_id = k.id AND r.is_dominant = 1 LIMIT 1), '-'),
+            COALESCE((SELECT group_concat(vv.surface, ' ') FROM
+                      (SELECT v.surface FROM vocab_kanji vk JOIN vocab v ON v.id = vk.vocab_id
+                       WHERE vk.kanji_id = k.id LIMIT 3) vv), '-')
+         FROM kanji k ORDER BY k.intro_rank LIMIT 10",
+    )?;
+    let rows2 = s2.query_map([], |r| {
+        Ok((
+            r.get::<_, String>(0)?,
+            r.get::<_, String>(1)?,
+            r.get::<_, String>(2)?,
+            r.get::<_, String>(3)?,
+        ))
+    })?;
+    for row in rows2 {
+        let (g, kw, dom, vocab) = row?;
+        println!("  {g}  {kw:<12} dom={dom:<10} vocab: {vocab}");
     }
     Ok(())
 }

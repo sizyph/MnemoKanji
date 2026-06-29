@@ -90,6 +90,25 @@ CREATE TABLE mnemonic (
     distinctiveness   INTEGER
 );
 
+-- In-context vocabulary (slice 3): common words using N5 kanji, from JMdict-common.
+CREATE TABLE vocab (
+    id      INTEGER PRIMARY KEY,
+    surface TEXT NOT NULL,
+    reading TEXT NOT NULL,
+    gloss   TEXT NOT NULL,
+    UNIQUE (surface, reading)
+);
+
+-- Which kanji a vocab word uses, and the kana that kanji contributes (per JmdictFurigana).
+CREATE TABLE vocab_kanji (
+    vocab_id        INTEGER NOT NULL REFERENCES vocab(id),
+    kanji_id        INTEGER NOT NULL REFERENCES kanji(id),
+    reading_in_word TEXT,                       -- e.g. 学 in 学校 -> 'がっ'
+    PRIMARY KEY (vocab_id, kanji_id)
+);
+
+CREATE INDEX idx_vk_kanji      ON vocab_kanji(kanji_id);
+CREATE INDEX idx_vk_vocab      ON vocab_kanji(vocab_id);
 CREATE INDEX idx_reading_kanji ON reading(kanji_id);
 CREATE INDEX idx_meaning_kanji ON meaning(kanji_id);
 CREATE INDEX idx_kc_kanji      ON kanji_component(kanji_id);
