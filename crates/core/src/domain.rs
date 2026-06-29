@@ -21,6 +21,18 @@ impl TrackKind {
     }
 }
 
+impl std::str::FromStr for TrackKind {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "comprehension" => Ok(TrackKind::Comprehension),
+            "production" => Ok(TrackKind::Production),
+            _ => Err(()),
+        }
+    }
+}
+
 /// One scheduled track for one kanji: the FSRS `Card` plus its identity.
 #[derive(Clone, Debug)]
 pub struct Track {

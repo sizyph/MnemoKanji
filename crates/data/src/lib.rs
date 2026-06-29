@@ -1,6 +1,11 @@
-//! MnemoKanji data — storage layer (SQLite via rusqlite, migrations, user state).
+//! MnemoKanji data — SQLite storage layer.
 //!
-//! See `docs/03-DESIGN.md` §2/§7. M0 scaffold: empty placeholder; repositories land in M2.
+//! Two databases (docs/03-DESIGN §7): the read-only bundled **seed** (kanji/readings/vocab/…,
+//! exposed to the engine as a [`mnemokanji_core::ContentView`]) and a writable per-user **state**
+//! store (FSRS tracks + progress). The seed is never mutated; only user state is.
 
-/// Placeholder so the crate compiles and CI has a target. Removed once real repositories land.
-pub fn placeholder() {}
+pub mod content;
+pub mod state;
+
+pub use content::ContentRepo;
+pub use state::StateStore;
