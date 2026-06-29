@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=MnemoKanji
+GenericName=Kanji study
+Comment=Learn every JLPT kanji efficiently with spaced repetition
+Exec=mnemokanji
+Terminal=false
+Categories=Education;Languages;
+Keywords=kanji;japanese;jlpt;srs;flashcards;

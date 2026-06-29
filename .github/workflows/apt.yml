@@ -1,0 +1,120 @@
+name: APT repository
+
+# Builds a .deb (deps derived from the linked binary), assembles a flat apt repo, and publishes
+# it to GitHub Pages so users can `apt install mnemokanji`. Runs on demand and on each release.
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write # upload the .deb to the release
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build + packaging deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev libxdo-dev \
+            dpkg-dev apt-utils
+
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Build seed + app
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bash scripts/fetch-sources.sh
+          cargo run --release -p mnemokanji-content
+          cargo build --release -p mnemokanji-ui --features bundle-seed
+
+      - name: Build .deb
+        id: deb
+        run: |
+          set -euo pipefail
+          VERSION=$(grep -m1 '^version' Cargo.toml | cut -d'"' -f2)
+
+          # Derive runtime dependencies from the actual linked binary.
+          mkdir -p shlib/debian
+          printf 'Source: mnemokanji\n\nPackage: mnemokanji\nArchitecture: amd64\nDepends: ${shlibs:Depends}\nDescription: tmp\n' > shlib/debian/control
+          DEPS=$( cd shlib && dpkg-shlibdeps -O ../target/release/mnemokanji 2>/dev/null | sed -n 's/^shlibs:Depends=//p' || true )
+          [ -n "$DEPS" ] || DEPS="libwebkit2gtk-4.1-0, libgtk-3-0"
+
+          PKG="mnemokanji_${VERSION}_amd64"
+          mkdir -p "$PKG/DEBIAN" "$PKG/usr/bin" "$PKG/usr/share/applications"
+          install -m755 target/release/mnemokanji "$PKG/usr/bin/mnemokanji"
+          install -m644 assets/mnemokanji.desktop "$PKG/usr/share/applications/mnemokanji.desktop"
+          printf '%s\n' \
+            "Package: mnemokanji" \
+            "Version: ${VERSION}" \
+            "Architecture: amd64" \
+            "Maintainer: Sizyph <steepening@gmail.com>" \
+            "Depends: ${DEPS}" \
+            "Section: education" \
+            "Priority: optional" \
+            "Homepage: https://github.com/sizyph/MnemoKanji" \
+            "Description: Learn every JLPT kanji efficiently" \
+            " MnemoKanji is a spaced-repetition (FSRS) kanji study app: recognition," \
+            " reading, writing and cloze review with stroke-order animation and editable" \
+            " mnemonics. The JLPT N5 dataset is bundled." \
+            > "$PKG/DEBIAN/control"
+          dpkg-deb --build --root-owner-group "$PKG"
+          echo "deb=${PKG}.deb" >> "$GITHUB_OUTPUT"
+
+      - name: Assemble flat APT repo + landing page
+        run: |
+          set -euo pipefail
+          mkdir -p public/apt
+          cp "${{ steps.deb.outputs.deb }}" public/apt/
+          ( cd public/apt
+            dpkg-scanpackages --multiversion . > Packages
+            gzip -9kf Packages
+            apt-ftparchive \
+              -o APT::FTPArchive::Release::Origin=MnemoKanji \
+              -o APT::FTPArchive::Release::Label=MnemoKanji \
+              -o APT::FTPArchive::Release::Suite=stable \
+              -o APT::FTPArchive::Release::Architectures=amd64 \
+              -o APT::FTPArchive::Release::Components=main \
+              release . > Release )
+          cat > public/index.html <<'HTML'
+          <!doctype html><meta charset=utf-8><title>MnemoKanji — APT repo</title>
+          <body style="font-family:system-ui,sans-serif;max-width:42rem;margin:3rem auto;padding:0 1rem;line-height:1.6;color:#222">
+          <h1>MnemoKanji — APT repository</h1>
+          <p>Debian/Ubuntu (x86-64):</p>
+          <pre style="background:#f4f4f4;padding:1rem;border-radius:8px;overflow:auto">echo "deb [trusted=yes] https://sizyph.github.io/MnemoKanji/apt/ ./" | sudo tee /etc/apt/sources.list.d/mnemokanji.list
+          sudo apt update
+          sudo apt install mnemokanji</pre>
+          <p>Then run <code>mnemokanji</code>. Project: <a href="https://github.com/sizyph/MnemoKanji">github.com/sizyph/MnemoKanji</a></p>
+          </body>
+          HTML
+
+      - name: Attach .deb to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ github.event.release.tag_name }}"
+          [ -n "$TAG" ] || TAG=$(gh release view --json tagName -q .tagName)
+          gh release upload "$TAG" "${{ steps.deb.outputs.deb }}" --clobber
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deploy
+        uses: actions/deploy-pages@v4
