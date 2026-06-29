@@ -33,5 +33,8 @@ fetch "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/conten
 # JLPT word levels (word-level, Yomitan dict) for beginner-appropriate vocab selection.
 gh release download --repo stephenmk/yomitan-jlpt-vocab --pattern 'jlpt.zip' --dir data/sources --clobber
 mkdir -p data/sources/jlpt && unzip -oq data/sources/jlpt.zip -d data/sources/jlpt
+# Stroke-order vectors (slice 5): KanjiVG main set (CC BY-SA 3.0).
+gh release download --repo KanjiVG/kanjivg --pattern 'kanjivg-*-main.zip' --dir data/sources --clobber
+mkdir -p data/sources/kanjivg && unzip -oq data/sources/kanjivg-*-main.zip -d data/sources/kanjivg
 
 echo "done. sources in data/sources/"

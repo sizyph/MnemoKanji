@@ -19,6 +19,7 @@ use rusqlite::Connection;
 use serde_json::Value;
 
 mod sentence;
+mod stroke;
 mod vocab;
 
 const SOURCE_JSON: &str = "data/sources/kanji-data.json";
@@ -112,6 +113,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         .unwrap_or_default();
     let sentence_map = sentence::build(&wanted_surfaces)?;
 
+    // Stroke-order paths from KanjiVG (optional source).
+    let stroke_map = stroke::build(&n5_glyphs);
+
     // --- Frequency-weighted topological order within N5. ---
     let intro_order = topological_order(&rows, &n5_set);
     let intro_rank: HashMap<&str, i64> = intro_order
@@ -197,6 +201,20 @@ fn main() -> Result<(), Box<dyn Error>> {
     let vstats = insert_vocab(&tx, &kanji_id, &rows, vocab_data.as_ref())?;
     let sentence_count = insert_sentences(&tx, sentence_map.as_ref())?;
 
+    // Slice 5: stroke-order paths.
+    let mut stroke_count = 0;
+    for (glyph, paths) in &stroke_map {
+        if let Some(&kid) = kanji_id.get(glyph.as_str()) {
+            for (i, d) in paths.iter().enumerate() {
+                tx.execute(
+                    "INSERT OR IGNORE INTO stroke (kanji_id, ord, path) VALUES (?1, ?2, ?3)",
+                    rusqlite::params![kid, i as i64, d],
+                )?;
+                stroke_count += 1;
+            }
+        }
+    }
+
     for (k, v) in build_meta(&rows) {
         tx.execute(
             "INSERT INTO meta (key, value) VALUES (?1, ?2)",
@@ -208,6 +226,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         ("dominant_fallback", vstats.1.to_string()),
         ("vocab_count", vstats.2.to_string()),
         ("sentence_count", sentence_count.to_string()),
+        ("stroke_count", stroke_count.to_string()),
     ] {
         tx.execute(
             "INSERT OR REPLACE INTO meta (key, value) VALUES (?1, ?2)",
@@ -225,6 +244,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         vstats.0, vstats.1, vstats.2
     );
     println!("Slice 4: {sentence_count} vocab-sentence links");
+    println!("Slice 5: {stroke_count} stroke paths");
     verify(&conn, &rows)?;
     println!("\nWrote {OUT_DB}");
     Ok(())
@@ -577,7 +597,7 @@ fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {
         ("schema_version", "1".to_string()),
         (
             "slice",
-            "4 (N5: dominant readings, in-context vocabulary, example sentences)".to_string(),
+            "5 (N5: dominant readings, vocabulary, example sentences, stroke order)".to_string(),
         ),
         ("levels", "N5".to_string()),
         ("kanji_count", rows.len().to_string()),
@@ -643,6 +663,13 @@ fn verify(conn: &Connection, rows: &[KanjiRow]) -> Result<(), Box<dyn Error>> {
         |r| r.get(0),
     )?;
     println!("  sentences={sentences}  vocab-sentence links={vs_n}  ({no_sentence} kanji with no sentence)");
+    let strokes: i64 = conn.query_row("SELECT COUNT(*) FROM stroke", [], |r| r.get(0))?;
+    let no_stroke: i64 = conn.query_row(
+        "SELECT COUNT(*) FROM kanji k WHERE NOT EXISTS (SELECT 1 FROM stroke s WHERE s.kanji_id = k.id)",
+        [],
+        |r| r.get(0),
+    )?;
+    println!("  stroke paths={strokes}  ({no_stroke} kanji without strokes)");
 
     println!("\nFirst 12 by learning order (intro_rank · keyword · #components):");
     let mut stmt = conn.prepare(

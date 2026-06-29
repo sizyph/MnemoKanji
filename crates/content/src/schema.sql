@@ -126,6 +126,15 @@ CREATE TABLE vocab_sentence (
 CREATE INDEX idx_vs_vocab      ON vocab_sentence(vocab_id);
 CREATE INDEX idx_vs_sentence   ON vocab_sentence(sentence_id);
 
+-- Stroke-order paths (slice 5): one ordered SVG `d` per stroke, from KanjiVG.
+CREATE TABLE stroke (
+    kanji_id INTEGER NOT NULL REFERENCES kanji(id),
+    ord      INTEGER NOT NULL,                   -- 0-based stroke order
+    path     TEXT NOT NULL,                      -- SVG path 'd'
+    PRIMARY KEY (kanji_id, ord)
+);
+CREATE INDEX idx_stroke_kanji  ON stroke(kanji_id);
+
 CREATE INDEX idx_reading_kanji ON reading(kanji_id);
 CREATE INDEX idx_meaning_kanji ON meaning(kanji_id);
 CREATE INDEX idx_kc_kanji      ON kanji_component(kanji_id);
