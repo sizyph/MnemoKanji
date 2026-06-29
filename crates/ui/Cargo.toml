@@ -17,3 +17,9 @@ dioxus = { workspace = true, features = ["desktop"] }
 mnemokanji-core = { workspace = true }
 mnemokanji-data = { workspace = true }
 chrono = { version = "0.4.45", default-features = false, features = ["clock"] }
+dirs = { version = "5", optional = true }
+
+[features]
+# Release builds: embed assets/seed.sqlite into the binary and extract it to the OS app-data
+# dir at startup, so the app is self-contained (no external files needed to run).
+bundle-seed = ["dep:dirs"]

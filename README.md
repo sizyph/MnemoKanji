@@ -51,6 +51,17 @@ End goal: **iPhone, macOS, Windows, Ubuntu** from a single Rust codebase (UI in
 [Dioxus](https://dioxuslabs.com/)). v1 ships desktop-first (macOS / Windows / Linux); iOS
 follows once the core is proven.
 
+## Download
+
+Pre-built, self-contained binaries for **macOS (Apple Silicon), Windows, and Linux** are attached
+to each [GitHub Release](https://github.com/sizyph/MnemoKanji/releases) — the N5 dataset is bundled
+inside, so just unpack and run (no setup). They're currently **unsigned**, so on first launch:
+
+- **macOS:** right-click → *Open* (to get past Gatekeeper).
+- **Windows:** *More info* → *Run anyway* (SmartScreen).
+
+Or run from source: `cargo run -p mnemokanji-ui`.
+
 ## Documentation
 
 | Doc | What it covers |

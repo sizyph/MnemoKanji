@@ -14,7 +14,9 @@ use dioxus::prelude::*;
 use mnemokanji_core::{ContentView, Engine, Rating, Settings, StudyState, TrackKind};
 use mnemokanji_data::{BrowseItem, ContentRepo, KanjiDetail, StateStore};
 
+#[cfg(not(feature = "bundle-seed"))]
 const SEED_DB: &str = "assets/seed.sqlite";
+#[cfg(not(feature = "bundle-seed"))]
 const USER_DB: &str = "user.sqlite";
 const CSS: &str = include_str!("app.css");
 
@@ -45,9 +47,56 @@ fn backend() -> std::sync::MutexGuard<'static, Backend> {
         .expect("backend lock")
 }
 
+/// Embedded N5 seed for release builds (extracted to the app-data dir at startup).
+#[cfg(feature = "bundle-seed")]
+const SEED_BYTES: &[u8] = include_bytes!("../../../assets/seed.sqlite");
+
+#[cfg(feature = "bundle-seed")]
+fn data_dir() -> std::path::PathBuf {
+    let dir = dirs::data_dir()
+        .unwrap_or_else(|| ".".into())
+        .join("MnemoKanji");
+    let _ = std::fs::create_dir_all(&dir);
+    dir
+}
+
+/// Resolve the read-only seed DB: `$MNEMOKANJI_SEED`, else the embedded seed (release), else the
+/// dev path `assets/seed.sqlite` relative to the working directory.
+fn seed_path() -> String {
+    if let Ok(p) = std::env::var("MNEMOKANJI_SEED") {
+        return p;
+    }
+    #[cfg(feature = "bundle-seed")]
+    {
+        let path = data_dir().join("seed.sqlite");
+        std::fs::write(&path, SEED_BYTES).expect("write bundled seed");
+        path.to_string_lossy().into_owned()
+    }
+    #[cfg(not(feature = "bundle-seed"))]
+    {
+        SEED_DB.to_string()
+    }
+}
+
+/// Resolve the writable user-state DB: `$MNEMOKANJI_USER_DB`, else the app-data dir (release), else
+/// `user.sqlite` in the working directory (dev).
+fn user_path() -> String {
+    if let Ok(p) = std::env::var("MNEMOKANJI_USER_DB") {
+        return p;
+    }
+    #[cfg(feature = "bundle-seed")]
+    {
+        data_dir().join("user.sqlite").to_string_lossy().into_owned()
+    }
+    #[cfg(not(feature = "bundle-seed"))]
+    {
+        USER_DB.to_string()
+    }
+}
+
 fn main() {
-    let seed = std::env::var("MNEMOKANJI_SEED").unwrap_or_else(|_| SEED_DB.into());
-    let user = std::env::var("MNEMOKANJI_USER_DB").unwrap_or_else(|_| USER_DB.into());
+    let seed = seed_path();
+    let user = user_path();
 
     let content_repo = ContentRepo::open(&seed).unwrap_or_else(|e| {
         panic!("open seed db {seed}: {e} (run scripts/fetch-sources.sh + cargo run -p mnemokanji-content)")
