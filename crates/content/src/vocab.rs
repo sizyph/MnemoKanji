@@ -154,19 +154,10 @@ pub fn build(
         else {
             continue;
         };
-        let gloss = w
-            .get("sense")
-            .and_then(Value::as_array)
-            .into_iter()
-            .flatten()
-            .find_map(|s| {
-                s.get("gloss")
-                    .and_then(Value::as_array)
-                    .and_then(|g| g.first())
-                    .and_then(|g| g.get("text"))
-                    .and_then(Value::as_str)
-            })
-            .unwrap_or_default();
+        // A correct, non-misleading gloss (see word_gloss): the first gloss of each common sense,
+        // parentheticals stripped, archaic/obscure senses skipped; single kanji take their primary
+        // sense only. Fixes both truncation (大変→"very") and obscure-sense noise (土→torinoko).
+        let gloss = word_gloss(w, surface.chars().count() == 1);
 
         // Split into per-kanji parts via the furigana alignment (regular words only).
         let mut parts: Vec<(String, String)> = Vec::new();
@@ -265,6 +256,64 @@ pub fn build(
     }
 
     Ok(Some(VocabData { dominant, vocab }))
+}
+
+/// Build a learner gloss: the first gloss of each common sense (JMdict orders senses by
+/// importance), parentheticals removed, archaic/obscure senses skipped. Single-kanji words take
+/// only their primary sense (their later senses are usually classical/obscure).
+fn word_gloss(w: &Value, single_char: bool) -> String {
+    const SKIP: [&str; 7] = ["arch", "obs", "obsc", "rare", "hist", "dated", "derog"];
+    let limit = if single_char { 1 } else { 3 };
+    let mut out: Vec<String> = Vec::new();
+    for s in w
+        .get("sense")
+        .and_then(Value::as_array)
+        .into_iter()
+        .flatten()
+    {
+        let obscure = s
+            .get("misc")
+            .and_then(Value::as_array)
+            .map(|m| {
+                m.iter()
+                    .filter_map(Value::as_str)
+                    .any(|t| SKIP.contains(&t))
+            })
+            .unwrap_or(false);
+        if obscure {
+            continue;
+        }
+        let g = s
+            .get("gloss")
+            .and_then(Value::as_array)
+            .and_then(|g| g.first())
+            .and_then(|g| g.get("text"))
+            .and_then(Value::as_str)
+            .map(strip_parens)
+            .unwrap_or_default();
+        if !g.is_empty() && !out.iter().any(|e| e.eq_ignore_ascii_case(&g)) {
+            out.push(g);
+            if out.len() >= limit {
+                break;
+            }
+        }
+    }
+    out.join("; ")
+}
+
+/// Remove parenthetical clarifications and collapse whitespace.
+fn strip_parens(s: &str) -> String {
+    let mut r = String::new();
+    let mut depth = 0i32;
+    for c in s.chars() {
+        match c {
+            '(' | '[' => depth += 1,
+            ')' | ']' => depth = (depth - 1).max(0),
+            _ if depth == 0 => r.push(c),
+            _ => {}
+        }
+    }
+    r.split_whitespace().collect::<Vec<_>>().join(" ")
 }
 
 /// Read a JSON file, tolerating a leading UTF-8 BOM (JmdictFurigana has one).

@@ -34,6 +34,8 @@ const AUTH_READ: &str = "data/authored/n5-reading-actors.json";
 const AUTH_MNEM: &str = "data/authored/n5-mnemonics.json";
 // Optional dominant-reading overrides (glyph/reading/kind), e.g. from the judge pass.
 const AUTH_DOM: &str = "data/authored/n5-dominant-readings.json";
+// Optional vocab gloss overrides (surface/reading/gloss), e.g. from the review pass.
+const AUTH_VGLOSS: &str = "data/authored/n5-vocab-glosses.json";
 
 /// A kanji as assembled from the sources, before DB insertion.
 struct KanjiRow {
@@ -200,6 +202,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let authored = load_authored(&tx, &kanji_id, &comp_id)?;
     let vstats = insert_vocab(&tx, &kanji_id, &rows, vocab_data.as_ref())?;
     let sentence_count = insert_sentences(&tx, sentence_map.as_ref())?;
+    let gloss_fixes = apply_gloss_overrides(&tx)?;
 
     // Slice 5: stroke-order paths.
     let mut stroke_count = 0;
@@ -245,6 +248,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     );
     println!("Slice 4: {sentence_count} vocab-sentence links");
     println!("Slice 5: {stroke_count} stroke paths");
+    println!("Reviewer gloss fixes applied: {gloss_fixes}");
     verify(&conn, &rows)?;
     println!("\nWrote {OUT_DB}");
     Ok(())
@@ -590,6 +594,28 @@ fn insert_sentences(
         }
     }
     Ok(links)
+}
+
+/// Apply reviewer-confirmed vocab gloss corrections from data/authored/n5-vocab-glosses.json.
+/// Returns the number of rows updated.
+fn apply_gloss_overrides(tx: &rusqlite::Transaction) -> Result<usize, Box<dyn Error>> {
+    let Some(v) = read_optional(AUTH_VGLOSS)? else {
+        return Ok(0);
+    };
+    let mut n = 0;
+    for e in v.as_array().into_iter().flatten() {
+        if let (Some(surface), Some(reading), Some(gloss)) = (
+            e.get("surface").and_then(Value::as_str),
+            e.get("reading").and_then(Value::as_str),
+            e.get("gloss").and_then(Value::as_str),
+        ) {
+            n += tx.execute(
+                "UPDATE vocab SET gloss = ?1 WHERE surface = ?2 AND reading = ?3",
+                rusqlite::params![gloss, surface, reading],
+            )?;
+        }
+    }
+    Ok(n)
 }
 
 fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {

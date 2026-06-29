@@ -1,0 +1,6 @@
+[
+  { "surface": "後", "reading": "あと", "gloss": "after; later; the rest", "note": "JMdict leads with spatial 'behind' (うしろ sense); あと = after/later/remainder" },
+  { "surface": "何でも", "reading": "なんでも", "gloss": "anything; everything; whatever", "note": "primary sense, not 'any; I am told'" },
+  { "surface": "先", "reading": "さき", "gloss": "ahead; previous; tip", "note": "'point' alone misses ahead/previous/destination" },
+  { "surface": "十二", "reading": "じゅうに", "gloss": "twelve", "note": "drop the obscure card 'queen' sense" }
+]
