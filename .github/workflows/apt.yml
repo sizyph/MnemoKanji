@@ -1,12 +1,17 @@
 name: APT repository
 
 # Builds a .deb (deps derived from the linked binary), assembles a flat apt repo, and publishes
-# it to GitHub Pages so users can `apt install mnemokanji`. Runs on demand and on each release.
+# it to GitHub Pages so users can `apt install mnemokanji`. Runs on demand and after each Release.
+#
+# NOTE: we chain off the "Release" workflow via `workflow_run` rather than `release: published`.
+# A release created by the Actions GITHUB_TOKEN does NOT emit events that trigger other workflows
+# (GitHub's anti-recursion rule), so `release: published` never fired. `workflow_run` does fire.
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  workflow_run:
+    workflows: ["Release"]
+    types: [completed]
 
 permissions:
   contents: write # upload the .deb to the release
@@ -19,6 +24,8 @@ concurrency:
 
 jobs:
   build:
+    # On workflow_run, only proceed if the Release actually succeeded. Manual dispatch always runs.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -108,7 +115,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # release event → event.release.tag_name; workflow_run off a tag push → head_branch is
+          # the tag; manual dispatch → newest published release.
           TAG="${{ github.event.release.tag_name }}"
+          [ -n "$TAG" ] || TAG="${{ github.event.workflow_run.head_branch }}"
           [ -n "$TAG" ] || TAG=$(gh release view --json tagName -q .tagName)
           gh release upload "$TAG" "${{ steps.deb.outputs.deb }}" --clobber
 
