@@ -19,16 +19,19 @@ pub struct Scheduler {
 
 impl Default for Scheduler {
     fn default() -> Self {
-        Self::new()
+        Self::new(0.9)
     }
 }
 
 impl Scheduler {
-    pub fn new() -> Self {
-        // Parameters::default() already gives request_retention 0.9, maximum_interval 36500,
-        // enable_short_term true, and the published FSRS-4.5 weights. We only flip fuzz on.
+    /// `desired_retention` is the target recall probability (the challenge dial); 0.9 is the
+    /// recommended default.
+    pub fn new(desired_retention: f64) -> Self {
+        // Parameters::default() already gives maximum_interval 36500, enable_short_term true, and
+        // the published FSRS-4.5 weights. We set retention and flip fuzz on.
         Self {
             params: Parameters {
+                request_retention: desired_retention,
                 enable_fuzz: true,
                 ..Default::default()
             },

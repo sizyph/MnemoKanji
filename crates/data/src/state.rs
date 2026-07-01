@@ -47,6 +47,7 @@ fn migrations() -> Migrations<'static> {
              );
              CREATE INDEX idx_review_ts ON review_event(ts);",
         ),
+        M::up("ALTER TABLE app_settings ADD COLUMN desired_retention REAL NOT NULL DEFAULT 0.9;"),
     ])
 }
 
@@ -151,12 +152,18 @@ impl StateStore {
         Ok(())
     }
 
-    /// Persisted (new_per_day, daily_review_cap).
-    pub fn load_settings(&self) -> rusqlite::Result<(usize, usize)> {
+    /// Persisted (new_per_day, daily_review_cap, desired_retention).
+    pub fn load_settings(&self) -> rusqlite::Result<(usize, usize, f64)> {
         self.conn.query_row(
-            "SELECT new_per_day, daily_review_cap FROM app_settings WHERE id = 1",
+            "SELECT new_per_day, daily_review_cap, desired_retention FROM app_settings WHERE id = 1",
             [],
-            |r| Ok((r.get::<_, i64>(0)? as usize, r.get::<_, i64>(1)? as usize)),
+            |r| {
+                Ok((
+                    r.get::<_, i64>(0)? as usize,
+                    r.get::<_, i64>(1)? as usize,
+                    r.get::<_, f64>(2)?,
+                ))
+            },
         )
     }
 
@@ -164,10 +171,11 @@ impl StateStore {
         &mut self,
         new_per_day: usize,
         daily_review_cap: usize,
+        desired_retention: f64,
     ) -> rusqlite::Result<()> {
         self.conn.execute(
-            "UPDATE app_settings SET new_per_day = ?1, daily_review_cap = ?2 WHERE id = 1",
-            rusqlite::params![new_per_day as i64, daily_review_cap as i64],
+            "UPDATE app_settings SET new_per_day = ?1, daily_review_cap = ?2, desired_retention = ?3 WHERE id = 1",
+            rusqlite::params![new_per_day as i64, daily_review_cap as i64, desired_retention],
         )?;
         Ok(())
     }
@@ -312,7 +320,7 @@ mod tests {
                 },
             );
             store.save_state(&state).unwrap();
-            store.save_settings(15, 80).unwrap();
+            store.save_settings(15, 80, 0.85).unwrap();
         }
         // "Export" = copy the DB file; "import" = open the copy.
         std::fs::copy(&path, &backup).unwrap();
@@ -320,7 +328,7 @@ mod tests {
         let st = restored.load_state().unwrap();
         assert_eq!(st.unlocked_level, 3);
         assert!(st.tracks.contains_key(&(7, TrackKind::Comprehension)));
-        assert_eq!(restored.load_settings().unwrap(), (15, 80));
+        assert_eq!(restored.load_settings().unwrap(), (15, 80, 0.85));
 
         let _ = std::fs::remove_file(&path);
         let _ = std::fs::remove_file(&backup);

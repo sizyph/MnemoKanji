@@ -111,7 +111,8 @@ fn main() {
     let content = content_repo.content_view().expect("load content view");
     let state_store = StateStore::open(&user).expect("open user state db");
     let state = state_store.load_state().expect("load user state");
-    let (new_per_day, daily_review_cap) = state_store.load_settings().unwrap_or((10, 60));
+    let (new_per_day, daily_review_cap, desired_retention) =
+        state_store.load_settings().unwrap_or((10, 60, 0.9));
 
     BACKEND
         .set(Mutex::new(Backend {
@@ -122,6 +123,7 @@ fn main() {
             settings: Settings {
                 new_per_day,
                 daily_review_cap,
+                desired_retention,
                 ..Default::default()
             },
             user_path: user,
@@ -198,6 +200,7 @@ struct AppState {
     undo: Signal<Option<UndoSnapshot>>,
     editing: Signal<bool>,
     edit_text: Signal<String>,
+    celebration: Signal<Option<String>>,
     tick: Signal<u32>,
 }
 
@@ -213,11 +216,15 @@ fn App() -> Element {
         undo: use_signal(|| None),
         editing: use_signal(|| false),
         edit_text: use_signal(String::new),
+        celebration: use_signal(|| None),
         tick: use_signal(|| 0u32),
     };
 
     rsx! {
         style { dangerous_inner_html: CSS }
+        if let Some(msg) = (s.celebration)() {
+            div { class: "celebration", onclick: move |_| { let mut c = s.celebration; c.set(None); }, "{msg}" }
+        }
         div { class: "app",
             {match (s.screen)() {
                 Screen::Dashboard => dashboard_view(s),
@@ -561,10 +568,17 @@ fn detail_view(s: AppState) -> Element {
 
 fn settings_view(s: AppState) -> Element {
     let _ = (s.tick)();
-    let (npd, cap) = {
+    let (npd, cap, ret) = {
         let g = backend();
-        (g.settings.new_per_day, g.settings.daily_review_cap)
+        (
+            g.settings.new_per_day,
+            g.settings.daily_review_cap,
+            g.settings.desired_retention,
+        )
     };
+    let relaxed = ret < 0.875;
+    let balanced = (0.875..0.925).contains(&ret);
+    let intense = ret >= 0.925;
     rsx! {
         div { class: "card",
             div { class: "topbar",
@@ -587,6 +601,15 @@ fn settings_view(s: AppState) -> Element {
                     button { onclick: move |_| change_setting(s, 0, 10), "+" }
                 }
             }
+            div { class: "setting-row",
+                label { "Challenge" }
+                div { class: "seg",
+                    button { class: if relaxed { "seg-btn on" } else { "seg-btn" }, onclick: move |_| set_retention(s, 0.85), "Relaxed" }
+                    button { class: if balanced { "seg-btn on" } else { "seg-btn" }, onclick: move |_| set_retention(s, 0.90), "Balanced" }
+                    button { class: if intense { "seg-btn on" } else { "seg-btn" }, onclick: move |_| set_retention(s, 0.95), "Intense" }
+                }
+            }
+            p { class: "setting-note", "Challenge sets your target recall — Intense means more reviews but stronger retention." }
             div { class: "data-section",
                 h3 { "Data" }
                 div { class: "data-row",
@@ -724,8 +747,28 @@ fn change_setting(s: AppState, d_npd: i64, d_cap: i64) {
         g.settings.new_per_day = (g.settings.new_per_day as i64 + d_npd).clamp(1, 100) as usize;
         g.settings.daily_review_cap =
             (g.settings.daily_review_cap as i64 + d_cap).clamp(10, 500) as usize;
-        let (n, c) = (g.settings.new_per_day, g.settings.daily_review_cap);
-        let _ = g.state_store.save_settings(n, c);
+        let (n, c, r) = (
+            g.settings.new_per_day,
+            g.settings.daily_review_cap,
+            g.settings.desired_retention,
+        );
+        let _ = g.state_store.save_settings(n, c, r);
+    }
+    let mut tick = s.tick;
+    tick += 1;
+}
+
+/// Set the FSRS desired retention (challenge dial) and persist it.
+fn set_retention(s: AppState, value: f64) {
+    {
+        let mut g = backend();
+        g.settings.desired_retention = value;
+        let (n, c, r) = (
+            g.settings.new_per_day,
+            g.settings.daily_review_cap,
+            g.settings.desired_retention,
+        );
+        let _ = g.state_store.save_settings(n, c, r);
     }
     let mut tick = s.tick;
     tick += 1;
@@ -772,9 +815,10 @@ fn import_data(s: AppState) {
         let _ = std::fs::copy(&src, &dest);
         if let Ok(store) = StateStore::open(&dest) {
             g.state = store.load_state().unwrap_or_default();
-            let (npd, cap) = store.load_settings().unwrap_or((10, 60));
+            let (npd, cap, ret) = store.load_settings().unwrap_or((10, 60, 0.9));
             g.settings.new_per_day = npd;
             g.settings.daily_review_cap = cap;
+            g.settings.desired_retention = ret;
             g.state_store = store;
         }
     }
@@ -851,8 +895,10 @@ fn start_session(s: AppState) {
     };
     let mut queue = s.queue;
     let mut undo = s.undo;
+    let mut celeb = s.celebration;
     queue.set(q);
     undo.set(None);
+    celeb.set(None);
     load_current(s);
 }
 
@@ -862,29 +908,74 @@ fn do_grade(rating: Rating, s: AppState) {
         return;
     }
     let (kid, kind) = q.remove(0);
-    let snapshot = {
+    let glyph = (s.current)().map(|(d, _)| d.glyph).unwrap_or_default();
+
+    let (snapshot, celebration) = {
         let mut g = backend();
         let now = g.now();
+        let today = now.date_naive();
         let snap = g.state.clone();
-        let Backend {
-            content,
-            state,
-            state_store,
-            settings,
-            ..
-        } = &mut *g;
-        Engine::new(content, settings.clone()).grade(state, kid, kind, &[rating], now);
-        let _ = state_store.save_state(state);
-        let _ = state_store.log_review(kid, kind.as_str(), rating as u8, now);
-        snap
+        let mature_days = g.settings.mature_stability_days;
+        let level_before = g.state.unlocked_level;
+        let was_mature = g
+            .state
+            .tracks
+            .get(&(kid, kind))
+            .map(|t| mnemokanji_core::comprehension_mature(&t.card, mature_days))
+            .unwrap_or(false);
+        let first_today = g
+            .state_store
+            .review_counts(today)
+            .map(|(t, _)| t == 0)
+            .unwrap_or(false);
+
+        {
+            let Backend {
+                content,
+                state,
+                state_store,
+                settings,
+                ..
+            } = &mut *g;
+            Engine::new(content, settings.clone()).grade(state, kid, kind, &[rating], now);
+            let _ = state_store.save_state(state);
+            let _ = state_store.log_review(kid, kind.as_str(), rating as u8, now);
+        }
+
+        let level_after = g.state.unlocked_level;
+        let is_mature = kind == TrackKind::Comprehension
+            && g.state
+                .tracks
+                .get(&(kid, kind))
+                .map(|t| mnemokanji_core::comprehension_mature(&t.card, mature_days))
+                .unwrap_or(false);
+        let streak_now = {
+            let dates = g.state_store.study_dates().unwrap_or_default();
+            streak(&dates, today).0
+        };
+        let celebration = if level_after < level_before {
+            Some(format!(
+                "\u{1f389} N{level_before} cleared \u{2014} N{level_after} unlocked!"
+            ))
+        } else if kind == TrackKind::Comprehension && !was_mature && is_mature {
+            Some(format!("\u{1f338} {glyph} mastered!"))
+        } else if first_today && [3u32, 7, 14, 30, 60, 100, 200, 365].contains(&streak_now) {
+            Some(format!("\u{1f525} {streak_now}-day streak!"))
+        } else {
+            None
+        };
+        (snap, celebration)
     };
+
     let mut undo = s.undo;
     let mut queue = s.queue;
+    let mut celeb = s.celebration;
     undo.set(Some(UndoSnapshot {
         state: snapshot,
         item: (kid, kind),
     }));
     queue.set(q);
+    celeb.set(celebration);
     load_current(s);
 }
 

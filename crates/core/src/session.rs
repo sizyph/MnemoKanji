@@ -38,6 +38,8 @@ pub struct Settings {
     pub production_gate_days: f64,
     /// Fraction of a level's kanji that must be mature to unlock the next level.
     pub clear_fraction: f64,
+    /// FSRS desired retention (the "challenge dial": relaxed 0.85 .. intense 0.95).
+    pub desired_retention: f64,
 }
 
 impl Default for Settings {
@@ -48,6 +50,7 @@ impl Default for Settings {
             mature_stability_days: 21.0,
             production_gate_days: 7.0,
             clear_fraction: 0.9,
+            desired_retention: 0.9,
         }
     }
 }
@@ -68,10 +71,11 @@ pub struct Engine<'a> {
 
 impl<'a> Engine<'a> {
     pub fn new(content: &'a ContentView, settings: Settings) -> Self {
+        let scheduler = Scheduler::new(settings.desired_retention);
         Self {
             content,
             settings,
-            scheduler: Scheduler::new(),
+            scheduler,
         }
     }
 
