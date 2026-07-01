@@ -27,19 +27,40 @@ const SOURCE_KRAD: &str = "data/sources/kradfile-u";
 const OUT_DB: &str = "assets/seed.sqlite";
 const SCHEMA: &str = include_str!("schema.sql");
 
-// Authored content (our original, version-controlled). Optional: absent => slice-1-only build.
-const AUTH_KEYWORDS: &str = "data/authored/n5-keywords.json";
-const AUTH_COMP: &str = "data/authored/n5-component-actors.json";
+// JLPT levels to build, in learning order: (jlpt_new value, label, ord/level_id). N5 is learned
+// first (ord 1). Add (4, "N4", 2) once N4 authored content (keywords, actors, mnemonics) lands —
+// the derived content (vocab, sentences, strokes, decomposition, learning order) needs no new code.
+const LEVELS: &[(i64, &str, i64)] = &[(5, "N5", 1)];
+
+// Reading actors are keyed by on'yomi sound and shared across every level (one persona per sound).
 const AUTH_READ: &str = "data/authored/n5-reading-actors.json";
-const AUTH_MNEM: &str = "data/authored/n5-mnemonics.json";
-// Optional dominant-reading overrides (glyph/reading/kind), e.g. from the judge pass.
-const AUTH_DOM: &str = "data/authored/n5-dominant-readings.json";
-// Optional vocab gloss overrides (surface/reading/gloss), e.g. from the review pass.
-const AUTH_VGLOSS: &str = "data/authored/n5-vocab-glosses.json";
+
+/// Per-level authored file paths (`data/authored/{n5|n4|…}-*.json`). Every file is optional:
+/// absent => that facet is derived-only for the level. Keyed off the lowercased level label.
+struct LevelAuthored {
+    keywords: String,
+    components: String,
+    mnemonics: String,
+    dominant: String,
+    vglosses: String,
+}
+
+fn level_authored(label: &str) -> LevelAuthored {
+    let p = label.to_lowercase();
+    LevelAuthored {
+        keywords: format!("data/authored/{p}-keywords.json"),
+        components: format!("data/authored/{p}-component-actors.json"),
+        mnemonics: format!("data/authored/{p}-mnemonics.json"),
+        dominant: format!("data/authored/{p}-dominant-readings.json"),
+        vglosses: format!("data/authored/{p}-vocab-glosses.json"),
+    }
+}
 
 /// A kanji as assembled from the sources, before DB insertion.
 struct KanjiRow {
     glyph: String,
+    /// FK into the `level` table (== the level's `ord`).
+    level_id: i64,
     strokes: Option<i64>,
     freq: Option<i64>,
     keyword: String,
@@ -50,43 +71,63 @@ struct KanjiRow {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    println!("mnemokanji-content: building N5 seed (slice 1)\n");
+    let level_labels: Vec<&str> = LEVELS.iter().map(|(_, l, _)| *l).collect();
+    println!(
+        "mnemokanji-content: building seed for {}\n",
+        level_labels.join(", ")
+    );
 
     let kanji_data = load_json(SOURCE_JSON)?;
     let krad = load_kradfile(SOURCE_KRAD)?;
 
-    // --- Assemble the N5 kanji set (jlpt_new == 5), deterministically ordered by glyph. ---
+    // --- Assemble the kanji set for every configured level, grouped by level (glyph-sorted). ---
     let obj = kanji_data
         .as_object()
         .ok_or("kanji-data.json is not a JSON object")?;
-    let mut n5_glyphs: Vec<String> = obj
+    // (jlpt, label, ord, glyphs) per level, in learning order.
+    let per_level: Vec<(i64, &str, i64, Vec<String>)> = LEVELS
         .iter()
-        .filter(|(_, v)| v.get("jlpt_new").and_then(Value::as_i64) == Some(5))
-        .map(|(k, _)| k.clone())
+        .map(|&(jlpt, label, ord)| {
+            let mut glyphs: Vec<String> = obj
+                .iter()
+                .filter(|(_, v)| v.get("jlpt_new").and_then(Value::as_i64) == Some(jlpt))
+                .map(|(k, _)| k.clone())
+                .collect();
+            glyphs.sort();
+            (jlpt, label, ord, glyphs)
+        })
         .collect();
-    n5_glyphs.sort();
-    let n5_set: HashSet<&str> = n5_glyphs.iter().map(String::as_str).collect();
 
-    let rows: Vec<KanjiRow> = n5_glyphs
+    let selected: Vec<String> = per_level
         .iter()
-        .map(|g| {
-            let info = &obj[g];
-            let meanings = str_array(info, "meanings");
-            KanjiRow {
-                glyph: g.clone(),
-                strokes: info.get("strokes").and_then(Value::as_i64),
-                freq: info.get("freq").and_then(Value::as_i64),
-                keyword: normalize_keyword(meanings.first().map(String::as_str).unwrap_or("")),
-                meanings,
-                on: str_array(info, "readings_on"),
-                kun: str_array(info, "readings_kun"),
-                components: krad.get(g).cloned().unwrap_or_default(),
-            }
+        .flat_map(|(_, _, _, g)| g.iter().cloned())
+        .collect();
+    let selected_set: HashSet<&str> = selected.iter().map(String::as_str).collect();
+    let selected_owned: HashSet<String> = selected.iter().cloned().collect();
+
+    let krad_ref = &krad;
+    let rows: Vec<KanjiRow> = per_level
+        .iter()
+        .flat_map(|&(_, _, ord, ref glyphs)| {
+            glyphs.iter().map(move |g| {
+                let info = &obj[g];
+                let meanings = str_array(info, "meanings");
+                KanjiRow {
+                    glyph: g.clone(),
+                    level_id: ord,
+                    strokes: info.get("strokes").and_then(Value::as_i64),
+                    freq: info.get("freq").and_then(Value::as_i64),
+                    keyword: normalize_keyword(meanings.first().map(String::as_str).unwrap_or("")),
+                    meanings,
+                    on: str_array(info, "readings_on"),
+                    kun: str_array(info, "readings_kun"),
+                    components: krad_ref.get(g).cloned().unwrap_or_default(),
+                }
+            })
         })
         .collect();
 
     // --- Slice 3: dominant readings + in-context vocabulary (optional sources). ---
-    let n5_owned: HashSet<String> = n5_glyphs.iter().cloned().collect();
     let mut stored: vocab::StoredReadings = HashMap::new();
     for r in &rows {
         let mut rs = Vec::new();
@@ -106,7 +147,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                 .map(|l| (g.clone(), l))
         })
         .collect();
-    let vocab_data = vocab::build(&n5_owned, &stored, &kanji_levels)?;
+    let vocab_data = vocab::build(&selected_owned, &stored, &kanji_levels)?;
 
     // Example sentences for the selected vocab (optional source).
     let wanted_surfaces: HashSet<String> = vocab_data
@@ -116,15 +157,17 @@ fn main() -> Result<(), Box<dyn Error>> {
     let sentence_map = sentence::build(&wanted_surfaces)?;
 
     // Stroke-order paths from KanjiVG (optional source).
-    let stroke_map = stroke::build(&n5_glyphs);
+    let stroke_map = stroke::build(&selected);
 
-    // --- Frequency-weighted topological order within N5. ---
-    let intro_order = topological_order(&rows, &n5_set);
-    let intro_rank: HashMap<&str, i64> = intro_order
-        .iter()
-        .enumerate()
-        .map(|(i, g)| (g.as_str(), i as i64))
-        .collect();
+    // --- Frequency-weighted topological order, computed WITHIN each level (a component that is a
+    // lower-level kanji is already learned, so it never gates the current level). ---
+    let mut intro_rank: HashMap<String, i64> = HashMap::new();
+    for (_, _, _, glyphs) in &per_level {
+        let scope: HashSet<&str> = glyphs.iter().map(String::as_str).collect();
+        for (i, g) in topological_order(&rows, &scope).into_iter().enumerate() {
+            intro_rank.insert(g, i as i64);
+        }
+    }
 
     // --- Build the SQLite seed. ---
     if let Some(parent) = Path::new(OUT_DB).parent() {
@@ -135,12 +178,14 @@ fn main() -> Result<(), Box<dyn Error>> {
     conn.execute_batch(SCHEMA)?;
 
     let tx = conn.transaction()?;
-    tx.execute(
-        "INSERT INTO level (id, jlpt, ord, kanji_count) VALUES (1, 'N5', 1, ?1)",
-        [rows.len() as i64],
-    )?;
+    for (_, label, ord, glyphs) in &per_level {
+        tx.execute(
+            "INSERT INTO level (id, jlpt, ord, kanji_count) VALUES (?1, ?2, ?3, ?4)",
+            rusqlite::params![ord, label, ord, glyphs.len() as i64],
+        )?;
+    }
 
-    // Distinct components across all N5 kanji.
+    // Distinct components across all selected kanji.
     let mut comp_glyphs: BTreeSet<&str> = BTreeSet::new();
     for r in &rows {
         for c in &r.components {
@@ -151,7 +196,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     for c in &comp_glyphs {
         tx.execute(
             "INSERT INTO component (glyph, is_kanji) VALUES (?1, ?2)",
-            rusqlite::params![c, n5_set.contains(c) as i64],
+            rusqlite::params![c, selected_set.contains(c) as i64],
         )?;
         comp_id.insert(c, tx.last_insert_rowid());
     }
@@ -160,9 +205,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     for r in &rows {
         tx.execute(
             "INSERT INTO kanji (glyph, level_id, stroke_count, freq, primary_keyword, intro_rank)
-             VALUES (?1, 1, ?2, ?3, ?4, ?5)",
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6)",
             rusqlite::params![
                 r.glyph,
+                r.level_id,
                 r.strokes,
                 r.freq,
                 r.keyword,
@@ -306,26 +352,31 @@ fn load_kradfile(path: &str) -> Result<HashMap<String, Vec<String>>, Box<dyn Err
     Ok(map)
 }
 
-/// Frequency-weighted topological sort (Kahn): among kanji whose N5-kanji components are all
-/// already placed, emit the most frequent next (lower freq rank = more frequent; ties by fewer
-/// strokes, then codepoint). Non-N5 components are assumed known (just-in-time), so they don't
-/// gate. See docs/02 §H. Returns the glyphs in learning order.
-fn topological_order(rows: &[KanjiRow], n5_set: &HashSet<&str>) -> Vec<String> {
+/// Frequency-weighted topological sort (Kahn) over the glyphs in `scope` (one JLPT level): among
+/// kanji whose same-level-kanji components are all already placed, emit the most frequent next
+/// (lower freq rank = more frequent; ties by fewer strokes, then codepoint). Components outside
+/// `scope` (lower-level kanji, bare radicals) are assumed known just-in-time, so they don't gate.
+/// See docs/02 §H. Returns the in-scope glyphs in learning order.
+fn topological_order(rows: &[KanjiRow], scope: &HashSet<&str>) -> Vec<String> {
     let info: HashMap<&str, &KanjiRow> = rows.iter().map(|r| (r.glyph.as_str(), r)).collect();
     let glyphs: Vec<&str> = {
-        let mut v: Vec<&str> = rows.iter().map(|r| r.glyph.as_str()).collect();
+        let mut v: Vec<&str> = rows
+            .iter()
+            .map(|r| r.glyph.as_str())
+            .filter(|g| scope.contains(g))
+            .collect();
         v.sort_unstable();
         v
     };
 
-    // Edge c -> k when component c is itself an N5 kanji used in k (c is a prerequisite of k).
+    // Edge c -> k when component c is itself an in-scope kanji used in k (a prerequisite of k).
     let mut indeg: BTreeMap<&str, usize> = glyphs.iter().map(|&g| (g, 0)).collect();
     let mut succ: HashMap<&str, Vec<&str>> = HashMap::new();
     for &k in &glyphs {
         let mut prereqs: BTreeSet<&str> = BTreeSet::new();
         for c in &info[k].components {
             let cs = c.as_str();
-            if cs != k && n5_set.contains(cs) {
+            if cs != k && scope.contains(cs) {
                 prereqs.insert(cs);
             }
         }
@@ -396,41 +447,7 @@ fn load_authored(
 ) -> Result<(usize, usize, usize, usize), Box<dyn Error>> {
     let (mut kw, mut ca, mut ra, mut mn) = (0, 0, 0, 0);
 
-    if let Some(v) = read_optional(AUTH_KEYWORDS)? {
-        for e in v.as_array().into_iter().flatten() {
-            let (g, k) = (
-                e.get("glyph").and_then(Value::as_str),
-                e.get("keyword").and_then(Value::as_str),
-            );
-            if let (Some(g), Some(k)) = (g, k) {
-                if let Some(&id) = kanji_id.get(g) {
-                    tx.execute(
-                        "UPDATE kanji SET primary_keyword = ?1 WHERE id = ?2",
-                        rusqlite::params![k, id],
-                    )?;
-                    kw += 1;
-                }
-            }
-        }
-    }
-
-    if let Some(v) = read_optional(AUTH_COMP)? {
-        for e in v.as_array().into_iter().flatten() {
-            let g = e.get("component").and_then(Value::as_str);
-            let name = e.get("actor_name").and_then(Value::as_str);
-            let img = e.get("image").and_then(Value::as_str).unwrap_or("");
-            if let (Some(g), Some(name)) = (g, name) {
-                if let Some(&cid) = comp_id.get(g) {
-                    tx.execute(
-                        "INSERT OR REPLACE INTO component_actor (component_id, actor_name, image) VALUES (?1, ?2, ?3)",
-                        rusqlite::params![cid, name, img],
-                    )?;
-                    ca += 1;
-                }
-            }
-        }
-    }
-
+    // Reading actors are shared across all levels (keyed by on'yomi sound), loaded once.
     if let Some(v) = read_optional(AUTH_READ)? {
         for e in v.as_array().into_iter().flatten() {
             let r = e.get("reading").and_then(Value::as_str);
@@ -450,30 +467,70 @@ fn load_authored(
         }
     }
 
-    if let Some(v) = read_optional(AUTH_MNEM)? {
-        for e in v.as_array().into_iter().flatten() {
-            let g = e.get("glyph").and_then(Value::as_str);
-            let story = e.get("story").and_then(Value::as_str);
-            if let (Some(g), Some(story)) = (g, story) {
-                if let Some(&id) = kanji_id.get(g) {
-                    let issues = e.get("issues").map(ToString::to_string);
-                    tx.execute(
-                        "INSERT OR REPLACE INTO mnemonic
-                         (kanji_id, story, reading_story, reading_actor, meaning_placement, origin, verified, issues, imageability, distinctiveness)
-                         VALUES (?1, ?2, ?3, ?4, ?5, 'generated', ?6, ?7, ?8, ?9)",
-                        rusqlite::params![
-                            id,
-                            story,
-                            e.get("reading_story").and_then(Value::as_str),
-                            e.get("reading_actor_used").and_then(Value::as_str),
-                            e.get("meaning_placement").and_then(Value::as_str),
-                            e.get("verified").and_then(Value::as_bool).unwrap_or(false) as i64,
-                            issues,
-                            e.get("imageability").and_then(Value::as_i64),
-                            e.get("distinctiveness").and_then(Value::as_i64),
-                        ],
-                    )?;
-                    mn += 1;
+    // Keyword overrides, component actors, and mnemonics are authored per level.
+    for (_, label, _) in LEVELS {
+        let ap = level_authored(label);
+
+        if let Some(v) = read_optional(&ap.keywords)? {
+            for e in v.as_array().into_iter().flatten() {
+                let (g, k) = (
+                    e.get("glyph").and_then(Value::as_str),
+                    e.get("keyword").and_then(Value::as_str),
+                );
+                if let (Some(g), Some(k)) = (g, k) {
+                    if let Some(&id) = kanji_id.get(g) {
+                        tx.execute(
+                            "UPDATE kanji SET primary_keyword = ?1 WHERE id = ?2",
+                            rusqlite::params![k, id],
+                        )?;
+                        kw += 1;
+                    }
+                }
+            }
+        }
+
+        if let Some(v) = read_optional(&ap.components)? {
+            for e in v.as_array().into_iter().flatten() {
+                let g = e.get("component").and_then(Value::as_str);
+                let name = e.get("actor_name").and_then(Value::as_str);
+                let img = e.get("image").and_then(Value::as_str).unwrap_or("");
+                if let (Some(g), Some(name)) = (g, name) {
+                    if let Some(&cid) = comp_id.get(g) {
+                        tx.execute(
+                            "INSERT OR REPLACE INTO component_actor (component_id, actor_name, image) VALUES (?1, ?2, ?3)",
+                            rusqlite::params![cid, name, img],
+                        )?;
+                        ca += 1;
+                    }
+                }
+            }
+        }
+
+        if let Some(v) = read_optional(&ap.mnemonics)? {
+            for e in v.as_array().into_iter().flatten() {
+                let g = e.get("glyph").and_then(Value::as_str);
+                let story = e.get("story").and_then(Value::as_str);
+                if let (Some(g), Some(story)) = (g, story) {
+                    if let Some(&id) = kanji_id.get(g) {
+                        let issues = e.get("issues").map(ToString::to_string);
+                        tx.execute(
+                            "INSERT OR REPLACE INTO mnemonic
+                             (kanji_id, story, reading_story, reading_actor, meaning_placement, origin, verified, issues, imageability, distinctiveness)
+                             VALUES (?1, ?2, ?3, ?4, ?5, 'generated', ?6, ?7, ?8, ?9)",
+                            rusqlite::params![
+                                id,
+                                story,
+                                e.get("reading_story").and_then(Value::as_str),
+                                e.get("reading_actor_used").and_then(Value::as_str),
+                                e.get("meaning_placement").and_then(Value::as_str),
+                                e.get("verified").and_then(Value::as_bool).unwrap_or(false) as i64,
+                                issues,
+                                e.get("imageability").and_then(Value::as_i64),
+                                e.get("distinctiveness").and_then(Value::as_i64),
+                            ],
+                        )?;
+                        mn += 1;
+                    }
                 }
             }
         }
@@ -495,14 +552,16 @@ fn insert_vocab(
     };
 
     let mut dominant = vd.dominant.clone();
-    if let Some(v) = read_optional(AUTH_DOM)? {
-        for e in v.as_array().into_iter().flatten() {
-            if let (Some(g), Some(r), Some(k)) = (
-                e.get("glyph").and_then(Value::as_str),
-                e.get("reading").and_then(Value::as_str),
-                e.get("kind").and_then(Value::as_str),
-            ) {
-                dominant.insert(g.to_string(), (r.to_string(), k.to_string()));
+    for (_, label, _) in LEVELS {
+        if let Some(v) = read_optional(&level_authored(label).dominant)? {
+            for e in v.as_array().into_iter().flatten() {
+                if let (Some(g), Some(r), Some(k)) = (
+                    e.get("glyph").and_then(Value::as_str),
+                    e.get("reading").and_then(Value::as_str),
+                    e.get("kind").and_then(Value::as_str),
+                ) {
+                    dominant.insert(g.to_string(), (r.to_string(), k.to_string()));
+                }
             }
         }
     }
@@ -596,36 +655,43 @@ fn insert_sentences(
     Ok(links)
 }
 
-/// Apply reviewer-confirmed vocab gloss corrections from data/authored/n5-vocab-glosses.json.
+/// Apply reviewer-confirmed vocab gloss corrections from each level's `*-vocab-glosses.json`.
 /// Returns the number of rows updated.
 fn apply_gloss_overrides(tx: &rusqlite::Transaction) -> Result<usize, Box<dyn Error>> {
-    let Some(v) = read_optional(AUTH_VGLOSS)? else {
-        return Ok(0);
-    };
     let mut n = 0;
-    for e in v.as_array().into_iter().flatten() {
-        if let (Some(surface), Some(reading), Some(gloss)) = (
-            e.get("surface").and_then(Value::as_str),
-            e.get("reading").and_then(Value::as_str),
-            e.get("gloss").and_then(Value::as_str),
-        ) {
-            n += tx.execute(
-                "UPDATE vocab SET gloss = ?1 WHERE surface = ?2 AND reading = ?3",
-                rusqlite::params![gloss, surface, reading],
-            )?;
+    for (_, label, _) in LEVELS {
+        let Some(v) = read_optional(&level_authored(label).vglosses)? else {
+            continue;
+        };
+        for e in v.as_array().into_iter().flatten() {
+            if let (Some(surface), Some(reading), Some(gloss)) = (
+                e.get("surface").and_then(Value::as_str),
+                e.get("reading").and_then(Value::as_str),
+                e.get("gloss").and_then(Value::as_str),
+            ) {
+                n += tx.execute(
+                    "UPDATE vocab SET gloss = ?1 WHERE surface = ?2 AND reading = ?3",
+                    rusqlite::params![gloss, surface, reading],
+                )?;
+            }
         }
     }
     Ok(n)
 }
 
 fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {
+    let levels = LEVELS
+        .iter()
+        .map(|(_, l, _)| *l)
+        .collect::<Vec<_>>()
+        .join(", ");
     vec![
         ("schema_version", "1".to_string()),
         (
             "slice",
-            "5 (N5: dominant readings, vocabulary, example sentences, stroke order)".to_string(),
+            "5 (dominant readings, vocabulary, example sentences, stroke order)".to_string(),
         ),
-        ("levels", "N5".to_string()),
+        ("levels", levels),
         ("kanji_count", rows.len().to_string()),
         (
             "dominant_reading",
