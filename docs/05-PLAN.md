@@ -8,25 +8,32 @@ acceptance criteria. v1 = desktop + full N5 content (see [01-VISION §Success](0
 
 ---
 
-## Progress (as of 2026-06-29)
+## Progress (as of 2026-07-02)
 
 - ✅ **M0** scaffold — Cargo workspace (core/data/content/ui), Dioxus app, CI, public repo.
 - ✅ **M1** N5 dataset — kanji core + components + frequency-weighted topological order; authored
   keywords, component/reading actors, judge-verified mnemonics; dominant readings (3-judge panel
-  verified); N5-appropriate vocab; example sentences; KanjiVG stroke data. (Phonetic table deferred
-  — near-zero payoff at N5; lands with N4/N3.)
+  verified); N5-appropriate vocab; example sentences; KanjiVG stroke data.
 - ✅ **M2** core engine — two-track FSRS scheduler + session engine + multi-day simulation; data
   layer (read-only seed content repo + writable user state store, migrations, persistence).
 - ✅ **M3** review UI (Dioxus) — dashboard; all four modes (recognition, reading-in-context, write
   w/ stroke animation, cloze); kanji-detail hub w/ editable mnemonics; browse grid; settings;
   one-tap undo; dev clock-skip. **Audio deferred** (needs a cross-platform decision).
-- ✅ **M7** packaged releases — `bundle-seed` self-contained binaries (N5 dataset embedded);
-  `release.yml` builds the seed once then a mac/win/linux matrix and uploads to the GitHub Release.
-  **v0.1.0 published** with mac-arm64 / windows-x64 / linux-x64 downloads. (Unsigned; signing needs
-  Apple/Microsoft developer accounts.)
-- ⬜ **Next** — engagement layer (humane streak, progress/stats — M6); level briefing/congrats UI +
-  N4–N1 content (M8/M4); export/import (M5); audio; iPhone (M9, needs Apple account/signing); cloud
-  sync (M10); code-signed installers (.dmg/.msi/.AppImage).
+- ✅ **M5** data safety — Settings → Export/Import (native file dialog, DB-file backup/restore).
+- ✅ **M6** engagement — review log, humane streak (chip + milestones), Progress screen (mastery
+  bars), challenge dial (configurable FSRS retention), milestone celebration banner.
+- ✅ **M7** packaged releases — `bundle-seed` self-contained binaries; `release.yml` builds the
+  seed once then a mac/win/linux matrix and uploads to the GitHub Release; Homebrew tap
+  (`sizyph/homebrew-mnemokanji`, manual bump per release) + APT repo on GitHub Pages
+  (auto-refreshes after each Release via `workflow_run`). (Unsigned; signing needs Apple/Microsoft
+  developer accounts.)
+- 🟡 **M8** remaining levels — **N4 shipped in v0.2.0** (multi-level seed builder; 245 kanji with
+  full 4-mode dataset + 166 judge-verified mnemonics). N3/N2/N1 pending — same process: add the
+  level tuple to `LEVELS` in `crates/content/src/main.rs` and author `data/authored/n3-*.json`.
+- ⬜ **Next** — phonetic-component table (now unblocked: real series exist within N5+N4); level
+  briefing/congrats UI (M4); N3 content (M8); scaffold-fade data model (`scaffold_stage`,
+  review latency); audio; iPhone (M9, needs Apple account/signing); cloud sync (M10); code-signed
+  installers (.dmg/.msi/.AppImage).
 
 ---
 

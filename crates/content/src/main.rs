@@ -1,6 +1,6 @@
 //! MnemoKanji content pipeline — offline dataset builder (not shipped in the app).
 //!
-//! Slice 1: build `assets/seed.sqlite` for JLPT **N5** from openly-licensed sources —
+//! Builds `assets/seed.sqlite` for the JLPT levels in `LEVELS` from openly-licensed sources —
 //! kanji core (KANJIDIC via davidluzgouveia/kanji-data, MIT), component decomposition
 //! (kradfile-u, CC BY-SA), and a frequency-weighted topological learning order.
 //!

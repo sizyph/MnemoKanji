@@ -51,7 +51,7 @@ fn backend() -> std::sync::MutexGuard<'static, Backend> {
         .expect("backend lock")
 }
 
-/// Embedded N5 seed for release builds (extracted to the app-data dir at startup).
+/// Embedded seed (all built JLPT levels) for release builds (extracted to the app-data dir at startup).
 #[cfg(feature = "bundle-seed")]
 const SEED_BYTES: &[u8] = include_bytes!("../../../assets/seed.sqlite");
 

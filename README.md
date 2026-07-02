@@ -4,12 +4,14 @@ A small, fast, cross-platform Rust app for memorizing **all JLPT kanji** (N5 →
 *efficient* way — built on proven memory science and a Heisig-style structural/mnemonic
 approach, not naive single-character flashcards.
 
-> Status: **working desktop app (JLPT N5)**. A complete study loop runs on macOS/Windows/Linux:
-> dashboard, all four review modes (recognition, reading-in-context, write, cloze) on a two-track
-> FSRS schedule, stroke-order animation, a kanji-detail hub with editable mnemonics, browse,
-> settings, and one-tap undo — over a fully-built N5 dataset (79 kanji, verified mnemonics,
-> readings, vocab, sentences, stroke data). Run it: `cargo run -p mnemokanji-ui`.
-> (Content for N4–N1, audio, iOS, and packaged releases are the next milestones — see
+> Status: **working desktop app (JLPT N5 + N4)**. A complete study loop runs on
+> macOS/Windows/Linux: dashboard, all four review modes (recognition, reading-in-context, write,
+> cloze) on a two-track FSRS schedule, stroke-order animation, a kanji-detail hub with editable
+> mnemonics, browse, settings, streak & progress stats, backup/restore, and one-tap undo — over a
+> fully-built N5+N4 dataset (245 kanji, judge-verified mnemonics, dominant readings, vocab,
+> sentences, stroke data). Clear N5 comprehension to unlock N4 in-app.
+> Run it: `cargo run -p mnemokanji-ui`, or install a packaged release (below).
+> (N3–N1 content, the phonetic-component table, audio, and iOS are the next milestones — see
 > [docs/05-PLAN.md](docs/05-PLAN.md).)
 
 ## What makes it different from generic Anki decks
@@ -67,7 +69,7 @@ echo "deb [trusted=yes] https://sizyph.github.io/MnemoKanji/apt/ ./" | sudo tee 
 sudo apt update && sudo apt install mnemokanji
 ```
 
-**Direct download:** self-contained binaries (N5 dataset bundled) for macOS / Windows / Linux are
+**Direct download:** self-contained binaries (N5+N4 dataset bundled) for macOS / Windows / Linux are
 attached to each [GitHub Release](https://github.com/sizyph/MnemoKanji/releases) — unpack and run.
 They're **unsigned**, so on first launch: macOS → right-click → *Open*; Windows → *More info* →
 *Run anyway*.
