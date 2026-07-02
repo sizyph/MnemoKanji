@@ -1,0 +1,398 @@
+[
+ {
+  "glyph": "方",
+  "reading": "かた",
+  "kind": "kun",
+  "note": "kun かた in on[] ✗ / kun[] ✓. Standalone 方=かた plus 仕方/夕方(がた); usage roughly even with ほう, standalone concrete reading is kun. Keep."
+ },
+ {
+  "glyph": "場",
+  "reading": "ば",
+  "kind": "kun",
+  "note": "kun[] ✓. Most common concrete words 場所/場合/売り場 all take ば; beginner's first reading over じょう. Keep."
+ },
+ {
+  "glyph": "新",
+  "reading": "あたら.しい",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Core N5 adjective 新しい matches keyword 'new'; 新聞(しん) is a compound. Keep."
+ },
+ {
+  "glyph": "開",
+  "reading": "あ.ける",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday transitive 開ける/開く are kun; concrete 'to open' over compound かい (開始/開店). Keep."
+ },
+ {
+  "glyph": "力",
+  "reading": "ちから",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 力=ちから is the first usage word, keyword 'power'; りょく is compound-only. Keep."
+ },
+ {
+  "glyph": "明",
+  "reading": "あか.るい",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Common adjective 明るい matches keyword 'bright'; めい is compound-only (説明/証明). Keep."
+ },
+ {
+  "glyph": "体",
+  "reading": "からだ",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 体=からだ is the first usage word, keyword 'body'; たい is compound-only. Keep."
+ },
+ {
+  "glyph": "田",
+  "reading": "た",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 田=た, keyword 'rice field'; でん only in place-names (新田/上田). Keep."
+ },
+ {
+  "glyph": "作",
+  "reading": "つく.る",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday verb 作る matches keyword 'make'; さく in compounds (作文/作品). Keep."
+ },
+ {
+  "glyph": "通",
+  "reading": "とお.る",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Standalone verbs 通る/通り/通う are kun (4 of 6 usage words); concrete over compound つう. Keep."
+ },
+ {
+  "glyph": "強",
+  "reading": "つよ.い",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Standalone adjective 強い matches keyword 'strong'; きょう from 勉強/強力 compounds. Keep."
+ },
+ {
+  "glyph": "家",
+  "reading": "いえ",
+  "kind": "kun",
+  "note": "kun[] ✓. 家=いえ is a genuine basic concrete noun ('house') and the standalone usage word; か is compound bias (家族/家庭). Keep."
+ },
+ {
+  "glyph": "安",
+  "reading": "やす.い",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Core N5 adjective 安い('cheap') met very early; あん from 安全/安心 compounds. Keep."
+ },
+ {
+  "glyph": "心",
+  "reading": "こころ",
+  "kind": "kun",
+  "note": "kun[] ✓. 心=こころ is a core concrete beginner noun ('mind/heart') and the standalone usage word; しん is compound bias. Keep."
+ },
+ {
+  "glyph": "重",
+  "reading": "おも.い",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Standalone adjective 重い('heavy') matches keyword; じゅう from 重要/重大 compounds. Keep."
+ },
+ {
+  "glyph": "近",
+  "reading": "ちか.い",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Core early words 近い/近く; きん from 最近/近所. Keep."
+ },
+ {
+  "glyph": "考",
+  "reading": "かんが.える",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Verb 考える matches keyword 'consider'; こう only in 参考/考慮 (advanced). Keep."
+ },
+ {
+  "glyph": "海",
+  "reading": "うみ",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 海=うみ, keyword 'sea'; かい from 海岸/海外 compounds. Keep."
+ },
+ {
+  "glyph": "売",
+  "reading": "う.る",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday verb 売る matches keyword 'sell'; ばい in 販売/商売 kango. Keep."
+ },
+ {
+  "glyph": "道",
+  "reading": "みち",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 道=みち, keyword 'road'; どう from 道具/道路 compounds. Keep."
+ },
+ {
+  "glyph": "集",
+  "reading": "あつ.まる",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday verbs 集まる/集める met first; しゅう in 集中/集団 kango. Keep."
+ },
+ {
+  "glyph": "私",
+  "reading": "わたし",
+  "kind": "kun",
+  "note": "kun わたし in kun[] ✓ (also わたくし). Primary first-contact reading 私=わたし; し only in 私服/私学 (rare). Keep."
+ },
+ {
+  "glyph": "終",
+  "reading": "お.わる",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday verb 終わる/終わり/終える kun; しゅう in 最終/終末 compounds. Keep."
+ },
+ {
+  "glyph": "住",
+  "reading": "す.む",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Core verb 住む('to live'); じゅう in 住所/住民/住宅 kango. Keep."
+ },
+ {
+  "glyph": "同",
+  "reading": "おな.じ",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. 同じ('same') is core beginner word and standalone; どう in 同様/同時/共同. Keep."
+ },
+ {
+  "glyph": "知",
+  "reading": "し.る",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Top verb 知る('to know'); ち only in 知識/承知 compounds. Keep."
+ },
+ {
+  "glyph": "使",
+  "reading": "つか.う",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Core verb 使う matches keyword 'use'; し compound-only (使用/大使). Keep."
+ },
+ {
+  "glyph": "始",
+  "reading": "はじ.める",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday 始める/始まる/始め use kun (most usage); し in 開始/始動. Keep."
+ },
+ {
+  "glyph": "少",
+  "reading": "すこ.し",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. 少し/少ない among most common beginner words; しょう in 少年/少女/多少. Keep."
+ },
+ {
+  "glyph": "町",
+  "reading": "まち",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 町=まち, keyword 'town'; ちょう in 町長/町内/町民 compounds. Keep."
+ },
+ {
+  "glyph": "建",
+  "reading": "た.てる",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday 建てる/建物 use kun; けん in 建設/建築/建国. Keep."
+ },
+ {
+  "glyph": "空",
+  "reading": "から",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 空=から matches keyword 'empty' (first usage word); くう in 空気/空港. Keep."
+ },
+ {
+  "glyph": "正",
+  "reading": "ただ.しい",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Core adjective 正しい matches keyword 'correct'; せい/しょう compound-only. Keep."
+ },
+ {
+  "glyph": "送",
+  "reading": "おく.る",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Verb 送る matches keyword 'send'; そう compound-only (放送/送信/転送). Keep."
+ },
+ {
+  "glyph": "着",
+  "reading": "き.る",
+  "kind": "kun",
+  "note": "kun き.る in kun[] ✓. Core verb 着る('to wear') matches keyword; 着物/上着/下着 use kun; ちゃく in 到着. Keep."
+ },
+ {
+  "glyph": "店",
+  "reading": "みせ",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 店=みせ, keyword 'store'; てん in 店員/支店 compounds. Keep."
+ },
+ {
+  "glyph": "親",
+  "reading": "おや",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 親=おや ('parent'); 父親/母親 also おや; しん in 両親. Keep."
+ },
+ {
+  "glyph": "味",
+  "reading": "あじ",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 味=あじ matches keyword 'flavor'; み is kango morpheme (意味/趣味). Keep."
+ },
+ {
+  "glyph": "答",
+  "reading": "こた.える",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Verb 答える/答え both kun, keyword 'answer'; とう only in 答案/答申. Keep."
+ },
+ {
+  "glyph": "音",
+  "reading": "おと",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 音=おと/物音 matches keyword 'sound'; おん in 音楽/発音. Keep."
+ },
+ {
+  "glyph": "帰",
+  "reading": "かえ.る",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Core verb 帰る/帰り('return'); き only in 帰宅/帰国 kango. Keep."
+ },
+ {
+  "glyph": "古",
+  "reading": "ふる.い",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday adjective 古い('old'); こ in 中古/太古/古来. Keep."
+ },
+ {
+  "glyph": "歌",
+  "reading": "うた",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 歌=うた plus 歌う, keyword 'song'; か in 国歌/演歌. Keep."
+ },
+ {
+  "glyph": "悪",
+  "reading": "わる.い",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday adjective 悪い('bad'); あく in 悪魔/最悪 kango. Keep."
+ },
+ {
+  "glyph": "歩",
+  "reading": "ある.く",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Core verb 歩く('walk'); ほ only in 散歩/進歩/歩道. Keep."
+ },
+ {
+  "glyph": "風",
+  "reading": "かぜ",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 風=かぜ('wind'); ふう in 台風/風景. Keep."
+ },
+ {
+  "glyph": "紙",
+  "reading": "かみ",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 紙=かみ('paper'); し only in 白紙/紙面. Keep."
+ },
+ {
+  "glyph": "春",
+  "reading": "はる",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 春=はる('spring'); しゅん in 売春/今春. Keep."
+ },
+ {
+  "glyph": "走",
+  "reading": "はし.る",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Core verb 走る('run'); そう only in 完走/出走. Keep."
+ },
+ {
+  "glyph": "起",
+  "reading": "お.きる",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday verb 起きる('get/wake up'); き in 起動/起立. Keep."
+ },
+ {
+  "glyph": "秋",
+  "reading": "あき",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 秋=あき('autumn'); しゅう in 今秋/昨秋. Keep."
+ },
+ {
+  "glyph": "旅",
+  "reading": "たび",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 旅=たび('trip') matches keyword; りょ in 旅行/旅館/旅費. Keep."
+ },
+ {
+  "glyph": "多",
+  "reading": "おお.い",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Adjective 多い('many') is the beginner word; た kango-only (多分/多少/多数). Keep."
+ },
+ {
+  "glyph": "夜",
+  "reading": "よる",
+  "kind": "kun",
+  "note": "kun よる in kun[] ✓ (also よ). Standalone 夜=よる('night'); や in 今夜/昨夜/徹夜. Keep."
+ },
+ {
+  "glyph": "借",
+  "reading": "か.りる",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday verb 借りる('borrow'); しゃく in 借金/借家/借地. Keep."
+ },
+ {
+  "glyph": "飲",
+  "reading": "の.む",
+  "kind": "kun",
+  "note": "kun[] ✓ exact. Everyday verb 飲む('drink'); いん in 飲酒/飲食/飲料. Keep."
+ },
+ {
+  "glyph": "貸",
+  "reading": "か.す",
+  "kind": "kun",
+  "note": "kun か.す in kun[] ✓ (fixes derived bug that picked bare stem かし-). Verb 貸す('lend') is correct first reading; たい in 貸与/貸借. Keep."
+ },
+ {
+  "glyph": "冬",
+  "reading": "ふゆ",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 冬=ふゆ('winter'); とう in 越冬/冬期. Keep."
+ },
+ {
+  "glyph": "弟",
+  "reading": "おとうと",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 弟=おとうと('younger brother'); てい/だい in 兄弟/弟妹. Keep."
+ },
+ {
+  "glyph": "牛",
+  "reading": "うし",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 牛=うし('cow'); ぎゅう in 牛乳/牛肉. Keep."
+ },
+ {
+  "glyph": "物",
+  "reading": "もの",
+  "kind": "kun",
+  "note": "kun[] ✓. もの dominates concrete words 食べ物/飲み物/買い物/建物; ぶつ/もつ in 動物/荷物. Keep."
+ },
+ {
+  "glyph": "魚",
+  "reading": "さかな",
+  "kind": "kun",
+  "note": "kun さかな in kun[] ✓ (also うお). Standalone 魚=さかな('fish'); ぎょ in 魚類/魚肉. Keep."
+ },
+ {
+  "glyph": "兄",
+  "reading": "あに",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 兄=あに('older brother'); けい/きょう in 兄弟/父兄. Keep."
+ },
+ {
+  "glyph": "犬",
+  "reading": "いぬ",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 犬=いぬ('dog'); けん in 番犬/野犬/愛犬. Keep."
+ },
+ {
+  "glyph": "妹",
+  "reading": "いもうと",
+  "kind": "kun",
+  "note": "kun[] ✓. Standalone 妹=いもうと('younger sister'); まい in 姉妹/弟妹. Keep."
+ },
+ {
+  "glyph": "姉",
+  "reading": "あね",
+  "kind": "kun",
+  "note": "kun あね in kun[] ✓. Standalone 姉=あね('older sister'); し in 姉妹. Keep."
+ }
+]

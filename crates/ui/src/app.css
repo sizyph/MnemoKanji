@@ -129,6 +129,7 @@ button:hover { filter: brightness(1.08); }
 .browse, .detail { width: 100%; max-width: 48rem; margin: 4vh 0; }
 .title { color: var(--muted); font-size: 1rem; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr)); gap: 0.6rem; margin-top: 1rem; }
+.level-head { margin-top: 1.75rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid #26324a; padding-bottom: 0.35rem; }
 .k-cell {
   background: var(--card);
   border: 1px solid #262a36;

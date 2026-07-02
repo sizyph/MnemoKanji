@@ -419,17 +419,22 @@ fn browse_view(s: AppState) -> Element {
             .map(|(id, _)| *id)
             .collect()
     };
-    let items: Vec<(i64, String, String, &'static str)> = (s.browse)()
-        .into_iter()
-        .map(|it| {
-            let cls = if introduced.contains(&it.id) {
-                "k-cell learned"
-            } else {
-                "k-cell"
-            };
-            (it.id, it.glyph, it.keyword, cls)
-        })
-        .collect();
+    // Group the (already level-ordered) items by level so the grid shows a header per level.
+    type Row = (i64, String, String, &'static str);
+    let mut groups: Vec<(String, Vec<Row>)> = Vec::new();
+    for it in (s.browse)() {
+        let cls = if introduced.contains(&it.id) {
+            "k-cell learned"
+        } else {
+            "k-cell"
+        };
+        let row = (it.id, it.glyph, it.keyword, cls);
+        if groups.last().map(|g| g.0 == it.level).unwrap_or(false) {
+            groups.last_mut().unwrap().1.push(row);
+        } else {
+            groups.push((it.level.clone(), vec![row]));
+        }
+    }
 
     rsx! {
         div { class: "browse",
@@ -437,11 +442,14 @@ fn browse_view(s: AppState) -> Element {
                 button { class: "link", onclick: move |_| { let mut sc = s.screen; sc.set(Screen::Dashboard); }, "\u{2190} back" }
                 span { class: "title", "Browse" }
             }
-            div { class: "grid",
-                for (id, glyph, kw, cls) in items {
-                    button { key: "{id}", class: cls, onclick: move |_| show_detail(id, s),
-                        div { class: "cell-glyph", "{glyph}" }
-                        div { class: "cell-kw", "{kw}" }
+            for (level, items) in groups {
+                div { class: "level-head", "JLPT {level} \u{00b7} {items.len()} kanji" }
+                div { class: "grid",
+                    for (id, glyph, kw, cls) in items {
+                        button { key: "{id}", class: cls, onclick: move |_| show_detail(id, s),
+                            div { class: "cell-glyph", "{glyph}" }
+                            div { class: "cell-kw", "{kw}" }
+                        }
                     }
                 }
             }
@@ -859,7 +867,7 @@ fn save_mnemonic(s: AppState, kid: i64) {
 fn show_browse(s: AppState) {
     let list = {
         let g = backend();
-        g.content_repo.browse("N5").unwrap_or_default()
+        g.content_repo.browse_all().unwrap_or_default()
     };
     let mut browse = s.browse;
     let mut screen = s.screen;

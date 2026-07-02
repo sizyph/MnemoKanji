@@ -39,6 +39,8 @@ pub struct BrowseItem {
     pub id: i64,
     pub glyph: String,
     pub keyword: String,
+    /// JLPT label of the kanji's level (e.g. "N5"), for grouping the grid.
+    pub level: String,
 }
 
 /// Everything needed to render a kanji in review or on its detail page.
@@ -71,14 +73,21 @@ impl ContentRepo {
     /// Build the scheduling view: every kanji with its level, intro order, and kanji-component
     /// prerequisites (a component that is itself a learned kanji must be introduced first).
     pub fn content_view(&self) -> rusqlite::Result<ContentView> {
-        // Prerequisites: kanji_id -> [component-kanji ids].
+        // Prerequisites: kanji_id -> [component-kanji ids]. A component that is itself a kanji is a
+        // prerequisite ONLY if it belongs to the same or an earlier level (ord <= this kanji's ord).
+        // A component that happens to be a LATER-level kanji (e.g. an N4 kanji appearing inside an
+        // N5 glyph) must NOT gate — it is learned later, so it is treated as a just-in-time radical,
+        // not a prerequisite (otherwise the earlier-level kanji could never be introduced).
         let mut prereqs: HashMap<i64, Vec<i64>> = HashMap::new();
         let mut stmt = self.conn.prepare(
             "SELECT kc.kanji_id, k2.id
              FROM kanji_component kc
              JOIN component c ON c.id = kc.component_id AND c.is_kanji = 1
              JOIN kanji k2 ON k2.glyph = c.glyph
-             WHERE k2.id <> kc.kanji_id",
+             JOIN kanji k1 ON k1.id = kc.kanji_id
+             JOIN level l1 ON l1.id = k1.level_id
+             JOIN level l2 ON l2.id = k2.level_id
+             WHERE k2.id <> kc.kanji_id AND l2.ord <= l1.ord",
         )?;
         let rows = stmt.query_map([], |r| Ok((r.get::<_, i64>(0)?, r.get::<_, i64>(1)?)))?;
         for row in rows {
@@ -117,7 +126,7 @@ impl ContentRepo {
     /// Compact list of a level's kanji in learning order (for the browse grid).
     pub fn browse(&self, jlpt: &str) -> rusqlite::Result<Vec<BrowseItem>> {
         let mut stmt = self.conn.prepare(
-            "SELECT k.id, k.glyph, COALESCE(k.primary_keyword, '')
+            "SELECT k.id, k.glyph, COALESCE(k.primary_keyword, ''), l.jlpt
              FROM kanji k JOIN level l ON l.id = k.level_id
              WHERE l.jlpt = ?1
              ORDER BY k.intro_rank",
@@ -128,6 +137,28 @@ impl ContentRepo {
                     id: r.get(0)?,
                     glyph: r.get(1)?,
                     keyword: r.get(2)?,
+                    level: r.get(3)?,
+                })
+            })?
+            .collect();
+        out
+    }
+
+    /// Every built level's kanji, in learning order (level `ord`, then `intro_rank`) — the browse
+    /// grid across all levels (N5, N4, …), grouped by `level`.
+    pub fn browse_all(&self) -> rusqlite::Result<Vec<BrowseItem>> {
+        let mut stmt = self.conn.prepare(
+            "SELECT k.id, k.glyph, COALESCE(k.primary_keyword, ''), l.jlpt
+             FROM kanji k JOIN level l ON l.id = k.level_id
+             ORDER BY l.ord, k.intro_rank",
+        )?;
+        let out = stmt
+            .query_map([], |r| {
+                Ok(BrowseItem {
+                    id: r.get(0)?,
+                    glyph: r.get(1)?,
+                    keyword: r.get(2)?,
+                    level: r.get(3)?,
                 })
             })?
             .collect();

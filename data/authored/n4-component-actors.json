@@ -1,0 +1,312 @@
+[
+ {
+  "component": "厶",
+  "actor_name": "Sealed Clam-Locket",
+  "image": "A little clamshell locket clasped tightly shut, something private and personal curled hidden inside, walling itself off from the world."
+ },
+ {
+  "component": "宀",
+  "actor_name": "Thatched House",
+  "image": "A steep-thatched cottage seen from the front, its peaked crown and two eaves sloping down to cap and shelter everything beneath it."
+ },
+ {
+  "component": "辶",
+  "actor_name": "Conveyor Belt",
+  "image": "A rubber conveyor belt running along the bottom-left, carrying whatever sits on it steadily forward down the road."
+ },
+ {
+  "component": "勹",
+  "actor_name": "Swaddling Wrap",
+  "image": "A cloth sling curled over from above, its single arm folding down to hug and wrap a hidden bundle tight."
+ },
+ {
+  "component": "里",
+  "actor_name": "Village Milestone",
+  "image": "A weathered stone milestone planted at the edge of a rice-paddy grid where dirt roads meet, its carved arrow pointing off to the hamlet."
+ },
+ {
+  "component": "貝",
+  "actor_name": "Cowrie Shell",
+  "image": "A polished cowrie shell with a long ridged slit, once traded as coins — treasure and money in one small clam."
+ },
+ {
+  "component": "ヨ",
+  "actor_name": "Rake Hand",
+  "image": "A three-tined garden rake gripping the earth, its prongs curled like a grasping hand or a pig's blunt snout."
+ },
+ {
+  "component": "氵",
+  "actor_name": "Puddle Splash",
+  "image": "Three fat water droplets flicked off to the left, mid-splash, scattering down toward a puddle."
+ },
+ {
+  "component": "⺾",
+  "actor_name": "Grass Tuft",
+  "image": "A low tuft of wild grass sprouting two blades side by side, a green plant-crown capping whatever grows below."
+ },
+ {
+  "component": "弋",
+  "actor_name": "Ritual Stake",
+  "image": "A wooden ceremonial stake driven slantwise into the ground with a short dart-notch near its head, bound with sacred rope."
+ },
+ {
+  "component": "矢",
+  "actor_name": "Feathered Arrow",
+  "image": "A single fletched arrow in mid-flight, feathered nock behind and sharp iron point ahead, streaking dead straight."
+ },
+ {
+  "component": "尸",
+  "actor_name": "Draped Cloak",
+  "image": "An empty cloak slumped and drooping over a chair, folding down like a body gone limp or a flag hung slack."
+ },
+ {
+  "component": "广",
+  "actor_name": "Cliff Awning",
+  "image": "A rough lean-to awning built against an overhanging cliff face, its slanted roof shading the open shelter beneath."
+ },
+ {
+  "component": "⺹",
+  "actor_name": "Greybeard Mask",
+  "image": "A carved wooden mask of an old man's face, a long grey beard trailing from its chin — the aged elder's likeness worn on top."
+ },
+ {
+  "component": "斤",
+  "actor_name": "Woodsman Hatchet",
+  "image": "A short broad-bladed hatchet buried in a chopping block, its worn handle still quivering from the last swing."
+ },
+ {
+  "component": "羊",
+  "actor_name": "Woolly Ram",
+  "image": "A woolly ram seen head-on, two curling horns splayed at the top and a fleecy body below, chewing placidly."
+ },
+ {
+  "component": "灬",
+  "actor_name": "Coal Brazier",
+  "image": "A row of four glowing orange coals smoldering along the bottom of a brazier, low licks of heat rising from underneath."
+ },
+ {
+  "component": "攵",
+  "actor_name": "Cracking Whip",
+  "image": "A leather whip snapping down on the right, its lash cracking through the air to rap and drive something into action."
+ },
+ {
+  "component": "斗",
+  "actor_name": "Grain Dipper",
+  "image": "A long-handled measuring dipper hanging on a hook, its deep ladle-bowl scooped and ready to portion out grain."
+ },
+ {
+  "component": "勿",
+  "actor_name": "Skull-and-Crossbones Flag",
+  "image": "A tattered black skull-and-crossbones flag whipping on a pole, three ragged streamers trailing off it, screaming must-not-pass."
+ },
+ {
+  "component": "巾",
+  "actor_name": "Hanging Towel",
+  "image": "A plain cloth towel draped over a rail, its two ends hanging straight down, damp and waiting to wipe."
+ },
+ {
+  "component": "至",
+  "actor_name": "Landed Meteor",
+  "image": "A heavy meteorite that has just plummeted and struck home in a smoking crater, having finally arrived and reached the ground at last."
+ },
+ {
+  "component": "凵",
+  "actor_name": "Trap Pit",
+  "image": "An open earthen pit dug into a jungle floor, sheer walls on both sides and nothing across the top — a bottomless container waiting to catch whatever falls in."
+ },
+ {
+  "component": "弓",
+  "actor_name": "Longbow",
+  "image": "A curved yew longbow strung taut and vertical, its belly bent into a smooth arc, string humming after a shot."
+ },
+ {
+  "component": "虫",
+  "actor_name": "Fat Grub",
+  "image": "A plump white grub with a dark head curling and uncurling in the soil, a single wriggling bug you can feel squirming."
+ },
+ {
+  "component": "辛",
+  "actor_name": "Chili Needle",
+  "image": "A long scarlet chili pepper sharpened to a stinging needle-point, so hot it makes the eyes water — a bitter, prickling barb."
+ },
+ {
+  "component": "隹",
+  "actor_name": "Stumpy Sparrow",
+  "image": "A dumpy old brown sparrow with a comically short stub of a tail, perched fat and grumpy on a wire, too aged to fly far."
+ },
+ {
+  "component": "冫",
+  "actor_name": "Frost Beads",
+  "image": "Two tiny frozen dew-drops clinging to a black windowpane, hardened into little beads of ice on a bitter winter morning."
+ },
+ {
+  "component": "欠",
+  "actor_name": "Yawning Cavern",
+  "image": "A dark cavern gaping open in a wide, exhausted yawn, cold air sighing out of its empty hollow — a void agape and lacking."
+ },
+ {
+  "component": "廾",
+  "actor_name": "Cupped Palms",
+  "image": "Two open palms held side by side and slightly cupped, lifting up an unseen offering from below, ready to catch or present."
+ },
+ {
+  "component": "禾",
+  "actor_name": "Rice Stalk",
+  "image": "A single golden rice stalk heavy with grain, its ripe head drooping over gracefully at the top, swaying in a paddy breeze."
+ },
+ {
+  "component": "穴",
+  "actor_name": "Burrow Hole",
+  "image": "A round dark burrow-hole punched into a grassy bank, a little roofed opening leading down into a hidden underground den."
+ },
+ {
+  "component": "糸",
+  "actor_name": "Spooled Thread",
+  "image": "A wooden bobbin wound with fine silk thread, one loose strand trailing off and dangling in a thin twisting line."
+ },
+ {
+  "component": "馬",
+  "actor_name": "Galloping Stallion",
+  "image": "A black stallion at full gallop, mane and four legs flying, kicking up dust as it thunders across an open plain."
+ },
+ {
+  "component": "刀",
+  "actor_name": "Cleaver",
+  "image": "A broad single-edged butcher's cleaver, its curved blade catching the light as it hangs from a hook, ready to chop."
+ },
+ {
+  "component": "免",
+  "actor_name": "Dodging Hare",
+  "image": "A brown hare bounding sharply sideways to duck out of a snare, escaping capture and excusing itself from the trap by a whisker."
+ },
+ {
+  "component": "匚",
+  "actor_name": "Toolbox Tray",
+  "image": "A metal toolbox tray lying on its side with its open mouth facing right, three sturdy walls hemming in the tools, one side wide open."
+ },
+ {
+  "component": "也",
+  "actor_name": "River Eel",
+  "image": "A slick dark eel resting in a lazy S-curve on the riverbed, its tail hooking round in one flowing bend — old and serpentine."
+ },
+ {
+  "component": "豕",
+  "actor_name": "Muddy Boar",
+  "image": "A bristly wild boar with tusks and a curly tail, snorting and rooting in the mud, stubby legs planted wide."
+ },
+ {
+  "component": "廴",
+  "actor_name": "Vaulting Pole",
+  "image": "A long springy vaulting pole planted mid-run and bending forward, carrying an unseen athlete in one enormous long stride."
+ },
+ {
+  "component": "扌",
+  "actor_name": "Grabber Claw",
+  "image": "A three-fingered arcade grabber-claw hanging at the left edge, fingers half-clenched and lowering to snatch a prize."
+ },
+ {
+  "component": "卩",
+  "actor_name": "Wax Stamp",
+  "image": "A carved seal-stamp pressed down into a blob of red wax, leaving a crisp imprint — a small kneeling stamp bowing to make its mark."
+ },
+ {
+  "component": "耒",
+  "actor_name": "Ox-Plow",
+  "image": "A wooden hand-plow with a curved handle and a bright blade biting into dark furrows, dragged forward through the field."
+ },
+ {
+  "component": "歹",
+  "actor_name": "Gnawed Rib-Bone",
+  "image": "A single bare, weathered rib-bone lying in the dust, picked clean and cracked — a splinter of death left behind."
+ },
+ {
+  "component": "疒",
+  "actor_name": "Leaning Sickbed",
+  "image": "A narrow sickbed tilted against the wall, its blanket rumpled and a fever-cloth draped over the rail, waiting for a patient."
+ },
+ {
+  "component": "癶",
+  "actor_name": "Splayed Snowshoes",
+  "image": "A pair of snowshoes planted toes-outward in fresh powder, their webbed frames spread wide like two footprints climbing apart."
+ },
+ {
+  "component": "石",
+  "actor_name": "Boulder",
+  "image": "A rough grey boulder wedged under a cliff-overhang, squat and immovable, moss creeping across its cold flank."
+ },
+ {
+  "component": "礻",
+  "actor_name": "Roadside Shrine",
+  "image": "A small stone roadside altar-shrine on the left of the path, an offering bowl smoking with incense, a spirit hovering above it."
+ },
+ {
+  "component": "竹",
+  "actor_name": "Bamboo Grove",
+  "image": "Two tall green bamboo stalks side by side, their drooping leaf-tufts hanging over like paired brushstrokes, creaking in the wind."
+ },
+ {
+  "component": "氏",
+  "actor_name": "Family Crest Banner",
+  "image": "A cloth banner stamped with a single bold clan crest, snapping proudly from a pole above a household gate."
+ },
+ {
+  "component": "羽",
+  "actor_name": "Feather Pair",
+  "image": "Two matching white flight-feathers laid side by side, each barbed vane curving up — a bird's wings shed onto the ground."
+ },
+ {
+  "component": "巴",
+  "actor_name": "Coiled Cobra",
+  "image": "A cobra wound into a tight comma-shaped coil, its head tucked into the curl, ready to spring."
+ },
+ {
+  "component": "罒",
+  "actor_name": "Fishing Net",
+  "image": "A wide horizontal fishing net stretched flat with a mesh grid, cast down over the water to trap whatever swims below."
+ },
+ {
+  "component": "已",
+  "actor_name": "Stop Barrier",
+  "image": "A striped level-crossing barrier already lowered flat across the road, halting everything — the gate has closed, it is done."
+ },
+ {
+  "component": "マ",
+  "actor_name": "Wall Peg",
+  "image": "A stubby wooden peg jammed into a hole in the wall, its short blunt arm jutting out to hold up whatever is slung over it."
+ },
+ {
+  "component": "首",
+  "actor_name": "Marble Bust",
+  "image": "A pale marble bust on a plinth — just the head and neck of a stern figure, chin lifted, eyes staring straight ahead."
+ },
+ {
+  "component": "矛",
+  "actor_name": "Long Halberd",
+  "image": "A tall halberd stood upright, its barbed spear-point gleaming at the top and a tassel swinging from the shaft."
+ },
+ {
+  "component": "艮",
+  "actor_name": "Still Butte",
+  "image": "A flat-topped desert butte standing utterly still against the sky, rooted and unmoving, refusing to budge for the passing wind."
+ },
+ {
+  "component": "⻖",
+  "actor_name": "Terraced Hill",
+  "image": "A stepped green hill of stacked earth-terraces rising on the right edge, a footpath zigzagging up its ledges toward a village."
+ },
+ {
+  "component": "疋",
+  "actor_name": "Fabric Roll",
+  "image": "A fat rolled bolt of cloth unspooling a long strip of fabric down onto the shop counter, its loose end trailing like a foot."
+ },
+ {
+  "component": "頁",
+  "actor_name": "Cracked Conch",
+  "image": "A big pale conch shell propped upright, its spiral crown at the top and two little feet at the base — held up like a printed page."
+ },
+ {
+  "component": "厂",
+  "actor_name": "Rock Overhang",
+  "image": "A bare cliff overhang jutting out over empty space, a slab of stone roofing a shallow hollow beneath it."
+ }
+]

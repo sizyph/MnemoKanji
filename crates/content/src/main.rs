@@ -30,7 +30,7 @@ const SCHEMA: &str = include_str!("schema.sql");
 // JLPT levels to build, in learning order: (jlpt_new value, label, ord/level_id). N5 is learned
 // first (ord 1). Add (4, "N4", 2) once N4 authored content (keywords, actors, mnemonics) lands —
 // the derived content (vocab, sentences, strokes, decomposition, learning order) needs no new code.
-const LEVELS: &[(i64, &str, i64)] = &[(5, "N5", 1)];
+const LEVELS: &[(i64, &str, i64)] = &[(5, "N5", 1), (4, "N4", 2)];
 
 // Reading actors are keyed by on'yomi sound and shared across every level (one persona per sound).
 const AUTH_READ: &str = "data/authored/n5-reading-actors.json";
