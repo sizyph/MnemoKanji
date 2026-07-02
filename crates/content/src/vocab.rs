@@ -206,6 +206,13 @@ pub fn build(
             _ => 3,
         };
         let clen = surface.chars().count();
+        // Quality floor: a JLPT-unlisted compound must show up in the frequency list at all —
+        // otherwise it's a rare/technical term that only surfaced because a kanji had few common
+        // words (e.g. 青田買い, 新田 on 田's page). Single-kanji standalones are exempt (a kanji's
+        // own word is always worth teaching).
+        if tier == 3 && clen > 1 && !freq.contains_key(surface) {
+            continue;
+        }
         let len_cost = clen * 10 + reading.chars().count();
         let base = freq.get(surface).copied().unwrap_or(1_000_000 + len_cost);
         let cost = tier * 100_000_000 + if clen == 1 { 10_000_000 + base } else { base };

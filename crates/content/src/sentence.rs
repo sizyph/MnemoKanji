@@ -75,6 +75,17 @@ pub fn build(wanted: &HashSet<String>) -> Result<Option<SentenceMap>, Box<dyn Er
     let text = fs::read_to_string(EXAMPLES)?;
     let file: ExFile = serde_json::from_str(text.trim_start_matches('\u{feff}'))?;
 
+    // Single-kanji standalone words (e.g. 田=た, 七=しち) often have corpus examples that write
+    // the word with a numeral or kana (７つ, 7時), which fail the contains-check below. For those
+    // we keep a fallback pool: any short translated sentence anywhere in the corpus that visibly
+    // contains the glyph, used only if entry-matched sentences come up empty.
+    let singles: Vec<&str> = wanted
+        .iter()
+        .filter(|s| s.chars().count() == 1)
+        .map(String::as_str)
+        .collect();
+    let mut fallback: HashMap<String, Vec<Sentence>> = HashMap::new();
+
     let mut cands: HashMap<String, Vec<Sentence>> = HashMap::new();
     let mut seen: HashSet<String> = HashSet::new();
     for w in &file.words {
@@ -84,9 +95,6 @@ pub fn build(wanted: &HashSet<String>) -> Result<Option<SentenceMap>, Box<dyn Er
             .map(|k| k.text.as_str())
             .filter(|t| wanted.contains(*t))
             .collect();
-        if surfaces.is_empty() {
-            continue;
-        }
         for sense in &w.sense {
             for ex in &sense.examples {
                 let jp = ex
@@ -119,6 +127,25 @@ pub fn build(wanted: &HashSet<String>) -> Result<Option<SentenceMap>, Box<dyn Er
                             source: format!("tatoeba:{}", ex.source.value),
                         });
                 }
+                for &g in &singles {
+                    let pool = fallback.entry(g.to_string()).or_default();
+                    if pool.len() < 8 && jp.contains(g) {
+                        pool.push(Sentence {
+                            jp: jp.clone(),
+                            en: en.clone(),
+                            source: format!("tatoeba:{}", ex.source.value),
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    // Fill coverage gaps for single-kanji words from the fallback pool.
+    for g in singles {
+        if !cands.contains_key(g) {
+            if let Some(pool) = fallback.remove(g) {
+                cands.insert(g.to_string(), pool);
             }
         }
     }
@@ -126,6 +153,7 @@ pub fn build(wanted: &HashSet<String>) -> Result<Option<SentenceMap>, Box<dyn Er
     for v in cands.values_mut() {
         v.sort_by_key(|s| s.jp.chars().count());
         v.truncate(MAX_SENTENCES_PER_WORD);
+        v.dedup_by(|a, b| a.jp == b.jp);
     }
     Ok(Some(cands))
 }
