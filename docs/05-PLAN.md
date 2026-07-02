@@ -30,10 +30,16 @@ acceptance criteria. v1 = desktop + full N5 content (see [01-VISION §Success](0
 - 🟡 **M8** remaining levels — **N4 shipped in v0.2.0** (multi-level seed builder; 245 kanji with
   full 4-mode dataset + 166 judge-verified mnemonics). N3/N2/N1 pending — same process: add the
   level tuple to `LEVELS` in `crates/content/src/main.rs` and author `data/authored/n3-*.json`.
-- ⬜ **Next** — phonetic-component table (now unblocked: real series exist within N5+N4); level
-  briefing/congrats UI (M4); N3 content (M8); scaffold-fade data model (`scaffold_stage`,
-  review latency); audio; iPhone (M9, needs Apple account/signing); cloud sync (M10); code-signed
-  installers (.dmg/.msi/.AppImage).
+- ✅ **Phonetic-component system** (v0.3.0) — Kanjium sound-markers → `role='phonetic'` edges;
+  detail-hub series view (門→聞·間·問). Grows automatically as levels land.
+- **Pre-N3 hardening (do before the N3 build — decomposition + intro_rank + ids bake at build
+  time):** (1) `decomposition-overrides.json` to fix ~14 kradfile over-decompositions (新, 味, 貸…)
+  + regen those mnemonics; (2) stable `kanji.id` = Unicode codepoint (today it's insertion rowid,
+  so an N3 reshuffle would silently corrupt user progress) + user-DB remap migration;
+  (3) interference/plainness mnemonic rewrites (夕/多 etc.).
+- ⬜ **Next** — the pre-N3 hardening above, then N3 content (M8); level briefing/congrats UI (M4);
+  scaffold-fade data model (`scaffold_stage`, review latency); audio; iPhone (M9, needs Apple
+  account/signing); cloud sync (M10); code-signed installers (.dmg/.msi/.AppImage).
 
 ---
 
