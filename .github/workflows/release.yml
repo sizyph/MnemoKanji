@@ -9,10 +9,14 @@ permissions:
   contents: write
 
 jobs:
-  # Build the N5 seed once on Linux (it's platform-independent data) and share it with the
-  # per-OS build jobs, so the heavy data fetch/parse only runs once.
+  # Build the seed once on Linux (it's platform-independent data) and share it with the per-OS
+  # build jobs, so the heavy data fetch/parse only runs once. The seed is built from external
+  # sources (which drift), so we run the completeness/integrity tests AGAINST the freshly-built
+  # seed here — a released binary must never ship a seed that fails them (see docs "never teach
+  # mistakes"). Those tests self-skip when the seed is absent (e.g. in plain CI), so this job is
+  # the gate that actually exercises them.
   seed:
-    name: Build N5 seed
+    name: Build & verify seed
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,6 +28,8 @@ jobs:
         run: |
           bash scripts/fetch-sources.sh
           cargo run --release -p mnemokanji-content
+      - name: Verify seed (completeness + engine integration over the real seed)
+        run: cargo test -p mnemokanji-data --release
       - uses: actions/upload-artifact@v4
         with:
           name: seed

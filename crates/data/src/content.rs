@@ -43,6 +43,15 @@ pub struct BrowseItem {
     pub level: String,
 }
 
+/// A kanji's phonetic sound-marker and the other built kanji sharing it (its series).
+#[derive(Clone, Debug)]
+pub struct PhoneticInfo {
+    /// The marker component's glyph (e.g. 寺 in 時).
+    pub marker: String,
+    /// Other kanji in the seed carrying the same marker: (id, glyph, keyword).
+    pub series: Vec<(i64, String, String)>,
+}
+
 /// Everything needed to render a kanji in review or on its detail page.
 #[derive(Clone, Debug)]
 pub struct KanjiDetail {
@@ -57,6 +66,7 @@ pub struct KanjiDetail {
     pub mnemonic: Option<String>,
     pub stroke_paths: Vec<String>,
     pub components: Vec<ComponentItem>,
+    pub phonetic: Option<PhoneticInfo>,
 }
 
 pub struct ContentRepo {
@@ -254,6 +264,36 @@ impl ContentRepo {
             })?
             .collect::<rusqlite::Result<Vec<_>>>()?;
 
+        // Phonetic sound-marker (if any) + the series: other kanji sharing the same marker.
+        let phonetic = self
+            .conn
+            .query_row(
+                "SELECT c.id, c.glyph FROM kanji_component kc
+                 JOIN component c ON c.id = kc.component_id
+                 WHERE kc.kanji_id = ?1 AND kc.role = 'phonetic'",
+                [id],
+                |r| Ok((r.get::<_, i64>(0)?, r.get::<_, String>(1)?)),
+            )
+            .map(Some)
+            .or_else(|e| match e {
+                rusqlite::Error::QueryReturnedNoRows => Ok(None),
+                other => Err(other),
+            })?
+            .map(|(cid, marker)| -> rusqlite::Result<PhoneticInfo> {
+                let mut stmt = self.conn.prepare(
+                    "SELECT k.id, k.glyph, COALESCE(k.primary_keyword, '')
+                     FROM kanji_component kc JOIN kanji k ON k.id = kc.kanji_id
+                     JOIN level l ON l.id = k.level_id
+                     WHERE kc.component_id = ?1 AND kc.role = 'phonetic' AND k.id <> ?2
+                     ORDER BY l.ord, k.intro_rank",
+                )?;
+                let series = stmt
+                    .query_map([cid, id], |r| Ok((r.get(0)?, r.get(1)?, r.get(2)?)))?
+                    .collect::<rusqlite::Result<Vec<_>>>()?;
+                Ok(PhoneticInfo { marker, series })
+            })
+            .transpose()?;
+
         Ok(KanjiDetail {
             id,
             glyph,
@@ -266,6 +306,7 @@ impl ContentRepo {
             mnemonic,
             stroke_paths,
             components,
+            phonetic,
         })
     }
 

@@ -36,5 +36,7 @@ mkdir -p data/sources/jlpt && unzip -oq data/sources/jlpt.zip -d data/sources/jl
 # Stroke-order vectors (slice 5): KanjiVG main set (CC BY-SA 3.0).
 gh release download --repo KanjiVG/kanjivg --pattern 'kanjivg-*-main.zip' --dir data/sources --clobber
 mkdir -p data/sources/kanjivg && unzip -oq data/sources/kanjivg-*-main.zip -d data/sources/kanjivg
+# Phonetic components (slice 6): Kanjium kanjidict (CC BY-SA 4.0) — per-kanji sound-marker column.
+fetch "https://raw.githubusercontent.com/mifunetoshiro/kanjium/master/data/source_files/kanjidict.txt" "kanjium-kanjidict.txt"
 
 echo "done. sources in data/sources/"

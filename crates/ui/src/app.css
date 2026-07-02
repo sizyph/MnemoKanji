@@ -162,6 +162,15 @@ button:hover { filter: brightness(1.08); }
 .cactor { color: var(--muted); font-size: 0.85rem; }
 .mnemonic-text { line-height: 1.6; color: var(--ink); }
 
+/* Phonetic sound-marker series */
+.phonetic { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+.ph-marker { font-size: 1.5rem; background: #2b2440; border: 1px solid #4a3d6b; border-radius: 8px; padding: 0.2rem 0.6rem; color: #c9b6ff; }
+.ph-note { color: var(--muted); font-size: 0.82rem; flex-basis: 100%; }
+.ph-chip { background: var(--card); border: 1px solid #3a3350; border-radius: 8px; padding: 0.35rem 0.6rem; display: flex; gap: 0.45rem; align-items: baseline; cursor: pointer; color: inherit; font: inherit; }
+.ph-chip:hover { border-color: #6a5a9a; }
+.ph-glyph { font-size: 1.3rem; }
+.ph-kw { color: var(--muted); font-size: 0.8rem; }
+
 .vocab-row { display: flex; gap: 0.75rem; align-items: baseline; padding: 0.35rem 0; border-bottom: 1px solid #1f2330; }
 .vsurface { font-size: 1.1rem; min-width: 5rem; }
 .vreading { color: var(--accent); min-width: 5rem; font-size: 0.9rem; }

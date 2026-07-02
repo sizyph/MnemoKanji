@@ -8,6 +8,7 @@ pub mod content;
 pub mod state;
 
 pub use content::{
-    BrowseItem, ComponentItem, ContentRepo, KanjiDetail, Reading, SentenceItem, VocabItem,
+    BrowseItem, ComponentItem, ContentRepo, KanjiDetail, PhoneticInfo, Reading, SentenceItem,
+    VocabItem,
 };
 pub use state::StateStore;

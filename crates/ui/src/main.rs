@@ -531,6 +531,34 @@ fn detail_view(s: AppState) -> Element {
                     }
                 }
             }
+            if let Some(ph) = k.phonetic.clone() {
+                div { class: "section",
+                    h3 { "Sound marker" }
+                    div { class: "phonetic",
+                        span { class: "ph-marker", "{ph.marker}" }
+                        span { class: "ph-note",
+                            if ph.series.is_empty() {
+                                "marks this kanji's on'yomi (more series kanji arrive with later levels)"
+                            } else {
+                                "marks the shared on'yomi of this series:"
+                            }
+                        }
+                        for (sid, sglyph, skw) in ph.series.iter() {
+                            {
+                                let sid = *sid;
+                                let sglyph = sglyph.clone();
+                                let skw = skw.clone();
+                                rsx! {
+                                    button { class: "ph-chip", onclick: move |_| show_detail(sid, s),
+                                        span { class: "ph-glyph", "{sglyph}" }
+                                        span { class: "ph-kw", "{skw}" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             div { class: "section",
                 div { class: "mnemo-head",
                     h3 { "Mnemonic" }
@@ -1061,6 +1089,7 @@ mod tests {
             mnemonic: None,
             stroke_paths: vec![],
             components: vec![],
+            phonetic: None,
         }
     }
 

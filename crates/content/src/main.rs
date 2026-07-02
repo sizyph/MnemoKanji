@@ -18,6 +18,7 @@ use std::path::Path;
 use rusqlite::Connection;
 use serde_json::Value;
 
+mod phonetic;
 mod sentence;
 mod stroke;
 mod vocab;
@@ -34,6 +35,8 @@ const LEVELS: &[(i64, &str, i64)] = &[(5, "N5", 1), (4, "N4", 2)];
 
 // Reading actors are keyed by on'yomi sound and shared across every level (one persona per sound).
 const AUTH_READ: &str = "data/authored/n5-reading-actors.json";
+// Content-safety vocab blocklist (surfaces never shown to a learner), shared across levels.
+const AUTH_BLOCKLIST: &str = "data/authored/vocab-blocklist.json";
 
 /// Per-level authored file paths (`data/authored/{n5|n4|…}-*.json`). Every file is optional:
 /// absent => that facet is derived-only for the level. Keyed off the lowercased level label.
@@ -245,6 +248,39 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
     }
 
+    // Slice 6: phonetic components (sound markers). Upsert so an existing kradfile edge
+    // (e.g. 時→寺 'semantic') is re-tagged 'phonetic'; a marker missing from the decomposition
+    // (e.g. 央 in 映) gets its component + edge created.
+    let mut phonetic_count = 0;
+    if let Some(pmap) = phonetic::build(&selected) {
+        for (glyph, marker) in &pmap {
+            let Some(&kid) = kanji_id.get(glyph.as_str()) else {
+                continue;
+            };
+            let cid = match comp_id.get(marker.as_str()) {
+                Some(&cid) => cid,
+                None => {
+                    // Several kanji can share a marker that kradfile never emitted (央 in 映/英).
+                    tx.execute(
+                        "INSERT OR IGNORE INTO component (glyph, is_kanji) VALUES (?1, ?2)",
+                        rusqlite::params![marker, selected_set.contains(marker.as_str()) as i64],
+                    )?;
+                    tx.query_row(
+                        "SELECT id FROM component WHERE glyph = ?1",
+                        rusqlite::params![marker],
+                        |r| r.get::<_, i64>(0),
+                    )?
+                }
+            };
+            tx.execute(
+                "INSERT INTO kanji_component (kanji_id, component_id, role) VALUES (?1, ?2, 'phonetic')
+                 ON CONFLICT (kanji_id, component_id) DO UPDATE SET role = 'phonetic'",
+                rusqlite::params![kid, cid],
+            )?;
+            phonetic_count += 1;
+        }
+    }
+
     let authored = load_authored(&tx, &kanji_id, &comp_id)?;
     let vstats = insert_vocab(&tx, &kanji_id, &rows, vocab_data.as_ref())?;
     let sentence_count = insert_sentences(&tx, sentence_map.as_ref())?;
@@ -276,6 +312,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         ("vocab_count", vstats.2.to_string()),
         ("sentence_count", sentence_count.to_string()),
         ("stroke_count", stroke_count.to_string()),
+        ("phonetic_count", phonetic_count.to_string()),
     ] {
         tx.execute(
             "INSERT OR REPLACE INTO meta (key, value) VALUES (?1, ?2)",
@@ -294,6 +331,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     );
     println!("Slice 4: {sentence_count} vocab-sentence links");
     println!("Slice 5: {stroke_count} stroke paths");
+    println!("Slice 6: {phonetic_count} phonetic sound-marker edges");
     println!("Reviewer gloss fixes applied: {gloss_fixes}");
     verify(&conn, &rows)?;
     println!("\nWrote {OUT_DB}");
@@ -590,8 +628,24 @@ fn insert_vocab(
         }
     }
 
+    // Content-safety blocklist: surfaces we never show a learner (adult/graphic terms that only
+    // surface because they contain a target kanji). Reviewer-curated; see data/authored.
+    let blocklist: HashSet<String> = read_optional(AUTH_BLOCKLIST)?
+        .and_then(|v| {
+            v.as_array().map(|a| {
+                a.iter()
+                    .filter_map(Value::as_str)
+                    .map(str::to_string)
+                    .collect()
+            })
+        })
+        .unwrap_or_default();
+
     let mut count = 0;
     for v in &vd.vocab {
+        if blocklist.contains(&v.surface) {
+            continue;
+        }
         tx.execute(
             "INSERT OR IGNORE INTO vocab (surface, reading, gloss) VALUES (?1, ?2, ?3)",
             rusqlite::params![v.surface, v.reading, v.gloss],
@@ -701,6 +755,7 @@ fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {
         (
             "attribution",
             "Kanji data from KANJIDIC2 (c) EDRDG, CC BY-SA 4.0, via davidluzgouveia/kanji-data (MIT). \
+             Phonetic components from Kanjium (c) Uros O., CC BY-SA 4.0. \
              Component decomposition from kradfile-u, CC BY-SA. \
              WaniKani-derived fields are NOT used. See docs/04-DATA-SOURCES.md."
                 .to_string(),
