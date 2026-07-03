@@ -386,9 +386,11 @@ mod tests {
         );
     }
 
-    /// Pre-N3 only: the frozen mapping must equal the old rowid order reconstructed from
-    /// the current seed (level ord, then glyph). DELETE this test when N3 reshuffles
-    /// membership — the frozen mapping itself stays correct (it is historical fact).
+    /// The frozen mapping must equal the old rowid order reconstructed from the current
+    /// seed's N5+N4 levels (ord <= 2; those shipped with rowid ids — later levels never
+    /// did). Valid while N5/N4 MEMBERSHIP is unchanged; if a future source update moves a
+    /// kanji across the N5/N4 boundary, DELETE this test — the frozen mapping itself stays
+    /// correct (it is historical fact).
     #[test]
     fn v5_mapping_matches_seed_reconstruction() {
         let seed = format!("{}/../../assets/seed.sqlite", env!("CARGO_MANIFEST_DIR"));
@@ -399,8 +401,10 @@ mod tests {
         let conn = Connection::open(&seed).unwrap();
         let mut stmt = conn
             .prepare(
-                "SELECT glyph, id FROM kanji
-                 ORDER BY (SELECT ord FROM level WHERE level.id = kanji.level_id), glyph",
+                "SELECT k.glyph, k.id FROM kanji k
+                 JOIN level l ON l.id = k.level_id
+                 WHERE l.ord <= 2
+                 ORDER BY l.ord, k.glyph",
             )
             .unwrap();
         let seed_rows: Vec<(String, i64)> = stmt
