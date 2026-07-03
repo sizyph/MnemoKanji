@@ -109,7 +109,9 @@ fn main() {
         panic!("open seed db {seed}: {e} (run scripts/fetch-sources.sh + cargo run -p mnemokanji-content)")
     });
     let content = content_repo.content_view().expect("load content view");
-    let state_store = StateStore::open(&user).expect("open user state db");
+    // StateStore::open already maps the two real failure modes to actionable messages
+    // (migration failure → progress untouched / DB from a newer app → upgrade or restore).
+    let state_store = StateStore::open(&user).unwrap_or_else(|e| panic!("{e}"));
     let state = state_store.load_state().expect("load user state");
     let (new_per_day, daily_review_cap, desired_retention) =
         state_store.load_settings().unwrap_or((10, 60, 0.9));
@@ -165,6 +167,9 @@ fn compute_dash(b: &Backend) -> Dash {
     let dates = b.state_store.study_dates().unwrap_or_default();
     let (streak_days, _) = streak(&dates, today);
     let (reviews_today, _) = b.state_store.review_counts(today).unwrap_or((0, 0));
+    // Quarantine: only tracks whose kanji exists in the content count as progress
+    // (orphans from the v5 id remap or a level reshuffle stay dormant).
+    let active = b.content.id_set();
     Dash {
         level,
         total: b.content.kanji.iter().filter(|k| k.level == level).count(),
@@ -172,7 +177,7 @@ fn compute_dash(b: &Backend) -> Dash {
             .state
             .tracks
             .keys()
-            .filter(|(_, k)| *k == TrackKind::Comprehension)
+            .filter(|(id, k)| *k == TrackKind::Comprehension && active.contains(id))
             .count(),
         due: engine.due_items(&b.state, now).len(),
         new_remaining: engine.new_remaining_today(&b.state, now),
@@ -665,8 +670,9 @@ fn stats_view(s: AppState) -> Element {
         let g = backend();
         let today = g.now().date_naive();
         let mut counts = [0usize; 4]; // new, learning, young, mature
-        for ((_, k), t) in &g.state.tracks {
-            if *k != TrackKind::Comprehension {
+        let active = g.content.id_set();
+        for ((id, k), t) in &g.state.tracks {
+            if *k != TrackKind::Comprehension || !active.contains(id) {
                 continue;
             }
             let idx = match mastery(&t.card, g.settings.mature_stability_days) {

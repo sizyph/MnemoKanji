@@ -206,10 +206,19 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let mut kanji_id: HashMap<&str, i64> = HashMap::new();
     for r in &rows {
+        // Stable identity: kanji.id is the glyph's Unicode codepoint, never the rowid —
+        // rowids renumber when JLPT membership shifts, silently corrupting user state
+        // keyed on kanji_id (docs/08 §id stability; user-DB migration v5).
+        let mut chars = r.glyph.chars();
+        let kid = match (chars.next(), chars.next()) {
+            (Some(c), None) => c as i64,
+            _ => return Err(format!("kanji glyph {:?} is not a single character", r.glyph).into()),
+        };
         tx.execute(
-            "INSERT INTO kanji (glyph, level_id, stroke_count, freq, primary_keyword, intro_rank)
-             VALUES (?1, ?2, ?3, ?4, ?5, ?6)",
+            "INSERT INTO kanji (id, glyph, level_id, stroke_count, freq, primary_keyword, intro_rank)
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)",
             rusqlite::params![
+                kid,
                 r.glyph,
                 r.level_id,
                 r.strokes,
@@ -218,7 +227,6 @@ fn main() -> Result<(), Box<dyn Error>> {
                 intro_rank[r.glyph.as_str()]
             ],
         )?;
-        let kid = tx.last_insert_rowid();
         kanji_id.insert(r.glyph.as_str(), kid);
 
         for reading in &r.on {
@@ -740,7 +748,9 @@ fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {
         .collect::<Vec<_>>()
         .join(", ");
     vec![
-        ("schema_version", "1".to_string()),
+        // 2: kanji.id is the glyph's Unicode codepoint (was: auto-rowid). The app refuses
+        // to open a seed whose schema_version it doesn't expect (ContentRepo::open).
+        ("schema_version", "2".to_string()),
         (
             "slice",
             "5 (dominant readings, vocabulary, example sentences, stroke order)".to_string(),
@@ -765,6 +775,18 @@ fn build_meta(rows: &[KanjiRow]) -> Vec<(&'static str, String)> {
 
 /// Print a verification summary so the build is self-checking.
 fn verify(conn: &Connection, rows: &[KanjiRow]) -> Result<(), Box<dyn Error>> {
+    // Hard invariant (fails the build): every kanji id is its glyph's codepoint. Both
+    // checks in SQL so a regression of the Rust-side guard is still caught. User-state
+    // correctness depends on this — see the v5 user-DB migration in mnemokanji-data.
+    let bad_ids: i64 = conn.query_row(
+        "SELECT COUNT(*) FROM kanji WHERE length(glyph) != 1 OR id != unicode(glyph)",
+        [],
+        |r| r.get(0),
+    )?;
+    if bad_ids != 0 {
+        return Err(format!("{bad_ids} kanji whose id is not their glyph's codepoint").into());
+    }
+
     let kanji: i64 = conn.query_row("SELECT COUNT(*) FROM kanji", [], |r| r.get(0))?;
     let comps: i64 = conn.query_row("SELECT COUNT(*) FROM component", [], |r| r.get(0))?;
     let readings: i64 = conn.query_row("SELECT COUNT(*) FROM reading", [], |r| r.get(0))?;

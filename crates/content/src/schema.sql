@@ -26,7 +26,8 @@ CREATE TABLE component (
 );
 
 CREATE TABLE kanji (
-    id              INTEGER PRIMARY KEY,
+    id              INTEGER PRIMARY KEY,     -- the glyph's Unicode codepoint (stable identity:
+                                             -- user-state DBs key progress on this; NEVER a rowid)
     glyph           TEXT NOT NULL UNIQUE,
     level_id        INTEGER NOT NULL REFERENCES level(id),
     stroke_count    INTEGER,

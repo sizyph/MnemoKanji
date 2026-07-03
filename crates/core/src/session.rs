@@ -29,6 +29,17 @@ pub struct ContentView {
     pub kanji: Vec<KanjiMeta>,
 }
 
+impl ContentView {
+    /// The set of kanji ids in the content. Any persisted track whose id is not in here is
+    /// an orphan (unmapped id, or a kanji dropped from the seed): it must be quarantined —
+    /// excluded from scheduling, budgets, and progress counts — but never deleted, so the
+    /// progress revives if the kanji returns. Every consumer that enumerates
+    /// `StudyState::tracks` filters through this set.
+    pub fn id_set(&self) -> HashSet<i64> {
+        self.kanji.iter().map(|k| k.id).collect()
+    }
+}
+
 #[derive(Clone, Debug)]
 pub struct Settings {
     pub new_per_day: usize,
@@ -67,12 +78,15 @@ pub struct Engine<'a> {
     pub content: &'a ContentView,
     pub settings: Settings,
     pub scheduler: Scheduler,
+    /// Content ids; tracks outside this set are quarantined (see [`ContentView::id_set`]).
+    active: HashSet<i64>,
 }
 
 impl<'a> Engine<'a> {
     pub fn new(content: &'a ContentView, settings: Settings) -> Self {
         let scheduler = Scheduler::new(settings.desired_retention);
         Self {
+            active: content.id_set(),
             content,
             settings,
             scheduler,
@@ -105,7 +119,11 @@ impl<'a> Engine<'a> {
         state
             .tracks
             .values()
-            .filter(|t| t.kind == TrackKind::Comprehension && t.introduced_at.date_naive() == today)
+            .filter(|t| {
+                t.kind == TrackKind::Comprehension
+                    && t.introduced_at.date_naive() == today
+                    && self.active.contains(&t.kanji_id)
+            })
             .count()
     }
 
@@ -150,7 +168,11 @@ impl<'a> Engine<'a> {
         let mut comp: Vec<&Track> = state
             .tracks
             .values()
-            .filter(|t| t.kind == TrackKind::Comprehension && t.card.due <= now)
+            .filter(|t| {
+                t.kind == TrackKind::Comprehension
+                    && t.card.due <= now
+                    && self.active.contains(&t.kanji_id)
+            })
             .collect();
         let mut prod: Vec<&Track> = state
             .tracks
@@ -158,6 +180,7 @@ impl<'a> Engine<'a> {
             .filter(|t| {
                 t.kind == TrackKind::Production
                     && t.card.due <= now
+                    && self.active.contains(&t.kanji_id)
                     && !comp_due.contains(&t.kanji_id)
             })
             .collect();
@@ -310,6 +333,53 @@ mod sim {
         assert_eq!(d0, vec![1]);
         // k3 is not introducible yet (needs k2 too).
         assert!(!state.tracks.contains_key(&(3, TrackKind::Comprehension)));
+    }
+
+    #[test]
+    fn orphan_tracks_are_quarantined_from_queue_and_budget() {
+        let content = content();
+        let settings = Settings {
+            new_per_day: 2,
+            ..Default::default()
+        };
+        let engine = Engine::new(&content, settings);
+        let mut state = StudyState {
+            unlocked_level: 5,
+            ..Default::default()
+        };
+        let now = DateTime::<Utc>::from_timestamp(1_700_000_000, 0).unwrap();
+
+        // A due track whose id is not in the content (e.g. an unmapped id after the v5
+        // user-DB migration, or a kanji dropped from the seed).
+        state.tracks.insert(
+            (999, TrackKind::Comprehension),
+            Track {
+                kanji_id: 999,
+                kind: TrackKind::Comprehension,
+                card: Scheduler::new_card(now),
+                introduced_at: now,
+            },
+        );
+
+        // Never scheduled...
+        assert!(
+            !engine
+                .due_items(&state, now)
+                .iter()
+                .any(|(id, _)| *id == 999),
+            "orphan track must not enter the review queue"
+        );
+        // ...and never counted against the daily new budget, even if introduced "today".
+        assert_eq!(
+            engine.new_remaining_today(&state, now),
+            2,
+            "orphan track must not consume the new-kanji budget"
+        );
+        // The orphan stays in the state (persisted, dormant) — quarantine is read-side only.
+        assert!(state.tracks.contains_key(&(999, TrackKind::Comprehension)));
+
+        // Introductions still work at full budget alongside the orphan.
+        assert_eq!(engine.introduce_new(&mut state, now).len(), 2);
     }
 
     #[test]

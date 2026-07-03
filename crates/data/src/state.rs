@@ -6,7 +6,11 @@ use std::error::Error;
 use chrono::{DateTime, NaiveDate, Utc};
 use mnemokanji_core::{Card, StudyState, Track, TrackKind};
 use rusqlite::Connection;
-use rusqlite_migration::{Migrations, M};
+use rusqlite_migration::{MigrationDefinitionError, Migrations, M};
+
+/// v5: seed kanji ids became Unicode codepoints; remap old auto-rowid references.
+/// The frozen historical mapping inside is validated by tests below.
+const V5_KANJI_CODEPOINT_IDS: &str = include_str!("migrations/v5_kanji_codepoint_ids.sql");
 
 fn migrations() -> Migrations<'static> {
     Migrations::new(vec![
@@ -48,6 +52,7 @@ fn migrations() -> Migrations<'static> {
              CREATE INDEX idx_review_ts ON review_event(ts);",
         ),
         M::up("ALTER TABLE app_settings ADD COLUMN desired_retention REAL NOT NULL DEFAULT 0.9;"),
+        M::up(V5_KANJI_CODEPOINT_IDS),
     ])
 }
 
@@ -59,8 +64,28 @@ impl StateStore {
     /// Open (creating + migrating to latest) the user-state DB at `path`.
     pub fn open(path: &str) -> Result<Self, Box<dyn Error>> {
         let mut conn = Connection::open(path)?;
-        migrations().to_latest(&mut conn)?;
+        migrations().to_latest(&mut conn).map_err(|e| match e {
+            rusqlite_migration::Error::MigrationDefinition(
+                MigrationDefinitionError::DatabaseTooFarAhead,
+            ) => format!(
+                "user database {path} was created by a newer MnemoKanji — \
+                 upgrade the app or restore an older backup"
+            ),
+            other => format!(
+                "user database migration failed; no study progress was modified ({other}) — \
+                 please report this bug"
+            ),
+        })?;
         Ok(Self { conn })
+    }
+
+    /// A migration audit value (e.g. `v5_track_remapped`), if recorded.
+    pub fn state_meta(&self, key: &str) -> Option<String> {
+        self.conn
+            .query_row("SELECT value FROM state_meta WHERE key = ?1", [key], |r| {
+                r.get::<_, String>(0)
+            })
+            .ok()
     }
 
     pub fn load_state(&self) -> Result<StudyState, Box<dyn Error>> {
@@ -279,6 +304,263 @@ mod tests {
     #[test]
     fn migrations_are_valid() {
         assert!(migrations().validate().is_ok());
+    }
+
+    /// The frozen (old_id, glyph, new_id) triples from the v5 migration SQL.
+    fn v5_mapping() -> Vec<(i64, char, i64)> {
+        V5_KANJI_CODEPOINT_IDS
+            .lines()
+            .filter(|l| l.starts_with('(') && (l.ends_with("),") || l.ends_with(");")))
+            .map(|l| {
+                let inner = &l[1..l.rfind(')').unwrap()];
+                let mut parts = inner.split(',');
+                let old: i64 = parts.next().unwrap().parse().unwrap();
+                let glyph_q = parts.next().unwrap();
+                let glyph: char = glyph_q.trim_matches('\'').chars().next().unwrap();
+                let new: i64 = parts.next().unwrap().parse().unwrap();
+                (old, glyph, new)
+            })
+            .collect()
+    }
+
+    /// A user DB at schema v4 (pre-remap), as any v0.1–v0.3 build would have left it.
+    fn v4_db(path: &str) -> Connection {
+        let mut conn = Connection::open(path).unwrap();
+        migrations().to_version(&mut conn, 4).unwrap();
+        conn
+    }
+
+    #[test]
+    fn v5_mapping_is_internally_consistent() {
+        let map = v5_mapping();
+        assert_eq!(map.len(), 245, "one row per kanji ever shipped with rowids");
+        // Old ids are exactly 1..=245 in order (the shipped insertion order).
+        for (i, (old, _, _)) in map.iter().enumerate() {
+            assert_eq!(*old, i as i64 + 1);
+        }
+        // new_id is the glyph's codepoint — a transposed row cannot pass this.
+        for (old, glyph, new) in &map {
+            assert_eq!(
+                *new, *glyph as i64,
+                "row {old}: new_id must be the codepoint of {glyph}"
+            );
+        }
+        let mut new_ids: Vec<i64> = map.iter().map(|(_, _, n)| *n).collect();
+        new_ids.sort_unstable();
+        new_ids.dedup();
+        assert_eq!(new_ids.len(), 245, "codepoints must be unique");
+        assert!(
+            new_ids.first().unwrap() >= &0x3400,
+            "codepoints are all CJK — disjoint from old rowids 1..=245"
+        );
+    }
+
+    /// Pre-N3 only: the frozen mapping must equal the old rowid order reconstructed from
+    /// the current seed (level ord, then glyph). DELETE this test when N3 reshuffles
+    /// membership — the frozen mapping itself stays correct (it is historical fact).
+    #[test]
+    fn v5_mapping_matches_seed_reconstruction() {
+        let seed = format!("{}/../../assets/seed.sqlite", env!("CARGO_MANIFEST_DIR"));
+        if !std::path::Path::new(&seed).exists() {
+            eprintln!("skipping: {seed} absent");
+            return;
+        }
+        let conn = Connection::open(&seed).unwrap();
+        let mut stmt = conn
+            .prepare(
+                "SELECT glyph, id FROM kanji
+                 ORDER BY (SELECT ord FROM level WHERE level.id = kanji.level_id), glyph",
+            )
+            .unwrap();
+        let seed_rows: Vec<(String, i64)> = stmt
+            .query_map([], |r| Ok((r.get(0)?, r.get(1)?)))
+            .unwrap()
+            .collect::<rusqlite::Result<_>>()
+            .unwrap();
+        let map = v5_mapping();
+        assert_eq!(seed_rows.len(), map.len());
+        for ((glyph, id), (old, mglyph, new)) in seed_rows.iter().zip(&map) {
+            assert_eq!(
+                glyph,
+                &mglyph.to_string(),
+                "glyph at shipped position {old}"
+            );
+            assert_eq!(id, new, "seed id for {glyph} must be its codepoint");
+        }
+    }
+
+    #[test]
+    fn v5_remaps_old_rowids_to_codepoints() {
+        let path = temp_db();
+        {
+            let conn = v4_db(&path);
+            for (old, kind) in [
+                (1, "comprehension"),
+                (79, "production"),
+                (80, "comprehension"),
+            ] {
+                conn.execute(
+                    "INSERT INTO track (kanji_id, kind, card_json, introduced_at)
+                     VALUES (?1, ?2, '{}', '2026-01-01T00:00:00Z')",
+                    rusqlite::params![old, kind],
+                )
+                .unwrap();
+            }
+            // An id that is neither a shipped rowid nor a codepoint (hand-edited/dev DB).
+            conn.execute(
+                "INSERT INTO track (kanji_id, kind, card_json, introduced_at)
+                 VALUES (999, 'comprehension', '{}', '2026-01-01T00:00:00Z')",
+                [],
+            )
+            .unwrap();
+            conn.execute(
+                "INSERT INTO review_event (ts, kanji_id, kind, rating)
+                 VALUES ('2026-01-01T00:00:00Z', 245, 'comprehension', 3)",
+                [],
+            )
+            .unwrap();
+            conn.execute(
+                "INSERT INTO user_mnemonic (kanji_id, story, edited_at)
+                 VALUES (1, 'my story', '2026-01-01T00:00:00Z')",
+                [],
+            )
+            .unwrap();
+        }
+
+        let store = StateStore::open(&path).unwrap(); // runs v5
+        let by_old: HashMap<i64, i64> = v5_mapping().iter().map(|(o, _, n)| (*o, *n)).collect();
+        let ids: Vec<(i64, String)> = {
+            let mut stmt = store
+                .conn
+                .prepare("SELECT kanji_id, kind FROM track ORDER BY kanji_id")
+                .unwrap();
+            let v = stmt
+                .query_map([], |r| Ok((r.get(0)?, r.get(1)?)))
+                .unwrap()
+                .collect::<rusqlite::Result<_>>()
+                .unwrap();
+            v
+        };
+        assert_eq!(ids.len(), 4, "row count preserved");
+        assert!(
+            ids.contains(&(999, "comprehension".into())),
+            "invalid id untouched"
+        );
+        assert!(
+            ids.contains(&(19968, "comprehension".into())),
+            "1 → 一 U+4E00"
+        );
+        assert!(ids.contains(&(by_old[&79], "production".into())));
+        assert!(ids.contains(&(by_old[&80], "comprehension".into())));
+        let ev: i64 = store
+            .conn
+            .query_row("SELECT kanji_id FROM review_event", [], |r| r.get(0))
+            .unwrap();
+        assert_eq!(ev, by_old[&245]);
+        assert_eq!(store.user_mnemonic(19968).as_deref(), Some("my story"));
+
+        // Audit trail.
+        assert_eq!(store.state_meta("v5_track_remapped").as_deref(), Some("3"));
+        assert_eq!(store.state_meta("v5_track_invalid").as_deref(), Some("1"));
+        assert_eq!(
+            store.state_meta("v5_review_event_remapped").as_deref(),
+            Some("1")
+        );
+        assert_eq!(
+            store.state_meta("v5_review_event_invalid").as_deref(),
+            Some("0")
+        );
+        assert_eq!(
+            store.state_meta("v5_user_mnemonic_remapped").as_deref(),
+            Some("1")
+        );
+        assert_eq!(
+            store.state_meta("v5_user_mnemonic_invalid").as_deref(),
+            Some("0")
+        );
+
+        let _ = std::fs::remove_file(&path);
+    }
+
+    /// Mixed old/new ids for the same kanji+kind (dev-only artifact): the migration must
+    /// fail closed — roll back entirely, leaving the DB at v4 with every row intact.
+    #[test]
+    fn v5_fails_closed_on_mixed_id_collision() {
+        let path = temp_db();
+        {
+            let conn = v4_db(&path);
+            for id in [1, 19968] {
+                conn.execute(
+                    "INSERT INTO track (kanji_id, kind, card_json, introduced_at)
+                     VALUES (?1, 'comprehension', '{}', '2026-01-01T00:00:00Z')",
+                    [id],
+                )
+                .unwrap();
+            }
+        }
+        assert!(
+            StateStore::open(&path).is_err(),
+            "collision must abort the migration"
+        );
+
+        let conn = Connection::open(&path).unwrap();
+        let version: i64 = conn
+            .query_row("PRAGMA user_version", [], |r| r.get(0))
+            .unwrap();
+        assert_eq!(version, 4, "rolled back to v4");
+        let ids: Vec<i64> = {
+            let mut stmt = conn
+                .prepare("SELECT kanji_id FROM track ORDER BY kanji_id")
+                .unwrap();
+            let v = stmt
+                .query_map([], |r| r.get(0))
+                .unwrap()
+                .collect::<rusqlite::Result<_>>()
+                .unwrap();
+            v
+        };
+        assert_eq!(ids, vec![1, 19968], "both rows intact, unmodified");
+
+        let _ = std::fs::remove_file(&path);
+    }
+
+    /// Orphan tracks (id not in the current content) must survive save/load round-trips:
+    /// they are quarantined from scheduling, never deleted. Guards the full-replace
+    /// invariant in save_state against future refactors that filter tracks before saving.
+    #[test]
+    fn orphan_track_survives_saves() {
+        let path = temp_db();
+        let now = DateTime::<Utc>::from_timestamp(1_700_000_000, 0).unwrap();
+        let mut store = StateStore::open(&path).unwrap();
+        let mut state = store.load_state().unwrap();
+        for id in [999, 19968] {
+            state.tracks.insert(
+                (id, TrackKind::Comprehension),
+                Track {
+                    kanji_id: id,
+                    kind: TrackKind::Comprehension,
+                    card: Scheduler::new_card(now),
+                    introduced_at: now,
+                },
+            );
+        }
+        store.save_state(&state).unwrap();
+
+        // A later session mutates unrelated state and saves again.
+        let mut store = StateStore::open(&path).unwrap();
+        let mut state = store.load_state().unwrap();
+        state.unlocked_level = 4;
+        store.save_state(&state).unwrap();
+
+        let reloaded = StateStore::open(&path).unwrap().load_state().unwrap();
+        assert!(
+            reloaded
+                .tracks
+                .contains_key(&(999, TrackKind::Comprehension)),
+            "orphan track must persist across saves"
+        );
+
+        let _ = std::fs::remove_file(&path);
     }
 
     #[test]

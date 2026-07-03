@@ -49,6 +49,8 @@ jobs:
         run: |
           bash scripts/fetch-sources.sh
           cargo run --release -p mnemokanji-content
+          # Same contract as release.yml: never bundle a seed the data tests didn't verify.
+          cargo test --release -p mnemokanji-data
           cargo build --release -p mnemokanji-ui --features bundle-seed
 
       - name: Build .deb

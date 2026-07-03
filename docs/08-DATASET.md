@@ -68,6 +68,14 @@ licensed; empty license = unusable.** Do **not** bundle Anki Core 2k/6k sentence
 
 ## 3. Merge strategy & conflicts
 
+- **Stable identity: `kanji.id` is the glyph's Unicode codepoint** (seed `schema_version` 2,
+  since v0.4). Never a rowid — rowids renumber when level membership shifts, and the user-state
+  DB keys `track`/`review_event`/`user_mnemonic` on `kanji_id`. The seed build hard-fails unless
+  `id = unicode(glyph)` for every kanji; `ContentRepo::open` refuses a seed whose schema_version
+  it doesn't expect. Pre-v0.4 user DBs are remapped losslessly by user-DB migration v5
+  (`crates/data/src/migrations/v5_kanji_codepoint_ids.sql`), which carries the frozen historical
+  rowid→glyph→codepoint mapping (verified against the shipped v0.1 seed). Level reshuffles are
+  therefore free: identity never moves with level.
 - One row per kanji character; **store provenance per field** (which source set the JLPT level /
   won the decomposition) — cheap now, invaluable for "this should be N2" reports.
 - **JLPT level conflicts:** a kanji has one level; sources disagree on *which*. Priority:

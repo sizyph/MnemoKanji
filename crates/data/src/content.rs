@@ -69,14 +69,34 @@ pub struct KanjiDetail {
     pub phonetic: Option<PhoneticInfo>,
 }
 
+/// The seed schema version this build understands. 2 = kanji.id is the glyph's Unicode
+/// codepoint. Opening an older seed (rowid ids) is refused BEFORE any user-state migration
+/// can run, so a stale seed can never be served against remapped user progress.
+const SEED_SCHEMA_VERSION: &str = "2";
+
 pub struct ContentRepo {
     conn: Connection,
 }
 
 impl ContentRepo {
-    /// Open the seed DB read-only.
-    pub fn open(path: &str) -> rusqlite::Result<Self> {
+    /// Open the seed DB read-only, refusing any seed schema this build doesn't expect.
+    pub fn open(path: &str) -> Result<Self, Box<dyn std::error::Error>> {
         let conn = Connection::open_with_flags(path, OpenFlags::SQLITE_OPEN_READ_ONLY)?;
+        let version: String = conn
+            .query_row(
+                "SELECT value FROM meta WHERE key = 'schema_version'",
+                [],
+                |r| r.get(0),
+            )
+            .map_err(|e| format!("seed database {path} has no readable schema_version ({e})"))?;
+        if version != SEED_SCHEMA_VERSION {
+            return Err(format!(
+                "seed database {path} has schema version {version}, this build needs \
+                 {SEED_SCHEMA_VERSION} — rebuild it (scripts/fetch-sources.sh + \
+                 cargo run -p mnemokanji-content)"
+            )
+            .into());
+        }
         Ok(Self { conn })
     }
 
@@ -342,6 +362,35 @@ mod tests {
 
     fn seed_path() -> String {
         format!("{}/../../assets/seed.sqlite", env!("CARGO_MANIFEST_DIR"))
+    }
+
+    #[test]
+    fn open_refuses_wrong_seed_schema_version() {
+        // A seed with the old rowid-id schema (version 1) must be refused up front.
+        let path = std::env::temp_dir()
+            .join(format!("mnemokanji-oldseed-{}.sqlite", std::process::id()))
+            .to_string_lossy()
+            .into_owned();
+        let _ = std::fs::remove_file(&path);
+        {
+            let conn = Connection::open(&path).unwrap();
+            conn.execute_batch(
+                "CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+                 INSERT INTO meta VALUES ('schema_version', '1');",
+            )
+            .unwrap();
+        }
+        let err = ContentRepo::open(&path).err().expect("must refuse v1 seed");
+        assert!(err.to_string().contains("schema version 1"), "{err}");
+
+        // No meta table at all (arbitrary sqlite file) is refused too.
+        let empty = format!("{path}.empty");
+        let _ = std::fs::remove_file(&empty);
+        Connection::open(&empty).unwrap();
+        assert!(ContentRepo::open(&empty).is_err());
+
+        let _ = std::fs::remove_file(&path);
+        let _ = std::fs::remove_file(&empty);
     }
 
     #[test]
