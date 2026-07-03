@@ -308,5 +308,130 @@
   "component": "厂",
   "actor_name": "Rock Overhang",
   "image": "A bare cliff overhang jutting out over empty space, a slab of stone roofing a shallow hollow beneath it."
+ },
+ {
+  "component": "丁",
+  "actor_name": "Iron Nail",
+  "image": "A fat-headed iron nail driven halfway in, its long shank hanging straight down from the flat cap."
+ },
+ {
+  "component": "丙",
+  "actor_name": "Bronze Medal",
+  "image": "A clunky third-place bronze medal swinging on a striped ribbon, proudly dented."
+ },
+ {
+  "component": "亜",
+  "actor_name": "Scaffold Rack",
+  "image": "A welded pipe scaffold section, square and rigid, with one crossbar missing in the middle."
+ },
+ {
+  "component": "亲",
+  "actor_name": "Sapling Signpost",
+  "image": "A young sapling with a wooden signboard nailed upright to its top, standing at a fork."
+ },
+ {
+  "component": "具",
+  "actor_name": "Open Toolbox",
+  "image": "A dented metal toolbox flipped open on two stubby legs, tools gleaming inside."
+ },
+ {
+  "component": "化",
+  "actor_name": "Morphing Potion",
+  "image": "A round-bottom flask of bubbling potion caught mid-transformation, half liquid, half butterfly."
+ },
+ {
+  "component": "占",
+  "actor_name": "Fortune Booth",
+  "image": "A tiny fairground booth with a divining rod mounted over the counter window."
+ },
+ {
+  "component": "反",
+  "actor_name": "Protest Placard",
+  "image": "A hand-painted placard on a rough stick, thrust up mid-march."
+ },
+ {
+  "component": "可",
+  "actor_name": "Approval Stamp",
+  "image": "A big rubber stamp caught mid-thunk, leaving a bright red YES on the page."
+ },
+ {
+  "component": "史",
+  "actor_name": "Chronicle Scroll",
+  "image": "A long parchment scroll unrolling across the floor, dates and deeds inked down its length."
+ },
+ {
+  "component": "合",
+  "actor_name": "Snap-Lid Bento",
+  "image": "A lacquered bento box with its lid clicking down perfectly flush — a satisfying snap."
+ },
+ {
+  "component": "吏",
+  "actor_name": "Clipboard Clerk",
+  "image": "A stiff-backed clerk hugging an oversized clipboard, pen poised, rules memorized."
+ },
+ {
+  "component": "周",
+  "actor_name": "Surveyor Wheel",
+  "image": "A clicking measuring wheel on a stick, rolled around a field's full perimeter."
+ },
+ {
+  "component": "完",
+  "actor_name": "Finish-Line Tape",
+  "image": "A paper finish-line tape the instant it snaps across a runner's chest."
+ },
+ {
+  "component": "官",
+  "actor_name": "Wax Seal Press",
+  "image": "A heavy brass seal press stamping official red wax onto a document."
+ },
+ {
+  "component": "尺",
+  "actor_name": "Folding Ruler",
+  "image": "A carpenter's wooden folding ruler snapped open into a sharp angle."
+ },
+ {
+  "component": "己",
+  "actor_name": "Coiled Garden Hose",
+  "image": "A green garden hose coiled twice on the wall, nozzle jutting like a head."
+ },
+ {
+  "component": "市",
+  "actor_name": "Market Awning",
+  "image": "A striped market-stall awning on one tall pole, flapping over crates of produce."
+ },
+ {
+  "component": "开",
+  "actor_name": "Sawhorse",
+  "image": "A sturdy wooden sawhorse: one flat crossbar on two splayed legs."
+ },
+ {
+  "component": "式",
+  "actor_name": "Ceremony Scissors",
+  "image": "Giant golden ribbon-cutting scissors held wide open over a red ribbon."
+ },
+ {
+  "component": "旦",
+  "actor_name": "Horizon Sunrise",
+  "image": "The sun sitting exactly on a flat horizon line, the first sliver of morning."
+ },
+ {
+  "component": "是",
+  "actor_name": "Judge's Gavel",
+  "image": "A polished gavel frozen mid-strike, banging out one verdict: correct."
+ },
+ {
+  "component": "未",
+  "actor_name": "Unripe Peach",
+  "image": "A hard green peach on a branch whose topmost twig is still a closed bud."
+ },
+ {
+  "component": "甬",
+  "actor_name": "Wooden Pail",
+  "image": "A slatted wooden pail with a hooped handle, sloshing as it swings."
+ },
+ {
+  "component": "軍",
+  "actor_name": "Canvas-Top Jeep",
+  "image": "An olive jeep with its canvas top cinched down tight, engine growling."
  }
 ]

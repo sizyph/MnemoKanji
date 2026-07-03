@@ -363,5 +363,20 @@
   "component": "𠆢",
   "actor_name": "Pup-Tent Roof",
   "image": "The simple peaked roof of a pup tent, two canvas sides meeting at a sharp ridge, sheltering whatever's below."
+ },
+ {
+  "component": "交",
+  "actor_name": "Scissor Jack",
+  "image": "A car's scissor jack cranked half-open, its steel arms crossing in a tight X."
+ },
+ {
+  "component": "寺",
+  "actor_name": "Bronze Temple Bell",
+  "image": "A colossal bronze temple bell, swung log about to strike its flank."
+ },
+ {
+  "component": "玉",
+  "actor_name": "Dragon Pearl",
+  "image": "A glowing pearl big as a fist, one bright fleck on its flank, warm to the touch."
  }
 ]

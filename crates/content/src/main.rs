@@ -37,6 +37,12 @@ const LEVELS: &[(i64, &str, i64)] = &[(5, "N5", 1), (4, "N4", 2)];
 const AUTH_READ: &str = "data/authored/n5-reading-actors.json";
 // Content-safety vocab blocklist (surfaces never shown to a learner), shared across levels.
 const AUTH_BLOCKLIST: &str = "data/authored/vocab-blocklist.json";
+// Reviewer-curated decomposition fixes for kradfile over-decompositions (audit A3): kradfile
+// sometimes lists a composite AND its own sub-parts (新=立木斤, not 立辛亠十并木斤), or only the
+// atoms where one visually-present composite is the right teaching unit (校=木交, not 父木亠).
+// Entries replace the kradfile list wholesale; entries for not-yet-built kanji apply when their
+// level lands. Shared across levels.
+const AUTH_DECOMP: &str = "data/authored/decomposition-overrides.json";
 
 /// Per-level authored file paths (`data/authored/{n5|n4|…}-*.json`). Every file is optional:
 /// absent => that facet is derived-only for the level. Keyed off the lowercased level label.
@@ -81,7 +87,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     );
 
     let kanji_data = load_json(SOURCE_JSON)?;
-    let krad = load_kradfile(SOURCE_KRAD)?;
+    let mut krad = load_kradfile(SOURCE_KRAD)?;
+    let decomp_overrides = apply_decomposition_overrides(&mut krad)?;
 
     // --- Assemble the kanji set for every configured level, grouped by level (glyph-sorted). ---
     let obj = kanji_data
@@ -333,6 +340,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         "Authored content loaded: {} keyword overrides, {} component actors, {} reading actors, {} mnemonics",
         authored.0, authored.1, authored.2, authored.3
     );
+    println!("Decomposition overrides applied: {decomp_overrides}");
     println!(
         "Slice 3: {} dominant readings derived ({} fallback), {} vocab words",
         vstats.0, vstats.1, vstats.2
@@ -379,6 +387,34 @@ fn load_json(path: &str) -> Result<Value, Box<dyn Error>> {
     let text = fs::read_to_string(path)
         .map_err(|e| format!("cannot read {path}: {e} (run scripts/fetch-sources.sh)"))?;
     Ok(serde_json::from_str(&text)?)
+}
+
+/// Apply reviewer-curated decomposition overrides (audit A3) on top of the kradfile map.
+/// Each entry replaces the component list wholesale. Returns the number applied.
+fn apply_decomposition_overrides(
+    krad: &mut HashMap<String, Vec<String>>,
+) -> Result<usize, Box<dyn Error>> {
+    let Some(v) = read_optional(AUTH_DECOMP)? else {
+        return Ok(0);
+    };
+    let mut n = 0;
+    for e in v.as_array().into_iter().flatten() {
+        let g = e.get("glyph").and_then(Value::as_str);
+        let comps = e.get("components").and_then(Value::as_array).map(|a| {
+            a.iter()
+                .filter_map(Value::as_str)
+                .map(str::to_string)
+                .collect::<Vec<_>>()
+        });
+        if let (Some(g), Some(comps)) = (g, comps) {
+            if comps.is_empty() || comps.iter().any(|c| c.chars().count() != 1) {
+                return Err(format!("decomposition override for {g:?} is malformed").into());
+            }
+            krad.insert(g.to_string(), comps);
+            n += 1;
+        }
+    }
+    Ok(n)
 }
 
 /// Parse kradfile-u: `kanji : comp1 comp2 ...` (UTF-8, '#' comments).

@@ -1,0 +1,534 @@
+[
+ {
+  "glyph": "下",
+  "components": [
+   "一",
+   "卜"
+  ]
+ },
+ {
+  "glyph": "五",
+  "components": [
+   "五"
+  ]
+ },
+ {
+  "glyph": "住",
+  "components": [
+   "⺅",
+   "主"
+  ]
+ },
+ {
+  "glyph": "体",
+  "components": [
+   "⺅",
+   "本"
+  ]
+ },
+ {
+  "glyph": "使",
+  "components": [
+   "⺅",
+   "吏"
+  ]
+ },
+ {
+  "glyph": "円",
+  "components": [
+   "冂",
+   "一",
+   "｜"
+  ]
+ },
+ {
+  "glyph": "冬",
+  "components": [
+   "夂",
+   "丶"
+  ]
+ },
+ {
+  "glyph": "勉",
+  "components": [
+   "免",
+   "力"
+  ]
+ },
+ {
+  "glyph": "動",
+  "components": [
+   "重",
+   "力"
+  ]
+ },
+ {
+  "glyph": "午",
+  "components": [
+   "ノ",
+   "干"
+  ]
+ },
+ {
+  "glyph": "半",
+  "components": [
+   "并",
+   "干"
+  ]
+ },
+ {
+  "glyph": "口",
+  "components": [
+   "口"
+  ]
+ },
+ {
+  "glyph": "味",
+  "components": [
+   "口",
+   "未"
+  ]
+ },
+ {
+  "glyph": "員",
+  "components": [
+   "口",
+   "貝"
+  ]
+ },
+ {
+  "glyph": "国",
+  "components": [
+   "囗",
+   "玉"
+  ]
+ },
+ {
+  "glyph": "妹",
+  "components": [
+   "女",
+   "未"
+  ]
+ },
+ {
+  "glyph": "姉",
+  "components": [
+   "女",
+   "市"
+  ]
+ },
+ {
+  "glyph": "始",
+  "components": [
+   "女",
+   "台"
+  ]
+ },
+ {
+  "glyph": "室",
+  "components": [
+   "宀",
+   "至"
+  ]
+ },
+ {
+  "glyph": "屋",
+  "components": [
+   "尸",
+   "至"
+  ]
+ },
+ {
+  "glyph": "店",
+  "components": [
+   "广",
+   "占"
+  ]
+ },
+ {
+  "glyph": "待",
+  "components": [
+   "彳",
+   "寺"
+  ]
+ },
+ {
+  "glyph": "悪",
+  "components": [
+   "亜",
+   "心"
+  ]
+ },
+ {
+  "glyph": "意",
+  "components": [
+   "音",
+   "心"
+  ]
+ },
+ {
+  "glyph": "持",
+  "components": [
+   "扌",
+   "寺"
+  ]
+ },
+ {
+  "glyph": "新",
+  "components": [
+   "立",
+   "木",
+   "斤"
+  ]
+ },
+ {
+  "glyph": "春",
+  "components": [
+   "三",
+   "人",
+   "日"
+  ]
+ },
+ {
+  "glyph": "昼",
+  "components": [
+   "尺",
+   "旦"
+  ]
+ },
+ {
+  "glyph": "時",
+  "components": [
+   "日",
+   "寺"
+  ]
+ },
+ {
+  "glyph": "朝",
+  "components": [
+   "十",
+   "早",
+   "月"
+  ]
+ },
+ {
+  "glyph": "東",
+  "components": [
+   "木",
+   "日"
+  ]
+ },
+ {
+  "glyph": "校",
+  "components": [
+   "木",
+   "交"
+  ]
+ },
+ {
+  "glyph": "歌",
+  "components": [
+   "可",
+   "欠"
+  ]
+ },
+ {
+  "glyph": "歩",
+  "components": [
+   "止",
+   "少"
+  ]
+ },
+ {
+  "glyph": "母",
+  "components": [
+   "母"
+  ]
+ },
+ {
+  "glyph": "毎",
+  "components": [
+   "ノ",
+   "一",
+   "母"
+  ]
+ },
+ {
+  "glyph": "注",
+  "components": [
+   "氵",
+   "主"
+  ]
+ },
+ {
+  "glyph": "洋",
+  "components": [
+   "氵",
+   "羊"
+  ]
+ },
+ {
+  "glyph": "海",
+  "components": [
+   "氵",
+   "毎"
+  ]
+ },
+ {
+  "glyph": "物",
+  "components": [
+   "牛",
+   "勿"
+  ]
+ },
+ {
+  "glyph": "特",
+  "components": [
+   "牛",
+   "寺"
+  ]
+ },
+ {
+  "glyph": "犬",
+  "components": [
+   "大",
+   "丶"
+  ]
+ },
+ {
+  "glyph": "町",
+  "components": [
+   "田",
+   "丁"
+  ]
+ },
+ {
+  "glyph": "病",
+  "components": [
+   "疒",
+   "丙"
+  ]
+ },
+ {
+  "glyph": "発",
+  "components": [
+   "癶",
+   "元"
+  ]
+ },
+ {
+  "glyph": "真",
+  "components": [
+   "十",
+   "具"
+  ]
+ },
+ {
+  "glyph": "着",
+  "components": [
+   "羊",
+   "ノ",
+   "目"
+  ]
+ },
+ {
+  "glyph": "研",
+  "components": [
+   "石",
+   "开"
+  ]
+ },
+ {
+  "glyph": "究",
+  "components": [
+   "穴",
+   "九"
+  ]
+ },
+ {
+  "glyph": "空",
+  "components": [
+   "穴",
+   "工"
+  ]
+ },
+ {
+  "glyph": "答",
+  "components": [
+   "竹",
+   "合"
+  ]
+ },
+ {
+  "glyph": "紙",
+  "components": [
+   "糸",
+   "氏"
+  ]
+ },
+ {
+  "glyph": "終",
+  "components": [
+   "糸",
+   "冬"
+  ]
+ },
+ {
+  "glyph": "習",
+  "components": [
+   "羽",
+   "白"
+  ]
+ },
+ {
+  "glyph": "肉",
+  "components": [
+   "冂",
+   "人"
+  ]
+ },
+ {
+  "glyph": "花",
+  "components": [
+   "⺾",
+   "化"
+  ]
+ },
+ {
+  "glyph": "親",
+  "components": [
+   "立",
+   "木",
+   "見"
+  ]
+ },
+ {
+  "glyph": "試",
+  "components": [
+   "言",
+   "式"
+  ]
+ },
+ {
+  "glyph": "話",
+  "components": [
+   "言",
+   "舌"
+  ]
+ },
+ {
+  "glyph": "語",
+  "components": [
+   "言",
+   "五",
+   "口"
+  ]
+ },
+ {
+  "glyph": "読",
+  "components": [
+   "言",
+   "売"
+  ]
+ },
+ {
+  "glyph": "買",
+  "components": [
+   "罒",
+   "貝"
+  ]
+ },
+ {
+  "glyph": "貸",
+  "components": [
+   "代",
+   "貝"
+  ]
+ },
+ {
+  "glyph": "質",
+  "components": [
+   "斤",
+   "貝"
+  ]
+ },
+ {
+  "glyph": "起",
+  "components": [
+   "走",
+   "己"
+  ]
+ },
+ {
+  "glyph": "送",
+  "components": [
+   "辶",
+   "并",
+   "天"
+  ]
+ },
+ {
+  "glyph": "週",
+  "components": [
+   "辶",
+   "周"
+  ]
+ },
+ {
+  "glyph": "運",
+  "components": [
+   "辶",
+   "軍"
+  ]
+ },
+ {
+  "glyph": "道",
+  "components": [
+   "辶",
+   "首"
+  ]
+ },
+ {
+  "glyph": "重",
+  "components": [
+   "千",
+   "里"
+  ]
+ },
+ {
+  "glyph": "院",
+  "components": [
+   "⻖",
+   "完"
+  ]
+ },
+ {
+  "glyph": "題",
+  "components": [
+   "是",
+   "頁"
+  ]
+ },
+ {
+  "glyph": "飯",
+  "components": [
+   "食",
+   "反"
+  ]
+ },
+ {
+  "glyph": "館",
+  "components": [
+   "食",
+   "官"
+  ]
+ },
+ {
+  "glyph": "高",
+  "components": [
+   "亠",
+   "口",
+   "冂"
+  ]
+ }
+]
