@@ -12,7 +12,8 @@ use std::sync::{Mutex, OnceLock};
 use chrono::{DateTime, Duration, Utc};
 use dioxus::prelude::*;
 use mnemokanji_core::{
-    mastery, streak, ContentView, Engine, Mastery, Rating, Settings, StudyState, TrackKind,
+    introduced_count, mastery_counts, streak, ContentView, Engine, Rating, Settings, StudyState,
+    TrackKind,
 };
 use mnemokanji_data::{BrowseItem, ContentRepo, KanjiDetail, StateStore};
 
@@ -167,18 +168,10 @@ fn compute_dash(b: &Backend) -> Dash {
     let dates = b.state_store.study_dates().unwrap_or_default();
     let (streak_days, _) = streak(&dates, today);
     let (reviews_today, _) = b.state_store.review_counts(today).unwrap_or((0, 0));
-    // Quarantine: only tracks whose kanji exists in the content count as progress
-    // (orphans from the v5 id remap or a level reshuffle stay dormant).
-    let active = b.content.id_set();
     Dash {
         level,
         total: b.content.kanji.iter().filter(|k| k.level == level).count(),
-        introduced: b
-            .state
-            .tracks
-            .keys()
-            .filter(|(id, k)| *k == TrackKind::Comprehension && active.contains(id))
-            .count(),
+        introduced: introduced_count(&b.state, &b.content.id_set()),
         due: engine.due_items(&b.state, now).len(),
         new_remaining: engine.new_remaining_today(&b.state, now),
         offset_days: b.clock_offset_days,
@@ -669,20 +662,13 @@ fn stats_view(s: AppState) -> Element {
     let (counts, total, cur, longest, today_n, total_n, level) = {
         let g = backend();
         let today = g.now().date_naive();
-        let mut counts = [0usize; 4]; // new, learning, young, mature
-        let active = g.content.id_set();
-        for ((id, k), t) in &g.state.tracks {
-            if *k != TrackKind::Comprehension || !active.contains(id) {
-                continue;
-            }
-            let idx = match mastery(&t.card, g.settings.mature_stability_days) {
-                Mastery::New => 0,
-                Mastery::Learning => 1,
-                Mastery::Young => 2,
-                Mastery::Mature => 3,
-            };
-            counts[idx] += 1;
-        }
+        // [new, learning, young, mature] over active comprehension tracks (orphans
+        // quarantined inside the helper, consistently with the engine).
+        let counts = mastery_counts(
+            &g.state,
+            &g.content.id_set(),
+            g.settings.mature_stability_days,
+        );
         let total = g
             .content
             .kanji
@@ -838,12 +824,22 @@ fn import_data(s: AppState) {
     };
     let src = picked.to_string_lossy().into_owned();
 
-    // Validate: a copy must open cleanly as a MnemoKanji state DB.
+    // Validate: a copy must open cleanly as a MnemoKanji state DB. Surface the reason on
+    // failure — StateStore::open's message distinguishes e.g. a backup from a newer app.
     let check = std::env::temp_dir().join("mnemokanji-import-check.sqlite");
-    let valid =
-        std::fs::copy(&src, &check).is_ok() && StateStore::open(&check.to_string_lossy()).is_ok();
+    let checked = match std::fs::copy(&src, &check) {
+        Ok(_) => StateStore::open(&check.to_string_lossy())
+            .map(|_| ())
+            .map_err(|e| e.to_string()),
+        Err(e) => Err(format!("could not read the selected file ({e})")),
+    };
     let _ = std::fs::remove_file(&check);
-    if !valid {
+    if let Err(reason) = checked {
+        rfd::MessageDialog::new()
+            .set_level(rfd::MessageLevel::Error)
+            .set_title("Import failed")
+            .set_description(format!("This backup cannot be restored: {reason}"))
+            .show();
         return;
     }
 

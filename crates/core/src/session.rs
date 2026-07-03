@@ -349,25 +349,32 @@ mod sim {
         };
         let now = DateTime::<Utc>::from_timestamp(1_700_000_000, 0).unwrap();
 
-        // A due track whose id is not in the content (e.g. an unmapped id after the v5
-        // user-DB migration, or a kanji dropped from the seed).
-        state.tracks.insert(
+        // Due tracks whose ids are not in the content (e.g. an unmapped id after the v5
+        // user-DB migration, or a kanji dropped from the seed) — one per kind, so BOTH
+        // branches of the due_items filter are pinned (a production orphan with no
+        // comprehension sibling is not masked by the anti-priming clause).
+        for (id, kind) in [
             (999, TrackKind::Comprehension),
-            Track {
-                kanji_id: 999,
-                kind: TrackKind::Comprehension,
-                card: Scheduler::new_card(now),
-                introduced_at: now,
-            },
-        );
+            (998, TrackKind::Production),
+        ] {
+            state.tracks.insert(
+                (id, kind),
+                Track {
+                    kanji_id: id,
+                    kind,
+                    card: Scheduler::new_card(now),
+                    introduced_at: now,
+                },
+            );
+        }
 
         // Never scheduled...
         assert!(
             !engine
                 .due_items(&state, now)
                 .iter()
-                .any(|(id, _)| *id == 999),
-            "orphan track must not enter the review queue"
+                .any(|(id, _)| *id == 999 || *id == 998),
+            "orphan tracks must not enter the review queue"
         );
         // ...and never counted against the daily new budget, even if introduced "today".
         assert_eq!(

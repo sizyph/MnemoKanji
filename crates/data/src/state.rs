@@ -12,6 +12,11 @@ use rusqlite_migration::{MigrationDefinitionError, Migrations, M};
 /// The frozen historical mapping inside is validated by tests below.
 const V5_KANJI_CODEPOINT_IDS: &str = include_str!("migrations/v5_kanji_codepoint_ids.sql");
 
+/// The largest kanji rowid any pre-v0.4 seed ever shipped (the frozen v5 map covers
+/// 1..=245). After v5, no legitimate row can carry an id in this range — codepoints start
+/// at U+3400 — so their presence means a pre-v0.4 binary wrote to the DB post-migration.
+const LEGACY_ROWID_MAX: i64 = 245;
+
 fn migrations() -> Migrations<'static> {
     Migrations::new(vec![
         M::up(
@@ -76,6 +81,28 @@ impl StateStore {
                  please report this bug"
             ),
         })?;
+
+        // Guard against a pre-v0.4 instance having written rowid-keyed rows AFTER the v5
+        // remap (e.g. an app left running across an upgrade saves on its next grade —
+        // save_state full-replaces `track`, silently un-remapping everything). The old
+        // binary can't be fixed, so fail loudly here instead of letting that progress
+        // orphan: at v5+ the legacy rowid range is unreachable by any legitimate write.
+        let stale: i64 = conn.query_row(
+            "SELECT (SELECT COUNT(*) FROM track WHERE kanji_id BETWEEN 1 AND ?1)
+                  + (SELECT COUNT(*) FROM review_event WHERE kanji_id BETWEEN 1 AND ?1)
+                  + (SELECT COUNT(*) FROM user_mnemonic WHERE kanji_id BETWEEN 1 AND ?1)",
+            [LEGACY_ROWID_MAX],
+            |r| r.get(0),
+        )?;
+        if stale > 0 {
+            return Err(format!(
+                "user database {path} has {stale} rows written by an older MnemoKanji after \
+                 the id migration — an old instance was probably still running during an \
+                 upgrade. Restore a backup made with the current version, or delete the \
+                 database to start fresh"
+            )
+            .into());
+        }
         Ok(Self { conn })
     }
 
@@ -276,10 +303,12 @@ mod tests {
             let mut state = store.load_state().unwrap();
             assert_eq!(state.unlocked_level, 5, "fresh DB starts unlocked at N5");
 
+            // Kanji ids are codepoints (一 = U+4E00); the legacy rowid range 1..=245 is
+            // refused by the stale-write guard in open().
             state.tracks.insert(
-                (1, TrackKind::Comprehension),
+                (19968, TrackKind::Comprehension),
                 Track {
-                    kanji_id: 1,
+                    kanji_id: 19968,
                     kind: TrackKind::Comprehension,
                     card: Scheduler::new_card(now),
                     introduced_at: now,
@@ -294,7 +323,7 @@ mod tests {
         assert_eq!(reloaded.unlocked_level, 4);
         let t = reloaded
             .tracks
-            .get(&(1, TrackKind::Comprehension))
+            .get(&(19968, TrackKind::Comprehension))
             .expect("track persisted");
         assert_eq!(t.introduced_at, now);
 
@@ -323,7 +352,9 @@ mod tests {
             .collect()
     }
 
-    /// A user DB at schema v4 (pre-remap), as any v0.1–v0.3 build would have left it.
+    /// A user DB at schema v4 (pre-remap), as a v0.1.3–v0.3 build would have left it.
+    /// (v0.1.0–v0.1.2 shipped only two migrations — that start point is covered by
+    /// `v5_remaps_from_a_v0_1_era_db`.)
     fn v4_db(path: &str) -> Connection {
         let mut conn = Connection::open(path).unwrap();
         migrations().to_version(&mut conn, 4).unwrap();
@@ -482,6 +513,90 @@ mod tests {
         let _ = std::fs::remove_file(&path);
     }
 
+    /// The earliest installed base: v0.1.0–v0.1.2 shipped only two migrations, so their
+    /// DBs sit at user_version 2 (no review_event table, no desired_retention column)
+    /// with real data — the 2→5 jump in a single open must remap losslessly.
+    #[test]
+    fn v5_remaps_from_a_v0_1_era_db() {
+        let path = temp_db();
+        {
+            let mut conn = Connection::open(&path).unwrap();
+            migrations().to_version(&mut conn, 2).unwrap();
+            conn.execute(
+                "INSERT INTO track (kanji_id, kind, card_json, introduced_at)
+                 VALUES (1, 'comprehension', '{}', '2026-01-01T00:00:00Z')",
+                [],
+            )
+            .unwrap();
+            conn.execute(
+                "INSERT INTO user_mnemonic (kanji_id, story, edited_at)
+                 VALUES (79, 'v0.1 story', '2026-01-01T00:00:00Z')",
+                [],
+            )
+            .unwrap();
+        }
+
+        let store = StateStore::open(&path).unwrap(); // v3 + v4 + v5 in one open
+        let by_old: HashMap<i64, i64> = v5_mapping().iter().map(|(o, _, n)| (*o, *n)).collect();
+        let tid: i64 = store
+            .conn
+            .query_row("SELECT kanji_id FROM track", [], |r| r.get(0))
+            .unwrap();
+        assert_eq!(tid, 19968, "1 → 一 U+4E00");
+        assert_eq!(
+            store.user_mnemonic(by_old[&79]).as_deref(),
+            Some("v0.1 story")
+        );
+        assert_eq!(store.state_meta("v5_track_remapped").as_deref(), Some("1"));
+        assert_eq!(
+            store.state_meta("v5_review_event_remapped").as_deref(),
+            Some("0"),
+            "review_event was created empty by v3 in the same open"
+        );
+
+        let _ = std::fs::remove_file(&path);
+    }
+
+    /// A DB from a future app version (restored backup / downgrade) must produce the
+    /// actionable "newer MnemoKanji" message, not the generic migration-failure one.
+    #[test]
+    fn open_reports_db_from_newer_app() {
+        let path = temp_db();
+        {
+            let conn = Connection::open(&path).unwrap();
+            conn.execute_batch("PRAGMA user_version = 99;").unwrap();
+        }
+        let err = StateStore::open(&path).err().expect("must refuse");
+        assert!(err.to_string().contains("newer MnemoKanji"), "{err}");
+
+        let _ = std::fs::remove_file(&path);
+    }
+
+    /// If a pre-v0.4 instance writes rowid-keyed rows AFTER the v5 remap (old app left
+    /// running across an upgrade; save_state full-replaces `track`), open must refuse
+    /// loudly instead of silently treating the un-remapped progress as orphans.
+    #[test]
+    fn open_refuses_stale_rowid_writes_after_migration() {
+        let path = temp_db();
+        {
+            // Migrated (v5) DB...
+            let store = StateStore::open(&path).unwrap();
+            drop(store);
+            // ...then an old binary full-replaces track with rowid-keyed rows.
+            let conn = Connection::open(&path).unwrap();
+            conn.execute(
+                "INSERT INTO track (kanji_id, kind, card_json, introduced_at)
+                 VALUES (42, 'comprehension', '{}', '2026-01-01T00:00:00Z')",
+                [],
+            )
+            .unwrap();
+        }
+        let err = StateStore::open(&path).err().expect("must refuse");
+        assert!(err.to_string().contains("older MnemoKanji"), "{err}");
+
+        let _ = std::fs::remove_file(&path);
+    }
+
     /// Mixed old/new ids for the same kanji+kind (dev-only artifact): the migration must
     /// fail closed — roll back entirely, leaving the DB at v4 with every row intact.
     #[test]
@@ -593,9 +708,9 @@ mod tests {
             let mut state = store.load_state().unwrap();
             state.unlocked_level = 3;
             state.tracks.insert(
-                (7, TrackKind::Comprehension),
+                (19975, TrackKind::Comprehension),
                 Track {
-                    kanji_id: 7,
+                    kanji_id: 19975, // 万 — ids are codepoints, never legacy rowids
                     kind: TrackKind::Comprehension,
                     card: Scheduler::new_card(now),
                     introduced_at: now,
@@ -609,7 +724,7 @@ mod tests {
         let restored = StateStore::open(&backup).unwrap();
         let st = restored.load_state().unwrap();
         assert_eq!(st.unlocked_level, 3);
-        assert!(st.tracks.contains_key(&(7, TrackKind::Comprehension)));
+        assert!(st.tracks.contains_key(&(19975, TrackKind::Comprehension)));
         assert_eq!(restored.load_settings().unwrap(), (15, 80, 0.85));
 
         let _ = std::fs::remove_file(&path);

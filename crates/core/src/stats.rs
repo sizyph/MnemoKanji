@@ -3,9 +3,12 @@
 //! The streak is "alive" if you studied today *or* yesterday (so missing the current day doesn't
 //! instantly zero it). Engagement is informational — it never gates or alters the learning itself.
 
+use std::collections::HashSet;
+
 use chrono::NaiveDate;
 
-use crate::domain::Card;
+use crate::domain::{Card, TrackKind};
+use crate::session::StudyState;
 
 /// How well-learned a track is, by FSRS stability (cf. Anki's young/mature split at ~21 days).
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -38,6 +41,29 @@ pub fn mastery(card: &Card, mature_days: f64) -> Mastery {
     } else {
         Mastery::Mature
     }
+}
+
+/// Number of introduced kanji: comprehension tracks whose kanji exists in the content.
+/// `active` is [`crate::ContentView::id_set`]; orphan tracks (quarantined) never count.
+pub fn introduced_count(state: &StudyState, active: &HashSet<i64>) -> usize {
+    state
+        .tracks
+        .keys()
+        .filter(|(id, k)| *k == TrackKind::Comprehension && active.contains(id))
+        .count()
+}
+
+/// Mastery-bucket counts `[new, learning, young, mature]` over the active comprehension
+/// tracks. Orphan tracks (id not in `active`) are quarantined out, like everywhere else.
+pub fn mastery_counts(state: &StudyState, active: &HashSet<i64>, mature_days: f64) -> [usize; 4] {
+    let mut counts = [0usize; 4];
+    for ((id, kind), t) in &state.tracks {
+        if *kind != TrackKind::Comprehension || !active.contains(id) {
+            continue;
+        }
+        counts[mastery(&t.card, mature_days) as usize] += 1;
+    }
+    counts
 }
 
 /// Current and longest study streak (in days) from a sorted, unique list of study dates.
@@ -94,6 +120,51 @@ mod tests {
     #[test]
     fn empty_history_is_zero() {
         assert_eq!(streak(&[], d(2026, 6, 29)), (0, 0));
+    }
+
+    /// Progress counts quarantine orphan tracks (id not in content) — same invariant as
+    /// the engine's scheduling/budget filters, pinned here for the UI-facing counts.
+    #[test]
+    fn progress_counts_quarantine_orphans() {
+        use crate::domain::Track;
+        use crate::scheduler::Scheduler;
+        use chrono::{DateTime, Utc};
+
+        let now = DateTime::<Utc>::from_timestamp(1_700_000_000, 0).unwrap();
+        let active: HashSet<i64> = [19968, 19971].into_iter().collect();
+        let mut state = StudyState::default();
+        // One active mature, one active new, one orphan mature (999 ∉ active).
+        for (id, stability, reps) in [(19968, 30.0, 5), (19971, 0.0, 0), (999, 30.0, 5)] {
+            let mut card = Scheduler::new_card(now);
+            card.stability = stability;
+            card.reps = reps;
+            state.tracks.insert(
+                (id, TrackKind::Comprehension),
+                Track {
+                    kanji_id: id,
+                    kind: TrackKind::Comprehension,
+                    card,
+                    introduced_at: now,
+                },
+            );
+        }
+        // A production track never counts as "introduced".
+        state.tracks.insert(
+            (19968, TrackKind::Production),
+            Track {
+                kanji_id: 19968,
+                kind: TrackKind::Production,
+                card: Scheduler::new_card(now),
+                introduced_at: now,
+            },
+        );
+
+        assert_eq!(introduced_count(&state, &active), 2, "orphan excluded");
+        assert_eq!(
+            mastery_counts(&state, &active, 21.0),
+            [1, 0, 0, 1],
+            "one new + one mature; the mature orphan must not count"
+        );
     }
 
     #[test]

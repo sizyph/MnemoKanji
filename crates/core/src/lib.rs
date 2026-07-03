@@ -13,7 +13,7 @@ pub mod stats;
 pub use domain::{Card, Rating, State, Track, TrackKind};
 pub use scheduler::{comprehension_mature, Scheduler, MATURE_STABILITY_DAYS};
 pub use session::{ContentView, Engine, KanjiMeta, Settings, StudyState};
-pub use stats::{mastery, streak, Mastery};
+pub use stats::{introduced_count, mastery, mastery_counts, streak, Mastery};
 
 /// Crate version (from Cargo).
 pub fn version() -> &'static str {
