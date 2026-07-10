@@ -32,19 +32,20 @@
  },
  {
   "glyph": "国",
-  "story": "Inside a square Walled Box sits the King's Crown on a throne, and one glossy Ink Droplet falls beside it, stamping the royal seal that founds the whole COUNTRY.",
-  "reading_story": "Coker patrols the Walled Box border, guarding the King's Crown so no rival seizes the COUNTRY.",
+  "story": "The gateless Walled Box seals in a single treasure: a Dragon Pearl blazing like a buried sun, its glow leaking through cracks in the stone — everything those four walls guard is the COUNTRY.",
+  "reading_story": "Coker tunnels under the Walled Box, prying at the Dragon Pearl: \"Pocket the pearl,\" he grins, \"and you pocket the whole COUNTRY.\"",
   "reading_actor_used": "Coker",
   "meaning_placement": "end",
   "components_used": [
    "囗",
-   "王",
-   "丶"
+   "玉"
   ],
   "verified": true,
-  "issues": [],
+  "issues": [
+   "'blazing like a buried sun' is a simile, not a staged component — acceptable, but flagged since 日 is not in 国"
+  ],
   "imageability": 5,
-  "distinctiveness": 5
+  "distinctiveness": 4
  },
  {
   "glyph": "人",
@@ -420,22 +421,19 @@
  },
  {
   "glyph": "円",
-  "story": "A Pot Lid rests on a Goalpost Frame; a flat Horizon Line floors it, a Lightning Bolt drops straight through the middle — a coin minted for one crisp yen.",
-  "reading_story": "Enzo Ferrari flips a shiny one-yen coin, えん, and lets it spin on the table.",
+  "story": "A lone Goalpost Frame stands in the desert. A Lightning Bolt cracks straight down inside it, striking the Horizon Line at its base — the sand flash-fuses into one giant glowing coin: YEN.",
+  "reading_story": "Enzo roars up in his Ferrari, pries the giant YEN out of the sand, and bolts it on as a spare wheel — えん!",
   "reading_actor_used": "Enzo",
   "meaning_placement": "end",
   "components_used": [
-   "Pot Lid",
-   "Goalpost Frame",
-   "Horizon Line",
-   "Lightning Bolt"
+   "冂",
+   "一",
+   "｜"
   ],
   "verified": true,
-  "issues": [
-   "four stacked actors make the scene busy, but all are named, no phantom, and 'yen' is the end payoff"
-  ],
-  "imageability": 3,
-  "distinctiveness": 3
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "子",
@@ -519,21 +517,18 @@
  },
  {
   "glyph": "下",
-  "story": "Below the flat desert Horizon Line, a fortune-teller's Divining Twig points its prong downward while a Lightning Bolt cracks straight down past it into the earth below.",
-  "reading_story": "Carr's tires sink below the Horizon Line as a Lightning Bolt drops the Divining Twig — everything heads down, down.",
+  "story": "The Horizon Line lies taut across a gray sea; a Divining Twig drops off it and sinks, prong twitching toward the sunken treasure chest far BELOW.",
+  "reading_story": "Cabbie Carr misses his exit and his taxi plunges down the parking-garage ramp, honking level after level, all the way to the deepest floor BELOW.",
   "reading_actor_used": "Carr",
-  "meaning_placement": "start",
+  "meaning_placement": "end",
   "components_used": [
    "一",
-   "卜",
-   "｜"
+   "卜"
   ],
   "verified": true,
-  "issues": [
-   "Lightning Bolt (｜) is a forced sub-stroke of 卜 rather than a true separate component, but it is in the supplied list and is named, so coverage holds."
-  ],
+  "issues": [],
   "imageability": 4,
-  "distinctiveness": 3
+  "distinctiveness": 4
  },
  {
   "glyph": "気",
@@ -661,21 +656,18 @@
  },
  {
   "glyph": "午",
-  "story": "A Falling Katana slashes down onto an Antenna Mast standing over a Plus-Sign Crossroads; the blade's shadow points dead straight with no lean, so it must be exactly noon.",
-  "reading_story": "Goh blows a sharp whistle the instant the clock strikes noon.",
+  "story": "A Falling Katana plunges onto the rooftop Antenna Mast, impaling its tip and ringing the whole mast like a bell — the town's daily chime for NOON.",
+  "reading_story": "Goh refuses to eat until exactly NOON; when it strikes, his stomach roar rattles the windows.",
   "reading_actor_used": "Goh",
   "meaning_placement": "end",
   "components_used": [
-   "Falling Katana",
-   "Antenna Mast",
-   "Plus-Sign Crossroads"
+   "ノ",
+   "干"
   ],
   "verified": true,
-  "issues": [
-   "Three abstract line-components (Falling Katana, Antenna Mast, Plus-Sign Crossroads) make the scene busy and less vivid than a single image; 'noon' inference via shadow direction is a bit indirect"
-  ],
-  "imageability": 3,
-  "distinctiveness": 3
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "書",
@@ -756,22 +748,18 @@
  },
  {
   "glyph": "半",
-  "story": "Twin Pillars lean apart at the top, Railway Tracks lie across them, and a Lightning Bolt cracks straight down to a Plus-Sign Crossroads below, splitting the whole tower in half.",
-  "reading_story": "Hancock signs his huge flourish across only the top half of the page, leaving the rest blank.",
+  "story": "On the rooftop the Antenna Mast thrusts up between the Twin Pillars; their heavy shared ledge slams down on its crossbar and shears the mast clean in HALF.",
+  "reading_story": "Hancock, mid-signature, snaps his quill and storms off — the Declaration bears only HALF of his famous name.",
   "reading_actor_used": "Hancock",
   "meaning_placement": "end",
   "components_used": [
-   "Twin Pillars",
-   "Railway Tracks",
-   "Lightning Bolt",
-   "Plus-Sign Crossroads"
+   "并",
+   "干"
   ],
   "verified": true,
-  "issues": [
-   "Four components including three abstract line-shapes make the scene cluttered, lowering imageability"
-  ],
-  "imageability": 3,
-  "distinctiveness": 3
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "男",
@@ -909,23 +897,18 @@
  },
  {
   "glyph": "東",
-  "story": "Behind a bare Tree the round Sun rises, a Lightning Bolt splitting the Horizon Line and lighting the Rice-Paddy Grid — dawn breaks in the east.",
-  "reading_story": "Tone Loc raps to the rising sun, facing dead east at dawn.",
+  "story": "The Sun, tired of the sky, wedges itself halfway up the Tree's trunk, glowing through the bark like a lantern — sailors steer toward that burning Tree to find EAST.",
+  "reading_story": "Tone boards the flight to Tokyo, rapping into the intercom the whole way — the plane's nose locked dead EAST.",
   "reading_actor_used": "Tone",
   "meaning_placement": "end",
   "components_used": [
-   "Tree",
-   "Sun",
-   "Lightning Bolt",
-   "Horizon Line",
-   "Rice-Paddy Grid"
+   "木",
+   "日"
   ],
   "verified": true,
-  "issues": [
-   "Five actors crammed into ~28 words; all covered with no phantoms, but the density lowers coherence and the single-vivid-image ideal."
-  ],
-  "imageability": 3,
-  "distinctiveness": 3
+  "issues": [],
+  "imageability": 5,
+  "distinctiveness": 4
  },
  {
   "glyph": "来",

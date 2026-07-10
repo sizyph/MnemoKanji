@@ -276,23 +276,18 @@
  },
  {
   "glyph": "動",
-  "story": "Along the Horizon Line the Sun blazes over a Village Milestone as a Lightning Bolt cracks straight down through them, and on the right a Flexing Bicep heaves the whole heavy signpost — forcing it to MOVE.",
-  "reading_story": "Doe grips the Flexing Bicep, groans a long 'doooh,' and heaves the Village Milestone until it starts to MOVE.",
+  "story": "On the left a heavy grand piano sits frozen to the ice; from the right the Flexing Bicep slams into it, sending it screeching across the lake — MOVE.",
+  "reading_story": "In the morgue, the corpse tagged 'Doe' sits bolt upright, moans a long 'dōōō', and starts to MOVE.",
   "reading_actor_used": "Doe",
   "meaning_placement": "end",
   "components_used": [
-   "一",
-   "力",
-   "日",
-   "里",
-   "｜"
+   "重",
+   "力"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "Five components make it dense; the 日/里/一/｜ cluster is the 重-family element, so it shares actors with 重 — the Flexing Bicep heaving is the key differentiator."
-  ]
+  "issues": [],
+  "imageability": 5,
+  "distinctiveness": 4
  },
  {
   "glyph": "目",
@@ -343,21 +338,18 @@
  },
  {
   "glyph": "体",
-  "story": "A straw Scarecrow leans left against the flat Horizon Line, and a sturdy Tree stands beside it — the two of them lashed together into one crude, upright, standing BODY.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "On the left, the Scarecrow drags an anatomy book to its right side, tears out the pages, and stuffs them under its straw — organ by organ building itself a real BODY.",
+  "reading_story": "Ty Cobb slides spikes-first into home plate, slamming his whole BODY into the catcher.",
+  "reading_actor_used": "Ty",
   "meaning_placement": "end",
   "components_used": [
    "⺅",
-   "一",
-   "木"
+   "本"
   ],
-  "imageability": 5,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "All three actors (Scarecrow ⺅, Horizon Line 一, Tree 木) present and spatially placed left/flat/beside. Kun reading correctly leaves reading_story null. BODY lands at end."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "田",
@@ -819,19 +811,17 @@
  },
  {
   "glyph": "海",
-  "story": "An Iron Padlock hangs clamped over a warm white Milk Jug, but the seal bursts and a Puddle Splash flings droplets to the left — endless salt water pouring out into the open SEA.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "On the far left, Puddle Splash flicks three fat droplets into a puddle — every splash balloons into a rolling wave, wave upon wave swelling outward until the puddle becomes one endless SEA.",
+  "reading_story": "Kai the surfer paddles out at dawn, snaps a clipped \"Kai!\" as he drops down a glassy wave — the whole SEA is his.",
+  "reading_actor_used": "Kai",
   "meaning_placement": "end",
   "components_used": [
-   "毋",
-   "母",
    "氵"
   ],
-  "imageability": 5,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": []
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "売",
@@ -913,21 +903,19 @@
  },
  {
   "glyph": "朝",
-  "story": "At a Plus-Sign Crossroads the round Sun climbs on the left while the pale Full Moon still lingers on the right, both hanging together over the empty junction — the hush of early MORNING.",
-  "reading_story": null,
-  "reading_actor_used": null,
-  "meaning_placement": "end",
+  "story": "MORNING: an early bird struts beneath the freshly painted Plus-Sign Crossroads, screeching everyone awake, while to the right the pale Full Moon gives up and sinks.",
+  "reading_story": "Cho zooms her broom through the MORNING sky, howling a long \"Chōōō!\" as she snatches breakfast toast right off your plate.",
+  "reading_actor_used": "Cho",
+  "meaning_placement": "start",
   "components_used": [
    "十",
-   "日",
+   "早",
    "月"
   ],
-  "imageability": 5,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "Shares 十 (Plus-Sign Crossroads) with 真, but the sun/moon dawn scene is vivid and well separated."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "運",
@@ -981,21 +969,18 @@
  },
  {
   "glyph": "住",
-  "story": "A straw Scarecrow stands guard at the left doorway while inside a fat Ink Droplet drips down onto the Kings Crown resting on its cushion — the household spirit that has come here to DWELL.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "The Scarecrow stands stiff at the left edge of a muddy field; to its right the lord of the manor drags his four-poster bed into the furrows — this is where he will DWELL.",
+  "reading_story": "Juno arrives with mountains of luggage and nails her nameplate to the door: this is where Juno will DWELL, forever.",
+  "reading_actor_used": "Juno",
   "meaning_placement": "end",
   "components_used": [
    "⺅",
-   "丶",
-   "王"
+   "主"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "\"Household spirit\" is a keyword connector, not a phantom component; Scarecrow persona (a thing, not a person) is respected."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "真",
@@ -1036,20 +1021,17 @@
  },
  {
   "glyph": "口",
-  "story": "MOUTH: a square Walled Box swings its gate open into a wide gaping Open Mouth, lips stretched around the empty frame, waiting to be fed.",
-  "reading_story": null,
-  "reading_actor_used": null,
-  "meaning_placement": "start",
+  "story": "A wide-open cartoon Open Mouth, square as a letterbox, screams so loud the windows rattle; you toss in an onigiri and the square lips snap shut — MOUTH.",
+  "reading_story": "Coe collapses past the finish line, MOUTH gaping into a huge square, dragging in one looong slow breath as the crowd roars.",
+  "reading_actor_used": "Coe",
+  "meaning_placement": "end",
   "components_used": [
-   "口",
-   "囗"
+   "口"
   ],
-  "imageability": 4,
-  "distinctiveness": 3,
   "verified": true,
-  "issues": [
-   "Open Mouth is reused across many neighbors (同事員問); here it IS the keyword so the box/mouth identity anchors it well enough."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 3
  },
  {
   "glyph": "同",
@@ -1086,22 +1068,18 @@
  },
  {
   "glyph": "員",
-  "story": "A wide Open Mouth on top yawns above a staring Watching Eye, and clamped below sits a polished Cowrie Shell coin split like a snapped Wishbone — the badge of one loyal EMPLOYEE.",
-  "reading_story": "Quinn pins the Cowrie Shell to her lapel with a clipped 'in', clocking in as the newest EMPLOYEE.",
+  "story": "Behind the shop counter, a wide Open Mouth perches atop a giant Cowrie Shell, bellowing \"Welcome!\" at every customer while the shell rattles with the day's coins — the perfect EMPLOYEE.",
+  "reading_story": "Quinn's grinning portrait hangs above the register: \"EMPLOYEE of the Month — Quinn.\" She curtsies with her mallet whenever a customer reads it.",
   "reading_actor_used": "Quinn",
   "meaning_placement": "end",
   "components_used": [
-   "ハ",
    "口",
-   "目",
    "貝"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "Wishbone (ハ) is worked in as a simile ('split like a snapped Wishbone') rather than a standalone actor; it is named, so coverage passes, but its visual role is slightly subordinated to the Cowrie Shell."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "問",
@@ -1167,22 +1145,18 @@
  },
  {
   "glyph": "使",
-  "story": "USE this: a straw Scarecrow leans in from the left while, on the right, a Falling Katana slashes down across a flat Horizon Line and drops straight into a waiting Open Mouth that swallows the blade.",
-  "reading_story": null,
-  "reading_actor_used": null,
-  "meaning_placement": "start",
+  "story": "The Clipboard Clerk, on the right, signs out the stiff Scarecrow propped at his left and scrubs the office windows with its straw head — everything on his clipboard gets put to USE.",
+  "reading_story": "The Sheriff pries a bottle open with his tin star — a clipped \"shi!\" of escaping fizz. The Sheriff will USE anything.",
+  "reading_actor_used": "Sheriff",
+  "meaning_placement": "end",
   "components_used": [
    "⺅",
-   "ノ",
-   "一",
-   "口"
+   "吏"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "Four stacked actors make this the busiest scene of the set; still parses, but least airy."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "品",
@@ -1202,19 +1176,18 @@
  },
  {
   "glyph": "始",
-  "story": "An elegant Hourglass on the left is flipped, and its very first grains spill toward a Sealed Clam-Locket that pops open above a waiting Open Mouth on the right — the story can finally BEGIN.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "On your marks: the elegant Hourglass presses her pinched waist against the granite pedestal on her right; the instant glass touches stone, sand roars downward — the race can BEGIN.",
+  "reading_story": "The Sheriff fires one clipped shot — \"Shi!\" — and every duel in town must BEGIN on his signal.",
+  "reading_actor_used": "Sheriff",
   "meaning_placement": "end",
   "components_used": [
    "女",
-   "厶",
-   "口"
+   "台"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": []
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "台",
@@ -1577,21 +1550,18 @@
  },
  {
   "glyph": "待",
-  "story": "Down the Forked Footpath on the left a traveler stalls at a Mound of Soil, and a Tape Measure unspools inch by crawling inch across the dirt — nothing to do but WAIT.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "The Forked Footpath dead-ends at the Bronze Temple Bell hanging on the right; the way opens only when it tolls, so you kneel beneath the cold bronze rim and WAIT.",
+  "reading_story": "Ty crouches at the plate, bat cocked, refusing to swing — pitch after pitch, he'll WAIT for the perfect one.",
+  "reading_actor_used": "Ty",
   "meaning_placement": "end",
   "components_used": [
    "彳",
-   "土",
-   "寸"
+   "寺"
   ],
-  "imageability": 5,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "'Inch by crawling inch' nicely reinforces both the Tape Measure and the WAIT keyword."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "試",
@@ -1865,18 +1835,18 @@
  },
  {
   "glyph": "意",
-  "story": "A single SOUND rings out overhead, and the instant it reaches the beating HEART cradled below, a bright IDEA sparks to life inside the chest.",
-  "reading_story": "Mr. Eaton clips a sharp 'ee', and the sound striking his heart lights up one clear IDEA.",
+  "story": "A deafening sound slams down like a press plate onto the soft heart below; with each thundering strike, the flattened heart squeezes out one fresh, fully formed IDEA.",
+  "reading_story": "Mr. Eaton yells a clipped \"ee!\" each time his press stamps out another IDEA, selling them hot off the plate.",
   "reading_actor_used": "Eaton",
   "meaning_placement": "end",
   "components_used": [
    "音",
    "心"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": []
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "注",
@@ -1971,22 +1941,18 @@
  },
  {
   "glyph": "悪",
-  "story": "Along the top Horizon Line an Open Mouth snarls while a Lightning Bolt cracks straight down through it; below, a squirming heart flinches under the strike — a sneering rotten thing, utterly BAD.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "A welded Scaffold Rack sags overhead, and through its missing-crossbar gap, cold rust drips onto the heart trapped below, staining it blacker and blacker — BAD.",
+  "reading_story": "Acker gleefully salts the town well, cackling at the sputtering villagers — everything Acker touches turns BAD.",
+  "reading_actor_used": "Acker",
   "meaning_placement": "end",
   "components_used": [
-   "一",
-   "口",
-   "心",
-   "｜"
+   "亜",
+   "心"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "All four supplied actors present ('heart' correctly lowercase as an already-learned kanji, no persona). BAD lands at the end. Kun-dominant, so no reading actor — correct."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "図",
@@ -2026,40 +1992,33 @@
  },
  {
   "glyph": "室",
-  "story": "A Thatched House caps the top, and beneath its eaves a Sealed Clam-Locket rests on a Mound of Soil where a Landed Meteor has just crashed home — a snug private ROOM.",
-  "reading_story": "Schitt clips a sharp 'shitsu' as he slams the door of his private ROOM shut.",
+  "story": "The Thatched House lifts off the ground and lowers itself over the crater where the Landed Meteor lies steaming — peaked roof capping the rock completely, turning the crash site into a ROOM.",
+  "reading_story": "Schitt inspects the crater ROOM and sniffs, \"Shitsu! There's a meteor where the bed should be.\"",
   "reading_actor_used": "Schitt",
   "meaning_placement": "end",
   "components_used": [
-   "厶",
-   "土",
    "宀",
    "至"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "All four supplied actors present; ROOM lands at end. On-dominant (しつ) so Schitt appears; persona matches, -tsu coda cued by 'shitsu'. Registry redundantly lists 厶/土 plus their parent 至 (Landed Meteor); story nests them together plausibly without false etymology."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "歩",
-  "story": "The STOP sign stands planted up top; below it a Falling Katana slashes down and a Sand Trickle spills over both your marching feet, grains counting off each step you WALK.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "You wait beneath the bus stop's little roof; on the pavement below glitter a few coins — too few for any fare — so you shrug and WALK.",
+  "reading_story": "Icy Hoth refuses the bus — he'd rather WALK, each short step puffing a clipped 'ho' of frost.",
+  "reading_actor_used": "Hoth",
   "meaning_placement": "end",
   "components_used": [
-   "ノ",
-   "小",
-   "止"
+   "止",
+   "少"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "'marching feet' is light scene-glue, not a named component, but reinforces the WALK payoff so it reads fine."
-  ]
+  "issues": [],
+  "imageability": 3,
+  "distinctiveness": 3
  },
  {
   "glyph": "風",
@@ -2139,22 +2098,19 @@
  },
  {
   "glyph": "春",
-  "story": "A Horizon Line caps the top, Railway Tracks stack below it, and a Stepladder straddles them all; down at the bottom the Sun blazes up through the rungs, thawing everything into SPRING.",
-  "reading_story": null,
-  "reading_actor_used": null,
-  "meaning_placement": "end",
+  "story": "SPRING festival: a Stepladder pokes up through three paper streamers strung overhead, its legs flaring wide, and tucked between its feet the Sun glows like a ground-lantern, warming the whole lane.",
+  "reading_story": "Shunsuke the striker volleys the first ball of SPRING over the blossoming goalposts — petals burst off the net as it hits.",
+  "reading_actor_used": "Shunsuke",
+  "meaning_placement": "start",
   "components_used": [
-   "一",
-   "二",
+   "三",
    "人",
    "日"
   ],
-  "imageability": 5,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "'rungs' refers to the Stepladder, not a separate component; spatial stacking (Horizon over Tracks over Stepladder over Sun) is faithful to the registry decomposition."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "赤",
@@ -2211,22 +2167,18 @@
  },
  {
   "glyph": "屋",
-  "story": "A Draped Cloak hangs stiff and flat overhead like a ROOF; beneath it a Landed Meteor has punched a Mound of Soil and a Sealed Clam-Locket into the floor — all sheltered under that one flat ROOF.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "Rain hisses off the Landed Meteor steaming in its crater — until the Draped Cloak flops down over it, sagging at the edges, becoming the meteor's first makeshift ROOF.",
+  "reading_story": "Occam climbs onto the ROOF with his razor, shaving off every unnecessary shingle until one simple layer keeps out the rain.",
+  "reading_actor_used": "Occam",
   "meaning_placement": "end",
   "components_used": [
-   "厶",
-   "土",
    "尸",
    "至"
   ],
-  "imageability": 3,
-  "distinctiveness": 3,
   "verified": true,
-  "issues": [
-   "至 also supplied split into 厶+土, so four overlapping actors crowd the scene; faithful and all named. Kun-dominant, no reading actor — correct."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "色",
@@ -2624,40 +2576,33 @@
  },
  {
   "glyph": "冬",
-  "story": "A muddy Trailing Footprint leads off into the snow, and above it a Cracking Whip snaps down, flicking a single frozen Ink Droplet that hangs glittering as an icicle — deep, still WINTER.",
-  "reading_story": null,
-  "reading_actor_used": null,
-  "meaning_placement": "end",
+  "story": "WINTER: the pond has frozen so hard that a Trailing Footprint sits pressed into its white surface, and trapped in the ice directly below, a single Ink Droplet hangs suspended mid-fall, jet-black against the frost.",
+  "reading_story": "Tone the rapper performs on a frozen lake, stretching every bar looong, breath billowing white — his WINTER show freezes the mic to his glove.",
+  "reading_actor_used": "Tone",
+  "meaning_placement": "start",
   "components_used": [
    "夂",
-   "攵",
    "丶"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "Registry supplies 攵 (Cracking Whip) + 丶 (Ink Droplet) for the bottom element, which is really 冫; story stays descriptive and invents no etymology, so it passes, but the two-dot ice radical is thereby split across two actors."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "昼",
-  "story": "A limp Draped Cloak slumps over the flat Horizon Line, a single Ink Droplet dripping from its hem onto a blazing Sun pinned beneath — the drooping laziness of midday DAYTIME.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "A Folding Ruler snaps open into a sharp angle atop the Horizon Sunrise, clacking wider and wider to measure how high the sun climbs — the whole stretch it marks off is DAYTIME.",
+  "reading_story": "Chewbacca sprawls across the Falcon's hull, shaggy fur blazing gold in the sun, roaring at anyone who wakes him before DAYTIME ends.",
+  "reading_actor_used": "Chewbacca",
   "meaning_placement": "end",
   "components_used": [
-   "尸",
-   "一",
-   "丶",
-   "日"
+   "尺",
+   "旦"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "Four stacked actors make it slightly busy, but the vertical cloak-line-droplet-sun order matches the glyph and the payoff lands clearly."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "茶",
@@ -2712,39 +2657,33 @@
  },
  {
   "glyph": "物",
-  "story": "A Swaddling Wrap on the left folds tight around a lumpy Cow, while a black Skull-and-Crossbones Flag whips over it warning nobody to touch — just some anonymous wrapped-up THING nobody claims.",
-  "reading_story": null,
-  "reading_actor_used": null,
+  "story": "On the left a cow strains against its rope, terrified of the tattered Skull-and-Crossbones Flag staked at its right flank — condemned livestock, no longer an animal to anyone, just a quarantined THING.",
+  "reading_story": "A stick of Butter melts over the lost-and-found bin, gluing every THING inside into one greasy, unclaimable lump.",
+  "reading_actor_used": "Butter",
   "meaning_placement": "end",
   "components_used": [
-   "勹",
-   "勿",
-   "牛"
+   "牛",
+   "勿"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "All three supplied components present (Swaddling Wrap, Skull-and-Crossbones Flag, Cow). Note 勹 nests inside 勿 graphically, but both are supplied and both appear, so coverage holds."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "特",
-  "story": "On the left a Cow stands proud on a Mound of Soil while, on the right, a judge stretches a Tape Measure along her back — a blue-ribbon prize animal, utterly SPECIAL.",
-  "reading_story": "Toker, one clipped puff of smoke, pins the SPECIAL rosette on the measured Cow.",
+  "story": "On the left a cow lowers her horns and rams the Bronze Temple Bell on the right; a deep BOOM floods the courtyard — she alone may ring it, because she is SPECIAL.",
+  "reading_story": "Toker leans against the Bronze Temple Bell, takes one clipped puff, and blows a star-shaped smoke ring — his one SPECIAL trick.",
   "reading_actor_used": "Toker",
   "meaning_placement": "end",
   "components_used": [
-   "土",
-   "寸",
-   "牛"
+   "牛",
+   "寺"
   ],
-  "imageability": 4,
-  "distinctiveness": 4,
   "verified": true,
-  "issues": [
-   "on'yomi dominant → Toker present in reading_story (short -ku persona honored via 'clipped puff'). All three components (Cow, Mound of Soil, Tape Measure) present; keyword at end of both stories."
-  ]
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "魚",
