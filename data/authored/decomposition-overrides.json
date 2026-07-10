@@ -34,6 +34,62 @@
   ]
  },
  {
+  "glyph": "倒",
+  "components": [
+   "⺅",
+   "到"
+  ]
+ },
+ {
+  "glyph": "値",
+  "components": [
+   "⺅",
+   "直"
+  ]
+ },
+ {
+  "glyph": "偉",
+  "components": [
+   "⺅",
+   "韋"
+  ]
+ },
+ {
+  "glyph": "側",
+  "components": [
+   "⺅",
+   "則"
+  ]
+ },
+ {
+  "glyph": "偶",
+  "components": [
+   "⺅",
+   "禺"
+  ]
+ },
+ {
+  "glyph": "働",
+  "components": [
+   "⺅",
+   "動"
+  ]
+ },
+ {
+  "glyph": "優",
+  "components": [
+   "⺅",
+   "憂"
+  ]
+ },
+ {
+  "glyph": "全",
+  "components": [
+   "人",
+   "王"
+  ]
+ },
+ {
   "glyph": "円",
   "components": [
    "冂",
@@ -46,6 +102,27 @@
   "components": [
    "夂",
    "丶"
+  ]
+ },
+ {
+  "glyph": "冷",
+  "components": [
+   "冫",
+   "令"
+  ]
+ },
+ {
+  "glyph": "処",
+  "components": [
+   "夂",
+   "几"
+  ]
+ },
+ {
+  "glyph": "判",
+  "components": [
+   "半",
+   "刂"
   ]
  },
  {
@@ -77,8 +154,30 @@
   ]
  },
  {
+  "glyph": "危",
+  "components": [
+   "勹",
+   "厄"
+  ]
+ },
+ {
   "glyph": "口",
   "components": [
+   "口"
+  ]
+ },
+ {
+  "glyph": "合",
+  "components": [
+   "人",
+   "一",
+   "口"
+  ]
+ },
+ {
+  "glyph": "君",
+  "components": [
+   "尹",
    "口"
   ]
  },
@@ -97,10 +196,41 @@
   ]
  },
  {
+  "glyph": "商",
+  "components": [
+   "立",
+   "冂",
+   "儿",
+   "口"
+  ]
+ },
+ {
   "glyph": "国",
   "components": [
    "囗",
    "玉"
+  ]
+ },
+ {
+  "glyph": "在",
+  "components": [
+   "才",
+   "土"
+  ]
+ },
+ {
+  "glyph": "報",
+  "components": [
+   "幸",
+   "卩",
+   "又"
+  ]
+ },
+ {
+  "glyph": "失",
+  "components": [
+   "ノ",
+   "夫"
   ]
  },
  {
@@ -125,10 +255,45 @@
   ]
  },
  {
+  "glyph": "存",
+  "components": [
+   "才",
+   "子"
+  ]
+ },
+ {
+  "glyph": "完",
+  "components": [
+   "宀",
+   "元"
+  ]
+ },
+ {
+  "glyph": "客",
+  "components": [
+   "宀",
+   "各"
+  ]
+ },
+ {
   "glyph": "室",
   "components": [
    "宀",
    "至"
+  ]
+ },
+ {
+  "glyph": "容",
+  "components": [
+   "宀",
+   "谷"
+  ]
+ },
+ {
+  "glyph": "居",
+  "components": [
+   "尸",
+   "古"
   ]
  },
  {
@@ -139,6 +304,14 @@
   ]
  },
  {
+  "glyph": "差",
+  "components": [
+   "羊",
+   "ノ",
+   "工"
+  ]
+ },
+ {
   "glyph": "店",
   "components": [
    "广",
@@ -146,10 +319,46 @@
   ]
  },
  {
+  "glyph": "彼",
+  "components": [
+   "彳",
+   "皮"
+  ]
+ },
+ {
   "glyph": "待",
   "components": [
    "彳",
    "寺"
+  ]
+ },
+ {
+  "glyph": "徒",
+  "components": [
+   "彳",
+   "走"
+  ]
+ },
+ {
+  "glyph": "得",
+  "components": [
+   "彳",
+   "旦",
+   "寸"
+  ]
+ },
+ {
+  "glyph": "御",
+  "components": [
+   "彳",
+   "卸"
+  ]
+ },
+ {
+  "glyph": "忘",
+  "components": [
+   "亡",
+   "心"
   ]
  },
  {
