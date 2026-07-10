@@ -83,8 +83,8 @@
  },
  {
   "glyph": "大",
-  "story": "A bright orange Starfish sprawls across the rock, all five arms flung out as far as they reach, taking up the entire tide pool — impossibly BIG.",
-  "reading_story": "Dyer measures the Starfish, gasps, and declares its span officially BIG.",
+  "story": "A Starfish inflates like a balloon at the county fair, arms ballooning wider and wider until it eclipses the entire tent — swelling to one absurdly, cartoonishly BIG orange star.",
+  "reading_story": "Dyer stretches a canvas so wide it swallows the studio wall, stepping back to admire one enormous, BIG dyed banner.",
   "reading_actor_used": "Dyer",
   "meaning_placement": "end",
   "components_used": [
@@ -92,10 +92,11 @@
   ],
   "verified": true,
   "issues": [
-   "Starfish 'all five arms' overshoots the glyph's limb count (one horizontal + two diagonals) — minor spatial-fidelity slack, not gating since Starfish is the registered actor"
+   "Reading story links 'wide canvas' to BIG somewhat loosely — the enormity is asserted ('so wide it swallows the studio wall') rather than as inevitable as the main story's inflation; acceptable but the distinctiveness of the size-hook is weaker than the main story.",
+   "'Big' is an abstract keyword and enlargement/inflation imagery for it is inherently generic, capping distinctiveness."
   ],
-  "imageability": 5,
-  "distinctiveness": 4
+  "imageability": 4,
+  "distinctiveness": 3
  },
  {
   "glyph": "十",
@@ -276,18 +277,18 @@
  },
  {
   "glyph": "五",
-  "story": "The Horizon Line caps the top, the Railway Tracks lie pinched below it, and snagged between them gleams a Sheriff Star with all five of its points — that badge means five.",
-  "reading_story": "Goh pins on the five-point sheriff star, taps it five times, and grunts one short 'go' for each point.",
+  "story": "A Sheriff Star spins so fast its five points scorch a flat brand across the top plank, a pinched kink in the middle rail, a squared base below — the badge sears the number FIVE.",
+  "reading_story": "Goh catches the red-hot Sheriff Star, hisses his short clipped \"go!\", and holds up FIVE seared fingers.",
   "reading_actor_used": "Goh",
   "meaning_placement": "end",
   "components_used": [
-   "一",
-   "二",
    "五"
   ],
   "verified": true,
   "issues": [
-   "Somewhat list-like (Horizon Line caps, Railway Tracks below, Star between), but the Sheriff Star is a strong distinctive payoff image and 'that badge means five' lands the keyword well at the end."
+   "Gate 2 (no phantom components) is borderline: the story introduces 'top plank', 'middle rail', and 'squared base' as scorch-marks. These read as spatial descriptions of the 五 strokes (echoing the previous 'Horizon Line'/'Railway Tracks' framing) rather than named persona actors, so it passes — but the enumeration adds parse-load and slightly muddies the single dominant image.",
+   "Minor imageability drag: the three-part 'flat brand / pinched kink / squared base' list is more schematic than pictorial and interrupts the otherwise vivid spinning-badge action.",
+   "The reading story's 'go!' cleverly encodes ご, but leans on wordplay that is only clear if the reader knows Goh maps to ご; still acceptable as an imaginative aid."
   ],
   "imageability": 4,
   "distinctiveness": 4
@@ -402,20 +403,17 @@
  },
  {
   "glyph": "高",
-  "story": "Atop a narrow Watchtower sits a clamped Pot Lid; below it an empty Goalpost Frame forms a window, and inside the frame a wide Open Mouth shouts down — dizzyingly tall.",
-  "reading_story": "Coe climbs the tall Watchtower and bellows a long kooo from the top window — the higher he goes, the longer the note holds.",
+  "story": "A clamped Pot Lid caps the summit; beneath it an Open Mouth gapes, and lowest of all an empty Goalpost Frame — three tiers stacked so high the climb is dizzyingly TALL.",
+  "reading_story": "Sebastian Coe sprints up a TALL stadium ramp, chest heaving, planting a flag at the impossibly high top.",
   "reading_actor_used": "Coe",
   "meaning_placement": "end",
   "components_used": [
    "亠",
-   "冂",
    "口",
-   "高"
+   "冂"
   ],
   "verified": true,
-  "issues": [
-   "dense four-actor scene at ~40 words; right at the length ceiling but all actors named and keyword 'tall' lands at the end"
-  ],
+  "issues": [],
   "imageability": 4,
   "distinctiveness": 4
  },
@@ -611,19 +609,23 @@
  },
  {
   "glyph": "話",
-  "story": "A comic Speech Bubble floats on the left, words stacked inside; on the right a wide Open Mouth gapes, a long pink Lolling Tongue flapping wetly out of it — endless talk.",
-  "reading_story": "Wah pops the Speech Bubble with a short, bright wah and the Lolling Tongue waggles approval — quick talk, no drawn-out drawl.",
+  "story": "A Speech Bubble on the left cracks open its lid, and out slithers a Lolling Tongue on the right — it wags, drips, and won't stop wagging: nonstop TALK.",
+  "reading_story": "Wah splutters a startled \"wah!\" as the Lolling Tongue slaps his cheek mid-TALK, wet and lolling, cutting his sentence clean off.",
   "reading_actor_used": "Wah",
   "meaning_placement": "end",
   "components_used": [
-   "口",
-   "舌",
-   "言"
+   "言",
+   "舌"
   ],
   "verified": true,
-  "issues": [],
-  "imageability": 5,
-  "distinctiveness": 4
+  "issues": [
+   "Non-gating (redundancy): 'won't stop wagging: nonstop TALK' repeats the same idea twice ('won't stop' + 'nonstop'); tightening would raise conciseness.",
+   "Non-gating (distinctiveness risk): the Lolling Tongue (舌) recurs in neighbor kanji and 'tongue' is semantically adjacent to 'talk', so the meaning-to-component link is intuitive but the story offers little to keep THIS card from interfering with other tongue-based kanji.",
+   "Non-gating (reading link is arbitrary): 'Wah' is tied to the scene only by onomatopoeia ('startled wah'); functional but a weak, generic hook.",
+   "Positive note: candidate correctly drops the phantom 'Open Mouth' that the previous_mnemonic invented and uses only the two real components."
+  ],
+  "imageability": 4,
+  "distinctiveness": 3
  },
  {
   "glyph": "女",
@@ -794,21 +796,18 @@
  },
  {
   "glyph": "語",
-  "story": "On the left a Speech Bubble crammed with words; on the right a flat Horizon Line under a gleaming Sheriff Star, and below the badge a wide Open Mouth reciting — a whole foreign language.",
-  "reading_story": "Goh, pinning the Sheriff Star to his chest, barks a short clipped goh as he swears in the Open Mouth to speak only this language.",
+  "story": "A Speech Bubble on the left dictates a code. On the right, a Sheriff Star gleams above a wide Open Mouth that repeats each word back in flawless accent — you've cracked a whole new LANGUAGE.",
+  "reading_story": "Goh pins the Sheriff Star to his chest and swears his oath in a foreign LANGUAGE, every syllable crisp and clipped.",
   "reading_actor_used": "Goh",
   "meaning_placement": "end",
   "components_used": [
-   "一",
+   "言",
    "五",
-   "口",
-   "言"
+   "口"
   ],
   "verified": true,
-  "issues": [
-   "Four actors packed into one scene slightly taxes load; the right-side stack of Horizon Line + Sheriff Star + Open Mouth is a lot to hold, but all are covered and staged left-to-right."
-  ],
-  "imageability": 3,
+  "issues": [],
+  "imageability": 4,
   "distinctiveness": 4
  },
  {
@@ -830,21 +829,18 @@
  },
  {
   "glyph": "時",
-  "story": "The Sun blazes over a Mound of Soil on the left, while a Tape Measure on the right stretches across the dirt, ticking off inch after inch of time.",
-  "reading_story": "The emcee Jee freestyles a tight countdown, calling out the exact time the beat drops.",
+  "story": "On the left the Sun climbs the sky; on the right a colossal Bronze Temple Bell tolls as the swung log strikes its flank — each booming toll marking one more slice of TIME.",
+  "reading_story": "Jee the clipped emcee raps his knuckle on the Bronze Temple Bell and barks \"jee!\" the instant it strikes noon, dead on TIME.",
   "reading_actor_used": "Jee",
   "meaning_placement": "end",
   "components_used": [
-   "Sun",
-   "Mound of Soil",
-   "Tape Measure"
+   "日",
+   "寺"
   ],
   "verified": true,
-  "issues": [
-   "'ticking off inch after inch of time' is a slightly forced bridge from Tape Measure to the keyword but still concrete; all three actors present."
-  ],
-  "imageability": 4,
-  "distinctiveness": 4
+  "issues": [],
+  "imageability": 5,
+  "distinctiveness": 5
  },
  {
   "glyph": "先",
@@ -1061,52 +1057,48 @@
  },
  {
   "glyph": "天",
-  "story": "Above the flat Horizon Line a giant orange Starfish floats, arms flung wide, sprawled across the empty blue — pinned high up there in the open sky.",
-  "reading_story": "Detective Tennison tips his head back — \"ten!\" — and stares up into the wide open sky for clues.",
+  "story": "A flat Horizon Line glows below, and just above it a giant orange Starfish hangs suspended, arms rigidly outstretched, motionless — a five-pointed shape frozen against the vast open SKY.",
+  "reading_story": "Detective Tennison tips his head back, points upward, and shouts that the stolen jewel is glinting somewhere in the endless SKY.",
   "reading_actor_used": "Tennison",
   "meaning_placement": "end",
   "components_used": [
-   "Horizon Line",
-   "Starfish"
-  ],
-  "verified": true,
-  "issues": [
-   "Starfish-floating-above-Horizon-Line overlaps the 大 'big' Starfish image; some interference risk between 大 and 天."
-  ],
-  "imageability": 4,
-  "distinctiveness": 3
- },
- {
-  "glyph": "母",
-  "story": "A warm white Milk Jug brims on the counter, but an Iron Padlock is clamped over its handle, forbidding anyone to pour — only she may, your mother.",
-  "reading_story": "Bo Derek cradles the warm milk jug like a baby, humming \"bo,\" every inch the doting mother.",
-  "reading_actor_used": "Bo",
-  "meaning_placement": "end",
-  "components_used": [
-   "Milk Jug",
-   "Iron Padlock"
+   "一",
+   "大"
   ],
   "verified": true,
   "issues": [],
-  "imageability": 5,
+  "imageability": 4,
   "distinctiveness": 4
  },
  {
+  "glyph": "母",
+  "story": "At the school reunion every crib is cold and empty except one: a round white Milk Jug, two spouts brimming warm, rolls bed to bed feeding each waking baby herself — everyone's MOTHER.",
+  "reading_story": "Bo Derek tips the warm Milk Jug, pouring cocoa for a shivering orphan, and the child sighs and calls her MOTHER.",
+  "reading_actor_used": "Bo",
+  "meaning_placement": "end",
+  "components_used": [
+   "母"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 3
+ },
+ {
   "glyph": "毎",
-  "story": "A Milk Jug pours fresh milk while an Iron Padlock snaps shut behind it, then springs open and snaps shut again — pour, lock, pour, lock, the same loop repeating morning after morning, every.",
-  "reading_story": "Mai sets her alarm \"mai!\" and rises at dawn to pour the milk every single day.",
+  "story": "A Falling Katana slashes down across the flat Horizon Line, and beneath that scarred sky a warm Milk Jug pours — slash, pour, slash, pour, sunrise after sunrise, the same three beats repeating EVERY single dawn.",
+  "reading_story": "Mai stands beneath the sliced horizon, counting Milk Jugs down the road — one at EVERY doorstep, refilled EVERY morning without fail.",
   "reading_actor_used": "Mai",
   "meaning_placement": "end",
   "components_used": [
-   "Milk Jug",
-   "Iron Padlock"
+   "ノ",
+   "一",
+   "母"
   ],
   "verified": true,
-  "issues": [
-   "Shares the exact Milk Jug + Iron Padlock pair with 母; the only differentiator is the repeating pour/lock loop, so distinctiveness from 母 is thin."
-  ],
+  "issues": [],
   "imageability": 4,
-  "distinctiveness": 3
+  "distinctiveness": 4
  },
  {
   "glyph": "火",
@@ -1142,19 +1134,19 @@
  },
  {
   "glyph": "読",
-  "story": "A Speech Bubble on the left reads aloud to a War Helmet, draped in a Bedsheet Cover, propped on two Wishing-Well Legs — a swaddled ghost-knight made to read.",
-  "reading_story": "Docker leans on the gate and reads (どく, Docker) the swaddled knight a bedtime tale.",
+  "story": "On the left, a Speech Bubble leans over a bustling market stall trying to SELL its stacked lines of words — but the only customer just wants to READ them for free, aloud, off the bubble's face.",
+  "reading_story": "A Docker in the stall shouts prices while you quietly READ every label he refuses to sell you.",
   "reading_actor_used": "Docker",
   "meaning_placement": "end",
   "components_used": [
-   "Speech Bubble",
-   "War Helmet",
-   "Bedsheet Cover",
-   "Wishing-Well Legs"
+   "言",
+   "売"
   ],
   "verified": true,
   "issues": [
-   "\"swaddled ghost-knight\" is an extra interpretive flourish but it ties the named actors together rather than introducing a new component"
+   "Gate 4 (meaning lands): 'READ' is the payoff verb but not literally the final word of the main story ('...off the bubble's face'). It reads as the customer's punchline near the end, so it passes, but a version ending on the reading act would be cleaner.",
+   "Component 売 has actor=null, so coverage rests on the keyword/concept 'SELL' + 'market stall' rather than a named persona — acceptable given no persona exists, but weaker than a named-actor invocation.",
+   "Minor coherence wrinkle: the reading story shifts the read-target from the bubble's own words to 'every label' the Docker won't sell, slightly loosening the tie back to the 言/Speech Bubble in the main scene."
   ],
   "imageability": 4,
   "distinctiveness": 4
@@ -1224,21 +1216,26 @@
  },
  {
   "glyph": "校",
-  "story": "A shiny Pot Lid caps the roof; beneath it a tall Tree grows straight up the middle, and at its base two Crossed Axes hang mounted on the wall — the woodcraft school.",
-  "reading_story": "Coe strolls the school halls calling a long, ringing kooo down the corridor, his voice stretching to the far classroom.",
+  "story": "SCHOOL: on the left the Tree grows straight, and bolted to its right a Scissor Jack cranks open, its steel X hoisting a satchel of textbooks up into the branches like a locker.",
+  "reading_story": "Coe jogs the SCHOOL corridor, his long drawn-out stride carrying a stack of exam papers to every classroom before the bell.",
   "reading_actor_used": "Coe",
-  "meaning_placement": "end",
+  "meaning_placement": "start",
   "components_used": [
-   "亠",
    "木",
-   "父"
+   "交"
   ],
   "verified": true,
   "issues": [
-   "decomposition into 亠/木/父 is non-standard (real right side is 交), but no false etymology is asserted in the story text and all supplied actors are named"
+   "Reading actor gate: PASS — 'Coe' named in reading_story and vowel length reinforced ('long drawn-out stride'), matching reading_actor note (long ō persona).",
+   "Mandatory components gate: PASS — 木 named as 'the Tree' (matches actor 'Tree') and 交 named as 'a Scissor Jack' (matches actor 'Scissor Jack'). Both in components_used.",
+   "Phantom-component gate: PASS — no extra kanji actors introduced. 'satchel of textbooks' and 'locker' are decorative props, not component actors.",
+   "Keyword placement gate: PASS — 'SCHOOL' appears at the start of the story (meaning_placement 'start').",
+   "Etymology gate: PASS — no reference to real historical/phonetic origin.",
+   "Length gate: PASS — story is ~42 words including caps keyword; reading_story ~26 words; each clause well under the ~40-word soft cap for the main story (main story counts ~40 words, within tolerance).",
+   "Note: the left/right spatial placement (Tree left, Scissor Jack right) correctly matches 校's structure — good compositional accuracy."
   ],
   "imageability": 4,
-  "distinctiveness": 3
+  "distinctiveness": 4
  },
  {
   "glyph": "雨",
