@@ -1,26 +1,274 @@
 [
  {
-  "glyph": "末",
-  "keyword": "tip"
+  "glyph": "争",
+  "keyword": "dispute"
  },
  {
-  "glyph": "暮",
-  "keyword": "twilight"
+  "glyph": "似",
+  "keyword": "becoming"
+ },
+ {
+  "glyph": "候",
+  "keyword": "weather"
+ },
+ {
+  "glyph": "値",
+  "keyword": "value"
+ },
+ {
+  "glyph": "偶",
+  "keyword": "even number"
+ },
+ {
+  "glyph": "優",
+  "keyword": "excel"
+ },
+ {
+  "glyph": "光",
+  "keyword": "light"
+ },
+ {
+  "glyph": "処",
+  "keyword": "manage"
+ },
+ {
+  "glyph": "列",
+  "keyword": "file"
+ },
+ {
+  "glyph": "初",
+  "keyword": "beginning"
+ },
+ {
+  "glyph": "割",
+  "keyword": "divide"
+ },
+ {
+  "glyph": "参",
+  "keyword": "visit"
+ },
+ {
+  "glyph": "収",
+  "keyword": "obtain"
+ },
+ {
+  "glyph": "号",
+  "keyword": "title"
+ },
+ {
+  "glyph": "否",
+  "keyword": "no"
+ },
+ {
+  "glyph": "商",
+  "keyword": "merchant"
+ },
+ {
+  "glyph": "変",
+  "keyword": "strange"
  },
  {
   "glyph": "存",
   "keyword": "suppose"
  },
  {
+  "glyph": "対",
+  "keyword": "opposite"
+ },
+ {
+  "glyph": "市",
+  "keyword": "city"
+ },
+ {
+  "glyph": "師",
+  "keyword": "teacher"
+ },
+ {
+  "glyph": "平",
+  "keyword": "flat"
+ },
+ {
+  "glyph": "座",
+  "keyword": "cushion"
+ },
+ {
+  "glyph": "必",
+  "keyword": "certain"
+ },
+ {
+  "glyph": "念",
+  "keyword": "wish"
+ },
+ {
+  "glyph": "怖",
+  "keyword": "fearful"
+ },
+ {
+  "glyph": "性",
+  "keyword": "nature"
+ },
+ {
+  "glyph": "悲",
+  "keyword": "sad"
+ },
+ {
+  "glyph": "戻",
+  "keyword": "re-"
+ },
+ {
+  "glyph": "抜",
+  "keyword": "slip out"
+ },
+ {
+  "glyph": "探",
+  "keyword": "grope"
+ },
+ {
+  "glyph": "断",
+  "keyword": "decline"
+ },
+ {
+  "glyph": "昔",
+  "keyword": "antiquity"
+ },
+ {
+  "glyph": "暮",
+  "keyword": "twilight"
+ },
+ {
+  "glyph": "更",
+  "keyword": "renew"
+ },
+ {
+  "glyph": "望",
+  "keyword": "hope"
+ },
+ {
+  "glyph": "未",
+  "keyword": "not yet"
+ },
+ {
+  "glyph": "末",
+  "keyword": "tip"
+ },
+ {
+  "glyph": "杯",
+  "keyword": "glass"
+ },
+ {
+  "glyph": "様",
+  "keyword": "manner"
+ },
+ {
+  "glyph": "機",
+  "keyword": "machine"
+ },
+ {
+  "glyph": "歳",
+  "keyword": "age"
+ },
+ {
+  "glyph": "残",
+  "keyword": "remainder"
+ },
+ {
+  "glyph": "段",
+  "keyword": "steps"
+ },
+ {
+  "glyph": "渡",
+  "keyword": "transit"
+ },
+ {
+  "glyph": "産",
+  "keyword": "give birth"
+ },
+ {
+  "glyph": "直",
+  "keyword": "fix"
+ },
+ {
+  "glyph": "相",
+  "keyword": "mutual"
+ },
+ {
+  "glyph": "破",
+  "keyword": "tear"
+ },
+ {
+  "glyph": "積",
+  "keyword": "pile up"
+ },
+ {
+  "glyph": "等",
+  "keyword": "equal"
+ },
+ {
+  "glyph": "精",
+  "keyword": "energy"
+ },
+ {
+  "glyph": "組",
+  "keyword": "assemble"
+ },
+ {
   "glyph": "絵",
   "keyword": "drawing"
+ },
+ {
+  "glyph": "絶",
+  "keyword": "cut off"
+ },
+ {
+  "glyph": "罪",
+  "keyword": "sin"
+ },
+ {
+  "glyph": "職",
+  "keyword": "employment"
+ },
+ {
+  "glyph": "術",
+  "keyword": "art"
+ },
+ {
+  "glyph": "訪",
+  "keyword": "call on"
+ },
+ {
+  "glyph": "認",
+  "keyword": "recognize"
  },
  {
   "glyph": "返",
   "keyword": "repay"
  },
  {
-  "glyph": "未",
-  "keyword": "not yet"
+  "glyph": "迷",
+  "keyword": "lost"
+ },
+ {
+  "glyph": "連",
+  "keyword": "connect"
+ },
+ {
+  "glyph": "達",
+  "keyword": "reach"
+ },
+ {
+  "glyph": "際",
+  "keyword": "edge"
+ },
+ {
+  "glyph": "頂",
+  "keyword": "summit"
+ },
+ {
+  "glyph": "類",
+  "keyword": "sort"
+ },
+ {
+  "glyph": "鳴",
+  "keyword": "cry"
  }
 ]
