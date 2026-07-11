@@ -417,6 +417,25 @@ fn apply_decomposition_overrides(
             if comps.is_empty() || comps.iter().any(|c| c.chars().count() != 1) {
                 return Err(format!("decomposition override for {g:?} is malformed").into());
             }
+            // kradfile-u is the ONLY source of CJK Compatibility Ideographs in this dataset,
+            // and it uses exactly one: 辶 as U+FA66, never the standard U+8FB6 (audited across
+            // all ~2200 kradfile entries). A kept 辶 component must reuse kradfile's exact
+            // codepoint, or it silently lands on a different `component` row than every other
+            // 辶-using kanji, fragmenting the shared persona. Guard it directly.
+            const KRAD_TSUNYOU: char = '\u{FA66}'; // kradfile-u's 辶
+            const STD_TSUNYOU: char = '\u{8FB6}'; // the codepoint an author would normally type
+            if comps.iter().any(|c| c == &STD_TSUNYOU.to_string())
+                && krad
+                    .get(g)
+                    .is_some_and(|o| o.iter().any(|c| c == &KRAD_TSUNYOU.to_string()))
+            {
+                return Err(format!(
+                    "decomposition override for {g:?} uses standard 辶 (U+8FB6) but kradfile's \
+                     component for this kanji is the compatibility form (U+FA66) — reuse \
+                     kradfile's exact codepoint for kept components"
+                )
+                .into());
+            }
             krad.insert(g.to_string(), comps);
             n += 1;
         }
