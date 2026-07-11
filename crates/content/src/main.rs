@@ -43,6 +43,12 @@ const AUTH_BLOCKLIST: &str = "data/authored/vocab-blocklist.json";
 // Entries replace the kradfile list wholesale; entries for not-yet-built kanji apply when their
 // level lands. Shared across levels.
 const AUTH_DECOMP: &str = "data/authored/decomposition-overrides.json";
+// Reviewer-curated fixes for Kanjium phonetic markers that use an obscure Unicode-extension
+// variant codepoint instead of the standard BMP kanji actually printed (勤's marker is Kanjium's
+// 𦰌 U+266CC; the real printed phonetic is 堇 U+5807, confirmed by its 僅/謹 family sharing the
+// same marker). `marker: null` drops the edge entirely for kanji where no verified BMP
+// substitute is known — never ship a marker that renders as tofu. Shared across levels.
+const AUTH_PHONETIC: &str = "data/authored/phonetic-overrides.json";
 
 /// Per-level authored file paths (`data/authored/{n5|n4|…}-*.json`). Every file is optional:
 /// absent => that facet is derived-only for the level. Keyed off the lowercased level label.
@@ -267,7 +273,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     // (e.g. 時→寺 'semantic') is re-tagged 'phonetic'; a marker missing from the decomposition
     // (e.g. 央 in 映) gets its component + edge created.
     let mut phonetic_count = 0;
-    if let Some(pmap) = phonetic::build(&selected) {
+    if let Some(mut pmap) = phonetic::build(&selected) {
+        apply_phonetic_overrides(&mut pmap)?;
         for (glyph, marker) in &pmap {
             let Some(&kid) = kanji_id.get(glyph.as_str()) else {
                 continue;
@@ -413,6 +420,34 @@ fn apply_decomposition_overrides(
             krad.insert(g.to_string(), comps);
             n += 1;
         }
+    }
+    Ok(n)
+}
+
+/// Apply reviewer-curated phonetic-marker overrides (obscure Kanjium variant codepoint -> the
+/// standard BMP kanji actually printed, or drop the marker if no verified substitute exists).
+/// Returns the number of entries applied (substitutions + drops).
+fn apply_phonetic_overrides(pmap: &mut phonetic::PhoneticMap) -> Result<usize, Box<dyn Error>> {
+    let Some(v) = read_optional(AUTH_PHONETIC)? else {
+        return Ok(0);
+    };
+    let mut n = 0;
+    for e in v.as_array().into_iter().flatten() {
+        let Some(g) = e.get("glyph").and_then(Value::as_str) else {
+            continue;
+        };
+        match e.get("marker").and_then(Value::as_str) {
+            Some(m) if m.chars().count() == 1 => {
+                pmap.insert(g.to_string(), m.to_string());
+            }
+            None => {
+                pmap.remove(g);
+            }
+            Some(bad) => {
+                return Err(format!("phonetic override for {g:?} is malformed: {bad:?}").into())
+            }
+        }
+        n += 1;
     }
     Ok(n)
 }
@@ -821,6 +856,26 @@ fn verify(conn: &Connection, rows: &[KanjiRow]) -> Result<(), Box<dyn Error>> {
     )?;
     if bad_ids != 0 {
         return Err(format!("{bad_ids} kanji whose id is not their glyph's codepoint").into());
+    }
+
+    // Hard invariant: every component must render in the bundled Noto Sans JP font, i.e. be
+    // within the Unicode BMP (astral-plane glyphs show as tofu). unicode() returns the first
+    // character's scalar value; components are already enforced single-char at insertion.
+    let astral: i64 = conn.query_row(
+        "SELECT COUNT(*) FROM component WHERE unicode(glyph) > 65535",
+        [],
+        |r| r.get(0),
+    )?;
+    if astral != 0 {
+        let bad: Vec<String> = conn
+            .prepare("SELECT glyph FROM component WHERE unicode(glyph) > 65535")?
+            .query_map([], |r| r.get::<_, String>(0))?
+            .collect::<rusqlite::Result<_>>()?;
+        return Err(format!(
+            "{astral} component(s) outside the BMP (render as tofu): {bad:?} — \
+             fix via data/authored/decomposition-overrides.json or phonetic-overrides.json"
+        )
+        .into());
     }
 
     let kanji: i64 = conn.query_row("SELECT COUNT(*) FROM kanji", [], |r| r.get(0))?;

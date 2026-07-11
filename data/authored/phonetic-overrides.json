@@ -1,0 +1,17 @@
+[
+ {
+  "glyph": "勤",
+  "marker": "堇",
+  "rationale": "Kanjium marker 𦰌 U+266CC is an obscure variant; the standard printed phonetic (shared with 僅/謹, both きん/コン family per Kanjium own cross-reference) is 堇 U+5807."
+ },
+ {
+  "glyph": "観",
+  "marker": "雚",
+  "rationale": "Kanjium marker 𮥶 U+2E976 is an obscure variant; the standard printed phonetic (shared with 勧/歓, all カン family per Kanjium own cross-reference) is 雚 U+96DA."
+ },
+ {
+  "glyph": "寝",
+  "marker": null,
+  "rationale": "Kanjium marker 𠬶 U+20B36 is astral (tofu); no verified BMP substitute confirmed and no other built kanji shares this marker (unlike 勤/観), so the phonetic edge is dropped rather than guessed. Revisit if a 侵/浸-family kanji is later built and a substitute becomes verifiable."
+ }
+]
