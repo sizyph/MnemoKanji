@@ -631,7 +631,20 @@ fn load_authored(
                 let name = e.get("actor_name").and_then(Value::as_str);
                 let img = e.get("image").and_then(Value::as_str).unwrap_or("");
                 if let (Some(g), Some(name)) = (g, name) {
-                    if let Some(&cid) = comp_id.get(g) {
+                    // `comp_id` only covers semantic (kradfile) components, frozen before the
+                    // phonetic slice ran; a persona authored for a phonetic-only marker (e.g. a
+                    // Kanjium marker kradfile never emitted) needs a live DB lookup instead.
+                    let cid = match comp_id.get(g) {
+                        Some(&cid) => Some(cid),
+                        None => tx
+                            .query_row(
+                                "SELECT id FROM component WHERE glyph = ?1",
+                                rusqlite::params![g],
+                                |r| r.get::<_, i64>(0),
+                            )
+                            .ok(),
+                    };
+                    if let Some(cid) = cid {
                         tx.execute(
                             "INSERT OR REPLACE INTO component_actor (component_id, actor_name, image) VALUES (?1, ?2, ?3)",
                             rusqlite::params![cid, name, img],

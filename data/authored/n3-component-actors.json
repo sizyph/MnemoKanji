@@ -1,0 +1,532 @@
+[
+ {
+  "component": "⻏",
+  "actor_name": "Staircase Curb",
+  "image": "A low stone curb cut into three stacked, rounded steps running down the left edge of a hillside road — the terraced 'village/mound' radical seen leaning against whatever stands beside it."
+ },
+ {
+  "component": "㐬",
+  "actor_name": "Loose Hairknot",
+  "image": "A hasty topknot of hair tied above a small child's head, one strand escaping and trailing down over the crown — the loose, flowing shape sitting at the top of the glyph."
+ },
+ {
+  "component": "㑒",
+  "actor_name": "Twin Nesting Cups",
+  "image": "Two identical tin camping cups stacked mouth-to-base under a peaked lid, nested so tightly they look like one doubled block."
+ },
+ {
+  "component": "㔾",
+  "actor_name": "Bent Hairpin",
+  "image": "A single metal hairpin bent sharply at the knee into an L-hook, lying tucked into the corner of a drawer, ready to snag anything that brushes past it."
+ },
+ {
+  "component": "䒑",
+  "actor_name": "Snapped Antlers",
+  "image": "A small pair of stubby deer antlers, broken short and splayed outward like two flattened horns capping whatever sits underneath them."
+ },
+ {
+  "component": "且",
+  "actor_name": "Stacked Shelf Crate",
+  "image": "A wooden shipping crate divided into three horizontal shelves stacked inside its frame, each shelf-line showing through the front slats like a little ladder of boxes."
+ },
+ {
+  "component": "乇",
+  "actor_name": "Wilted Stalk",
+  "image": "A single wilted plant stalk bending over at the top, its stem drooping down and curling under from lack of water, no leaves left."
+ },
+ {
+  "component": "乍",
+  "actor_name": "Hasty Stitch",
+  "image": "A single crooked stitch of thread yanked through cloth in a hurry, the needle's diagonal jab crossing the vertical seam before the tailor rushes off."
+ },
+ {
+  "component": "乎",
+  "actor_name": "Flapping Pennant",
+  "image": "A thin triangular pennant on a short pole, snapping sideways in the wind with two loose cords whipping out beneath it."
+ },
+ {
+  "component": "了",
+  "actor_name": "Looping Fishtail",
+  "image": "A fish's tail caught mid-flick, curling up and hooking back on itself in one final snap before it goes still."
+ },
+ {
+  "component": "井",
+  "actor_name": "Wellhead Grid",
+  "image": "A stone well-crib seen from above, two pairs of timber beams crossing at right angles to frame a square opening down into the dark water."
+ },
+ {
+  "component": "介",
+  "actor_name": "Turnstile Guard",
+  "image": "A stiff figure jammed upright between two tall vertical bars, arms pinned to its sides, standing sentry exactly between them and blocking anyone from slipping through unnoticed."
+ },
+ {
+  "component": "令",
+  "actor_name": "Peaked Hood",
+  "image": "A kneeling figure capped by a sharp triangular hood pulled low over the head, sealed and motionless, waiting rigid for the order to move."
+ },
+ {
+  "component": "侖",
+  "actor_name": "Attic Ledger Loft",
+  "image": "A peaked attic roof capping a tight stack of bound ledger books beneath it, each cord-tied spine lined up in a neat row under the low ceiling."
+ },
+ {
+  "component": "侯",
+  "actor_name": "Archery Target Post",
+  "image": "A tall wooden post planted in the ground with a ringed target bolted near its top and an arrow jutting from the base, marking out a lord's private shooting range."
+ },
+ {
+  "component": "兆",
+  "actor_name": "Oracle Bone Crack",
+  "image": "A heated turtle-shell splitting down the middle into two mirror-image crack lines curling away from each other, the fortune-teller leaning in to read the fracture."
+ },
+ {
+  "component": "其",
+  "actor_name": "Winnowing Basket",
+  "image": "A flat rectangular grain-basket woven tight and balanced on two short splayed legs, tipped slightly as if about to toss its contents to the wind."
+ },
+ {
+  "component": "几",
+  "actor_name": "Low Stool",
+  "image": "A squat little stool with two splayed legs and one curved crossbar for a seat, low enough to trip over in a dim room."
+ },
+ {
+  "component": "凡",
+  "actor_name": "Ship's Sail",
+  "image": "A single triangular sail bellying out sideways from a mast planted on a low deck, catching wind and leaning the whole rig over."
+ },
+ {
+  "component": "分",
+  "actor_name": "Splitting Wedge",
+  "image": "A blade driven straight down into a block, the two halves springing apart to either side of it like a V cracked open by the cut."
+ },
+ {
+  "component": "則",
+  "actor_name": "Shell Chisel",
+  "image": "A chisel blade held flush against the ridged edge of a cowrie shell, notching a fixed groove into it to set the standard everyone must match."
+ },
+ {
+  "component": "包",
+  "actor_name": "Wrapped Bundle",
+  "image": "A parcel swaddled in brown paper, the wrapping folded clean around a curled-up shape tucked inside like a sleeping cat — corners tucked, string not yet tied."
+ },
+ {
+  "component": "卯",
+  "actor_name": "Saloon Doors",
+  "image": "Two western saloon doors swinging open at the same instant, one panel kicked left and one kicked right, perfectly mirrored and still rocking on their hinges."
+ },
+ {
+  "component": "卸",
+  "actor_name": "Kneeling Peddler",
+  "image": "A market peddler crouched low on one knee beside his cart, hauling a sack off the back and setting it down on the cobblestones to unload his wares for the wholesale buyers."
+ },
+ {
+  "component": "厄",
+  "actor_name": "Cliff Squatter",
+  "image": "A hunched figure crouched low under a jagged rock ledge jutting out overhead, flinching and hugging their knees as loose gravel rains down from above."
+ },
+ {
+  "component": "及",
+  "actor_name": "Coattail Grab",
+  "image": "A hand lunging forward at full stretch, fingers just closing around the fluttering coattail of someone sprinting away — the split-second catch-up, not quite past the wrist."
+ },
+ {
+  "component": "召",
+  "actor_name": "Sword Megaphone",
+  "image": "A short blade held flat above an open, shouting mouth like a megaphone cone, amplifying a summons that echoes out across a courtyard."
+ },
+ {
+  "component": "各",
+  "actor_name": "Doorstep Boot",
+  "image": "A heavy work boot stomping down squarely on a welcome mat in front of a doorway, heel first, as if announcing arrival at every single house on the street in turn."
+ },
+ {
+  "component": "呈",
+  "actor_name": "Serving Tray",
+  "image": "A polished tray held up at chest height with both hands, a single gift box balanced dead-center on top, being presented forward to whoever stands waiting."
+ },
+ {
+  "component": "呉",
+  "actor_name": "Tilted Yawn",
+  "image": "A drowsy figure with head cocked back at an angle, jaw dropped open in a wide unselfconscious yawn, one leg splayed out to the side for balance."
+ },
+ {
+  "component": "咼",
+  "actor_name": "Crooked Jaw",
+  "image": "A jawbone knocked visibly off-center, hinging open at a lopsided angle so the mouth beneath it gapes crooked instead of straight."
+ },
+ {
+  "component": "啇",
+  "actor_name": "Rooted Pedestal",
+  "image": "A stone pedestal standing on a thick root-like base that splays into the ground, a small open mouth-shaped nameplate carved into its front face."
+ },
+ {
+  "component": "坐",
+  "actor_name": "Twin Tree Stumps",
+  "image": "Two flat-topped tree stumps side by side in a clearing, a small figure perched cross-legged on each one, knees tucked, going nowhere."
+ },
+ {
+  "component": "堇",
+  "actor_name": "Adobe Brick Stack",
+  "image": "A dense stack of sun-baked clay bricks piled narrow and tall, packed layer on layer with barely a gap, heavy and compressed from top to bottom."
+ },
+ {
+  "component": "复",
+  "actor_name": "Wind-Up Toy Turtle",
+  "image": "A tin wind-up turtle with a domed shell lid on top and two little legs trailing out the back, clicking forward one step, pausing, then clicking the same step again."
+ },
+ {
+  "component": "夬",
+  "actor_name": "Archer's Thumb-Ring",
+  "image": "A carved thumb-ring worn on a broad hand, one notch cut into its upper edge where the bowstring catches and releases."
+ },
+ {
+  "component": "央",
+  "actor_name": "Ox Yoke",
+  "image": "A wooden yoke bar laid straight across a standing figure's shoulders, pinning them dead-center between its two ends like a crossbeam through a doorway."
+ },
+ {
+  "component": "奇",
+  "actor_name": "Bobblehead Totem",
+  "image": "A big lopsided head balanced on a small curved hook-shaped base, wobbling precariously off-kilter as if it might tip at any moment."
+ },
+ {
+  "component": "奴",
+  "actor_name": "Puppeteer's Hand",
+  "image": "A large hand reaching in from the side, fingers closed around a kneeling marionette figure and tilting it forward by the shoulder."
+ },
+ {
+  "component": "尹",
+  "actor_name": "Overseer's Baton",
+  "image": "A stiff hand poking out from beneath a low awning roof, gripping a short baton flat and level, tapping it against an invisible desk."
+ },
+ {
+  "component": "巽",
+  "actor_name": "Twin Wind Socks",
+  "image": "Two coiled wind socks mounted side by side on a low platform, both curling and twisting in the same gust like a matched pair of airport flags."
+ },
+ {
+  "component": "布",
+  "actor_name": "Clothesline Sheet",
+  "image": "A wide bedsheet draped over a taut horizontal line, its top edge pinned flat to the crossbar and the rest hanging straight down in one heavy fold."
+ },
+ {
+  "component": "廷",
+  "actor_name": "Courtyard Ramp",
+  "image": "A long paved ramp leading up to a royal hall, a low rope-fence post planted right at its edge — officials in stiff robes shuffle up it in a single line toward the throne room."
+ },
+ {
+  "component": "弗",
+  "actor_name": "Twin Bowstrings",
+  "image": "Two parallel archer's bowstrings pulled taut side by side, each crossed by a short brace bar, humming with tension like they're refusing to be plucked."
+ },
+ {
+  "component": "彡",
+  "actor_name": "Comb Streaks",
+  "image": "Three fine diagonal comb-lines raked through wet hair (or paint), left to right, each stroke a touch shorter than the one above it."
+ },
+ {
+  "component": "彦",
+  "actor_name": "Dandy in Pinstripes",
+  "image": "A sharply-dressed young dandy with slicked hair, three rakish diagonal pinstripes combed across his brow like a signature flourish, strutting past a shop window to admire himself."
+ },
+ {
+  "component": "忄",
+  "actor_name": "Twin Candle Wicks",
+  "image": "Two slender candle wicks standing side by side on a narrow ledge at the left edge of a scene, flames trembling as if the heart beneath them is beating."
+ },
+ {
+  "component": "忍",
+  "actor_name": "Blade Over Heartbeat",
+  "image": "A flat throwing-blade held motionless just above a visibly thudding heart, the wielder gritting his teeth and refusing to flinch as the point hovers a hair's breadth from skin."
+ },
+ {
+  "component": "忩",
+  "actor_name": "Bolting Errand-Boy",
+  "image": "A wide-eyed errand-boy sprinting flat-out with a basket clutched to his chest, elbows pumping, glancing back over his shoulder as if late for something urgent."
+ },
+ {
+  "component": "憂",
+  "actor_name": "Hunched Umbrella Man",
+  "image": "A man hunched under a broad hat-brim and heavy overcoat, head bowed low and feet dragging, trudging through drizzle with a slow, mournful shuffle."
+ },
+ {
+  "component": "戈",
+  "actor_name": "Barbed Pike",
+  "image": "A tall wooden pike planted upright in the dirt, a hooked side-blade jutting out partway down its shaft like a can-opener spur, catching the light."
+ },
+ {
+  "component": "我",
+  "actor_name": "Pike-Wielding Duelist",
+  "image": "A lone duelist plants one boot forward and hoists a hooked pike diagonally across his own chest in a boastful stance, as if declaring 'this one's mine.'"
+ },
+ {
+  "component": "戠",
+  "actor_name": "Ear-to-Pike Signaler",
+  "image": "A sentry cups a hand to his ear to catch a distant shout, then relays it by tapping a code against his propped-up pike with a small mallet, message passed down the line."
+ },
+ {
+  "component": "戸",
+  "actor_name": "Lone Barn Shutter",
+  "image": "A single wooden barn shutter hanging crooked on one hinge at the edge of a doorway, creaking slightly, half of a pair whose twin panel is missing."
+ },
+ {
+  "component": "敬",
+  "actor_name": "Kneeling Page-Boy",
+  "image": "A palace page-boy bowing low from the waist in respect, while behind him a tutor's cane is raised and about to tap his back to correct his posture."
+ },
+ {
+  "component": "斉",
+  "actor_name": "Grain Comb",
+  "image": "A wide wooden comb with three evenly-spaced teeth laid flat on a tabletop, its teeth all trimmed to the exact same level, perfectly aligned."
+ },
+ {
+  "component": "旨",
+  "actor_name": "Ladle Over Sun",
+  "image": "A curved ladle dipping down into a round, glowing bowl of soup, tasting it before serving — the spoon poised directly above the sun-like disc."
+ },
+ {
+  "component": "昏",
+  "actor_name": "Anchor Below Horizon",
+  "image": "A ship's anchor hooks down and drags a glowing sun beneath the flat line of the horizon, the light dimming as it's pulled under."
+ },
+ {
+  "component": "曽",
+  "actor_name": "Nested Steam Baskets",
+  "image": "Two bamboo steamer baskets stacked one atop the other, their lattice vents crosshatched on top, steam rising from a pot base below."
+ },
+ {
+  "component": "朮",
+  "actor_name": "Curling Fiddlehead",
+  "image": "A young fern's fiddlehead curls tightly off the side of a bare tree-like stalk, one extra spiral stroke twisting away from the trunk."
+ },
+ {
+  "component": "殳",
+  "actor_name": "Lance-Butt Grip",
+  "image": "A closed fist grips the blunt butt-end of a long lance shaft, knuckles wrapped tight around the pole as if about to jab it forward."
+ },
+ {
+  "component": "毌",
+  "actor_name": "Skewered Sack",
+  "image": "A lumpy burlap sack has a straight metal rod driven clean through its middle, the rod's ends poking out on both sides like a shish-kebab skewer."
+ },
+ {
+  "component": "比",
+  "actor_name": "Twin Spoon Silhouettes",
+  "image": "Two identical spoon-shaped silhouettes stand side by side facing the same way, mirror-image twins set shoulder to shoulder for comparison."
+ },
+ {
+  "component": "毛",
+  "actor_name": "Duster Wisp",
+  "image": "A single curling wisp of hair springs loose from a feather duster's head, coiling into a small hook shape as it catches the light."
+ },
+ {
+  "component": "永",
+  "actor_name": "Braided Waterfall",
+  "image": "A single stream of water splits and rejoins as it drops off a rock ledge, forking into forked rivulets that all braid back together at the bottom — one long unbroken cascade."
+ },
+ {
+  "component": "無",
+  "actor_name": "Ash-Grate Dancer",
+  "image": "A robed figure mid-dance atop a four-legged iron grate, sleeves flung wide with wisps of grey ash trailing off each fingertip into nothing."
+ },
+ {
+  "component": "爪",
+  "actor_name": "Hawk Talon",
+  "image": "A hooked hawk's talon splayed downward, three curved claw-tips pressing into a branch from above."
+ },
+ {
+  "component": "犭",
+  "actor_name": "Prowling Jackal",
+  "image": "A lean jackal crouched low at the left edge of a clearing, back arched and snout pointed forward, frozen mid-prowl."
+ },
+ {
+  "component": "甘",
+  "actor_name": "Candy Tin",
+  "image": "A flat tin box with a horizontal stick of striped candy laid across its middle, lid open to show the treat sealed inside."
+ },
+ {
+  "component": "甫",
+  "actor_name": "Nursery Flag",
+  "image": "A small paper seedling-flag planted upright in a garden plot, its stem crossed by a horizontal marker-stick labeling the row."
+ },
+ {
+  "component": "畐",
+  "actor_name": "Fat Cask",
+  "image": "A squat wine cask viewed from above, its round belly banded by a horizontal hoop and stoppered with a plug on top."
+ },
+ {
+  "component": "皮",
+  "actor_name": "Peeled Hide",
+  "image": "An animal hide half-peeled back from a carcass, one corner curling up under a skinning knife's dragging stroke."
+ },
+ {
+  "component": "皿",
+  "actor_name": "Serving Platter",
+  "image": "A wide shallow platter standing on four stubby feet, its rim traced in one continuous unbroken line."
+ },
+ {
+  "component": "祭",
+  "actor_name": "Offering Priestess",
+  "image": "A robed priestess holding a dripping cut of meat in one hand above a stone altar table, lowering it as an offering at a festival."
+ },
+ {
+  "component": "禺",
+  "actor_name": "Masked Marionette",
+  "image": "A round-headed puppet with a painted face dangling on crossed strings above a wooden altar-stand, limbs splayed stiffly."
+ },
+ {
+  "component": "系",
+  "actor_name": "Dangling Tassel Knot",
+  "image": "A tight knot of silk thread tied at the top with several loose strands hanging loose beneath it, swaying like a tassel."
+ },
+ {
+  "component": "義",
+  "actor_name": "Sacrificial Ram Banner",
+  "image": "A curly-horned ram standing rigidly atop a ceremonial standard, the banner's fringed pole planted beneath it like a war-flag — a solemn animal hoisted up as a symbol of honor."
+ },
+ {
+  "component": "翟",
+  "actor_name": "Plumed Pheasant",
+  "image": "A long-tailed pheasant perched with its two stiff wing-feathers fanned wide above its back, tail trailing down like a paintbrush dipped in ink."
+ },
+ {
+  "component": "耂",
+  "actor_name": "Stooped Elder",
+  "image": "A bent old man leaning hard on a walking stick, long wisps of hair trailing sideways from his bowed head as he shuffles forward."
+ },
+ {
+  "component": "舛",
+  "actor_name": "Bickering Twins",
+  "image": "Two stick-figure legs kicking outward in opposite directions from a shared hip, heels pointed away from each other like dance partners who can't agree on a step."
+ },
+ {
+  "component": "舟",
+  "actor_name": "Dugout Canoe",
+  "image": "A narrow wooden dugout canoe riding low in the water, its hull carved from a single log with a small plank seat visible amidships."
+ },
+ {
+  "component": "苗",
+  "actor_name": "Paddy Seedling",
+  "image": "A single rice seedling standing upright in the center of a flooded paddy field, its thin green blades poking up from the neat square plot of mud."
+ },
+ {
+  "component": "莫",
+  "actor_name": "Sinking Sun in Reeds",
+  "image": "A red sun sinking flat into a thicket of tall grass at dusk, blades of reed closing over its glow from above and below like curtains falling."
+ },
+ {
+  "component": "衣",
+  "actor_name": "Hanger Kimono",
+  "image": "A silk kimono draped over a wooden hanger, its wide sleeves spread open on either side and the collar folded into a soft V at the top."
+ },
+ {
+  "component": "衤",
+  "actor_name": "Tailor's Lapel",
+  "image": "A single folded lapel and sleeve-cuff pinned to the left edge of a tailor's dummy, a loose thread dangling — clothing reduced to its narrow corner swatch."
+ },
+ {
+  "component": "袁",
+  "actor_name": "Trailing Overcoat",
+  "image": "A long, heavy overcoat buttoned at the collar and hanging past the knees, its hem pooling in loose folds on the floor as if the wearer just stepped out of it."
+ },
+ {
+  "component": "角",
+  "actor_name": "Sawn Antler",
+  "image": "A ridged antler sawn cleanly from a stag's skull, its rough segmented surface tapering to a sharp point at one corner."
+ },
+ {
+  "component": "谷",
+  "actor_name": "Twin Ski Slopes",
+  "image": "Two steep snowy slopes angling down from a peak and meeting at a narrow notch, with a small dark gap opening at the very bottom where they converge — a valley pinched between two ridges."
+ },
+ {
+  "component": "豆",
+  "actor_name": "Stemmed Goblet",
+  "image": "A small squat ceremonial goblet: a flat round lid on top, a slim stem pinched in the middle, and two little legs splaying out at the wide flat base."
+ },
+ {
+  "component": "貫",
+  "actor_name": "Skewered Purse",
+  "image": "A long iron skewer rammed straight down through a stack of coin-purses, pinning them all together in one clean vertical line — the purses can't slide off no matter how hard you shake it."
+ },
+ {
+  "component": "酉",
+  "actor_name": "Corked Wine Jug",
+  "image": "A squat clay wine jug with a narrow corked neck and a bulging round belly, standing sealed on a cellar shelf, fermenting quietly in the dark."
+ },
+ {
+  "component": "釆",
+  "actor_name": "Badger Paw-Print",
+  "image": "A muddy badger paw-print stamped into soft ground, individual claw-marks fanned out and clearly separated from each other above the crossed pad-lines."
+ },
+ {
+  "component": "雚",
+  "actor_name": "Crested Wading Bird",
+  "image": "A tall heron standing one-legged in shallow water, two feathery tufts sticking straight up off its head like little exclamation marks, its narrow body tapering down to the waterline."
+ },
+ {
+  "component": "革",
+  "actor_name": "Tanning Rack",
+  "image": "A raw animal hide pinned flat and taut across a wooden drying frame, stretched at every corner so it dries stiff and flat under the sun."
+ },
+ {
+  "component": "韋",
+  "actor_name": "Circling Sentries",
+  "image": "Two sandaled feet pacing in opposite directions around a walled outpost, one treading above it and one below, endlessly patrolling the same fixed enclosure."
+ },
+ {
+  "component": "髟",
+  "actor_name": "Trailing Mane",
+  "image": "A long horse's mane hanging down off an unseen neck, three loose strands combed out and swept back diagonally as if caught mid-gallop in the wind."
+ },
+ {
+  "component": "黄",
+  "actor_name": "Jade Pendant Bearer",
+  "image": "A ceremonial dancer wearing a broad flat jade pendant slung across the chest, arms and legs splayed out below it mid-step, the ornament catching a dull golden light."
+ },
+ {
+  "component": "丸",
+  "actor_name": "Luggage Tag Cane",
+  "image": "A wooden cane whose handle curls into one long hooking stroke — sweeping down, then bending sharply back right along the baseline — with a small paper luggage tag looped and dangling from the top of the curl, its corner poking up-left like a short diagonal flick."
+ },
+ {
+  "component": "兑",
+  "actor_name": "Beaming Busker",
+  "image": "A street performer with his coat flung open at the collar (the splayed 八 V-strokes) and head thrown back in a wide, delighted grin, mouth gaping open as he belts out a tune over the heads of his crowd — braced on two planted legs like he's mid-bow after a coin lands."
+ },
+ {
+  "component": "冓",
+  "actor_name": "Notched Log Joint",
+  "image": "Two squared timber ends cut with interlocking notches and dropped crosswise into each other, log-cabin style — the blunt square ends stack into a compact grid, and the visible notch-on-notch seam running through the middle is exactly the linking stroke that joins 冓's two lattice halves."
+ },
+ {
+  "component": "勺",
+  "actor_name": "Sugar Scoop",
+  "image": "A small curled metal scoop, its handle hooking back over itself in a tight loop just like 勺's bent stroke, with a single sugar grain glinting as the dot caught inside the cup."
+ },
+ {
+  "component": "圣",
+  "actor_name": "Kneading Fist",
+  "image": "A knotted fist grinds and twists down into a lump of wet clay, wringing it round and round like dough — the fist's knuckly curve sits stacked directly above the flattened earthen lump it's working."
+ },
+ {
+  "component": "壬",
+  "actor_name": "Spinning Top",
+  "image": "A wooden toy top standing upright: its wide, flared foot splays out at the bottom to balance on the floor, a stout spindle rises straight through the middle, and a small notched nub near the top marks where the string was last wound before the spin."
+ },
+ {
+  "component": "昜",
+  "actor_name": "Beaded Light-Fringe",
+  "image": "A disc mounted high on a pole with strands of beads dangling and swaying beneath it, like a doorway curtain hung from a hoop. The strands ripple and sway in a breeze, echoing 昜's wavy lower strokes spilling down from the flat 日 disc on top."
+ },
+ {
+  "component": "杀",
+  "actor_name": "Garrote Post",
+  "image": "A crossed garrote cord is looped and cinched taut over a short execution post, the twisted X of wire biting into the wood at the top while two splayed legs of the post plant it firmly in the ground."
+ },
+ {
+  "component": "肖",
+  "actor_name": "Wanted Poster",
+  "image": "A small square notice pinned up high, with a crude sketched face filling its top half and a narrow strip of fine-print text tapering below it — a tiny printed likeness anyone would recognize at a glance."
+ }
+]
