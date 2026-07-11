@@ -1,0 +1,327 @@
+[
+ {
+  "glyph": "与",
+  "reading": "あた.える",
+  "kind": "kun"
+ },
+ {
+  "glyph": "互",
+  "reading": "たが.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "側",
+  "reading": "がわ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "働",
+  "reading": "はたら.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "優",
+  "reading": "やさ.しい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "光",
+  "reading": "ひかり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "冷",
+  "reading": "つめ.たい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "努",
+  "reading": "ど",
+  "kind": "on"
+ },
+ {
+  "glyph": "勤",
+  "reading": "つと.める",
+  "kind": "kun"
+ },
+ {
+  "glyph": "君",
+  "reading": "きみ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "吸",
+  "reading": "す.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "困",
+  "reading": "こま.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "夢",
+  "reading": "ゆめ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "太",
+  "reading": "ふと.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "夫",
+  "reading": "おっと",
+  "kind": "kun"
+ },
+ {
+  "glyph": "好",
+  "reading": "す.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "妻",
+  "reading": "つま",
+  "kind": "kun"
+ },
+ {
+  "glyph": "守",
+  "reading": "まも.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "寒",
+  "reading": "さむ.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "幸",
+  "reading": "しあわ.せ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "庭",
+  "reading": "にわ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "忘",
+  "reading": "わす.れる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "怒",
+  "reading": "おこ.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "折",
+  "reading": "お.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "招",
+  "reading": "まね.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "探",
+  "reading": "さが.す",
+  "kind": "kun"
+ },
+ {
+  "glyph": "易",
+  "reading": "やさ.しい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "暗",
+  "reading": "くら.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "歳",
+  "reading": "さい",
+  "kind": "on"
+ },
+ {
+  "glyph": "洗",
+  "reading": "あら.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "消",
+  "reading": "け.す",
+  "kind": "kun"
+ },
+ {
+  "glyph": "煙",
+  "reading": "けむり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "盗",
+  "reading": "ぬす.む",
+  "kind": "kun"
+ },
+ {
+  "glyph": "石",
+  "reading": "いし",
+  "kind": "kun"
+ },
+ {
+  "glyph": "積",
+  "reading": "つ.もる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "米",
+  "reading": "こめ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "罪",
+  "reading": "つみ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "置",
+  "reading": "お.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "腹",
+  "reading": "はら",
+  "kind": "kun"
+ },
+ {
+  "glyph": "船",
+  "reading": "ふね",
+  "kind": "kun"
+ },
+ {
+  "glyph": "良",
+  "reading": "よ.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "草",
+  "reading": "くさ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "落",
+  "reading": "お.ちる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "薬",
+  "reading": "くすり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "覚",
+  "reading": "おぼ.える",
+  "kind": "kun"
+ },
+ {
+  "glyph": "調",
+  "reading": "しら.べる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "負",
+  "reading": "ま.ける",
+  "kind": "kun"
+ },
+ {
+  "glyph": "貧",
+  "reading": "まず.しい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "辞",
+  "reading": "や.める",
+  "kind": "kun"
+ },
+ {
+  "glyph": "迎",
+  "reading": "むか.える",
+  "kind": "kun"
+ },
+ {
+  "glyph": "遊",
+  "reading": "あそ.ぶ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "過",
+  "reading": "す.ぎる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "達",
+  "reading": "-たち",
+  "kind": "kun"
+ },
+ {
+  "glyph": "酒",
+  "reading": "さけ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "閉",
+  "reading": "し.める",
+  "kind": "kun"
+ },
+ {
+  "glyph": "降",
+  "reading": "ふ.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "難",
+  "reading": "むずか.しい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "雪",
+  "reading": "ゆき",
+  "kind": "kun"
+ },
+ {
+  "glyph": "静",
+  "reading": "しず.か",
+  "kind": "kun"
+ },
+ {
+  "glyph": "頂",
+  "reading": "いただ.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "頭",
+  "reading": "あたま",
+  "kind": "kun"
+ },
+ {
+  "glyph": "頼",
+  "reading": "たの.む",
+  "kind": "kun"
+ },
+ {
+  "glyph": "願",
+  "reading": "ねが.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "首",
+  "reading": "くび",
+  "kind": "kun"
+ },
+ {
+  "glyph": "馬",
+  "reading": "うま",
+  "kind": "kun"
+ }
+]
