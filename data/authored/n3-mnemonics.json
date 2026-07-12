@@ -39,6 +39,23 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "乗",
+  "story": "A Rice Stalk sways, pierced clean through by a falling Lightning Bolt along the flat Horizon Line, while a Wishbone snaps loose at its foot — swaying wildly, it's quite a RIDE.",
+  "reading_story": "Average Joe hangs on for dear life, whooping about the wildest RIDE of his life.",
+  "reading_actor_used": "Joe",
+  "meaning_placement": "end",
+  "components_used": [
+   "禾",
+   "一",
+   "｜",
+   "ハ"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "予",
   "story": "BEFOREHAND, someone hangs a Looping Fishtail sign on the Wall Peg, ready and waiting long before the doors open.",
   "reading_story": "Yo preps everything BEFOREHAND with one short, clipped 'yo' — never caught off guard.",
@@ -132,6 +149,22 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "伝",
+  "story": "The Sealed Clam-Locket rides down the two Railway Tracks, rail to rail, sliding straight into the Scarecrow's stiff waiting arms — TRANSMIT.",
+  "reading_story": "Denny hammers spikes into the Railway Tracks, plank by plank, laying the line so it can finally TRANSMIT the locket all the way to the scarecrow.",
+  "reading_actor_used": "Denny",
+  "meaning_placement": "end",
+  "components_used": [
+   "⺅",
+   "二",
+   "厶"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "位",
   "story": "The Scarecrow won't relax — he stands stiffly at attention while a soldier climbs to STAND UP straight on his shoulders, claiming the highest RANK in the field.",
   "reading_story": "Mr. Eaton salutes the officer of highest RANK, snapping to attention with a sharp \"ee.\"",
@@ -194,10 +227,71 @@
   "distinctiveness": 3
  },
  {
+  "glyph": "候",
+  "story": "Scarecrow stands rigid at the field's edge, watching the sky. A Lightning Bolt cracks straight down beside him, and a Feathered Arrow streaks past, dead level — he reads every sign of the changing WEATHER.",
+  "reading_story": "Sebastian Coe jogs out to check the sky each dawn, stretching his long \"Cooo\" as he clocks the WEATHER before every training run.",
+  "reading_actor_used": "Coe",
+  "meaning_placement": "end",
+  "components_used": [
+   "⺅",
+   "｜",
+   "矢"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "値",
+  "story": "Even a simple straw Scarecrow, carefully mended and painted, can fetch real VALUE at the county fair.",
+  "reading_story": "Chee haggles hard over the antique's true VALUE, refusing to budge a cent.",
+  "reading_actor_used": "Chee",
+  "meaning_placement": "end",
+  "components_used": [
+   "⺅"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "側",
   "story": "Every other post in the field stands centered — except one Scarecrow, planted deliberately off to one SIDE.",
   "reading_story": "Soaker always parks his cart on the shady SIDE of the street, never the sunny one.",
   "reading_actor_used": "Soaker",
+  "meaning_placement": "end",
+  "components_used": [
+   "⺅"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "備",
+  "story": "Scarecrow stockpiles gear beneath the Rock Overhang: Grass Tuft stuffed in sacks, tools he'll UTILIZE later. Rain can't reach them — he's fully EQUIPPED for whatever the field throws at him.",
+  "reading_story": "Bee stashes pollen under an overhang before the storm, fully EQUIPPED — every good forager knows preparation beats panic.",
+  "reading_actor_used": "Bee",
+  "meaning_placement": "end",
+  "components_used": [
+   "⺅",
+   "用",
+   "厂",
+   "⺾"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "働",
+  "story": "Scarecrow finally starts to move, dragging its stiff straw legs forward step by step — hard-earned WORK.",
+  "reading_story": "Jane Doe clocks in early every day, putting in an honest day's WORK.",
+  "reading_actor_used": "Doe",
   "meaning_placement": "end",
   "components_used": [
    "⺅"
@@ -215,6 +309,22 @@
   "meaning_placement": "end",
   "components_used": [
    "⺅"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "光",
+  "story": "Bean Sprouts poke up from the flat Horizon Line, and beneath them the Wishing-Well Legs kneel, both washed in warm LIGHT.",
+  "reading_story": "Coe sprints the final stretch, bathed in stadium LIGHT, the crowd roaring his name.",
+  "reading_actor_used": "Coe",
+  "meaning_placement": "end",
+  "components_used": [
+   "一",
+   "⺌",
+   "儿"
   ],
   "verified": true,
   "issues": [],
@@ -316,6 +426,20 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "割",
+  "story": "The Guillotine Blade drops clean through the middle of the loaf, splitting it evenly in two — a perfect DIVIDE.",
+  "reading_story": "Cutler counts to three, then in one clean stroke, he'll DIVIDE the cake exactly in half.",
+  "reading_actor_used": "Cutler",
+  "meaning_placement": "end",
+  "components_used": [
+   "刂"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "加",
   "story": "Open Mouth roars a battle-cry down onto Flexing Bicep below — the shout itself pours strength into the muscle, swelling it bigger. Voice plus power: ADD.",
   "reading_story": "Cabbie Carr barks a short \"ka!\" out his window at a rival cab cutting him off — sharp, clipped, gone in an instant. ADD an enemy to Carr's list.",
@@ -332,6 +456,37 @@
   ],
   "imageability": 3,
   "distinctiveness": 3
+ },
+ {
+  "glyph": "助",
+  "story": "The Watching Eye spots a hiker collapsed on the trail, unblinking, missing nothing — instantly the Flexing Bicep swoops in, scooping the hiker up to HELP.",
+  "reading_story": "Jo sprints in when the Watching Eye signals distress, muscles ready — everyone in town knows Jo is the one who'll always HELP.",
+  "reading_actor_used": "Jo",
+  "meaning_placement": "end",
+  "components_used": [
+   "目",
+   "力"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 5,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "労",
+  "story": "Three tiny BEAN SPROUTS push up under a white BEDSHEET COVER draped over the field, while a FLEXING BICEP strains beneath the cloth, hauling — that's LABOR.",
+  "reading_story": "Rowe pulls a bedsheet cover off the strained bicep after his shift: pure LABOR, Rowe grunts.",
+  "reading_actor_used": "Rowe",
+  "meaning_placement": "end",
+  "components_used": [
+   "⺌",
+   "力",
+   "冖"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
  },
  {
   "glyph": "務",
@@ -512,6 +667,38 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "呼",
+  "story": "An Open Mouth shouts across the field while a Flapping Pennant snaps in the wind beside it, signaling everyone to CALL back.",
+  "reading_story": "Coco cups her hands and lets out a long CALL across the canyon, waiting for the echo.",
+  "reading_actor_used": "Coco",
+  "meaning_placement": "end",
+  "components_used": [
+   "口",
+   "乎"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "命",
+  "story": "Atop the Stepladder, over the flat Horizon Line, an Open Mouth bellows a decree down to the kneeling Wax Stamp, which presses down hard, sealing your FATE.",
+  "reading_story": "Theresa May reads out the decree: 'By royal seal, this is your FATE!' The Wax Stamp presses down hard, her long ē echoing as it seals.",
+  "reading_actor_used": "May",
+  "meaning_placement": "end",
+  "components_used": [
+   "人",
+   "一",
+   "口",
+   "卩"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "和",
   "story": "Rice Stalk sways left in the breeze, and Open Mouth beside it bursts into song, timing every shout to match the stalk's swing exactly — two different bodies, one perfect rhythm: HARMONY.",
   "reading_story": "Wah claps twice, short and sharp, locking onto that swaying-stalk rhythm instantly — HARMONY snaps into place the moment he joins in.",
@@ -525,6 +712,23 @@
   "issues": [
    "Minor: Open Mouth's image is defined as 'lips parted as if mid-shout,' but the story has it 'burst into song' before circling back to 'shout' — the singing verb is a slight extension beyond the defined action, though 'shout' is also explicitly used in the same sentence so it stays tethered to the source image."
   ],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "商",
+  "story": "Inside the Goalpost Frame's stall, propped to stand up on its Wishing-Well Legs, a cart's Open Mouth cries out today's prices — the mark of a busy MERCHANT.",
+  "reading_story": "The Showman barks his pitch louder than anyone, the sharpest MERCHANT on the block.",
+  "reading_actor_used": "Showman",
+  "meaning_placement": "end",
+  "components_used": [
+   "立",
+   "冂",
+   "儿",
+   "口"
+  ],
+  "verified": true,
+  "issues": [],
   "imageability": 4,
   "distinctiveness": 4
  },
@@ -561,6 +765,21 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "声",
+  "story": "The War Helmet tips forward and CLANGS down hard onto the Draped Cloak's slumped shoulders — metal ringing out sharp over limp fabric. That ringing clang is a VOICE.",
+  "reading_story": "Sage lets his War Helmet slip and clang against the floor — \"sei,\" he sighs, long and low — even a dropped helmet has a VOICE.",
+  "reading_actor_used": "Sage",
+  "meaning_placement": "end",
+  "components_used": [
+   "士",
+   "尸"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 3
+ },
+ {
   "glyph": "変",
   "story": "You lift the Pot Lid expecting dinner still bubbling inside — but the pot itself is gone, replaced by one muddy Trailing Footprint leading off into the dark. STRANGE.",
   "reading_story": "Henson keeps humming the Muppet theme as he stirs — then notices his own hand has become a Trailing Footprint print on the floor. \"Huh, that's STRANGE,\" he mutters, unbothered.",
@@ -585,6 +804,68 @@
    "人",
    "二",
    "大"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "失",
+  "story": "A Falling Katana slices clean through the rope the husband was carrying — in one stroke, he stands to LOSE it all.",
+  "reading_story": "Schitt watches his fortune slip away and mutters that he's about to LOSE everything.",
+  "reading_actor_used": "Schitt",
+  "meaning_placement": "end",
+  "components_used": [
+   "ノ",
+   "夫"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "好",
+  "story": "Hourglass leans close to cradle the Swaddle Basket, rocking it tenderly — she's utterly FOND of the child inside.",
+  "reading_story": "Coe jogs past the Hourglass and the Swaddle Basket, grinning — he's FOND of this peaceful family scene.",
+  "reading_actor_used": "Coe",
+  "meaning_placement": "end",
+  "components_used": [
+   "子",
+   "女"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "宅",
+  "story": "Beneath the Thatched House's peaked roof, a Falling Katana rests flat along the Horizon Line, and a Fishhook hangs quiet on the wall — everything safely tucked at HOME.",
+  "reading_story": "Tucker kicks off his boots and sighs — nothing beats walking into his own HOME.",
+  "reading_actor_used": "Tucker",
+  "meaning_placement": "end",
+  "components_used": [
+   "ノ",
+   "一",
+   "乙",
+   "宀"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "守",
+  "story": "Under the Thatched House's low eaves, the Tape Measure stretches its quivering tongue flat across the threshold, marking the one narrow inch anyone may step through. GUARD.",
+  "reading_story": "Master Shu crouches under that same thatched eave each dawn, checking the Tape Measure's inch-mark himself before anyone passes — short, clipped, exact. He'll GUARD the threshold.",
+  "reading_actor_used": "Shu",
+  "meaning_placement": "end",
+  "components_used": [
+   "寸",
+   "宀"
   ],
   "verified": true,
   "issues": [],
@@ -638,6 +919,26 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "害",
+  "story": "Thatched House roof slams down, Pot Lid clamps beneath it, crushing the Mound of Soil flat, squeezing until the buried Open Mouth chokes and screams — pure HARM.",
+  "reading_story": "Guy digs through the crushed Mound of Soil to free the choking mouth, muttering that this house causes nothing but HARM.",
+  "reading_actor_used": "Guy",
+  "meaning_placement": "end",
+  "components_used": [
+   "宀",
+   "亠",
+   "土",
+   "口"
+  ],
+  "verified": true,
+  "issues": [
+   "Story stacks four sequential physical actions (roof slams, lid clamps, soil crushes, mouth screams) which is slightly dense to picture as one image, though still coherent.",
+   "Reading_story reuses 'crushed Mound of Soil' and repeats the keyword HARM, a minor redundancy but not disqualifying."
+  ],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "容",
   "story": "The Twin Ski Slopes crash down into their notch, spilling snow everywhere — until the Thatched House drops overhead, its eaves scooping every last flake inward. Now it can CONTAIN it.",
   "reading_story": "Ask Yoyo to pack for a trip: he lowers his cello case's lid over shirts piled past the brim, pressing until it shuts — that case can barely CONTAIN it all.",
@@ -646,6 +947,23 @@
   "components_used": [
    "宀",
    "谷"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "察",
+  "story": "Under the Thatched House's roof, a Rubber Glove points up at the Crescent Moon, using hand signals to show what tomorrow's weather will be — nothing but a GUESS.",
+  "reading_story": "Satcher squints at the tea leaves and makes his best GUESS, muttering a clipped 'satsu' under his breath.",
+  "reading_actor_used": "Satcher",
+  "meaning_placement": "end",
+  "components_used": [
+   "宀",
+   "夕",
+   "又",
+   "示"
   ],
   "verified": true,
   "issues": [],
@@ -683,6 +1001,22 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "差",
+  "story": "Falling Katana slashes clean between the Woolly Ram's fleece and the I-Beam Girder below — one clearly wool, one clearly steel: an unmistakable DISTINCTION.",
+  "reading_story": "Sah measures the gap the katana cut, calling out each DISTINCTION between ram and girder in one short breath.",
+  "reading_actor_used": "Sah",
+  "meaning_placement": "end",
+  "components_used": [
+   "羊",
+   "ノ",
+   "工"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "市",
   "story": "Under the clamped-down Pot Lid, a Hanging Towel sways above rows of stalls — welcome to the CITY market square.",
   "reading_story": "Sheriff patrols the stalls beneath the Pot Lid roof, badge gleaming, keeping peace across the whole CITY.",
@@ -694,6 +1028,24 @@
   ],
   "verified": true,
   "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "席",
+  "story": "Under the Cliff Awning's slanted shade, someone drapes the Hanging Towel flat on the ground like a mat and sits down — claiming this spot as their SEAT.",
+  "reading_story": "Sekka the chef finds every SEAT taken at the counter, so she spreads her own towel on a crate and eats standing over it instead.",
+  "reading_actor_used": "Sekka",
+  "meaning_placement": "end",
+  "components_used": [
+   "巾",
+   "广"
+  ],
+  "verified": true,
+  "issues": [
+   "Reading_story reuses the towel motif from the main story rather than referencing Sekka's canonical ladle-flip action from the registry note — she's still recognizably 'the chef' so this doesn't break the actor-consistency gate, but it's a missed opportunity for a more distinct reading-story beat.",
+   "Distinctiveness is good but not top-tier: 'shelter providing shade + cloth laid down as a seat/mat' is a fairly ordinary scene template that could blend with other cloth- or shelter-themed component stories."
+  ],
   "imageability": 4,
   "distinctiveness": 4
  },
@@ -778,6 +1130,22 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "形",
+  "story": "Cupped Palms hold the clay steady while three Comb Streaks rake grooves across it, and a final Falling Katana slice trims the edge — the pot takes SHAPE.",
+  "reading_story": "Kayo the cabaret dancer poses just so, her silhouette taking perfect SHAPE under the spotlight.",
+  "reading_actor_used": "Kayo",
+  "meaning_placement": "end",
+  "components_used": [
+   "廾",
+   "彡",
+   "ノ"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "役",
   "story": "On the Forked Footpath a conscript is seized -- an officer tightens the Lance-Butt Grip on his shoulder, drafting him for war. This is his DUTY.",
   "reading_story": "Yakker barks roll call at the barracks gate, listing every man's DUTY for the war campaign -- yak, yak, yak, his voice cracks like a whip.",
@@ -824,6 +1192,21 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "念",
+  "story": "Living only in the NOW, no memory of past or future, this HEART obsesses over one single WISH, over and over.",
+  "reading_story": "Nenn kneels before his HEART's shrine, chanting the same WISH again and again — Nenn only ever prays for the now.",
+  "reading_actor_used": "Nenn",
+  "meaning_placement": "end",
+  "components_used": [
+   "今",
+   "心"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "性",
   "story": "NATURE: Twin Candle Wicks stand side by side on the ledge, each flame trembling to its own private heartbeat — one twitchy, one calm — never swapping rhythms.",
   "reading_story": "Sage leans close to the ledge, counting each wick's trembling beat on his fingers, and declares every private rhythm pure NATURE before it even flickers.",
@@ -849,6 +1232,22 @@
   "verified": true,
   "issues": [],
   "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "想",
+  "story": "Staring inward at nothing, eyes unfocused, you sink beneath thought entirely — until a single CONCEPT surfaces from the quiet dark of your heart, glowing.",
+  "reading_story": "Sosa steps to the plate, but before swinging he pictures the whole play in his head — a perfect CONCEPT of the home run, rehearsed in his heart first.",
+  "reading_actor_used": "Sosa",
+  "meaning_placement": "end",
+  "components_used": [
+   "心"
+  ],
+  "verified": true,
+  "issues": [
+   "meaning_placement is labeled 'end' but CONCEPT is not the literal final word of the story ('...CONCEPT surfaces from the quiet dark of your heart, glowing.') — it's in the climactic clause but followed by a trailing phrase; acceptable as loosely 'end-positioned' but worth tightening in future generations."
+  ],
+  "imageability": 3,
   "distinctiveness": 4
  },
  {
@@ -991,6 +1390,21 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "敗",
+  "story": "The Cracking Whip lashes down on the Cowrie Shell, its ridged slit splitting clean apart — coins scatter uselessly across the floor. Treasure ruined in one strike: FAILURE.",
+  "reading_story": "Hyde smashes another Cowrie Shell underfoot out of spite, gloating at each FAILURE he causes.",
+  "reading_actor_used": "Hyde",
+  "meaning_placement": "end",
+  "components_used": [
+   "貝",
+   "攵"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "数",
   "story": "Hourglass streams sand, marking each passing beat, as Cracking Whip snaps behind it — driving Scattered Rice Grains to leap forward one by one, each crack adding another grain to the growing pile. NUMBER.",
   "reading_story": "Soo drips sand grain by grain, stretching each beat long and slow — patiently building the NUMBER, one long ū at a time.",
@@ -1040,6 +1454,20 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "景",
+  "story": "The blazing Sun climbs over the rooftops, painting the whole valley gold — postcard-perfect SCENERY.",
+  "reading_story": "Kayo the cabaret dancer stops mid-step, dazzled by the golden valley SCENERY spread below the stage.",
+  "reading_actor_used": "Kayo",
+  "meaning_placement": "end",
+  "components_used": [
+   "日"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "期",
   "story": "A Candy Tin sits sealed beneath the Full Moon; when the treat inside snaps like a Wishbone, one PERIOD has ended and the next begins.",
   "reading_story": "Key locks away one PERIOD's candy tin with a short, clipped 'ki' before starting the count again.",
@@ -1049,6 +1477,21 @@
    "甘",
    "月",
    "ハ"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "末",
+  "story": "Tree stretches its two branches upward, straining higher — until Horizon Line clamps flat across their very ends, sealing off the topmost TIP.",
+  "reading_story": "Matsu balances on the narrowest TIP of the tree's highest branch, arms out, refusing to climb one inch further.",
+  "reading_actor_used": "Matsu",
+  "meaning_placement": "end",
+  "components_used": [
+   "一",
+   "木"
   ],
   "verified": true,
   "issues": [],
@@ -1103,6 +1546,21 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "様",
+  "story": "A single Tree stands unmoved as a Tsunami Wave crashes past it — that calm, unshaken poise is its own MANNER.",
+  "reading_story": "Yoyo the cellist bows with practiced MANNER, never rushing a single note.",
+  "reading_actor_used": "Yoyo",
+  "meaning_placement": "end",
+  "components_used": [
+   "木",
+   "水"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "権",
   "story": "Stumpy Sparrow perches atop the bare Tree, ruling the yard — until a Feathered Arrow thuds into the trunk beside him, and every bird obeys the one who claims that branch. AUTHORITY.",
   "reading_story": "Ken the plastic doll plants the Feathered Arrow at the Tree's base like a flagpole of AUTHORITY, and Stumpy Sparrow salutes from the top branch.",
@@ -1112,6 +1570,20 @@
    "矢",
    "木",
    "隹"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "横",
+  "story": "The Tree, always standing straight, gets shoved clean off its roots and topples — SIDEWAYS, trunk flat along the ground, branches pointing off to the side.",
+  "reading_story": "Owen the keeper paces the fallen orchard row, sighing at every trunk lying SIDEWAYS, muttering a long \"ōōōwen\" as he counts the toppled trees.",
+  "reading_actor_used": "Owen",
+  "meaning_placement": "end",
+  "components_used": [
+   "木"
   ],
   "verified": true,
   "issues": [],
@@ -1133,6 +1605,41 @@
   "verified": true,
   "issues": [],
   "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "残",
+  "story": "A Falling Katana slices past a Duster Wisp and one Ink Droplet, leaving only a Gnawed Rib-Bone behind — the sorry REMAINDER.",
+  "reading_story": "Zann counts the coins left in his pocket — the meager REMAINDER after rent.",
+  "reading_actor_used": "Zann",
+  "meaning_placement": "end",
+  "components_used": [
+   "ノ",
+   "毛",
+   "丶",
+   "歹"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "段",
+  "story": "A jagged Lightning Bolt strikes straight down, notch by notch, onto the Lance-Butt Grip's raised fist — each jolt carving one more level. Climb the jagged STEPS.",
+  "reading_story": "Dan counts each notch as the bolt carves downward — \"one, two\" — climbing the jagged STEPS to the top.",
+  "reading_actor_used": "Dan",
+  "meaning_placement": "end",
+  "components_used": [
+   "｜",
+   "殳"
+  ],
+  "verified": true,
+  "issues": [
+   "Lance-Butt Grip is largely passive (just 'raised fist' receiving strikes) rather than actively using its defined nature of gripping/jabbing a lance — borderline persona fit, though not an invented cognitive ability so it doesn't fail gating.",
+   "The lightning bolt 'carving' notches into levels is a slightly abstract causal mechanism (lightning doesn't naturally notch/carve), which caps imageability rather than making it vivid."
+  ],
+  "imageability": 3,
   "distinctiveness": 4
  },
  {
@@ -1263,6 +1770,23 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "深",
+  "story": "Puddle Splash trickles past a sunken Tree, down past the Wishing-Well Legs, vanishing beneath the Bedsheet Cover into the DEEP dark below.",
+  "reading_story": "Shinn dives DEEP off the pier, vanishing beneath the surface in one clean plunge.",
+  "reading_actor_used": "Shinn",
+  "meaning_placement": "end",
+  "components_used": [
+   "氵",
+   "木",
+   "儿",
+   "冖"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "済",
   "story": "Puddle Splash flicks three droplets onto your unpaid bill, dissolving every red number until the page runs clear — the debt is finally SETTLED.",
   "reading_story": "Cy signs the last check, and Puddle Splash rinses the ink away — the whole account is SETTLED, clean as Cy's pitching mound.",
@@ -1270,6 +1794,58 @@
   "meaning_placement": "end",
   "components_used": [
    "氵"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "渡",
+  "story": "Under the Cliff Awning, someone lays the empty Rubber Glove flat as a stepping-plank across the Puddle Splash — you hop palm to palm, dry-footed, in swift TRANSIT.",
+  "reading_story": "Toto trots palm to palm over the glove-plank, splashing nothing, first across in every TRANSIT.",
+  "reading_actor_used": "Toto",
+  "meaning_placement": "end",
+  "components_used": [
+   "氵",
+   "又",
+   "广"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "港",
+  "story": "Puddle Splash sprays droplets into the Wellhead Grid's square basin. Wishbone snaps apart to widen the gap, but Stop Barrier drops flat, sealing ships safely inside: the HARBOR.",
+  "reading_story": "Coe jogs the docks at dawn, lungs full of salt air, and cheers as the first ferry glides into the HARBOR right on schedule.",
+  "reading_actor_used": "Coe",
+  "meaning_placement": "end",
+  "components_used": [
+   "氵",
+   "ハ",
+   "已",
+   "井"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "満",
+  "story": "Lightning Bolt cracks past the Horizon Line as Puddle Splash floods over the Railway Tracks, rising past the Goalpost Frame until it laps the Mountain Peak — the whole valley FULL.",
+  "reading_story": "Mann surveys the reservoir, brimming FULL to the very top of the dam.",
+  "reading_actor_used": "Mann",
+  "meaning_placement": "end",
+  "components_used": [
+   "｜",
+   "一",
+   "氵",
+   "二",
+   "冂",
+   "山"
   ],
   "verified": true,
   "issues": [],
@@ -1304,6 +1880,22 @@
   "reading_actor_used": "Tennison",
   "meaning_placement": "end",
   "components_used": [
+   "灬"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "然",
+  "story": "Under Crescent Moon, a dog turns on the Coal Brazier's spit, smoke swallowing its shape till onlookers can only call it: SORT OF THING.",
+  "reading_story": "Master Zen sniffs the smoke drifting from the fire pit and rules, with total calm: \"SORT OF THING. Sit. Eat. Do not ask which thing.\"",
+  "reading_actor_used": "Zen",
+  "meaning_placement": "end",
+  "components_used": [
+   "犬",
+   "夕",
    "灬"
   ],
   "verified": true,
@@ -1355,6 +1947,22 @@
   "components_used": [
    "田",
    "｜"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "申",
+  "story": "A Lightning Bolt pierces straight down through the midday Sun into the Rice-Paddy Grid below — with deep respect, I HAVE THE HONOR TO speak.",
+  "reading_story": "Shinn bows low and says he'd HAVE THE HONOR TO join the ceremony.",
+  "reading_actor_used": "Shinn",
+  "meaning_placement": "end",
+  "components_used": [
+   "｜",
+   "日",
+   "田"
   ],
   "verified": true,
   "issues": [],
@@ -1473,6 +2081,80 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "神",
+  "story": "A lone Roadside Shrine stands at the crossroads, offerings piled at its foot — sacred ground, watched over by the GODS.",
+  "reading_story": "Shinn kneels before the shrine, praying quietly to the GODS for safe travels.",
+  "reading_actor_used": "Shinn",
+  "meaning_placement": "end",
+  "components_used": [
+   "礻"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "福",
+  "story": "At the Roadside Shrine on the Horizon Line, an Open Mouth gives thanks over the bountiful Rice-Paddy Grid — harvest season, a true BLESSING.",
+  "reading_story": "Fokker counts his lucky stars, calling the whole harvest a rare BLESSING.",
+  "reading_actor_used": "Fokker",
+  "meaning_placement": "end",
+  "components_used": [
+   "一",
+   "口",
+   "田",
+   "礻"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "程",
+  "story": "Farmer paces off his rice paddy in exact strides, marking boundary stakes at each measured step — the RICE STALK field defines the precise EXTENT.",
+  "reading_story": "Tay measures the rice field's EXTENT stride by stride, calling out numbers as his long paces map the paddy's edge.",
+  "reading_actor_used": "Tay",
+  "meaning_placement": "end",
+  "components_used": [
+   "禾"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "種",
+  "story": "Each Rice Stalk grown here is tagged and catalogued by its exact SPECIES.",
+  "reading_story": "Shu the botanist labels every new SPECIES with careful, precise handwriting.",
+  "reading_actor_used": "Shu",
+  "meaning_placement": "end",
+  "components_used": [
+   "禾"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "突",
+  "story": "A big Starfish arm shoots straight into the Burrow Hole, spearing deep in one sudden STAB.",
+  "reading_story": "Totter lunges forward with a single STAB of his cane, catching his balance just in time.",
+  "reading_actor_used": "Totter",
+  "meaning_placement": "end",
+  "components_used": [
+   "穴",
+   "大"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "米",
   "story": "A farmer's hand flings Scattered Rice Grains high — they hang in the air a heartbeat, a perfect cross of white against the sky: RICE.",
   "reading_story": "Michael BAY yells 'cut!' so loud the granary bursts, spraying RICE everywhere in his booming, drawn-out voice.",
@@ -1561,6 +2243,39 @@
   "distinctiveness": 3
  },
  {
+  "glyph": "美",
+  "story": "A prize Woolly Ram, fleece brushed and fluffed, poses beside a big spread-out Starfish at the fair — pure BEAUTY.",
+  "reading_story": "Bee hovers over the blooming garden, drawn to its BEAUTY.",
+  "reading_actor_used": "Bee",
+  "meaning_placement": "end",
+  "components_used": [
+   "羊",
+   "大"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "育",
+  "story": "Under the clamped Pot Lid, a Sealed Clam-Locket curls shut, hiding something tiny and unformed — cradled gently atop the glowing Full Moon, which nurses it patiently through the night until it's ready to BRING UP.",
+  "reading_story": "Goalkeeper Iker cups the newborn in his gloved hands like a shot he refuses to drop, gently coaching it — this is how you BRING UP a champion.",
+  "reading_actor_used": "Iker",
+  "meaning_placement": "end",
+  "components_used": [
+   "亠",
+   "厶",
+   "月"
+  ],
+  "verified": true,
+  "issues": [
+   "Full Moon actor 'nurses it patiently through the night until it's ready' attributes an intentional caretaking/cognitive role beyond its defined nature (glowing disc with surface stripes) — borderline personification, acceptable but worth tightening to a more passive/physical verb (e.g. 'glows over it')."
+  ],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "能",
   "story": "The Full Moon hires two hands for a talent show: the Soup Ladle scoops a glowing dipper of moonlight, and the Sealed Clam-Locket clamps down to hoard it — moon's ABILITY: turning helpers into hoarded light.",
   "reading_story": "Backstage, Noah watches the Ladle pour light straight into the Clam-Locket's shut mouth, no spill — Noah whistles low: that hoarding trick is real ABILITY.",
@@ -1570,6 +2285,84 @@
    "月",
    "匕",
    "厶"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "良",
+  "story": "The Still Butte stands unmoved through every storm, weathered but GOOD, solid as the day it formed.",
+  "reading_story": "Ryo grades the wine a solid GOOD, nodding with quiet approval.",
+  "reading_actor_used": "Ryo",
+  "meaning_placement": "end",
+  "components_used": [
+   "艮"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "若",
+  "story": "A GRASS TUFT sprig tucked behind the ear like a stylish crown, while a hand pointing right (concept: right) checks it's angled just so — vain and YOUNG.",
+  "reading_story": "Jacker rips a GRASS TUFT off a fence, chewing it cocky and YOUNG — he's never acted his age.",
+  "reading_actor_used": "Jacker",
+  "meaning_placement": "end",
+  "components_used": [
+   "⺾",
+   "右"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "落",
+  "story": "A leaf drifts past the Grass Tuft, past an Open Mouth catching raindrops, down through Puddle Splash, leaving one last Trailing Footprint as it hits the ground: FALL.",
+  "reading_story": "Lacker watches the leaves FALL outside his window, one by one, all autumn long.",
+  "reading_actor_used": "Lacker",
+  "meaning_placement": "end",
+  "components_used": [
+   "口",
+   "氵",
+   "夂",
+   "⺾"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "葉",
+  "story": "A Grass Tuft crowns the Tree's canopy, each generation of growth stacking ring on ring beneath — every new sprout is one fresh LEAF.",
+  "reading_story": "Yoyo twirls a single fallen LEAF between her fingers before letting it drift away.",
+  "reading_actor_used": "Yoyo",
+  "meaning_placement": "end",
+  "components_used": [
+   "木",
+   "世",
+   "⺾"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "術",
+  "story": "At the center of the Four-Way Junction, a lone Tree grows, one perfect Ink Droplet caught frozen mid-fall from its highest branch — a still-life of pure ART.",
+  "reading_story": "Jootter grunts as he hauls his canvas to the junction, determined to capture real ART.",
+  "reading_actor_used": "Jootter",
+  "meaning_placement": "end",
+  "components_used": [
+   "行",
+   "木",
+   "丶"
   ],
   "verified": true,
   "issues": [],
@@ -1622,6 +2415,22 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "観",
+  "story": "Periscope rises and swivels its lens: up on the wire perches Stumpy Sparrow, a Feathered Arrow lodged beside it, framing the whole scenic OUTLOOK.",
+  "reading_story": "Khan reins his horse atop the ridge, surveying the valley's OUTLOOK below.",
+  "reading_actor_used": "Khan",
+  "meaning_placement": "end",
+  "components_used": [
+   "見",
+   "隹",
+   "矢"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "解",
   "story": "The Cleaver hacks a cow's Sawn Antler free from the hide, prying the pieces apart strand by strand to UNRAVEL it all.",
   "reading_story": "Kai the surfer picks apart a tangled wetsuit strap to UNRAVEL it, muttering a short, clipped 'kai' with each tug.",
@@ -1646,6 +2455,20 @@
   "components_used": [
    "言",
    "已"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "訪",
+  "story": "A Speech Bubble knocks twice, floats through the open door, and settles at the kitchen table — that's how you CALL ON an old friend.",
+  "reading_story": "Ho drops by unannounced every Sunday, his booming laugh the first sign he's come to CALL ON you.",
+  "reading_actor_used": "Ho",
+  "meaning_placement": "end",
+  "components_used": [
+   "言"
   ],
   "verified": true,
   "issues": [],
@@ -1731,6 +2554,41 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "識",
+  "story": "A Speech Bubble booms out one clear sound, while a Barbed Pike props up to stand up tall against the midday Sun, marking the line between right and wrong — sharp, DISCRIMINATING judgment.",
+  "reading_story": "Shicker weighs every clue with sharp, DISCRIMINATING care before rendering his verdict.",
+  "reading_actor_used": "Shicker",
+  "meaning_placement": "end",
+  "components_used": [
+   "音",
+   "言",
+   "日",
+   "立",
+   "戈"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "警",
+  "story": "The Speech Bubble's lid SLAMS open and its stacked words blare out sharp and repeated, jabbing at you like a finger — the crowd freezes, scolded. ADMONISH.",
+  "reading_story": "Cabaret dancer Kayo drops her act mid-song, jabs a finger at the rowdy table, and lets her voice crack like a whip: ADMONISH them, Kayo!",
+  "reading_actor_used": "Kayo",
+  "meaning_placement": "end",
+  "components_used": [
+   "言"
+  ],
+  "verified": true,
+  "issues": [
+   "Reading_story keyword placement is slightly loose: 'ADMONISH them, Kayo!' trails the keyword with two more words rather than ending cleanly on it — acceptable but not crisp.",
+   "'jabbing at you like a finger' in the main story is a simile, not a literal added limb, but it's the shakiest phrase gate-wise; keep an eye on this pattern in future candidates for this actor."
+  ],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "議",
   "story": "Speech Bubble hovers left, chairing the session. On the right, Woolly Ram perches on the shoulders of the Pike-Wielding Duelist, who thrusts his pike declaring \"this one's mine!\" — sparking a heated DELIBERATION.",
   "reading_story": "Gee bangs the gavel, silencing the Duelist's boast: \"Order — we settle this by DELIBERATION, not by pike.\"",
@@ -1747,6 +2605,21 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "負",
+  "story": "The Swaddling Wrap curls tight from above, squeezing the Cowrie Shell in its one arm until the coin-shell cracks and every coin spills out empty-handed: DEFEAT.",
+  "reading_story": "Foo bets his last cowrie shell, loses it in one short \"fu\" of a sigh, and slinks off in DEFEAT — no fight left, no shell left.",
+  "reading_actor_used": "Foo",
+  "meaning_placement": "end",
+  "components_used": [
+   "勹",
+   "貝"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "費",
   "story": "Twin Bowstrings twang taut over the Cowrie Shell, snapping again and again until the shell cracks and coins scatter loose — every shot is an EXPENSE.",
   "reading_story": "Hee giggles, watching coins fly everywhere: \"hee hee, that's a huge EXPENSE!\"",
@@ -1755,6 +2628,37 @@
   "components_used": [
    "弗",
    "貝"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "追",
+  "story": "A Lightning Bolt cracks down, an Open Mouth roars, and the Conveyor Belt speeds up beneath them both — the CHASE is on.",
+  "reading_story": "Twee sprints after the runaway kite in a breathless CHASE across the park.",
+  "reading_actor_used": "Twee",
+  "meaning_placement": "end",
+  "components_used": [
+   "｜",
+   "口",
+   "辶"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "退",
+  "story": "The Conveyor Belt drags the rigid Still Butte backward off the platform edge — it won't budge an inch, yet the belt hauls it clean away in RETREAT.",
+  "reading_story": "Ty steps back off the plate, refusing the pitch — a stubborn, clipped RETREAT rather than swing and risk the out.",
+  "reading_actor_used": "Ty",
+  "meaning_placement": "end",
+  "components_used": [
+   "辶",
+   "艮"
   ],
   "verified": true,
   "issues": [],
@@ -1801,6 +2705,22 @@
    "口",
    "辶",
    "冂"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "達",
+  "story": "Conveyor Belt hauls a Mound of Soil and a chewing Woolly Ram side by side down the line, grinding on and on — until both finally REACH the far end together.",
+  "reading_story": "Tatum jogs the conveyor's length past soil and ram, arms pumping, determined to REACH the finish line first.",
+  "reading_actor_used": "Tatum",
+  "meaning_placement": "end",
+  "components_used": [
+   "辶",
+   "土",
+   "羊"
   ],
   "verified": true,
   "issues": [],
@@ -1870,6 +2790,21 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "配",
+  "story": "The Corked Wine Jug stands beside the lowered Stop Barrier, and from behind its sealed neck, arms reach over the striped bar, handing out cups to everyone waiting in line: DISTRIBUTE.",
+  "reading_story": "Hyde crouches by the Corked Wine Jug at the lowered Stop Barrier, doling out rations to the line of commuters — Mr. Hyde himself made to DISTRIBUTE.",
+  "reading_actor_used": "Hyde",
+  "meaning_placement": "end",
+  "components_used": [
+   "酉",
+   "已"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "関",
   "story": "A snapping Wishbone splits the air above a flat Horizon Line, where a huge Starfish sprawls arms-wide, bridging both sides — the barrier itself becomes the CONNECTION.",
   "reading_story": "Khan reins his horse hard at the barrier, but the Starfish's arm links his side to the guard's — even Khan can't refuse this CONNECTION.",
@@ -1879,6 +2814,21 @@
    "ハ",
    "一",
    "大"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "限",
+  "story": "The Terraced Hill's path climbs, ledge by ledge — but at the top stands the Still Butte, flat and unmoving, refusing all passage. This is the LIMIT: however high you climb, the rooted butte says no further.",
+  "reading_story": "Hikers plead with Glenn, the trail warden guarding the Still Butte's ledge. Glenn shakes his head: this is the LIMIT, no permits issued past this terrace.",
+  "reading_actor_used": "Glenn",
+  "meaning_placement": "end",
+  "components_used": [
+   "艮",
+   "⻖"
   ],
   "verified": true,
   "issues": [],
@@ -1923,6 +2873,18 @@
   "distinctiveness": 4
  },
  {
+  "glyph": "非",
+  "story": "Two mirrored wing-like strokes splay outward from a center line, neither matching the other — a perfect symbol for UN-, opposite and apart.",
+  "reading_story": "Hee shakes his head firmly — 'UN-invited,' he says, turning the guest away.",
+  "reading_actor_used": "Hee",
+  "meaning_placement": "end",
+  "components_used": [],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
+  "distinctiveness": 4
+ },
+ {
   "glyph": "面",
   "story": "A carnival clerk stamps a square MASK onto a customer's bare FACE — its surface printed with painted FEATURES: two round eyes, a nose ridge, a painted smile, all pressed flat against real skin.",
   "reading_story": "Menn buys the printed MASK at the stall, presses its flat surface to his face, and grins through the painted features — nose to nose with himself.",
@@ -1932,6 +2894,20 @@
   "verified": true,
   "issues": [],
   "imageability": 5,
+  "distinctiveness": 4
+ },
+ {
+  "glyph": "頭",
+  "story": "Cracked Conch shell balances upright on top like a crown — that spiral tip IS the HEAD.",
+  "reading_story": "Tone Loc leans his HEAD back and drawls a long \"tōoo\" into the mic, milking the note.",
+  "reading_actor_used": "Tone",
+  "meaning_placement": "end",
+  "components_used": [
+   "頁"
+  ],
+  "verified": true,
+  "issues": [],
+  "imageability": 4,
   "distinctiveness": 4
  },
  {
