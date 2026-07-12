@@ -1,12 +1,12 @@
 [
  {
   "glyph": "会",
-  "story": "Under a taut Pup-Tent Roof, two Railway Tracks run in beneath the canvas, and where they end a Sealed Clam-Locket sits waiting — everyone gathers around it for the secret MEETING.",
-  "reading_story": "Kai the surfer ducks under the Pup-Tent Roof, clips his short 'kai', and joins the private MEETING.",
+  "story": "Under a leaning Stepladder, two Railway Tracks run in beneath its frame, and where they end a Sealed Clam-Locket sits waiting — everyone gathers around it for the secret MEETING.",
+  "reading_story": "Kai the surfer ducks under the Stepladder, clips his short 'kai', and joins the private MEETING.",
   "reading_actor_used": "Kai",
   "meaning_placement": "end",
   "components_used": [
-   "𠆢",
+   "人",
    "二",
    "厶"
   ],
@@ -653,14 +653,14 @@
  },
  {
   "glyph": "界",
-  "story": "A tented Pup-Tent Roof caps a flooded Rice-Paddy Grid, and the whole field balances on two stubby Wishing-Well Legs that stride off past the horizon — one paddy carrying the entire WORLD.",
+  "story": "A leaning Stepladder caps a flooded Rice-Paddy Grid, and the whole field balances on two stubby Wishing-Well Legs that stride off past the horizon — one paddy carrying the entire WORLD.",
   "reading_story": "Kai the surfer paddles clean off the edge of the map, hooting as he drops into a whole new WORLD.",
   "reading_actor_used": "Kai",
   "meaning_placement": "end",
   "components_used": [
-   "儿",
+   "人",
    "田",
-   "𠆢"
+   "儿"
   ],
   "imageability": 4,
   "distinctiveness": 4,
@@ -1634,15 +1634,15 @@
  },
  {
   "glyph": "験",
-  "story": "A Stepladder props open an Open Mouth on the left; on the right a Galloping Stallion thunders under a Pup-Tent Roof, and the examiner shouts every answer down its throat — the ultimate driving TEST.",
+  "story": "A Stepladder props open an Open Mouth on the left; on the right a Galloping Stallion thunders straight along the flat Horizon Line, and the examiner shouts every answer down its throat — the ultimate driving TEST.",
   "reading_story": "Ken the plastic doll grips the Stallion's reins with a clipped 'ken' and passes his riding TEST on the first try.",
   "reading_actor_used": "Ken",
   "meaning_placement": "end",
   "components_used": [
    "人",
    "口",
-   "馬",
-   "𠆢"
+   "一",
+   "馬"
   ],
   "imageability": 4,
   "distinctiveness": 4,
@@ -2547,13 +2547,13 @@
  },
  {
   "glyph": "茶",
-  "story": "TEA: a wiry Grass Tuft sprouts on top, a peaked Pup-Tent Roof shelters the leaves as they steep, and a sturdy Tree below props up the whole steaming teahouse.",
+  "story": "TEA: a wiry Grass Tuft sprouts on top, a leaning Stepladder shelters the leaves as they steep, and a sturdy Tree below props up the whole steaming teahouse.",
   "reading_story": "Chaplin twirls his cane with a clipped 'cha', tips his bowler, and sips a delicate cup of TEA beneath the tent.",
   "reading_actor_used": "Chaplin",
   "meaning_placement": "start",
   "components_used": [
    "⺾",
-   "𠆢",
+   "人",
    "木"
   ],
   "imageability": 5,
