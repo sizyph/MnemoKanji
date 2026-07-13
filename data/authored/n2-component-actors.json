@@ -1,0 +1,332 @@
+[
+ {
+  "component": "㦮",
+  "actor_name": "Notched Halberd",
+  "image": "A battle-worn halberd standing point-up, its long blade whittled down with two deep notches near the top and a single barbed hook jutting off the right edge — a spear shaved to a stub."
+ },
+ {
+  "component": "丘",
+  "actor_name": "Grassy Knoll",
+  "image": "A low grassy knoll with two rounded humps rising side by side from a flat baseline of packed earth, the only rise on an otherwise empty plain."
+ },
+ {
+  "component": "丞",
+  "actor_name": "Rescue Cradle",
+  "image": "Two forearms interlocked into a cradle, boosting an unseen climber up over a flat stone ledge — the grip that hauls someone straight out of a pit."
+ },
+ {
+  "component": "串",
+  "actor_name": "Yakitori Skewer",
+  "image": "A single bamboo skewer driven straight down through two square chunks of grilled chicken, one stacked above the other, still dripping over the coals."
+ },
+ {
+  "component": "丷",
+  "actor_name": "Horn Nubs",
+  "image": "Two short horn stubs poking up and splaying apart from a young goat's brow, each no bigger than a thumb."
+ },
+ {
+  "component": "丿",
+  "actor_name": "Windswept Reed",
+  "image": "A single tall reed bent hard to the left in a gust, its stem sweeping down in one long clean curve to the ground."
+ },
+ {
+  "component": "于",
+  "actor_name": "Hearth Pothook",
+  "image": "A black iron pothook hanging over a hearth: two flat crossbars near the top and a long shaft below that curls into a J to catch a kettle."
+ },
+ {
+  "component": "云",
+  "actor_name": "Smoke Swirl",
+  "image": "A lazy curl of chimney smoke corkscrewing upward from a little tail and flattening into two thin layers of haze at the top."
+ },
+ {
+  "component": "亢",
+  "actor_name": "Stilt Strider",
+  "image": "A lanky festival performer balanced high on two long wooden stilts spread wide apart, a flat little cap perched squarely on top of his head."
+ },
+ {
+  "component": "亦",
+  "actor_name": "Spark Shower",
+  "image": "A horizontal launch-bar throwing off a shower of four bright sparks that scatter down and outward beneath it, like the first burst of a firework."
+ },
+ {
+  "component": "亭",
+  "actor_name": "Teahouse Kiosk",
+  "image": "A tiny roadside teahouse kiosk: a peaked roof on top, a square serving window in the middle, a jutting eave below it, all balanced on one central support post with a hooked footing."
+ },
+ {
+  "component": "俞",
+  "actor_name": "Whittled Skiff",
+  "image": "A half-carved wooden skiff with a sharply peaked prow, curls of wood-shaving heaped around its planked hull and a whittling knife jammed upright into its right flank."
+ },
+ {
+  "component": "冒",
+  "actor_name": "Slouch-Hat Spy",
+  "image": "A floppy wide-brimmed hat yanked down low over a face, a single wide unblinking eye glaring out from the shadow beneath its brim."
+ },
+ {
+  "component": "凶",
+  "actor_name": "Spiked Pit",
+  "image": "An open-topped square pit with two sharpened stakes crossed in an X across its floor, waiting for one careless foot to drop in."
+ },
+ {
+  "component": "刑",
+  "actor_name": "Pillory Frame",
+  "image": "A wooden pillory of two upright posts joined by twin crossbars, a heavy execution blade propped and gleaming at its right edge."
+ },
+ {
+  "component": "匈",
+  "actor_name": "Cracked Breastplate",
+  "image": "A curved bronze breastplate hugging the torso, an X-shaped crack splitting the metal squarely over the heart."
+ },
+ {
+  "component": "升",
+  "actor_name": "Sake Measure Box",
+  "image": "A small square lacquered wooden sake cup, its rim heaped with rice and struck perfectly flat by a flick of a bamboo stick."
+ },
+ {
+  "component": "厤",
+  "actor_name": "Harvest Ledge",
+  "image": "A slanting cliff-ledge overhanging two neat rows of rice stalks that stand side by side beneath it, tallied like a calendar of harvests."
+ },
+ {
+  "component": "叟",
+  "actor_name": "Torchbearer Elder",
+  "image": "A bent old man thrusting a smoking torch into a boxed-up cupboard, one gnarled hand gripping the brand as he rummages the dark inside."
+ },
+ {
+  "component": "句",
+  "actor_name": "Quote Hook",
+  "image": "A shepherd's-crook hook curling down to cradle a small open mouth, snatching a spoken word clean out of the air."
+ },
+ {
+  "component": "司",
+  "actor_name": "Command Kiosk",
+  "image": "A boxy roadside kiosk under a hooked overhanging roof, a stern mouth set in its service window barking orders at the queue outside."
+ },
+ {
+  "component": "咅",
+  "actor_name": "Fountain Spitter",
+  "image": "An upright stone fountain-statue standing stiffly at attention, its pursed mouth jetting a hard stream of water straight outward, spitting back whatever gets poured into it."
+ },
+ {
+  "component": "喬",
+  "actor_name": "Leaning Pagoda",
+  "image": "A towering multi-tiered pagoda that soars skyward yet tilts at its slanted, peaked top, a single dark doorway gaping open at its base."
+ },
+ {
+  "component": "喿",
+  "actor_name": "Birdsong Tree",
+  "image": "A bare tree whose upper branches hold three wide-open bird-beaks crowded together, the whole crown ringing with a shrill, noisy chorus of chirping."
+ },
+ {
+  "component": "垂",
+  "actor_name": "Drooping Willow",
+  "image": "A weeping willow whose long fronds hang straight down in drooping symmetrical pairs over a low earthen mound, every branch sagging heavily toward the ground."
+ },
+ {
+  "component": "壮",
+  "actor_name": "Barrel-Chested Champ",
+  "image": "A broad, barrel-chested strongman in his robust prime, muscles bulging as he stands squarely beside a tall split bed-plank propped up at his left shoulder."
+ },
+ {
+  "component": "夗",
+  "actor_name": "Moonlit Sleeper",
+  "image": "A figure curled on its side asleep beneath a low crescent moon, knees tucked up and spine bent into a comma, reclining for the night."
+ },
+ {
+  "component": "夹",
+  "actor_name": "Armpit Smuggler",
+  "image": "A broad-shouldered figure striding along with a small stowaway pinned tight under each armpit, both arms clamped down so neither little captive can wriggle free."
+ },
+ {
+  "component": "奉",
+  "actor_name": "Sheaf Bearer",
+  "image": "A worshipper lifting a bound sheaf of wheat high in both upturned hands, three cord-bindings crossing its upright stalk, presenting it as a reverent offering."
+ },
+ {
+  "component": "奐",
+  "actor_name": "Beacon Keeper",
+  "image": "A lighthouse keeper hoisting a blazing lantern overhead in both arms, its broad hood-housing cresting above his wide-planted stance, flooding the whole scene with brilliant white light."
+ },
+ {
+  "component": "契",
+  "actor_name": "Tally-Stick Carver",
+  "image": "A figure gripping a knife to slash three deep notches into a flat wooden tally-stick, sealing a binding vow that will be split so each party keeps one half."
+ },
+ {
+  "component": "尃",
+  "actor_name": "Seed Broadcaster",
+  "image": "A farmer's hand (寸, thumb cocked to one side) sweeps across a gridded seed-plot (甫), flinging a wide fan of grain that scatters and spreads out over the whole bed."
+ },
+ {
+  "component": "尚",
+  "actor_name": "Crested Gable",
+  "image": "A peaked temple gable whose ridge flares up into two little ornamental horns, with a square latticed window set in the wall just beneath the eave and a wisp of smoke curling out through it."
+ },
+ {
+  "component": "尞",
+  "actor_name": "Signal Pyre",
+  "image": "A tall pyre of stacked brushwood blazing on a hilltop, a burst of bright sparks scattering out from its base like a spray of tiny dots flung into the dark."
+ },
+ {
+  "component": "尢",
+  "actor_name": "Crook-Leg Hobbler",
+  "image": "A stick-figure man standing arms-out, one leg dropping straight down while the other kinks sharply sideways at the knee, so he tilts and hobbles on the lame, bent limb."
+ },
+ {
+  "component": "尼",
+  "actor_name": "Hooded Nun",
+  "image": "A robed nun bowed forward under a broad drooping hood that leans out over her, a smaller figure kneeling tucked in close at her feet."
+ },
+ {
+  "component": "屈",
+  "actor_name": "Cramped Crawler",
+  "image": "A figure jackknifed almost double, crawling out from beneath a heavy stone overhang that presses down on its spine and forces the whole body into a tight, cramped hunch."
+ },
+ {
+  "component": "屮",
+  "actor_name": "Forked Seedling",
+  "image": "A single young shoot pushing straight up out of bare dirt, its tip splitting into a small Y-fork of first leaves, with one thin root threading down to anchor it."
+ },
+ {
+  "component": "屯",
+  "actor_name": "Sod-Trapped Sprout",
+  "image": "A green shoot doubled over into a tight hook, straining upward but pinned flat under a heavy slab of packed sod that caps it against a hard ground-line."
+ },
+ {
+  "component": "录",
+  "actor_name": "Whittling Curls",
+  "image": "A clawed hand grips a carving blade up top, sending curls of fresh wood-shavings and beads of sap raining straight down beneath it to pool below."
+ },
+ {
+  "component": "志",
+  "actor_name": "Heart-Planted Banner",
+  "image": "A stiff banner-pole with a broad crossbar driven straight down into the center of a plump beating heart, its little pennant marking exactly where the heart is set on going."
+ },
+ {
+  "component": "戒",
+  "actor_name": "Warding Halberd Grip",
+  "image": "Two upturned hands clamped together around the shaft of a dagger-axe, thrusting it up and outward to bar the way — a sentry's braced warning to halt."
+ },
+ {
+  "component": "扁",
+  "actor_name": "Slatted Signboard",
+  "image": "A flat wooden shop-sign of thin horizontal slats, its top edge a single hinged door-panel, swinging above an entrance so flat it casts almost no shadow — the door leaf riding over the stacked tablet-slats."
+ },
+ {
+  "component": "昆",
+  "actor_name": "Sunlit Ant Column",
+  "image": "A single blazing sun hovering directly over a double file of ants marching rightward in lock-step — the round 'sun' block riding atop the two paired 'compare' figures below."
+ },
+ {
+  "component": "术",
+  "actor_name": "Sticky Millet Sprig",
+  "image": "A slender millet plant shaped like a little tree, a single glistening bead of sticky sap clinging to the upper-right of its top branch — the tree with one clinging dot."
+ },
+ {
+  "component": "氐",
+  "actor_name": "Dagger in Bedrock",
+  "image": "A curved clan-dagger driven point-down through a stone floor, one bead of its blade pressed flush against a bedrock line drawn beneath it — pinned as low to the ground as a blade can go."
+ },
+ {
+  "component": "玄",
+  "actor_name": "Dark Silk Coil",
+  "image": "A coil of jet-black silk thread dangling from a small pin-cap, twisting downward into shadow so its lowest loops vanish from sight — fine thread hung beneath a tiny lid."
+ },
+ {
+  "component": "瓦",
+  "actor_name": "Interlocking Clay Tiles",
+  "image": "Two S-curved terracotta tiles hooked into one another, a small nub jutting up like a fixing-peg, both still warm from the kiln — the interlocking pictograph of a tiled roof."
+ },
+ {
+  "component": "竟",
+  "actor_name": "Curtain-Call Crooner",
+  "image": "A crooner belting the very last note, the boxy 'sound' block forming his torso and head, balanced on two long striding legs as he steps to the stage edge for the final bow — the finish, after all."
+ },
+ {
+  "component": "筑",
+  "actor_name": "Bamboo-Beaten Zither",
+  "image": "A flat wooden zither — its craftsman's-square frame and a rounded sound-box — laid out beneath a raised split-bamboo beater poised to strike the strings, the bamboo radical arching over the instrument."
+ },
+ {
+  "component": "胡",
+  "actor_name": "Old Man's Dewlap",
+  "image": "A loose fold of moon-pale flesh drooping from a wrinkled old man's jaw like a rooster's wattle — the boxy 'old' block set beside the sagging 'flesh-moon' on the right."
+ },
+ {
+  "component": "臤",
+  "actor_name": "Fist-Clamped Eye",
+  "image": "A broad hand clamping down over the barred, upright grid of a bowing minister's eye, gripping so hard the bars bow inward and the knuckles whiten — a firm, unbreakable grasp."
+ },
+ {
+  "component": "舎",
+  "actor_name": "Wayfarer's Lodge",
+  "image": "A tiny roadside inn: a sharp peaked roof sheltering a single upright post and a small square doorway below, lamplight glowing through the door for the traveller stopping to lodge for the night."
+ },
+ {
+  "component": "荅",
+  "actor_name": "Lidded Bean Pot",
+  "image": "A squat clay pot with a peaked lid and a round mouth-opening on its front, a tuft of grass sprouting up through the seam of the lid — the little pot of beans that caps the glyph."
+ },
+ {
+  "component": "虍",
+  "actor_name": "Tiger-Hide Cowl",
+  "image": "A tiger's striped forehead and pricked ears worn as a hood, its dark bars and one hooked whisker-mark hanging like a canopy over whatever crouches beneath it."
+ },
+ {
+  "component": "辰",
+  "actor_name": "Razor-Clam Hoe",
+  "image": "A long razor clam propped against a cliff-ledge, its pale muscular foot thrust out below the shell like a farmer's digging blade, quivering as if about to shake the ground."
+ },
+ {
+  "component": "采",
+  "actor_name": "Orchard-Plucking Hand",
+  "image": "A downturned hand, fingers splayed into a claw, reaching into the crown of a small tree to pluck a single ripe berry from the branches below it."
+ },
+ {
+  "component": "隶",
+  "actor_name": "Fistful of Tail",
+  "image": "A clenched fist seizing the long trailing tail of a bolting animal, loose hairs spraying downward in four wet strands — caught just before it can escape."
+ },
+ {
+  "component": "隼",
+  "actor_name": "Perched Falcon",
+  "image": "A sharp-eyed hunting falcon gripping a single straight crossbar with its talons, wings folded tight against its short-tailed body, one flat bar laid across the top."
+ },
+ {
+  "component": "頃",
+  "actor_name": "Lopsided Noggin",
+  "image": "A big round head tipped hard to one side, its cheek resting against a small upturned spoon, nodding off for just a little while."
+ },
+ {
+  "component": "麻",
+  "actor_name": "Hemp-Drying Shed",
+  "image": "A low open-fronted shed whose slanted roof shelters two tall hemp stalks hung side by side to dry, loose fibres dangling, ready to be ground into a numbing powder."
+ },
+ {
+  "component": "龹",
+  "actor_name": "Riceball Roller",
+  "image": "Two cupped hands pressing a sticky rice ball round and tight above a crossed pair of forearms — the rolling gesture that caps the scroll, ticket, and victory kanji."
+ },
+ {
+  "component": "劦",
+  "actor_name": "Tug-of-War Rope",
+  "image": "Three taut ropes yanked hard in the same direction by unseen hands, all straining together as one — pure combined muscle."
+ },
+ {
+  "component": "吉",
+  "actor_name": "Fortune Slip",
+  "image": "A folded paper fortune-slip tied to a shrine branch, a big lucky 'GOOD' brushed across its top over a little box of tiny print below."
+ },
+ {
+  "component": "业",
+  "actor_name": "Toothed Rack",
+  "image": "A flat wooden rack studded with a row of short upward teeth along its top edge, sitting on a solid base — the jagged crown of an industrial gear-rack."
+ },
+ {
+  "component": "乞",
+  "actor_name": "Kneeling Beggar",
+  "image": "A hunched figure on one knee, one arm stretched up with an open palm and the other tucked under a bent back, pleading for a coin."
+ }
+]

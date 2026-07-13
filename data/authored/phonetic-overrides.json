@@ -10,6 +10,11 @@
   "rationale": "Kanjium marker 𦰌 U+266CC is an obscure variant; the standard printed phonetic (shared with 僅/謹, both きん/コン family per Kanjium own cross-reference) is 堇 U+5807."
  },
  {
+  "glyph": "卒",
+  "marker": null,
+  "rationale": "Kanjium marker U+F765 is a Private Use Area placeholder (renders as tofu); no standard BMP kanji carries the shared 卒/率 phonetic, so the edge is dropped."
+ },
+ {
   "glyph": "寝",
   "marker": null,
   "rationale": "Kanjium marker 𠬶 U+20B36 is astral (tofu); no verified BMP substitute confirmed and no other built kanji shares this marker (unlike 勤/観), so the phonetic edge is dropped rather than guessed. Revisit if a 侵/浸-family kanji is later built and a substitute becomes verifiable."
@@ -33,6 +38,11 @@
   "glyph": "歴",
   "marker": "厤",
   "rationale": "Kanjium marker 𠩵 U+20A75 is astral; 歴=厂+林+止, shared レキ phonetic with 暦 is 厤 U+53A4, BMP."
+ },
+ {
+  "glyph": "率",
+  "marker": null,
+  "rationale": "Kanjium marker U+F765 is a Private Use Area placeholder (renders as tofu); no standard BMP kanji carries the shared 卒/率 phonetic, so the edge is dropped."
  },
  {
   "glyph": "脳",

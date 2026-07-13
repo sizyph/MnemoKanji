@@ -890,22 +890,26 @@ fn verify(conn: &Connection, rows: &[KanjiRow]) -> Result<(), Box<dyn Error>> {
         return Err(format!("{bad_ids} kanji whose id is not their glyph's codepoint").into());
     }
 
-    // Hard invariant: every component must render in the bundled Noto Sans JP font, i.e. be
-    // within the Unicode BMP (astral-plane glyphs show as tofu). unicode() returns the first
-    // character's scalar value; components are already enforced single-char at insertion.
-    let astral: i64 = conn.query_row(
-        "SELECT COUNT(*) FROM component WHERE unicode(glyph) > 65535",
-        [],
-        |r| r.get(0),
-    )?;
-    if astral != 0 {
-        let bad: Vec<String> = conn
-            .prepare("SELECT glyph FROM component WHERE unicode(glyph) > 65535")?
-            .query_map([], |r| r.get::<_, String>(0))?
-            .collect::<rusqlite::Result<_>>()?;
+    // Hard invariant: every component must render in the bundled Noto Sans JP font. A glyph
+    // fails to render if it is astral-plane (> U+FFFF) OR in a Private Use Area — both show as
+    // tofu. Kanjium in particular uses PUA codepoints (e.g. U+F765 for 卒/率's marker) as
+    // placeholders for phonetics with no standard encoding, and those are inside the BMP so a
+    // simple `> 65535` check misses them. PUA blocks: U+E000..=U+F8FF (BMP), U+F0000..=U+FFFFD
+    // and U+100000..=U+10FFFD (supplementary). unicode() returns the first char's scalar value;
+    // components are already enforced single-char at insertion.
+    let unrenderable = "unicode(glyph) > 65535 \
+         OR unicode(glyph) BETWEEN 57344 AND 63743 \
+         OR unicode(glyph) BETWEEN 983040 AND 1048573 \
+         OR unicode(glyph) BETWEEN 1048576 AND 1114109";
+    let bad: Vec<String> = conn
+        .prepare(&format!("SELECT glyph FROM component WHERE {unrenderable}"))?
+        .query_map([], |r| r.get::<_, String>(0))?
+        .collect::<rusqlite::Result<_>>()?;
+    if !bad.is_empty() {
         return Err(format!(
-            "{astral} component(s) outside the BMP (render as tofu): {bad:?} — \
-             fix via data/authored/decomposition-overrides.json or phonetic-overrides.json"
+            "{} component(s) will render as tofu (astral or Private-Use-Area): {bad:?} — \
+             fix via data/authored/decomposition-overrides.json or phonetic-overrides.json",
+            bad.len()
         )
         .into());
     }
