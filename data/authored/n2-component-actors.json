@@ -328,5 +328,10 @@
   "component": "乞",
   "actor_name": "Kneeling Beggar",
   "image": "A hunched figure on one knee, one arm stretched up with an open palm and the other tucked under a bent back, pleading for a coin."
+ },
+ {
+  "component": "丰",
+  "actor_name": "Tiered Picket",
+  "image": "A single tall stake driven straight down through three stacked horizontal slats, pinning them into one rigid tiered fence-post, lush vines threaded along each rung."
  }
 ]
