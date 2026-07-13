@@ -1,8 +1,43 @@
 [
  {
+  "glyph": "乾",
+  "marker": null,
+  "rationale": "Kanjium marker 𠦝 U+2099D astral; no common BMP kanji carries the shared カン element across 乾/幹/韓 (乾 lacks the 干 that 幹/韓 share), so drop rather than guess."
+ },
+ {
   "glyph": "勤",
   "marker": "堇",
   "rationale": "Kanjium marker 𦰌 U+266CC is an obscure variant; the standard printed phonetic (shared with 僅/謹, both きん/コン family per Kanjium own cross-reference) is 堇 U+5807."
+ },
+ {
+  "glyph": "寝",
+  "marker": null,
+  "rationale": "Kanjium marker 𠬶 U+20B36 is astral (tofu); no verified BMP substitute confirmed and no other built kanji shares this marker (unlike 勤/観), so the phonetic edge is dropped rather than guessed. Revisit if a 侵/浸-family kanji is later built and a substitute becomes verifiable."
+ },
+ {
+  "glyph": "幹",
+  "marker": null,
+  "rationale": "Kanjium marker 𠦝 U+2099D astral; dropped (see 乾) — no verified common-BMP substitute for the 龺-family marker."
+ },
+ {
+  "glyph": "悩",
+  "marker": null,
+  "rationale": "Kanjium marker 𡿺 U+21FFA astral; the 巛+囟 brain element has no common BMP kanji equivalent, so the ノウ phonetic edge (shared with 脳) is dropped rather than shown as tofu."
+ },
+ {
+  "glyph": "暦",
+  "marker": "厤",
+  "rationale": "Kanjium marker 𠩵 U+20A75 is astral (tofu); 暦=厂+林+日, the shared レキ phonetic with 歴 is 厤 U+53A4 (=厂+林), BMP and printed."
+ },
+ {
+  "glyph": "歴",
+  "marker": "厤",
+  "rationale": "Kanjium marker 𠩵 U+20A75 is astral; 歴=厂+林+止, shared レキ phonetic with 暦 is 厤 U+53A4, BMP."
+ },
+ {
+  "glyph": "脳",
+  "marker": null,
+  "rationale": "Kanjium marker 𡿺 U+21FFA astral; dropped (see 悩)."
  },
  {
   "glyph": "観",
@@ -10,8 +45,8 @@
   "rationale": "Kanjium marker 𮥶 U+2E976 is an obscure variant; the standard printed phonetic (shared with 勧/歓, all カン family per Kanjium own cross-reference) is 雚 U+96DA."
  },
  {
-  "glyph": "寝",
+  "glyph": "韓",
   "marker": null,
-  "rationale": "Kanjium marker 𠬶 U+20B36 is astral (tofu); no verified BMP substitute confirmed and no other built kanji shares this marker (unlike 勤/観), so the phonetic edge is dropped rather than guessed. Revisit if a 侵/浸-family kanji is later built and a substitute becomes verifiable."
+  "rationale": "Kanjium marker 𠦝 U+2099D astral; dropped (see 乾)."
  }
 ]
