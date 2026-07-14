@@ -16,6 +16,10 @@
   "keyword": "efficacy"
  },
  {
+  "glyph": "匹",
+  "keyword": "counter for small animals"
+ },
+ {
   "glyph": "協",
   "keyword": "cooperation"
  },
@@ -32,20 +36,16 @@
   "keyword": "interior"
  },
  {
-  "glyph": "容",
-  "keyword": "form"
- },
- {
   "glyph": "層",
   "keyword": "layer"
  },
  {
-  "glyph": "川",
-  "keyword": "stream"
- },
- {
   "glyph": "布",
   "keyword": "cloth"
+ },
+ {
+  "glyph": "希",
+  "keyword": "beg"
  },
  {
   "glyph": "幅",
@@ -68,8 +68,8 @@
   "keyword": "violence"
  },
  {
-  "glyph": "望",
-  "keyword": "ambition"
+  "glyph": "替",
+  "keyword": "exchange"
  },
  {
   "glyph": "歴",
@@ -78,6 +78,10 @@
  {
   "glyph": "殿",
   "keyword": "palace"
+ },
+ {
+  "glyph": "河",
+  "keyword": "river (large)"
  },
  {
   "glyph": "泉",
@@ -96,10 +100,6 @@
   "keyword": "chapter"
  },
  {
-  "glyph": "等",
-  "keyword": "similar"
- },
- {
   "glyph": "築",
   "keyword": "construct"
  },
@@ -114,6 +114,10 @@
  {
   "glyph": "腰",
   "keyword": "waist"
+ },
+ {
+  "glyph": "般",
+  "keyword": "carrier"
  },
  {
   "glyph": "芸",
@@ -132,8 +136,20 @@
   "keyword": "bag"
  },
  {
+  "glyph": "裏",
+  "keyword": "reverse"
+ },
+ {
   "glyph": "課",
   "keyword": "lesson"
+ },
+ {
+  "glyph": "販",
+  "keyword": "marketing"
+ },
+ {
+  "glyph": "踊",
+  "keyword": "jump"
  },
  {
   "glyph": "辺",
@@ -141,7 +157,7 @@
  },
  {
   "glyph": "逆",
-  "keyword": "reverse"
+  "keyword": "inverted"
  },
  {
   "glyph": "隻",
@@ -158,5 +174,9 @@
  {
   "glyph": "骨",
   "keyword": "bone"
+ },
+ {
+  "glyph": "齢",
+  "keyword": "years"
  }
 ]
