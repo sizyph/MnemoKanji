@@ -5,14 +5,34 @@
   "rationale": "Kanjium marker 𠦝 U+2099D astral; no common BMP kanji carries the shared カン element across 乾/幹/韓 (乾 lacks the 干 that 幹/韓 share), so drop rather than guess."
  },
  {
+  "glyph": "侵",
+  "marker": null,
+  "rationale": "Kanjium marker 𠬶 U+20B36 is astral (tofu); the ⺕+冖+又 element has no BMP standalone kanji, so the edge is dropped — consistent with the existing 寝 entry (same family)."
+ },
+ {
   "glyph": "勤",
   "marker": "堇",
   "rationale": "Kanjium marker 𦰌 U+266CC is an obscure variant; the standard printed phonetic (shared with 僅/謹, both きん/コン family per Kanjium own cross-reference) is 堇 U+5807."
  },
  {
+  "glyph": "勧",
+  "marker": "雚",
+  "rationale": "Kanjium marker 𮥶 U+2E976 is an obscure variant; the standard printed phonetic (shared with 観/歓, all カン family) is 雚 U+96DA — same substitution as the existing 観 entry."
+ },
+ {
+  "glyph": "勲",
+  "marker": "熏",
+  "rationale": "Kanjium marker 𤋱 U+242F1 is astral; the traditional printed phonetic of 勳/薰 is 熏 U+718F (くん), BMP — shinjitai restyled the shape but the クン series (勲/薫/燻) is the 熏 family."
+ },
+ {
   "glyph": "卒",
   "marker": null,
   "rationale": "Kanjium marker U+F765 is a Private Use Area placeholder (renders as tofu); no standard BMP kanji carries the shared 卒/率 phonetic, so the edge is dropped."
+ },
+ {
+  "glyph": "哉",
+  "marker": "才",
+  "rationale": "Kanjium marker 𢦏 U+2298F is astral; 𢦏 = 才 + 戈 (Shuowen: 才聲), and Kanjium itself marks 財/材 with 才 U+624D — the standard BMP carrier of the サイ/ザイ family, shared with 栽/裁/載."
  },
  {
   "glyph": "寝",
@@ -25,9 +45,29 @@
   "rationale": "Kanjium marker 𠦝 U+2099D astral; dropped (see 乾) — no verified common-BMP substitute for the 龺-family marker."
  },
  {
+  "glyph": "徹",
+  "marker": null,
+  "rationale": "Kanjium marker 𰕎 U+3054E is astral; the shared 育+攵 element of 徹/撤 has no BMP standalone kanji, so the edge is dropped rather than guessed."
+ },
+ {
   "glyph": "悩",
   "marker": null,
   "rationale": "Kanjium marker 𡿺 U+21FFA astral; the 巛+囟 brain element has no common BMP kanji equivalent, so the ノウ phonetic edge (shared with 脳) is dropped rather than shown as tofu."
+ },
+ {
+  "glyph": "惰",
+  "marker": null,
+  "rationale": "Kanjium marker U+F767 is a Private Use Area placeholder (renders as tofu); the etymological phonetic 隋 is not visually present in shinjitai 惰, so the edge is dropped rather than guessed (same policy as 卒/率)."
+ },
+ {
+  "glyph": "慮",
+  "marker": null,
+  "rationale": "Kanjium marker 𧆨 U+271A8 is astral; the shared 虍+田 element of 慮/虜 has no BMP standalone kanji, so the edge is dropped rather than shown as tofu."
+ },
+ {
+  "glyph": "撤",
+  "marker": null,
+  "rationale": "Kanjium marker 𰕎 U+3054E astral; dropped (see 徹)."
  },
  {
   "glyph": "暦",
@@ -35,9 +75,29 @@
   "rationale": "Kanjium marker 𠩵 U+20A75 is astral (tofu); 暦=厂+林+日, the shared レキ phonetic with 歴 is 厤 U+53A4 (=厂+林), BMP and printed."
  },
  {
+  "glyph": "栽",
+  "marker": "才",
+  "rationale": "Kanjium marker 𢦏 U+2298F astral; standard BMP phonetic is 才 (see 哉)."
+ },
+ {
+  "glyph": "歓",
+  "marker": "雚",
+  "rationale": "Kanjium marker 𮥶 U+2E976 is an obscure variant; standard printed phonetic is 雚 U+96DA (see 観/勧)."
+ },
+ {
   "glyph": "歴",
   "marker": "厤",
   "rationale": "Kanjium marker 𠩵 U+20A75 is astral; 歴=厂+林+止, shared レキ phonetic with 暦 is 厤 U+53A4, BMP."
+ },
+ {
+  "glyph": "浸",
+  "marker": null,
+  "rationale": "Kanjium marker 𠬶 U+20B36 astral; dropped (see 侵/寝)."
+ },
+ {
+  "glyph": "渓",
+  "marker": "奚",
+  "rationale": "Kanjium marker 𤓻 U+244FB is astral (shinjitai abbreviation); the traditional phonetic of 溪/雞 is 奚 U+595A (けい), BMP and printed — shared with 鶏."
  },
  {
   "glyph": "率",
@@ -50,13 +110,43 @@
   "rationale": "Kanjium marker 𡿺 U+21FFA astral; dropped (see 悩)."
  },
  {
+  "glyph": "薫",
+  "marker": "熏",
+  "rationale": "Kanjium marker 𤋱 U+242F1 astral; standard phonetic is 熏 U+718F (see 勲)."
+ },
+ {
+  "glyph": "虜",
+  "marker": null,
+  "rationale": "Kanjium marker 𧆨 U+271A8 astral; dropped (see 慮)."
+ },
+ {
+  "glyph": "裁",
+  "marker": "才",
+  "rationale": "Kanjium marker 𢦏 U+2298F astral; standard BMP phonetic is 才 (see 哉)."
+ },
+ {
   "glyph": "観",
   "marker": "雚",
   "rationale": "Kanjium marker 𮥶 U+2E976 is an obscure variant; the standard printed phonetic (shared with 勧/歓, all カン family per Kanjium own cross-reference) is 雚 U+96DA."
  },
  {
+  "glyph": "謹",
+  "marker": "堇",
+  "rationale": "Kanjium marker 𦰌 is an obscure variant; the standard printed phonetic (shared with 勤/僅, all きん family) is 堇 U+5807 — same substitution as the existing 勤 entry."
+ },
+ {
+  "glyph": "載",
+  "marker": "才",
+  "rationale": "Kanjium marker 𢦏 U+2298F astral; standard BMP phonetic is 才 (see 哉)."
+ },
+ {
   "glyph": "韓",
   "marker": null,
   "rationale": "Kanjium marker 𠦝 U+2099D astral; dropped (see 乾)."
+ },
+ {
+  "glyph": "鶏",
+  "marker": "奚",
+  "rationale": "Kanjium marker 𤓻 U+244FB astral; traditional phonetic is 奚 U+595A (see 渓)."
  }
 ]
