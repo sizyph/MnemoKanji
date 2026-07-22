@@ -5009,6 +5009,20 @@
   ]
  },
  {
+  "glyph": "罷",
+  "components": [
+   "罒",
+   "能"
+  ]
+ },
+ {
+  "glyph": "羅",
+  "components": [
+   "罒",
+   "維"
+  ]
+ },
+ {
   "glyph": "美",
   "components": [
    "羊",
@@ -5020,6 +5034,13 @@
   "components": [
    "君",
    "羊"
+  ]
+ },
+ {
+  "glyph": "義",
+  "components": [
+   "羊",
+   "我"
   ]
  },
  {
@@ -6326,6 +6347,20 @@
   ]
  },
  {
+  "glyph": "迪",
+  "components": [
+   "辶",
+   "由"
+  ]
+ },
+ {
+  "glyph": "迭",
+  "components": [
+   "辶",
+   "失"
+  ]
+ },
+ {
   "glyph": "述",
   "components": [
    "辶",
@@ -6348,10 +6383,33 @@
   ]
  },
  {
+  "glyph": "透",
+  "components": [
+   "辶",
+   "秀"
+  ]
+ },
+ {
+  "glyph": "逓",
+  "components": [
+   "辶",
+   "厂",
+   "二",
+   "巾"
+  ]
+ },
+ {
   "glyph": "途",
   "components": [
    "辶",
    "余"
+  ]
+ },
+ {
+  "glyph": "逝",
+  "components": [
+   "辶",
+   "折"
   ]
  },
  {
@@ -6446,10 +6504,47 @@
   ]
  },
  {
+  "glyph": "遣",
+  "components": [
+   "辶",
+   "中",
+   "一",
+   "口"
+  ]
+ },
+ {
   "glyph": "適",
   "components": [
    "辶",
    "啇"
+  ]
+ },
+ {
+  "glyph": "遭",
+  "components": [
+   "辶",
+   "曹"
+  ]
+ },
+ {
+  "glyph": "遮",
+  "components": [
+   "辶",
+   "庶"
+  ]
+ },
+ {
+  "glyph": "遵",
+  "components": [
+   "辶",
+   "尊"
+  ]
+ },
+ {
+  "glyph": "遺",
+  "components": [
+   "辶",
+   "貴"
   ]
  },
  {
@@ -6514,6 +6609,14 @@
   ]
  },
  {
+  "glyph": "醸",
+  "components": [
+   "衣",
+   "酉",
+   "ハ"
+  ]
+ },
+ {
   "glyph": "重",
   "components": [
    "千",
@@ -6568,10 +6671,82 @@
   ]
  },
  {
+  "glyph": "鋼",
+  "components": [
+   "金",
+   "岡"
+  ]
+ },
+ {
+  "glyph": "錘",
+  "components": [
+   "金",
+   "垂"
+  ]
+ },
+ {
+  "glyph": "錠",
+  "components": [
+   "金",
+   "定"
+  ]
+ },
+ {
+  "glyph": "錬",
+  "components": [
+   "金",
+   "東"
+  ]
+ },
+ {
+  "glyph": "錯",
+  "components": [
+   "金",
+   "昔"
+  ]
+ },
+ {
   "glyph": "録",
   "components": [
    "金",
    "录"
+  ]
+ },
+ {
+  "glyph": "鍛",
+  "components": [
+   "金",
+   "段"
+  ]
+ },
+ {
+  "glyph": "鎌",
+  "components": [
+   "金",
+   "兼"
+  ]
+ },
+ {
+  "glyph": "鎖",
+  "components": [
+   "金",
+   "⺌",
+   "貝"
+  ]
+ },
+ {
+  "glyph": "鎮",
+  "components": [
+   "金",
+   "真"
+  ]
+ },
+ {
+  "glyph": "鏡",
+  "components": [
+   "金",
+   "音",
+   "儿"
   ]
  },
  {
@@ -6588,6 +6763,13 @@
    "ハ",
    "一",
    "大"
+  ]
+ },
+ {
+  "glyph": "閣",
+  "components": [
+   "門",
+   "各"
   ]
  },
  {
@@ -6634,6 +6816,48 @@
   "components": [
    "⻖",
    "皆"
+  ]
+ },
+ {
+  "glyph": "随",
+  "components": [
+   "ノ",
+   "一",
+   "月",
+   "辶",
+   "⻖"
+  ]
+ },
+ {
+  "glyph": "障",
+  "components": [
+   "⻖",
+   "章"
+  ]
+ },
+ {
+  "glyph": "隠",
+  "components": [
+   "⻖",
+   "爪",
+   "ヨ",
+   "心"
+  ]
+ },
+ {
+  "glyph": "隣",
+  "components": [
+   "⻖",
+   "米",
+   "舛"
+  ]
+ },
+ {
+  "glyph": "隷",
+  "components": [
+   "士",
+   "示",
+   "隶"
   ]
  },
  {
@@ -6687,9 +6911,23 @@
   ]
  },
  {
+  "glyph": "響",
+  "components": [
+   "郷",
+   "音"
+  ]
+ },
+ {
   "glyph": "頂",
   "components": [
    "丁",
+   "頁"
+  ]
+ },
+ {
+  "glyph": "項",
+  "components": [
+   "工",
    "頁"
   ]
  },
@@ -6701,9 +6939,37 @@
   ]
  },
  {
+  "glyph": "須",
+  "components": [
+   "彡",
+   "頁"
+  ]
+ },
+ {
+  "glyph": "頌",
+  "components": [
+   "公",
+   "頁"
+  ]
+ },
+ {
   "glyph": "預",
   "components": [
    "予",
+   "頁"
+  ]
+ },
+ {
+  "glyph": "頑",
+  "components": [
+   "元",
+   "頁"
+  ]
+ },
+ {
+  "glyph": "頒",
+  "components": [
+   "分",
    "頁"
   ]
  },
@@ -6722,6 +6988,13 @@
   "glyph": "頭",
   "components": [
    "豆",
+   "頁"
+  ]
+ },
+ {
+  "glyph": "頻",
+  "components": [
+   "歩",
    "頁"
   ]
  },
@@ -6754,6 +7027,13 @@
   ]
  },
  {
+  "glyph": "顕",
+  "components": [
+   "日",
+   "頁"
+  ]
+ },
+ {
   "glyph": "願",
   "components": [
    "原",
@@ -6765,6 +7045,13 @@
   "components": [
    "米",
    "大",
+   "頁"
+  ]
+ },
+ {
+  "glyph": "顧",
+  "components": [
+   "雇",
    "頁"
   ]
  },
@@ -6786,10 +7073,46 @@
   ]
  },
  {
+  "glyph": "飽",
+  "components": [
+   "食",
+   "包"
+  ]
+ },
+ {
+  "glyph": "養",
+  "components": [
+   "羊",
+   "食"
+  ]
+ },
+ {
+  "glyph": "餓",
+  "components": [
+   "食",
+   "我"
+  ]
+ },
+ {
   "glyph": "館",
   "components": [
    "食",
    "官"
+  ]
+ },
+ {
+  "glyph": "馨",
+  "components": [
+   "声",
+   "殳",
+   "香"
+  ]
+ },
+ {
+  "glyph": "駄",
+  "components": [
+   "馬",
+   "太"
   ]
  },
  {
@@ -6809,6 +7132,17 @@
   ]
  },
  {
+  "glyph": "髄",
+  "components": [
+   "ノ",
+   "一",
+   "月",
+   "辶",
+   "冖",
+   "骨"
+  ]
+ },
+ {
   "glyph": "高",
   "components": [
    "亠",
@@ -6817,10 +7151,85 @@
   ]
  },
  {
+  "glyph": "魅",
+  "components": [
+   "鬼",
+   "未"
+  ]
+ },
+ {
+  "glyph": "魔",
+  "components": [
+   "麻",
+   "鬼"
+  ]
+ },
+ {
+  "glyph": "鮎",
+  "components": [
+   "魚",
+   "占"
+  ]
+ },
+ {
+  "glyph": "鮮",
+  "components": [
+   "魚",
+   "羊"
+  ]
+ },
+ {
+  "glyph": "鯉",
+  "components": [
+   "魚",
+   "里"
+  ]
+ },
+ {
   "glyph": "鳴",
   "components": [
    "口",
    "鳥"
+  ]
+ },
+ {
+  "glyph": "鵬",
+  "components": [
+   "月",
+   "鳥"
+  ]
+ },
+ {
+  "glyph": "鶏",
+  "components": [
+   "爪",
+   "夫",
+   "鳥"
+  ]
+ },
+ {
+  "glyph": "鶴",
+  "components": [
+   "宀",
+   "隹",
+   "鳥"
+  ]
+ },
+ {
+  "glyph": "鷹",
+  "components": [
+   "广",
+   "⺅",
+   "隹",
+   "鳥"
+  ]
+ },
+ {
+  "glyph": "麗",
+  "components": [
+   "一",
+   "冂",
+   "鹿"
   ]
  },
  {
