@@ -1,0 +1,292 @@
+[
+ {
+  "component": "㐮",
+  "actor_name": "Aid Porter",
+  "image": "A relief-aid porter bent under a tall, tightly-stacked bundle of donated clothes and crates, straps crossing his chest and splayed legs braced beneath the load — the helper hauling everything at once."
+ },
+ {
+  "component": "㕣",
+  "actor_name": "Hillfoot Pool",
+  "image": "A square, mirror-still marsh pool at the foot of two grassy slopes that fan open above it, clumps of reed poking up from its rim."
+ },
+ {
+  "component": "䍃",
+  "actor_name": "Clutched Pitcher",
+  "image": "A clawed hand descending from above to clamp the narrow neck of a bulging earthen pitcher, three fingers splayed over its rounded shoulders."
+ },
+ {
+  "component": "兌",
+  "actor_name": "Swap-Meet Haggler",
+  "image": "A flea-market haggler braced on two planted legs, mouth flung wide mid-shout, tossing two coins spinning up into the air above his head to seal a trade."
+ },
+ {
+  "component": "兹",
+  "actor_name": "Paired Bobbins",
+  "image": "Two small wooden thread-bobbins hung side by side beneath a short splayed crossbar, each wound with a tiny coil of floss dangling a loose end."
+ },
+ {
+  "component": "匊",
+  "actor_name": "Rice-Scooping Hand",
+  "image": "A cupped hand curling down and around to scoop up a small heap of loose rice grains, fingers wrapping the pile against the palm."
+ },
+ {
+  "component": "匋",
+  "actor_name": "Cradled Clay Pot",
+  "image": "A bent arm curled all the way around a wet, freshly-thrown clay pot, hugging it against the body on the way to the kiln."
+ },
+ {
+  "component": "卂",
+  "actor_name": "Streaking Swift",
+  "image": "A swift folded into a steep dive, wings swept back into one blurred hook, a cross of motion-lines slashing the air behind it."
+ },
+ {
+  "component": "卆",
+  "actor_name": "Buck Private",
+  "image": "A green buck-private snapping a stiff salute with one sharply bent arm, a cross-strap bandolier slung over his chest."
+ },
+ {
+  "component": "厷",
+  "actor_name": "Cocked Forearm",
+  "image": "A bare, muscled forearm cocked sharply back at the elbow, the fist curled into a tight knot below the swept diagonal line of the upper arm."
+ },
+ {
+  "component": "叚",
+  "actor_name": "Forger's Hand",
+  "image": "A gloved hand slips out from beneath a two-shelved stone overhang on the left, palming a counterfeit seal it has just swapped for the genuine one — caught mid-fake."
+ },
+ {
+  "component": "唐",
+  "actor_name": "Imperial Eave",
+  "image": "A sweeping tiled pagoda eave shades a courtier who thrusts a brush-scepter straight up and bellows a proclamation from a wide-open mouth below — all the swagger of the Tang court."
+ },
+ {
+  "component": "夆",
+  "actor_name": "Warding Post",
+  "image": "A stout stake driven into the earth, crossed by three iron bars and capped with a sharp peaked ferrule, planted at an angle to brace against and hold back a charge."
+ },
+ {
+  "component": "夋",
+  "actor_name": "Prancing Colt",
+  "image": "A young horse caught mid-prance — head tossed back in a tight curl, forelegs splayed wide, hind legs planted, one rear hoof trailing behind in the dust."
+ },
+ {
+  "component": "夌",
+  "actor_name": "Dawdling Terrapin",
+  "image": "A fat terrapin plodding at its own lazy pace, its cross-marked domed shell riding high, four stubby legs splayed out, one hind foot dragging a slow trail behind it."
+ },
+ {
+  "component": "夸",
+  "actor_name": "Prize Rosette",
+  "image": "An enormous pleated prize rosette pinned to a puffed-out chest, its spread ribbon-star flaring wide across the top and two flat award-ribbons crossing below into one long curling tail — worn purely to brag."
+ },
+ {
+  "component": "奚",
+  "actor_name": "Leashed Handservant",
+  "image": "A bound servant led on a short cord — a clawed hand at the top gripping the leash, a thread trailing down to a large splay-limbed figure below."
+ },
+ {
+  "component": "妟",
+  "actor_name": "Sunlit Hammock",
+  "image": "A canvas hammock slung low and sagging into a soft cross of woven cord, the midday sun a bright square hanging directly above it — the very picture of a balmy, do-nothing afternoon."
+ },
+ {
+  "component": "孰",
+  "actor_name": "Tiered Kiln",
+  "image": "A tall three-tiered kiln — domed cap, glowing stoke-mouth, and a small stoker crouched at its foot — with one round clay pot just tonged out the side to judge which piece has fired ripe."
+ },
+ {
+  "component": "它",
+  "actor_name": "Rafter Serpent",
+  "image": "A lean serpent coiled up in the rafters just under a steep peaked roof, its hooked tail curling down from the eaves — the other resident of the house, the one that isn't you."
+ },
+ {
+  "component": "宓",
+  "actor_name": "Snowbound Cabin",
+  "image": "A little log cabin with a steep peaked roof buried under heavy snow, drifts piled to the windowsills, every sound swallowed so the woods around it stand dead silent."
+ },
+ {
+  "component": "尤",
+  "actor_name": "Lunging Fencer",
+  "image": "A fencer frozen mid-lunge, back leg thrown out in one long curving sweep, a single dark mole marking the raised shoulder — the standout swordsman, a cut above the rest."
+ },
+ {
+  "component": "岡",
+  "actor_name": "Rampart Ridge",
+  "image": "A flat-topped hill ringed with squared stone battlements, a jagged rock peak jutting up from inside the encircling walls — a fortified ridge held to the last."
+ },
+ {
+  "component": "巛",
+  "actor_name": "Snaking Rivulets",
+  "image": "Three thin rivulets snaking straight down a muddy bank side by side, their surfaces rippling and glinting — the raw 'river' radical, water on the move."
+ },
+ {
+  "component": "巠",
+  "actor_name": "Buried Sluice",
+  "image": "Three straight channels of water plunging down through a flat stone lid into a pillared conduit below — hidden streams sluicing along underground, unseen but always flowing."
+ },
+ {
+  "component": "廿",
+  "actor_name": "Iron Staple",
+  "image": "A heavy iron staple, its flat crossbar pressed down and two stout prongs biting into a plank — as if two iron tens were hammered flat and fused into a single bar."
+ },
+ {
+  "component": "敝",
+  "actor_name": "Tattered Banner",
+  "image": "A moth-eaten battle banner hanging in shreds, a stick rapping it from the right so loose threads scatter into the air — cloth beaten until it is threadbare and ragged."
+ },
+ {
+  "component": "斬",
+  "actor_name": "Executioner's Cart",
+  "image": "A wooden execution cart rolled into the square, a broad headsman's axe propped against its right wheel — the blade that ends the condemned with a single slashing stroke."
+ },
+ {
+  "component": "曷",
+  "actor_name": "Cloaked Heckler",
+  "image": "A hooded figure wrapped in a cloak, bent forward and flinging open a squared shouting mouth — the eternal questioner heckling 'why?! how?!' from under his hood."
+ },
+ {
+  "component": "曼",
+  "actor_name": "Veil-Drawing Hand",
+  "image": "A slender hand slowly drawing a long, gauzy veil down across one wide staring eye, the silk stretched out gracefully — beauty pulled out long and wide."
+ },
+ {
+  "component": "枼",
+  "actor_name": "Planked Tabletop",
+  "image": "A low tabletop built from three flat wooden slats laid side by side across a single stout tree-trunk leg, the boards still rough and unplaned."
+ },
+ {
+  "component": "此",
+  "actor_name": "Heel-and-Hook",
+  "image": "A bare footprint pressed deep into wet sand with a small bent iron hook lying flush against its right edge, the pair jabbed down to mark 'this exact spot.'"
+ },
+ {
+  "component": "熏",
+  "actor_name": "Sooty Kiln",
+  "image": "A squat brick kiln with four tongues of flame licking along its base and a fat plume of black smoke curling up out of the slot on top."
+ },
+ {
+  "component": "爰",
+  "actor_name": "Baton Handoff",
+  "image": "A hand reaches straight down from above to press a short rod into a waiting open hand below, the baton caught crossways between them mid-pass."
+ },
+ {
+  "component": "爻",
+  "actor_name": "Wicker Lattice",
+  "image": "Two pairs of pale reed strands crossed over one another into a tight double-X weave, the first courses of a woven basket wall."
+ },
+ {
+  "component": "牙",
+  "actor_name": "Boar's Tusk",
+  "image": "A single curved ivory tusk jutting up from a boar's jaw, a deep interlocking notch cut where it once ground against its opposite fang."
+ },
+ {
+  "component": "牟",
+  "actor_name": "Mooing Heifer",
+  "image": "A young cow lifting its head to bellow, a small curl of warm breath puffing up off the top of its snout as the 'moo' escapes."
+ },
+ {
+  "component": "瓜",
+  "actor_name": "Dangling Gourd",
+  "image": "A round gourd hanging from a curling vine, two thin tendrils splaying out to either side to cradle it as it sways."
+ },
+ {
+  "component": "睘",
+  "actor_name": "Ringed Eyeball",
+  "image": "A single eye stretched fully round and staring, a bright ring of iris circling the fixed pupil, set just above the draped collar of a loose robe."
+ },
+ {
+  "component": "禸",
+  "actor_name": "Tucked Haunch",
+  "image": "A crouching beast's hindquarters drawn in tight, its tail curled under and hooking around inside a low three-walled pen, pressing a rounded track into the dirt."
+ },
+ {
+  "component": "离",
+  "actor_name": "Snared Griffin",
+  "image": "A horned griffin thrashing inside a box-trap — a single spike of horn jutting up through the peaked lid, its clawed hindquarters and long tail curling out and hooking off the bottom-right corner."
+ },
+ {
+  "component": "稟",
+  "actor_name": "Payroll Granary",
+  "image": "A pointed-roof granary — a square strongbox capped by a peaked lid — perched atop a single drooping rice stalk, its little door swung open as measured grain is doled out as wages."
+ },
+ {
+  "component": "粦",
+  "actor_name": "Grave Wisp",
+  "image": "A pale ball of foxfire, a four-pointed spark of cold green light, hovering just above two skeletal feet splayed apart mid-stride, drifting over a black midnight marsh."
+ },
+ {
+  "component": "而",
+  "actor_name": "Chin Whiskers",
+  "image": "A flat upper lip forming the top bar, from which a squared jaw-curtain hangs, four stiff grey whiskers dangling straight down inside it — a beard combed into rigid parallel strands."
+ },
+ {
+  "component": "臼",
+  "actor_name": "Pestle Basin",
+  "image": "A heavy stone basin whose inner walls are scored with two facing rows of grinding teeth, a stubby pestle standing upright in the hollow and rice husks scattered around the rim."
+ },
+ {
+  "component": "菐",
+  "actor_name": "Thorn Bundle",
+  "image": "A dense sheaf of upright thorny stalks bristling into a spiked crown at the top, hoisted from below by two braced hands, prickers jutting out in every direction."
+ },
+ {
+  "component": "蒦",
+  "actor_name": "Snatched Fledgling",
+  "image": "A bare hand closing gently around a short-tailed fledgling lifted out of a tuft of grass, the fingers weighing the little bird as if gauging its size."
+ },
+ {
+  "component": "褱",
+  "actor_name": "Sleeve Stash",
+  "image": "A wide kimono sleeve held open to reveal a hidden inner pocket, a folded letter and a single tear-brimmed eye tucked deep in the pressed folds of the robe."
+ },
+ {
+  "component": "豈",
+  "actor_name": "Triumph Drum",
+  "image": "A taut war-drum mounted on a tall footed pedestal and crowned with a spiky, mountain-shaped finial, booming so loud that onlookers gasp and jump back."
+ },
+ {
+  "component": "豸",
+  "actor_name": "Slinking Marten",
+  "image": "A long-bodied marten frozen mid-pounce, its small whiskered head lifted, spine arched high, and its long tail sweeping down to hook sharply to the right."
+ },
+ {
+  "component": "賁",
+  "actor_name": "Blossom-Crowned Coffer",
+  "image": "A squat iron money-chest with a fat cowrie-shell clasp on its front, its flat lid heaped with three sprays of cut wildflowers spilling over the edges — plain treasure dressed up to be shown off."
+ },
+ {
+  "component": "身",
+  "actor_name": "Expectant Torso",
+  "image": "A standing figure seen in strict profile, spine held straight but the belly bowed out in one heavy pregnant curve, a single hand resting on the swell — the whole body reduced to that outward-bulging line."
+ },
+ {
+  "component": "辟",
+  "actor_name": "Branding Magistrate",
+  "image": "A robed magistrate on the right grips a glowing needle-tipped branding iron and presses it toward a prisoner who kneels open-mouthed at the left, meting out the searing mark of the law."
+ },
+ {
+  "component": "迶",
+  "actor_name": "Wayfaring Porter",
+  "image": "A lone porter strides along a winding dirt road, a fresh slab of meat hoisted flat on one upturned hand above his shoulder — a traveler hauling his single possession down the trail."
+ },
+ {
+  "component": "闌",
+  "actor_name": "Latticed Portcullis",
+  "image": "A tall castle gateway with a slatted wooden lattice-grille half-lowered between its two door-posts, the crossed bars bundled tight across the threshold to bar the way."
+ },
+ {
+  "component": "雁",
+  "actor_name": "Migrating Goose",
+  "image": "A plump grey wild goose in gliding profile, neck outstretched and honking, wings spread as it skims just beneath the overhanging lip of a jutting cliff ledge."
+ },
+ {
+  "component": "鬲",
+  "actor_name": "Three-Legged Cauldron",
+  "image": "A squat bronze ritual cauldron standing on three hollow, splayed legs, a domed lid clamped over its bulging body and a thin thread of steam curling up from the seam."
+ },
+ {
+  "component": "黍",
+  "actor_name": "Drooping Panicle",
+  "image": "A heavy grain-head of millet bent over on its stalk, the loaded panicle nodding down toward a trickle of water pooled beneath it."
+ }
+]
