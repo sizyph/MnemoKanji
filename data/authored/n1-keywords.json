@@ -1,0 +1,702 @@
+[
+ {
+  "glyph": "之",
+  "keyword": "this"
+ },
+ {
+  "glyph": "仁",
+  "keyword": "benevolence"
+ },
+ {
+  "glyph": "仮",
+  "keyword": "temporary"
+ },
+ {
+  "glyph": "仰",
+  "keyword": "look up"
+ },
+ {
+  "glyph": "伍",
+  "keyword": "five-man squad"
+ },
+ {
+  "glyph": "伯",
+  "keyword": "earl"
+ },
+ {
+  "glyph": "伴",
+  "keyword": "accompany"
+ },
+ {
+  "glyph": "佑",
+  "keyword": "assist"
+ },
+ {
+  "glyph": "侃",
+  "keyword": "righteous"
+ },
+ {
+  "glyph": "俊",
+  "keyword": "excellence"
+ },
+ {
+  "glyph": "俵",
+  "keyword": "bale"
+ },
+ {
+  "glyph": "倖",
+  "keyword": "luck"
+ },
+ {
+  "glyph": "偏",
+  "keyword": "biased"
+ },
+ {
+  "glyph": "債",
+  "keyword": "debt"
+ },
+ {
+  "glyph": "僧",
+  "keyword": "monk"
+ },
+ {
+  "glyph": "充",
+  "keyword": "fill"
+ },
+ {
+  "glyph": "冶",
+  "keyword": "smelting"
+ },
+ {
+  "glyph": "准",
+  "keyword": "associate"
+ },
+ {
+  "glyph": "凌",
+  "keyword": "stave off"
+ },
+ {
+  "glyph": "削",
+  "keyword": "whittle"
+ },
+ {
+  "glyph": "創",
+  "keyword": "originate"
+ },
+ {
+  "glyph": "卓",
+  "keyword": "table"
+ },
+ {
+  "glyph": "博",
+  "keyword": "exposition"
+ },
+ {
+  "glyph": "却",
+  "keyword": "step back"
+ },
+ {
+  "glyph": "叙",
+  "keyword": "narrate"
+ },
+ {
+  "glyph": "哀",
+  "keyword": "sorrow"
+ },
+ {
+  "glyph": "唄",
+  "keyword": "ballad"
+ },
+ {
+  "glyph": "喝",
+  "keyword": "scold"
+ },
+ {
+  "glyph": "喪",
+  "keyword": "mourning"
+ },
+ {
+  "glyph": "基",
+  "keyword": "foundation"
+ },
+ {
+  "glyph": "堀",
+  "keyword": "moat"
+ },
+ {
+  "glyph": "堅",
+  "keyword": "solid"
+ },
+ {
+  "glyph": "塊",
+  "keyword": "lump"
+ },
+ {
+  "glyph": "塚",
+  "keyword": "mound"
+ },
+ {
+  "glyph": "奉",
+  "keyword": "dedicate"
+ },
+ {
+  "glyph": "奔",
+  "keyword": "bustle"
+ },
+ {
+  "glyph": "妨",
+  "keyword": "obstruct"
+ },
+ {
+  "glyph": "嫁",
+  "keyword": "bride"
+ },
+ {
+  "glyph": "宰",
+  "keyword": "manager"
+ },
+ {
+  "glyph": "宵",
+  "keyword": "early night"
+ },
+ {
+  "glyph": "寧",
+  "keyword": "tranquility"
+ },
+ {
+  "glyph": "審",
+  "keyword": "judge"
+ },
+ {
+  "glyph": "就",
+  "keyword": "take position"
+ },
+ {
+  "glyph": "屈",
+  "keyword": "flinch"
+ },
+ {
+  "glyph": "履",
+  "keyword": "footgear"
+ },
+ {
+  "glyph": "峠",
+  "keyword": "mountain pass"
+ },
+ {
+  "glyph": "嵩",
+  "keyword": "grow bulky"
+ },
+ {
+  "glyph": "巌",
+  "keyword": "crag"
+ },
+ {
+  "glyph": "幻",
+  "keyword": "illusion"
+ },
+ {
+  "glyph": "庄",
+  "keyword": "manor"
+ },
+ {
+  "glyph": "彪",
+  "keyword": "small tiger"
+ },
+ {
+  "glyph": "従",
+  "keyword": "obey"
+ },
+ {
+  "glyph": "徳",
+  "keyword": "virtue"
+ },
+ {
+  "glyph": "徴",
+  "keyword": "Sign"
+ },
+ {
+  "glyph": "忌",
+  "keyword": "abhor"
+ },
+ {
+  "glyph": "恕",
+  "keyword": "forgive"
+ },
+ {
+  "glyph": "恨",
+  "keyword": "grudge"
+ },
+ {
+  "glyph": "恭",
+  "keyword": "reverent"
+ },
+ {
+  "glyph": "悔",
+  "keyword": "regret"
+ },
+ {
+  "glyph": "愁",
+  "keyword": "grieve"
+ },
+ {
+  "glyph": "慎",
+  "keyword": "prudent"
+ },
+ {
+  "glyph": "慨",
+  "keyword": "rue"
+ },
+ {
+  "glyph": "憤",
+  "keyword": "indignant"
+ },
+ {
+  "glyph": "懸",
+  "keyword": "depend"
+ },
+ {
+  "glyph": "抗",
+  "keyword": "defy"
+ },
+ {
+  "glyph": "拒",
+  "keyword": "refuse"
+ },
+ {
+  "glyph": "拓",
+  "keyword": "clear land"
+ },
+ {
+  "glyph": "拡",
+  "keyword": "expand"
+ },
+ {
+  "glyph": "据",
+  "keyword": "install"
+ },
+ {
+  "glyph": "捺",
+  "keyword": "affix a seal"
+ },
+ {
+  "glyph": "掌",
+  "keyword": "palm of hand"
+ },
+ {
+  "glyph": "排",
+  "keyword": "expel"
+ },
+ {
+  "glyph": "控",
+  "keyword": "hold back"
+ },
+ {
+  "glyph": "揚",
+  "keyword": "hoist"
+ },
+ {
+  "glyph": "摂",
+  "keyword": "absorb"
+ },
+ {
+  "glyph": "撤",
+  "keyword": "withdraw"
+ },
+ {
+  "glyph": "擦",
+  "keyword": "scrape"
+ },
+ {
+  "glyph": "故",
+  "keyword": "reason"
+ },
+ {
+  "glyph": "敏",
+  "keyword": "agile"
+ },
+ {
+  "glyph": "救",
+  "keyword": "rescue"
+ },
+ {
+  "glyph": "敦",
+  "keyword": "kindliness"
+ },
+ {
+  "glyph": "斉",
+  "keyword": "alike"
+ },
+ {
+  "glyph": "斐",
+  "keyword": "patterned"
+ },
+ {
+  "glyph": "施",
+  "keyword": "perform"
+ },
+ {
+  "glyph": "旬",
+  "keyword": "ten-day period"
+ },
+ {
+  "glyph": "朔",
+  "keyword": "first day of month"
+ },
+ {
+  "glyph": "朕",
+  "keyword": "imperial we"
+ },
+ {
+  "glyph": "朗",
+  "keyword": "serene"
+ },
+ {
+  "glyph": "朴",
+  "keyword": "plain"
+ },
+ {
+  "glyph": "析",
+  "keyword": "analyze"
+ },
+ {
+  "glyph": "桂",
+  "keyword": "cinnamon tree"
+ },
+ {
+  "glyph": "椋",
+  "keyword": "grey starling"
+ },
+ {
+  "glyph": "槙",
+  "keyword": "ornamental evergreen"
+ },
+ {
+  "glyph": "檀",
+  "keyword": "sandalwood"
+ },
+ {
+  "glyph": "欣",
+  "keyword": "take pleasure in"
+ },
+ {
+  "glyph": "殻",
+  "keyword": "nut shell"
+ },
+ {
+  "glyph": "汰",
+  "keyword": "sieving"
+ },
+ {
+  "glyph": "洞",
+  "keyword": "cave"
+ },
+ {
+  "glyph": "津",
+  "keyword": "ferry"
+ },
+ {
+  "glyph": "洵",
+  "keyword": "truth"
+ },
+ {
+  "glyph": "浜",
+  "keyword": "seacoast"
+ },
+ {
+  "glyph": "淡",
+  "keyword": "pale"
+ },
+ {
+  "glyph": "添",
+  "keyword": "Attach"
+ },
+ {
+  "glyph": "渚",
+  "keyword": "shore"
+ },
+ {
+  "glyph": "漠",
+  "keyword": "desert"
+ },
+ {
+  "glyph": "濁",
+  "keyword": "impurity"
+ },
+ {
+  "glyph": "濫",
+  "keyword": "overflow"
+ },
+ {
+  "glyph": "炎",
+  "keyword": "flame"
+ },
+ {
+  "glyph": "熟",
+  "keyword": "ripen"
+ },
+ {
+  "glyph": "燎",
+  "keyword": "bonfire"
+ },
+ {
+  "glyph": "牧",
+  "keyword": "pasture"
+ },
+ {
+  "glyph": "独",
+  "keyword": "alone"
+ },
+ {
+  "glyph": "狭",
+  "keyword": "narrow"
+ },
+ {
+  "glyph": "獣",
+  "keyword": "beast"
+ },
+ {
+  "glyph": "琉",
+  "keyword": "gem"
+ },
+ {
+  "glyph": "瑚",
+  "keyword": "coral"
+ },
+ {
+  "glyph": "瑛",
+  "keyword": "crystal"
+ },
+ {
+  "glyph": "異",
+  "keyword": "different"
+ },
+ {
+  "glyph": "疎",
+  "keyword": "sparse"
+ },
+ {
+  "glyph": "痘",
+  "keyword": "smallpox"
+ },
+ {
+  "glyph": "盛",
+  "keyword": "prosper"
+ },
+ {
+  "glyph": "瞬",
+  "keyword": "blink"
+ },
+ {
+  "glyph": "矢",
+  "keyword": "arrow"
+ },
+ {
+  "glyph": "矯",
+  "keyword": "straighten"
+ },
+ {
+  "glyph": "禄",
+  "keyword": "allowance"
+ },
+ {
+  "glyph": "稿",
+  "keyword": "manuscript"
+ },
+ {
+  "glyph": "窮",
+  "keyword": "destitute"
+ },
+ {
+  "glyph": "竣",
+  "keyword": "finish"
+ },
+ {
+  "glyph": "笙",
+  "keyword": "reed instrument"
+ },
+ {
+  "glyph": "納",
+  "keyword": "supply"
+ },
+ {
+  "glyph": "統",
+  "keyword": "governing"
+ },
+ {
+  "glyph": "綱",
+  "keyword": "rope"
+ },
+ {
+  "glyph": "綾",
+  "keyword": "twill"
+ },
+ {
+  "glyph": "緯",
+  "keyword": "latitude"
+ },
+ {
+  "glyph": "縛",
+  "keyword": "bind"
+ },
+ {
+  "glyph": "繰",
+  "keyword": "reel"
+ },
+ {
+  "glyph": "羅",
+  "keyword": "spread out"
+ },
+ {
+  "glyph": "耐",
+  "keyword": "enduring"
+ },
+ {
+  "glyph": "胞",
+  "keyword": "sac"
+ },
+ {
+  "glyph": "胴",
+  "keyword": "torso"
+ },
+ {
+  "glyph": "脚",
+  "keyword": "undercarriage"
+ },
+ {
+  "glyph": "脹",
+  "keyword": "bulge"
+ },
+ {
+  "glyph": "至",
+  "keyword": "attain"
+ },
+ {
+  "glyph": "致",
+  "keyword": "exert"
+ },
+ {
+  "glyph": "舜",
+  "keyword": "rose of Sharon"
+ },
+ {
+  "glyph": "菫",
+  "keyword": "violet"
+ },
+ {
+  "glyph": "萌",
+  "keyword": "sprout"
+ },
+ {
+  "glyph": "蔦",
+  "keyword": "ivy"
+ },
+ {
+  "glyph": "薪",
+  "keyword": "firewood"
+ },
+ {
+  "glyph": "蛍",
+  "keyword": "firefly"
+ },
+ {
+  "glyph": "衿",
+  "keyword": "lapel"
+ },
+ {
+  "glyph": "袈",
+  "keyword": "coarse camlet"
+ },
+ {
+  "glyph": "製",
+  "keyword": "made in..."
+ },
+ {
+  "glyph": "誕",
+  "keyword": "be born"
+ },
+ {
+  "glyph": "諒",
+  "keyword": "understand"
+ },
+ {
+  "glyph": "謡",
+  "keyword": "noh chanting"
+ },
+ {
+  "glyph": "譲",
+  "keyword": "convey"
+ },
+ {
+  "glyph": "豚",
+  "keyword": "pig"
+ },
+ {
+  "glyph": "貞",
+  "keyword": "chastity"
+ },
+ {
+  "glyph": "賊",
+  "keyword": "robber"
+ },
+ {
+  "glyph": "趣",
+  "keyword": "elegance"
+ },
+ {
+  "glyph": "辱",
+  "keyword": "humiliate"
+ },
+ {
+  "glyph": "逐",
+  "keyword": "drive away"
+ },
+ {
+  "glyph": "遂",
+  "keyword": "accomplish"
+ },
+ {
+  "glyph": "避",
+  "keyword": "avoid"
+ },
+ {
+  "glyph": "酉",
+  "keyword": "sign of the bird"
+ },
+ {
+  "glyph": "錘",
+  "keyword": "spindle"
+ },
+ {
+  "glyph": "陥",
+  "keyword": "cave in"
+ },
+ {
+  "glyph": "陪",
+  "keyword": "attend on"
+ },
+ {
+  "glyph": "雅",
+  "keyword": "elegant"
+ },
+ {
+  "glyph": "須",
+  "keyword": "necessarily"
+ },
+ {
+  "glyph": "颯",
+  "keyword": "sound of the wind"
+ },
+ {
+  "glyph": "駄",
+  "keyword": "Pack Horse"
+ },
+ {
+  "glyph": "駆",
+  "keyword": "gallop"
+ },
+ {
+  "glyph": "驚",
+  "keyword": "surprised"
+ }
+]
