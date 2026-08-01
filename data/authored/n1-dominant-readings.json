@@ -1,0 +1,857 @@
+[
+ {
+  "glyph": "丘",
+  "reading": "おか",
+  "kind": "kun"
+ },
+ {
+  "glyph": "乃",
+  "reading": "の",
+  "kind": "kun"
+ },
+ {
+  "glyph": "之",
+  "reading": "の",
+  "kind": "kun"
+ },
+ {
+  "glyph": "亘",
+  "reading": "わた.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "亦",
+  "reading": "また",
+  "kind": "kun"
+ },
+ {
+  "glyph": "伴",
+  "reading": "ともな.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "伽",
+  "reading": "とぎ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "侍",
+  "reading": "さむらい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "倉",
+  "reading": "そう",
+  "kind": "on"
+ },
+ {
+  "glyph": "傷",
+  "reading": "きず",
+  "kind": "kun"
+ },
+ {
+  "glyph": "凝",
+  "reading": "こ.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "刀",
+  "reading": "かたな",
+  "kind": "kun"
+ },
+ {
+  "glyph": "勧",
+  "reading": "すす.める",
+  "kind": "kun"
+ },
+ {
+  "glyph": "厳",
+  "reading": "きび.しい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "及",
+  "reading": "およ.ぶ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "哀",
+  "reading": "あわ.れ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "啄",
+  "reading": "ついば.む",
+  "kind": "kun"
+ },
+ {
+  "glyph": "堪",
+  "reading": "た.える",
+  "kind": "kun"
+ },
+ {
+  "glyph": "塊",
+  "reading": "かたまり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "墓",
+  "reading": "はか",
+  "kind": "kun"
+ },
+ {
+  "glyph": "壁",
+  "reading": "かべ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "壊",
+  "reading": "こわ.す",
+  "kind": "kun"
+ },
+ {
+  "glyph": "奪",
+  "reading": "うば.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "姿",
+  "reading": "すがた",
+  "kind": "kun"
+ },
+ {
+  "glyph": "嫌",
+  "reading": "きら.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "宜",
+  "reading": "よろ.しく",
+  "kind": "kun"
+ },
+ {
+  "glyph": "寧",
+  "reading": "ねい",
+  "kind": "on"
+ },
+ {
+  "glyph": "尼",
+  "reading": "あま",
+  "kind": "kun"
+ },
+ {
+  "glyph": "履",
+  "reading": "は.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "峰",
+  "reading": "みね",
+  "kind": "kun"
+ },
+ {
+  "glyph": "嵩",
+  "reading": "かさ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "巡",
+  "reading": "めぐ.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "巽",
+  "reading": "たつみ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "帆",
+  "reading": "ほ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "弥",
+  "reading": "や",
+  "kind": "kun"
+ },
+ {
+  "glyph": "彦",
+  "reading": "ひこ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "従",
+  "reading": "したが.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "怠",
+  "reading": "なま.ける",
+  "kind": "kun"
+ },
+ {
+  "glyph": "悔",
+  "reading": "くや.しい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "惇",
+  "reading": "とん",
+  "kind": "on"
+ },
+ {
+  "glyph": "慰",
+  "reading": "なぐさ.める",
+  "kind": "kun"
+ },
+ {
+  "glyph": "懐",
+  "reading": "なつ.かしい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "描",
+  "reading": "えが.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "撮",
+  "reading": "と.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "斜",
+  "reading": "なな.め",
+  "kind": "kun"
+ },
+ {
+  "glyph": "旗",
+  "reading": "はた",
+  "kind": "kun"
+ },
+ {
+  "glyph": "既",
+  "reading": "すで.に",
+  "kind": "kun"
+ },
+ {
+  "glyph": "旭",
+  "reading": "あさひ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "昴",
+  "reading": "すばる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "暇",
+  "reading": "ひま",
+  "kind": "kun"
+ },
+ {
+  "glyph": "暑",
+  "reading": "あつ.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "暖",
+  "reading": "あたた.かい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "暫",
+  "reading": "しばら.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "朽",
+  "reading": "く.ちる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "杜",
+  "reading": "もり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "柊",
+  "reading": "ひいらぎ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "柚",
+  "reading": "ゆず",
+  "kind": "kun"
+ },
+ {
+  "glyph": "柳",
+  "reading": "やなぎ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "栞",
+  "reading": "しおり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "梓",
+  "reading": "あずさ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "梢",
+  "reading": "こずえ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "棟",
+  "reading": "とう",
+  "kind": "on"
+ },
+ {
+  "glyph": "椋",
+  "reading": "むく",
+  "kind": "kun"
+ },
+ {
+  "glyph": "楓",
+  "reading": "かえで",
+  "kind": "kun"
+ },
+ {
+  "glyph": "楠",
+  "reading": "くすのき",
+  "kind": "kun"
+ },
+ {
+  "glyph": "榛",
+  "reading": "はしばみ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "槙",
+  "reading": "まき",
+  "kind": "kun"
+ },
+ {
+  "glyph": "槻",
+  "reading": "つき",
+  "kind": "kun"
+ },
+ {
+  "glyph": "毬",
+  "reading": "まり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "汐",
+  "reading": "しお",
+  "kind": "kun"
+ },
+ {
+  "glyph": "泌",
+  "reading": "ひつ",
+  "kind": "on"
+ },
+ {
+  "glyph": "泡",
+  "reading": "あわ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "渋",
+  "reading": "しぶ.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "湧",
+  "reading": "わ.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "溝",
+  "reading": "みぞ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "滑",
+  "reading": "すべ.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "漂",
+  "reading": "ただよ.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "漏",
+  "reading": "も.れる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "潮",
+  "reading": "しお",
+  "kind": "kun"
+ },
+ {
+  "glyph": "澪",
+  "reading": "みお",
+  "kind": "kun"
+ },
+ {
+  "glyph": "濁",
+  "reading": "にご.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "炊",
+  "reading": "た.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "炎",
+  "reading": "ほのお",
+  "kind": "kun"
+ },
+ {
+  "glyph": "為",
+  "reading": "ため",
+  "kind": "kun"
+ },
+ {
+  "glyph": "爽",
+  "reading": "さわ.やか",
+  "kind": "kun"
+ },
+ {
+  "glyph": "狂",
+  "reading": "くる.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "狩",
+  "reading": "か.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "狭",
+  "reading": "せま.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "猿",
+  "reading": "さる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "瑚",
+  "reading": "ご",
+  "kind": "on"
+ },
+ {
+  "glyph": "瑞",
+  "reading": "ずい",
+  "kind": "on"
+ },
+ {
+  "glyph": "皐",
+  "reading": "さつき",
+  "kind": "kun"
+ },
+ {
+  "glyph": "盛",
+  "reading": "さか.ん",
+  "kind": "kun"
+ },
+ {
+  "glyph": "眸",
+  "reading": "ひとみ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "矛",
+  "reading": "む",
+  "kind": "on"
+ },
+ {
+  "glyph": "砕",
+  "reading": "くだ.く",
+  "kind": "kun"
+ },
+ {
+  "glyph": "稔",
+  "reading": "みの.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "稲",
+  "reading": "いね",
+  "kind": "kun"
+ },
+ {
+  "glyph": "穏",
+  "reading": "おだ.やか",
+  "kind": "kun"
+ },
+ {
+  "glyph": "竣",
+  "reading": "しゅん",
+  "kind": "on"
+ },
+ {
+  "glyph": "端",
+  "reading": "はし",
+  "kind": "kun"
+ },
+ {
+  "glyph": "笛",
+  "reading": "ふえ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "紛",
+  "reading": "ふん",
+  "kind": "on"
+ },
+ {
+  "glyph": "紡",
+  "reading": "つむ.ぐ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "紬",
+  "reading": "つむぎ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "継",
+  "reading": "けい",
+  "kind": "on"
+ },
+ {
+  "glyph": "網",
+  "reading": "あみ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "綾",
+  "reading": "あや",
+  "kind": "kun"
+ },
+ {
+  "glyph": "締",
+  "reading": "し.める",
+  "kind": "kun"
+ },
+ {
+  "glyph": "縦",
+  "reading": "たて",
+  "kind": "kun"
+ },
+ {
+  "glyph": "縫",
+  "reading": "ぬ.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "織",
+  "reading": "しき",
+  "kind": "on"
+ },
+ {
+  "glyph": "翔",
+  "reading": "しょう",
+  "kind": "on"
+ },
+ {
+  "glyph": "翼",
+  "reading": "つばさ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "肇",
+  "reading": "はじめ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "脱",
+  "reading": "ぬ.ぐ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "腐",
+  "reading": "くさ.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "至",
+  "reading": "いた.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "興",
+  "reading": "きょう",
+  "kind": "on"
+ },
+ {
+  "glyph": "芹",
+  "reading": "せり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "茂",
+  "reading": "しげ.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "茅",
+  "reading": "かや",
+  "kind": "kun"
+ },
+ {
+  "glyph": "茜",
+  "reading": "あかね",
+  "kind": "kun"
+ },
+ {
+  "glyph": "菫",
+  "reading": "すみれ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "葵",
+  "reading": "あおい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "蔦",
+  "reading": "つた",
+  "kind": "kun"
+ },
+ {
+  "glyph": "蕗",
+  "reading": "ふき",
+  "kind": "kun"
+ },
+ {
+  "glyph": "虞",
+  "reading": "おそれ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "蚕",
+  "reading": "かいこ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "蛇",
+  "reading": "へび",
+  "kind": "kun"
+ },
+ {
+  "glyph": "街",
+  "reading": "まち",
+  "kind": "kun"
+ },
+ {
+  "glyph": "衿",
+  "reading": "えり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "裸",
+  "reading": "はだか",
+  "kind": "kun"
+ },
+ {
+  "glyph": "褒",
+  "reading": "ほ.める",
+  "kind": "kun"
+ },
+ {
+  "glyph": "襲",
+  "reading": "おそ.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "覆",
+  "reading": "おお.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "訳",
+  "reading": "やく",
+  "kind": "on"
+ },
+ {
+  "glyph": "訴",
+  "reading": "うった.える",
+  "kind": "kun"
+ },
+ {
+  "glyph": "詔",
+  "reading": "しょう",
+  "kind": "on"
+ },
+ {
+  "glyph": "詳",
+  "reading": "くわ.しい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "誇",
+  "reading": "ほこ.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "誘",
+  "reading": "さそ.う",
+  "kind": "kun"
+ },
+ {
+  "glyph": "諄",
+  "reading": "くど.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "諭",
+  "reading": "ゆ",
+  "kind": "on"
+ },
+ {
+  "glyph": "諮",
+  "reading": "し",
+  "kind": "on"
+ },
+ {
+  "glyph": "譲",
+  "reading": "ゆず.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "豆",
+  "reading": "まめ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "豚",
+  "reading": "ぶた",
+  "kind": "kun"
+ },
+ {
+  "glyph": "遣",
+  "reading": "けん",
+  "kind": "on"
+ },
+ {
+  "glyph": "遮",
+  "reading": "さえぎ.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "避",
+  "reading": "さ.ける",
+  "kind": "kun"
+ },
+ {
+  "glyph": "醜",
+  "reading": "みにく.い",
+  "kind": "kun"
+ },
+ {
+  "glyph": "鋳",
+  "reading": "ちゅう",
+  "kind": "on"
+ },
+ {
+  "glyph": "鍛",
+  "reading": "きた.える",
+  "kind": "kun"
+ },
+ {
+  "glyph": "鏡",
+  "reading": "かがみ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "鐘",
+  "reading": "かね",
+  "kind": "kun"
+ },
+ {
+  "glyph": "陵",
+  "reading": "りょう",
+  "kind": "on"
+ },
+ {
+  "glyph": "隣",
+  "reading": "となり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "雷",
+  "reading": "かみなり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "靖",
+  "reading": "せい",
+  "kind": "on"
+ },
+ {
+  "glyph": "鞠",
+  "reading": "まり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "飽",
+  "reading": "あ.きる",
+  "kind": "kun"
+ },
+ {
+  "glyph": "馨",
+  "reading": "かお.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "騒",
+  "reading": "さわ.ぐ",
+  "kind": "kun"
+ },
+ {
+  "glyph": "鬼",
+  "reading": "おに",
+  "kind": "kun"
+ },
+ {
+  "glyph": "魂",
+  "reading": "たましい",
+  "kind": "kun"
+ },
+ {
+  "glyph": "鯨",
+  "reading": "くじら",
+  "kind": "kun"
+ },
+ {
+  "glyph": "鶏",
+  "reading": "にわとり",
+  "kind": "kun"
+ },
+ {
+  "glyph": "鹿",
+  "reading": "しか",
+  "kind": "kun"
+ },
+ {
+  "glyph": "黙",
+  "reading": "だま.る",
+  "kind": "kun"
+ },
+ {
+  "glyph": "黛",
+  "reading": "まゆずみ",
+  "kind": "kun"
+ }
+]
