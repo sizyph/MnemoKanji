@@ -3148,7 +3148,7 @@
  {
   "glyph": "姻",
   "story": "The Hourglass glides down the aisle in a white veil, a gold ring around her pinched glass waist; every grain of sand streaming through her is rice thrown for her MATRIMONY.",
-  "reading_story": "Quinn cartwheels down the aisle in a shredded wedding dress, mallet for a bouquet, cackling that MATRIMONY should always start with a bang.",
+  "reading_story": "Quinn somersaults down the aisle in a shredded wedding dress, mallet for a bouquet, cackling that MATRIMONY should always start with a bang.",
   "reading_actor_used": "Quinn",
   "meaning_placement": "end",
   "components_used": [
@@ -3525,7 +3525,7 @@
  {
   "glyph": "寅",
   "story": "Beneath the Thatched House, the flooded Rice-Paddy Grid glows at 3 a.m.; below it a Wishbone snaps apart, its two splayed legs raking muddy claw-stripes — the SIGN OF THE TIGER.",
-  "reading_story": "Quinn cartwheels through the 3 a.m. zodiac parade, mallet held high, saluting the banner stamped with the SIGN OF THE TIGER.",
+  "reading_story": "Quinn somersaults through the 3 a.m. zodiac parade, mallet held high, saluting the banner stamped with the SIGN OF THE TIGER.",
   "reading_actor_used": "Quinn",
   "meaning_placement": "end",
   "components_used": [
@@ -16237,14 +16237,16 @@
   "reading_actor_used": "Khan",
   "meaning_placement": "end",
   "components_used": [
-   "木"
+   "木",
+   "門"
   ],
   "verified": true,
   "issues": [
    "Non-blocking (distinctiveness): Tree + Castle Gate scene collides with shipped 欄 (n1-mnemonics.json line 7745: 'Left of the Castle Gate stands a Tree...'); only the spatial placement — dead center in the archway vs left of the gate — and the blocked-passage beat separate the two scenes.",
    "Non-blocking (distinctiveness/semantic): a tree blocking the gateway so 'no traveler can pass' is semantically adjacent to shipped 閉 CLOSED (n3-mnemonics.json line 5545, Castle Gate doors sealing shut); a learner could retrieve 'shut/blocked' instead of 'leisure' — the terminal LEISURE payoff mitigates.",
    "Non-blocking (imageability): the pivot 'no traveler can pass, so nothing stirs' is negation/absence-based rather than a positive picturable event (same demerit logged on shipped 閣, n1-mnemonics.json); the payoff 'settles into LEISURE' lands on a mood rather than an action.",
-   "Note (not a violation): 門 is phonetic_extra, not in components[], so components_used listing only 木 is consistent; naming Castle Gate is not a phantom — 門 is in the glyph, matches the registry actor (n5-component-actors.json lines 338–340), and corpus precedent (蘭, 閣; 藩 judge note flagging UNUSED phonetic_extra) supports weaving it in."
+   "Note (not a violation): 門 is phonetic_extra, not in components[], so components_used listing only 木 is consistent; naming Castle Gate is not a phantom — 門 is in the glyph, matches the registry actor (n5-component-actors.json lines 338–340), and corpus precedent (蘭, 閣; 藩 judge note flagging UNUSED phonetic_extra) supports weaving it in.",
+   "components_used records the phonetic 門 (Castle Gate), genuinely in the glyph and correctly staged by the story (鳩/睡/鮮 class)."
   ],
   "imageability": 4,
   "distinctiveness": 3
